@@ -43,6 +43,8 @@ $(document).ready(function () {
   }
 
   handleResize();
+  
+  map.on('click', popupLayer.onMapClick);
 
   $("body").on("click", "a.set_position", function (e) {
     e.preventDefault();
