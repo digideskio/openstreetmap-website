@@ -34,7 +34,7 @@ var popupLayer = function() {
                 
     // request the marker info with AJAX for the current bounds
     var msg = "http://overpass-api.de/api/interpreter?data="
-        + "[timeout:3][out:popup"
+        + "[timeout:5][out:popup"
         + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
         + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][landuse!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
         + "(\"Public Transport Stops\";[name][highway~\"bus_stop|tram_stop\"];[name][railway~\"halt|station|tram_stop\"];\"name\";)"
@@ -63,7 +63,7 @@ var popupLayer = function() {
         var display = "";
         if (ajaxRequest.responseText.search("strong") != -1) {
           var lines = ajaxRequest.responseText.match(/\n/g);
-          if (lines.length <= 64)
+          if (lines.length <= 64 && ajaxRequest.responseText.search("Error") == -1)
             display = ajaxRequest.responseText;
           else
             display = "Sorry - too much details here. Please zoom in further.";
