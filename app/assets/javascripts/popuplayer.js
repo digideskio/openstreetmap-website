@@ -28,12 +28,12 @@ var popupLayer = function() {
       tolerance *= 2;
       ++zoom;
     }
-    var way_tolerance = tolerance * 3;
+    var way_tolerance = tolerance * 2;
     if (way_tolerance > 0.01)
       way_tolerance = 0.01;
                 
     // request the marker info with AJAX for the current bounds
-    var msg = "http://overpass-api.de/api/interpreter?data="
+    var msg = "http://overpass-api.de/api/interpreter72?data="
         + "[timeout:5][out:popup"
         + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
         + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][landuse!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
@@ -54,6 +54,9 @@ var popupLayer = function() {
     ajaxRequest.open('GET', msg, true);
     ajaxRequest.send(null);
   }
+  
+  var folded_content = new Array();
+  var expanded_content = new Array();
 
   function popupReturned() {
     // if AJAX returned a list of markers, add them to the map
@@ -62,11 +65,51 @@ var popupLayer = function() {
       if (ajaxRequest.status == 200) {
         var display = "";
         if (ajaxRequest.responseText.search("strong") != -1) {
-          var lines = ajaxRequest.responseText.match(/\n/g);
-          if (lines.length <= 64 && ajaxRequest.responseText.search("Error") == -1)
+          var lines = ajaxRequest.responseText.split("\n");
+          if (ajaxRequest.responseText.search("Error") != -1)
+            display = "Sorry - too much details here. Please zoom in further.";
+          else if (lines.length <= 64)
             display = ajaxRequest.responseText;
           else
-            display = "Sorry - too much details here. Please zoom in further.";
+          {
+            var folded = "";
+            folded_content = new Array();
+            expanded_content = new Array();
+            var folded_count = 0;
+            for (var i = 0; i < lines.length; ++i)
+            {
+              if (lines[i][0] == "<" || lines[i][0] == " ")
+              {
+                if (lines[i].substr(0,3) == "<p>")
+                {
+                  ++folded_count;
+                  folded_content.push("");
+                  folded_content[folded_count] = "" + lines[i].substr(3, lines[i].length-8)
+                      + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.expand(" + folded_count
+                      + ")\">&nbsp;+&nbsp;</a>]<br/>";
+                  expanded_content.push("");
+                  expanded_content[folded_count] = "" + lines[i].substr(3, lines[i].length-8)
+                      + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.collapse(" + folded_count
+                      + ")\">&nbsp;-&nbsp;</a>]<br/>";
+                  folded += "<p id=\"popup_" + folded_count + "\">" + folded_content[folded_count];
+                }
+                else
+                  folded += lines[i];
+              }
+              else if (lines[i].substr(0,3) == "</p>")
+              {
+                ++folded_count;
+                folded_content.push("");
+                expanded_content.push("");
+              }
+              else
+                expanded_content[folded_count] += lines[i];
+            }
+            if (folded_count <= 32)
+              display = folded;
+            else
+              display = "Sorry - too much details here. Please zoom in further.";
+          }
         } else
           display = "Sorry - no extra information available here.";
         
@@ -76,7 +119,13 @@ var popupLayer = function() {
   }
   
   return {
-    'onMapClick': onMapClick
+    'onMapClick': onMapClick,    
+    'collapse': function(i) {
+      document.getElementById("popup_" + i).innerHTML = folded_content[i];
+    },
+    'expand': function(i) {
+      document.getElementById("popup_" + i).innerHTML = expanded_content[i];
+    }
   }
   
 }();
