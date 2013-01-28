@@ -23,33 +23,54 @@ var popupLayer = function() {
   function askForPopupContent(latlng) {
     global_latlng = latlng;
     var zoom = map.getZoom();
-    var tolerance = 0.00003;
-    while (tolerance < 0.01 && zoom < 18) {
-      tolerance *= 2;
-      ++zoom;
-    }
-    var way_tolerance = tolerance * 2;
-    if (way_tolerance > 0.01)
-      way_tolerance = 0.01;
+    
+    if (zoom > 10) {
+      
+      var tolerance = 0.00003;
+      while (tolerance < 0.01 && zoom < 18) {
+        tolerance *= 2;
+        ++zoom;
+      }
+      var way_tolerance = tolerance * 2;
+      if (way_tolerance > 0.01)
+        way_tolerance = 0.01;
                 
-    // request the marker info with AJAX for the current bounds
-    var msg = "http://overpass-api.de/api/interpreter72?data="
-        + "[timeout:5][out:popup"
-        + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
-        + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][landuse!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
-        + "(\"Public Transport Stops\";[name][highway~\"bus_stop|tram_stop\"];[name][railway~\"halt|station|tram_stop\"];\"name\";)"
-        + "];(node("
-        + (Number(latlng.lat) - tolerance) + ","
-        + (Number(latlng.lng) - tolerance) + ","
-        + (Number(latlng.lat) + tolerance) + ","
-        + (Number(latlng.lng) + tolerance)
-        + ");way("
-        + (Number(latlng.lat) - way_tolerance) + ","
-        + (Number(latlng.lng) - way_tolerance) + ","
-        + (Number(latlng.lat) + way_tolerance) + ","
-        + (Number(latlng.lng) + way_tolerance)
-        + "););(._;<;);out;"
-        + "&redirect=no&template=ids.popup";
+      // request the marker info with AJAX for the current bounds
+      var msg = "http://overpass-api.de/api/interpreter72?data="
+          + "[timeout:5][out:popup"
+          + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
+          + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
+          + "(\"Public Transport Stops\";[name][highway~\"bus_stop|tram_stop\"];[name][railway~\"halt|station|tram_stop\"];\"name\";)"
+          + "];(node("
+          + (Number(latlng.lat) - tolerance) + ","
+          + (Number(latlng.lng) - tolerance) + ","
+          + (Number(latlng.lat) + tolerance) + ","
+          + (Number(latlng.lng) + tolerance)
+          + ");way("
+          + (Number(latlng.lat) - way_tolerance) + ","
+          + (Number(latlng.lng) - way_tolerance) + ","
+          + (Number(latlng.lat) + way_tolerance) + ","
+          + (Number(latlng.lng) + way_tolerance)
+          + ");is_in("
+          + latlng.lat + "," + latlng.lng
+          + "););out;"
+          + "&redirect=no&template=ids.popup";
+          
+    } else {
+      
+      // request the marker info with AJAX for the current bounds
+      var msg = "http://overpass-api.de/api/interpreter72?data="
+          + "[timeout:5][out:popup"
+          + "(\"Country\";[admin_level~\"[23]\"];\"name\";)"
+          + "(\"Region\";[admin_level~\"[45]\"];\"name\";)"
+          + "(\"Location\";[admin_level~\"[678]\"];\"name\";)"
+          + "];is_in("
+          + latlng.lat + "," + latlng.lng
+          + ");out;"
+          + "&redirect=no&template=ids.popup";
+          
+    }
+    
     ajaxRequest.onreadystatechange = popupReturned;
     ajaxRequest.open('GET', msg, true);
     ajaxRequest.send(null);
