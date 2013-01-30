@@ -41,16 +41,19 @@ var popupLayer = function() {
           + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
           + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
           + "(\"Public Transport Stops\";[name][highway~\"bus_stop|tram_stop\"];[name][railway~\"halt|station|tram_stop\"];\"name\";)"
+          + "(\"Country\";[admin_level~\"[23]\"];\"name\";)"
+          + "(\"Region\";[admin_level~\"[45]\"];\"name\";)"
+          + "(\"Location\";[admin_level~\"[678]\"];\"name\";)"
           + "];(node("
           + (Number(latlng.lat) - tolerance) + ","
           + (Number(latlng.lng) - tolerance) + ","
           + (Number(latlng.lat) + tolerance) + ","
           + (Number(latlng.lng) + tolerance)
           + ");way("
-          + (Number(latlng.lat) - way_tolerance) + ","
-          + (Number(latlng.lng) - way_tolerance) + ","
-          + (Number(latlng.lat) + way_tolerance) + ","
-          + (Number(latlng.lng) + way_tolerance)
+          + (Number(latlng.lat) - tolerance) + ","
+          + (Number(latlng.lng) - tolerance) + ","
+          + (Number(latlng.lat) + tolerance) + ","
+          + (Number(latlng.lng) + tolerance)
           + ");is_in("
           + latlng.lat + "," + latlng.lng
           + "););out;"
