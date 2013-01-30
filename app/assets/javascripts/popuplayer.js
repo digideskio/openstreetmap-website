@@ -39,7 +39,7 @@ var popupLayer = function() {
       var msg = "http://overpass-api.de/api/interpreter72?data="
           + "[timeout:5][out:popup"
           + "(\"Streets\";[highway~\"primary|secondary|tertiary|residential|unclassified\"];\"name\";)"
-          + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"];\"name\";)"
+          + "(\"POIs\";[name][highway!~\".\"][railway!~\".\"][type!~\"route|network|associatedStreet\"][public_transport!~\".\"][route!~\"bus|ferry|railway|train|tram|trolleybus|subway|light_rail\"][admin_level!~\".\"];\"name\";)"
           + "(\"Public Transport Stops\";[name][highway~\"bus_stop|tram_stop\"];[name][railway~\"halt|station|tram_stop\"];\"name\";)"
           + "(\"Country\";[admin_level~\"[23]\"];\"name\";)"
           + "(\"Region\";[admin_level~\"[45]\"];\"name\";)"
