@@ -1,14 +1,24 @@
 var popupLayer = function() {
 
   var popup = L.popup();
-  
+  var popupOpen = 0;
   var queryState = 0;
   
-  function onMapClick(e) {
-    popupLayer.queryState = 0;
-    popupLayer.global_latlng = e.latlng;
-    askForPopupContent();
-    popup.setLatLng(e.latlng).setContent("Loading data ...").openOn(map);
+  function onMapClick(e)
+  {
+    if (popupLayer.popupOpen == 1)
+    {
+      popupLayer.popupOpen = 0;
+      map.popupClose();
+    }
+    else
+    {
+      popupLayer.queryState = 0;
+      popupLayer.global_latlng = e.latlng;
+      askForPopupContent();
+      popup.setLatLng(e.latlng).setContent("Loading data ...").openOn(map);
+      popupLayer.popupOpen = 1;
+    }
   }
 
   // obtain an AJAX request object
@@ -319,7 +329,9 @@ var popupLayer = function() {
         else
           popupLayer.display = "Sorry - no extra information available here.";
         
-        if (popupLayer.queryState < 3)
+        if (popupLayer.popupOpen == 0)
+          ;
+        else if (popupLayer.queryState < 3)
         {
           popup.setLatLng(global_latlng).setContent(popupLayer.display + "<p><em>Searching for more ...</em></p>").openOn(map);
           ++popupLayer.queryState;
