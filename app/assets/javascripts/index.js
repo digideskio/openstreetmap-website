@@ -44,8 +44,11 @@ $(document).ready(function () {
   }
 
   handleResize();
-  
+
   map.on('click', popupLayer.onMapClick);
+  map.on('popupopen', popupLayer.onPopupOpen);
+  map.on('popupclose', popupLayer.onPopupClose);
+  map.on('dblclick', popupLayer.onDoubleClick);
 
   $("body").on("click", "a.set_position", function (e) {
     e.preventDefault();

@@ -3,23 +3,16 @@ var popupLayer = function() {
   var popup = L.popup();
   var popupOpen = 0;
   var queryState = 0;
+  var recordedClicks = 0;
+                
+  var global_latlng = {};
   
-  function onMapClick(e)
-  {
-    if (popupLayer.popupOpen == 1)
-    {
-      popupLayer.popupOpen = 0;
-      map.popupClose();
-    }
-    else
-    {
-      popupLayer.queryState = 0;
-      popupLayer.global_latlng = e.latlng;
-      askForPopupContent();
-      popup.setLatLng(e.latlng).setContent("Loading data ...").openOn(map);
-      popupLayer.popupOpen = 1;
-    }
-  }
+  var folded_content = new Array();
+  var expanded_content = new Array();
+
+  var display = "";
+  
+  var popupEntries = new Array();
 
   // obtain an AJAX request object
   var ajaxRequest = getXmlHttpObject();
@@ -31,14 +24,59 @@ var popupLayer = function() {
     if (window.ActiveXObject)  { return new ActiveXObject("Microsoft.XMLHTTP"); }
     return null;
   }
-                
-  var global_latlng = {};
   
+  
+  function onMapClick(e)
+  {
+    if (popupOpen == 0)
+    {
+      global_latlng = e.latlng;
+      recordedClicks = 1;
+      setTimeout(openPopup, 300);
+    }
+    else if (popupOpen == 3)
+      map.popupClose();
+  }
+  
+  
+  function onPopupOpen(e)
+  {
+    popupOpen = 2;
+    setTimeout( function() {
+      popupOpen = 3;
+    }, 500);
+  }
+  
+  
+  function onPopupClose(e)
+  {
+    popupOpen = 1;
+    setTimeout( function() {
+      popupOpen = 0;
+    }, 500);
+  }
+
+  
+  function onDoubleClick(e)
+  {
+    recordedClicks = 2;
+  }
+  
+  
+  function openPopup()
+  {
+    if (recordedClicks == 1)
+    {
+      queryState = 0;
+      popup.setLatLng(global_latlng).setContent("Loading data ...").openOn(map);
+      askForPopupContent();
+    }
+  }
+
   
   function askForPopupContent()
   {
-    latlng = popupLayer.global_latlng;
-    queryState = popupLayer.queryState;
+    latlng = global_latlng;
     var zoom = map.getZoom();
     
     if (queryState == 0) {
@@ -118,7 +156,7 @@ var popupLayer = function() {
     if (queryState == 0)
     {
       popupLayer.popupEntries = new Array();
-      popupLayer.display = "";
+      display = "";
     }
     if (queryState <= 3)
     {
@@ -133,43 +171,39 @@ var popupLayer = function() {
   {
     popupEntries = popupLayer.popupEntries;
     if (popupEntries.length <= 7)
-      popupLayer.display += content;
+      display += content;
     else if (popupEntries.length == 8)
-      popupLayer.display += "<p>page [<strong>&nbsp;1&nbsp;</strong>]"
+      display += "<p>page [<strong>&nbsp;1&nbsp;</strong>]"
           + " [<a href=\"#\" onclick=\"popupLayer.showContentPage(1)\">&nbsp;2&nbsp;</a>]</p>";
     else if (popupEntries.length % 7 == 1)
-      popupLayer.display = popupLayer.display.substr(0, popupLayer.display.length - 4)
+      display = display.substr(0, display.length - 4)
           + " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + (Math.floor(popupEntries.length/7)) + ")\">&nbsp;" + (Math.floor(popupEntries.length/7) + 1) + "&nbsp;</a>]</p>";
-  };
+  }
   
   
   function showContentPage(index)
   {
     popupEntries = popupLayer.popupEntries;
-    popupLayer.display = "";
+    display = "";
     for (var i = index*7; i < index*7 + 7 && i < popupEntries.length; ++i)
-      popupLayer.display += popupLayer.popupEntries[i].show();
+      display += popupLayer.popupEntries[i].show();
     
-    popupLayer.display += "<p>page";
+    display += "<p>page";
     for (var j = 0; j < popupEntries.length/7; ++j)
     {
       if (j == index)
-        popupLayer.display += " [<strong>&nbsp;" + (j + 1) + "&nbsp;</strong>]";
+        display += " [<strong>&nbsp;" + (j + 1) + "&nbsp;</strong>]";
       else
-        popupLayer.display += " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + j + ")\">&nbsp;" + (j + 1) + "&nbsp;</a>]";
+        display += " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + j + ")\">&nbsp;" + (j + 1) + "&nbsp;</a>]";
     }
-    popupLayer.display += "</p>";
-    popup.setContent(popupLayer.display).openOn(map);
-  };
-  
-  
-  var folded_content = new Array();
-  var expanded_content = new Array();
-
-  var display = "";
-  
-  var popupEntries = new Array();
-  
+    display += "</p>";
+//     if (popupOpen == 1)
+    {
+      popup.setContent(display).openOn(map);
+//       popupOpen = 1;
+    }
+  }
+    
   
   function linkDetector(tags)
   {
@@ -327,18 +361,22 @@ var popupLayer = function() {
           }
         }
         else
-          popupLayer.display = "Sorry - no extra information available here.";
+          display = "Sorry - no extra information available here.";
         
-        if (popupLayer.popupOpen == 0)
+        /*if (popupOpen == 0)
           ;
-        else if (popupLayer.queryState < 3)
+        else */if (queryState < 3)
         {
-          popup.setLatLng(global_latlng).setContent(popupLayer.display + "<p><em>Searching for more ...</em></p>").openOn(map);
-          ++popupLayer.queryState;
+          popup.setLatLng(global_latlng).setContent(display + "<p><em>Searching for more ...</em></p>").openOn(map);
+//           popupOpen = 1;
+          ++queryState;
           popupLayer.askForPopupContent();
         }
         else
-          popup.setLatLng(global_latlng).setContent(popupLayer.display).openOn(map);
+        {
+          popup.setLatLng(global_latlng).setContent(display).openOn(map);
+//           popupOpen = 1;
+        }
       }
     }
   };
@@ -346,6 +384,9 @@ var popupLayer = function() {
   
   return {
     'onMapClick': onMapClick,
+    'onDoubleClick': onDoubleClick,
+    'onPopupClose': onPopupClose,
+    'onPopupOpen': onPopupOpen,
     'showContentPage': showContentPage,
     'askForPopupContent': askForPopupContent,
     'addContent': addContent,
