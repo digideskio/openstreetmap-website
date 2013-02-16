@@ -1,10 +1,12 @@
 var popupLayer = function() {
 
   var popup = L.popup();
+  
   var popupOpen = 0;
-  var queryState = 0;
   var recordedClicks = 0;
-                
+
+  var queryState = 0;
+
   var global_latlng = {};
   
   var folded_content = new Array();
@@ -15,15 +17,16 @@ var popupLayer = function() {
   var popupEntries = new Array();
 
   // obtain an AJAX request object
-  var ajaxRequest = getXmlHttpObject();
+  var ajaxRequest = function()
+  {
+    if (window.XMLHttpRequest)
+      return new XMLHttpRequest();
+    if (window.ActiveXObject)
+      return new ActiveXObject("Microsoft.XMLHTTP");
+    return null;
+  }();
   if (ajaxRequest == null)
     alert ("This browser does not support HTTP Request");
-
-  function getXmlHttpObject() {
-    if (window.XMLHttpRequest) { return new XMLHttpRequest(); }
-    if (window.ActiveXObject)  { return new ActiveXObject("Microsoft.XMLHTTP"); }
-    return null;
-  }
   
   
   function onMapClick(e)
@@ -68,7 +71,7 @@ var popupLayer = function() {
     if (recordedClicks == 1)
     {
       queryState = 0;
-      popup.setLatLng(global_latlng).setContent("Loading data ...").openOn(map);
+      popup.setLatLng(global_latlng).setContent("<div id=\"popupContent\" style=\"width: 60em\">Loading data ...</div>").openOn(map);
       askForPopupContent();
     }
   }
@@ -176,8 +179,13 @@ var popupLayer = function() {
       display += "<p>page [<strong>&nbsp;1&nbsp;</strong>]"
           + " [<a href=\"#\" onclick=\"popupLayer.showContentPage(1)\">&nbsp;2&nbsp;</a>]</p>";
     else if (popupEntries.length % 7 == 1)
+    {
       display = display.substr(0, display.length - 4)
-          + " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + (Math.floor(popupEntries.length/7)) + ")\">&nbsp;" + (Math.floor(popupEntries.length/7) + 1) + "&nbsp;</a>]</p>";
+          + " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + (Math.floor(popupEntries.length/7)) + ")\">&nbsp;" + (Math.floor(popupEntries.length/7) + 1) + "&nbsp;</a>]";
+      if (popupEntries.length % 70 == 64)
+        display += "<br/>";
+      display += "</p>";
+    }
   }
   
   
@@ -195,13 +203,15 @@ var popupLayer = function() {
         display += " [<strong>&nbsp;" + (j + 1) + "&nbsp;</strong>]";
       else
         display += " [<a href=\"#\" onclick=\"popupLayer.showContentPage(" + j + ")\">&nbsp;" + (j + 1) + "&nbsp;</a>]";
+      if (j % 10 == 9)
+        display += "<br/>";
     }
     display += "</p>";
-//     if (popupOpen == 1)
-    {
-      popup.setContent(display).openOn(map);
-//       popupOpen = 1;
-    }
+    if (queryState < 3)
+      document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
+    else
+      document.getElementById("popupContent").innerHTML = display;
+//     popup.setContent(display).openOn(map);
   }
     
   
@@ -363,20 +373,16 @@ var popupLayer = function() {
         else
           display = "Sorry - no extra information available here.";
         
-        /*if (popupOpen == 0)
-          ;
-        else */if (queryState < 3)
+        if (queryState < 3)
         {
-          popup.setLatLng(global_latlng).setContent(display + "<p><em>Searching for more ...</em></p>").openOn(map);
-//           popupOpen = 1;
+          document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
+//           popup.setLatLng(global_latlng).setContent(display + "<p><em>Searching for more ...</em></p>").openOn(map);
           ++queryState;
           popupLayer.askForPopupContent();
         }
         else
-        {
-          popup.setLatLng(global_latlng).setContent(display).openOn(map);
-//           popupOpen = 1;
-        }
+          document.getElementById("popupContent").innerHTML = display;
+//           popup.setLatLng(global_latlng).setContent(display).openOn(map);
       }
     }
   };
