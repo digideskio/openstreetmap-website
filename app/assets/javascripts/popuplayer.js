@@ -395,8 +395,10 @@ var popupLayer = function() {
         return "Suburb boundary";
       if (tags.admin_level == "5" || tags.admin_level == "6" || tags.admin_level == "7")
         return "City boundary";
-      if (tags.admin_level == "2" || tags.admin_level == "3" || tags.admin_level == "4")
+      if (tags.admin_level == "3" || tags.admin_level == "4")
         return "State boundary";
+      if (tags.admin_level == "2")
+        return "Country boundary";
     }    
     if (element.tags.boundary == "administrative")
       return "Administrative boundary";
