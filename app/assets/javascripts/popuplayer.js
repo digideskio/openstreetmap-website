@@ -1,5 +1,9 @@
 var popupLayer = function() {
 
+  var boundsLayer = L.rectangle([[0, 0], [0, 0]], {color: "#0000ff", weight: 1});
+  var tolerance = 0;
+  var latScale = 1;
+  
   var popup = L.popup();
   
   var popupOpen = 0;
@@ -53,6 +57,8 @@ var popupLayer = function() {
   
   function onPopupClose(e)
   {
+    if (map.hasLayer(boundsLayer))
+      map.removeLayer(boundsLayer);
     popupOpen = 1;
     setTimeout( function() {
       popupOpen = 0;
@@ -66,21 +72,42 @@ var popupLayer = function() {
   }
   
   
+  function calculateCoordTolerance(zoom)
+  {
+    var i = zoom;
+    var tolerance = 0.0001;
+    while (tolerance < 0.01 && i < 18) {
+      tolerance *= 2;
+      ++i;
+    }
+    return tolerance;
+  }
+
+  
   function openPopup()
   {
     if (recordedClicks == 1)
     {
       queryState = 0;
       popup.setLatLng(global_latlng).setContent("<div id=\"popupContent\" style=\"width: 320px\">Loading data ...</div>").openOn(map);
+      
+      latlng = global_latlng;
+      tolerance = calculateCoordTolerance(map.getZoom());
+      latScale = Math.cos(latlng.lat / 180.0 * Math.PI);
+      
+      boundsLayer.setBounds(
+          [[Number(latlng.lat) - tolerance * latScale,Number(latlng.lng) - tolerance],
+           [Number(latlng.lat) + tolerance * latScale,Number(latlng.lng) + tolerance]]);
+      boundsLayer.addTo(map);
+      
       askForPopupContent();
     }
   }
-
+  
   
   function askForPopupContent()
   {
     latlng = global_latlng;
-    var zoom = map.getZoom();
     
     if (queryState == 0) {
       
@@ -93,63 +120,36 @@ var popupLayer = function() {
           
     } else if (queryState == 1) {
       
-      var tolerance = 0.00003;
-      while (tolerance < 0.01 && zoom < 18) {
-        tolerance *= 2;
-        ++zoom;
-      }
-      var way_tolerance = tolerance * 2;
-      if (way_tolerance > 0.01)
-        way_tolerance = 0.01;
-                
       // request the marker info with AJAX for the current bounds
       var msg = "http://overpass-api.de/api/interpreter72?data="
           + "[timeout:5][out:json];node("
-          + (Number(latlng.lat) - tolerance) + ","
+          + (Number(latlng.lat) - tolerance * latScale) + ","
           + (Number(latlng.lng) - tolerance) + ","
-          + (Number(latlng.lat) + tolerance) + ","
+          + (Number(latlng.lat) + tolerance * latScale) + ","
           + (Number(latlng.lng) + tolerance)
           + ");out;"
           + "&redirect=no&template=ids.popup";
           
     } else if (queryState == 2) {
       
-      var tolerance = 0.00003;
-      while (tolerance < 0.01 && zoom < 18) {
-        tolerance *= 2;
-        ++zoom;
-      }
-      var way_tolerance = tolerance * 2;
-      if (way_tolerance > 0.01)
-        way_tolerance = 0.01;
-                
       // request the marker info with AJAX for the current bounds
       var msg = "http://overpass-api.de/api/interpreter72?data="
           + "[timeout:5][out:json];way("
-          + (Number(latlng.lat) - tolerance) + ","
+          + (Number(latlng.lat) - tolerance * latScale) + ","
           + (Number(latlng.lng) - tolerance) + ","
-          + (Number(latlng.lat) + tolerance) + ","
+          + (Number(latlng.lat) + tolerance * latScale) + ","
           + (Number(latlng.lng) + tolerance)
           + ");out;"
           + "&redirect=no&template=ids.popup";
           
     } else if (queryState == 3) {
       
-      var tolerance = 0.00003;
-      while (tolerance < 0.01 && zoom < 18) {
-        tolerance *= 2;
-        ++zoom;
-      }
-      var way_tolerance = tolerance * 2;
-      if (way_tolerance > 0.01)
-        way_tolerance = 0.01;
-                
       // request the marker info with AJAX for the current bounds
       var msg = "http://overpass-api.de/api/interpreter72?data="
           + "[timeout:5][out:json];rel("
-          + (Number(latlng.lat) - tolerance) + ","
+          + (Number(latlng.lat) - tolerance * latScale) + ","
           + (Number(latlng.lng) - tolerance) + ","
-          + (Number(latlng.lat) + tolerance) + ","
+          + (Number(latlng.lat) + tolerance * latScale) + ","
           + (Number(latlng.lng) + tolerance)
           + ");out;"
           + "&redirect=no&template=ids.popup";
@@ -569,18 +569,32 @@ var popupLayer = function() {
           }
         }
         else
-          display = "Sorry - no extra information available here.";
+          display = "Sorry - the database did not respond.";
         
         if (queryState < 3)
         {
           document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
-//           popup.setLatLng(global_latlng).setContent(display + "<p><em>Searching for more ...</em></p>").openOn(map);
           ++queryState;
           popupLayer.askForPopupContent();
         }
         else
-          document.getElementById("popupContent").innerHTML = display;
-//           popup.setLatLng(global_latlng).setContent(display).openOn(map);
+        {
+          if (popupEntries.length == 0 && tolerance < 0.5)
+          {
+            document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
+            tolerance *= 2;
+            boundsLayer.setBounds(
+                [[Number(global_latlng.lat) - tolerance * latScale,Number(global_latlng.lng) - tolerance],
+                 [Number(global_latlng.lat) + tolerance * latScale,Number(global_latlng.lng) + tolerance]]);
+            queryState = 0;
+            popupLayer.askForPopupContent();
+          }
+          else if (popupEntries.length == 0)
+            document.getElementById("popupContent").innerHTML =
+                "Sorry - no extra information available here.";
+          else
+            document.getElementById("popupContent").innerHTML = display;
+        }
       }
     }
   }
