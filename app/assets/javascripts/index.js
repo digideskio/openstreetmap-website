@@ -49,6 +49,7 @@ $(document).ready(function () {
   map.on('popupopen', popupLayer.onPopupOpen);
   map.on('popupclose', popupLayer.onPopupClose);
   map.on('dblclick', popupLayer.onDoubleClick);
+  map.on('zoomend', popupLayer.onDoubleClick);
 
   $("body").on("click", "a.set_position", function (e) {
     e.preventDefault();
