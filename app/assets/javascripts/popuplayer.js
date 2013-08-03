@@ -486,10 +486,19 @@ var popupLayer = function() {
       'name': name,
       'details_added': details_added,
       
+      'generateHeadline': function()
+      {
+        var result = "<em>" + this.class_ + "</em><br/>";
+        if (this.element.type == "node" || this.element.type == "way" || this.element.type == "relation")
+          result += "<a href=\"http://osm.org/browse/"+ this.element.type + "/" + this.element.id +"\" target=\"_blank\"><strong>" + this.name + "</strong></a>";
+        else
+          result += "<strong>" + this.name + "</strong>";
+        return result;
+      },
+      
       'headline': function()
       {
-        var result = "<em>" + class_ + "</em><br/>"
-          + "<strong>" + this.name + "</strong>";
+        var result = this.generateHeadline();
         if (this.details_added == "")
           result += "&nbsp;[&nbsp;details&nbsp;]";
         else
@@ -502,8 +511,7 @@ var popupLayer = function() {
       
       'details': function()
       {
-        var result = "<em>" + class_ + "</em><br/>"
-          + "<strong>" + this.name + "</strong>"
+        var result = this.generateHeadline()
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]"
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
@@ -516,8 +524,7 @@ var popupLayer = function() {
       
       'tags': function()
       {
-        var result = "<em>" + class_ + "</em><br/>"
-          + "<strong>" + this.name + "</strong>"
+        var result = this.generateHeadline()
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]";
         if (this.details_added == "")
