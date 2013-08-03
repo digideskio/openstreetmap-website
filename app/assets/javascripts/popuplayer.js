@@ -475,20 +475,29 @@ var popupLayer = function() {
     
     var class_ = classifyElement(element);
     
+    var details_added = "";
+    details_added += linkDetector(element.tags);
+    details_added += addressDetector(element.tags);
+    
     return {
       'element': element,
       'class_': class_,
       'index': index,
       'name': name,
+      'details_added': details_added,
       
       'headline': function()
       {
-        return "<em>" + class_ + "</em><br/>"
-          + "<strong>" + this.name + "</strong>"
-          + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
-          + ".showDetails()\">&nbsp;details&nbsp;</a>]"
-          + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
-          + ".showTags()\">&nbsp;tags&nbsp;</a>]";
+        var result = "<em>" + class_ + "</em><br/>"
+          + "<strong>" + this.name + "</strong>";
+        if (this.details_added == "")
+          result += "&nbsp;[&nbsp;details&nbsp;]";
+        else
+          result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
+              + ".showDetails()\">&nbsp;details&nbsp;</a>]";
+        result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
+            + ".showTags()\">&nbsp;tags&nbsp;</a>]";
+        return result;
       },
       
       'details': function()
@@ -499,13 +508,10 @@ var popupLayer = function() {
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]"
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showTags()\">&nbsp;tags&nbsp;</a>]";
-        var added = "";
-        added += linkDetector(this.element.tags);
-        added += addressDetector(this.element.tags);
-        if (added == "")
+        if (this.details_added == "")
           return result + "<br/>no meaningful tags found";
         else
-          return result + added;
+          return result + this.details_added;
       },
       
       'tags': function()
@@ -513,9 +519,12 @@ var popupLayer = function() {
         var result = "<em>" + class_ + "</em><br/>"
           + "<strong>" + this.name + "</strong>"
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
-          + ".showHeadline()\">&nbsp;brief&nbsp;</a>]"
-          + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
-          + ".showDetails()\">&nbsp;details&nbsp;</a>]";
+          + ".showHeadline()\">&nbsp;brief&nbsp;</a>]";
+        if (this.details_added == "")
+          result += "&nbsp;[&nbsp;details&nbsp;]";
+        else
+          result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
+              + ".showDetails()\">&nbsp;details&nbsp;</a>]";
         for (key in element.tags)
           result += "<br/><em>" + key + "</em>: " + element.tags[key];
         return result;
