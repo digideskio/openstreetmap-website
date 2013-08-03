@@ -76,10 +76,12 @@ var popupLayer = function() {
   {
     var i = zoom;
     var tolerance = 0.0001;
-    while (tolerance < 0.01 && i < 18) {
+    while (i < 18) {
       tolerance *= 2;
       ++i;
     }
+    if (tolerance > 0.005)
+      tolerance = 0.005;
     return tolerance;
   }
 
@@ -112,17 +114,20 @@ var popupLayer = function() {
     if (queryState == 0) {
       
       // request the marker info with AJAX for the current bounds
-      var msg = "http://overpass-api.de/api/interpreter72?data="
-          + "[timeout:5][out:json];is_in("
-          + latlng.lat + "," + latlng.lng
+      var msg = "http://overpass-api.de/api/interpreter?data="
+          + "[timeout:5][out:json];node("
+          + (Number(latlng.lat) - tolerance * latScale) + ","
+          + (Number(latlng.lng) - tolerance) + ","
+          + (Number(latlng.lat) + tolerance * latScale) + ","
+          + (Number(latlng.lng) + tolerance)
           + ");out;"
           + "&redirect=no&template=ids.popup";
           
     } else if (queryState == 1) {
       
       // request the marker info with AJAX for the current bounds
-      var msg = "http://overpass-api.de/api/interpreter72?data="
-          + "[timeout:5][out:json];node("
+      var msg = "http://overpass-api.de/api/interpreter?data="
+          + "[timeout:5][out:json];way("
           + (Number(latlng.lat) - tolerance * latScale) + ","
           + (Number(latlng.lng) - tolerance) + ","
           + (Number(latlng.lat) + tolerance * latScale) + ","
@@ -133,8 +138,8 @@ var popupLayer = function() {
     } else if (queryState == 2) {
       
       // request the marker info with AJAX for the current bounds
-      var msg = "http://overpass-api.de/api/interpreter72?data="
-          + "[timeout:5][out:json];way("
+      var msg = "http://overpass-api.de/api/interpreter?data="
+          + "[timeout:5][out:json];rel("
           + (Number(latlng.lat) - tolerance * latScale) + ","
           + (Number(latlng.lng) - tolerance) + ","
           + (Number(latlng.lat) + tolerance * latScale) + ","
@@ -145,12 +150,9 @@ var popupLayer = function() {
     } else if (queryState == 3) {
       
       // request the marker info with AJAX for the current bounds
-      var msg = "http://overpass-api.de/api/interpreter72?data="
-          + "[timeout:5][out:json];rel("
-          + (Number(latlng.lat) - tolerance * latScale) + ","
-          + (Number(latlng.lng) - tolerance) + ","
-          + (Number(latlng.lat) + tolerance * latScale) + ","
-          + (Number(latlng.lng) + tolerance)
+      var msg = "http://overpass-api.de/api/interpreter?data="
+          + "[timeout:5][out:json];is_in("
+          + latlng.lat + "," + latlng.lng
           + ");out;"
           + "&redirect=no&template=ids.popup";
           
@@ -587,7 +589,7 @@ var popupLayer = function() {
         else
           display = "Sorry - the database did not respond.";
         
-        if (queryState < 3)
+        if (queryState < 2 || (queryState == 2 && popupEntries.length > 0))
         {
           document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
           ++queryState;
