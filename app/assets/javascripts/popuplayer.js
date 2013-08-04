@@ -17,6 +17,7 @@ var popupLayer = function() {
   var expanded_content = new Array();
 
   var display = "";
+  var currentPage = 0;
   
   var popupEntries = new Array();
 
@@ -102,6 +103,7 @@ var popupLayer = function() {
            [Number(latlng.lat) + tolerance * latScale,Number(latlng.lng) + tolerance]]);
       boundsLayer.addTo(map);
       
+      currentPage = 0;
       askForPopupContent();
     }
   }
@@ -193,6 +195,7 @@ var popupLayer = function() {
   
   function showContentPage(index)
   {
+    currentPage = index;
     popupEntries = popupLayer.popupEntries;
     display = "";
     for (var i = index*7; i < index*7 + 7 && i < popupEntries.length; ++i)
@@ -213,7 +216,6 @@ var popupLayer = function() {
       document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
     else
       document.getElementById("popupContent").innerHTML = display;
-//     popup.setContent(display).openOn(map);
   }
   
   
@@ -487,6 +489,7 @@ var popupLayer = function() {
       'index': index,
       'name': name,
       'details_added': details_added,
+      'sameTags': [],
       
       'generateHeadline': function()
       {
@@ -495,6 +498,19 @@ var popupLayer = function() {
           result += "<a href=\"http://osm.org/browse/"+ this.element.type + "/" + this.element.id +"\" target=\"_blank\"><strong>" + this.name + "</strong></a>";
         else
           result += "<strong>" + this.name + "</strong>";
+        return result;
+      },
+      
+      'showSameTagsElements': function()
+      {
+        var result = "";
+        if (this.sameTags.length > 0)
+        {
+          result += "<br/><strong>with same tags: ";
+          for (var i = 0; i < this.sameTags.length; ++i)
+            result += "&nbsp;[<a href=\"http://osm.org/browse/" + this.sameTags[i].type + "/" + this.sameTags[i].id + "\" target=\"_blank\">" + (i+2) + "</a>]";
+          result += "</strong>";
+        }
         return result;
       },
       
@@ -507,7 +523,8 @@ var popupLayer = function() {
           result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
               + ".showDetails()\">&nbsp;details&nbsp;</a>]";
         result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
-            + ".showTags()\">&nbsp;tags&nbsp;</a>]";
+            + ".showTags()\">&nbsp;tags&nbsp;</a>]";        
+        result += this.showSameTagsElements();
         return result;
       },
       
@@ -518,6 +535,7 @@ var popupLayer = function() {
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]"
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showTags()\">&nbsp;tags&nbsp;</a>]";
+        result += this.showSameTagsElements();
         if (this.details_added == "")
           return result + "<br/>no meaningful tags found";
         else
@@ -534,6 +552,7 @@ var popupLayer = function() {
         else
           result += "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
               + ".showDetails()\">&nbsp;details&nbsp;</a>]";
+        result += this.showSameTagsElements();
         for (key in element.tags)
           result += "<br/><em>" + key + "</em>: " + element.tags[key];
         return result;
@@ -577,13 +596,35 @@ var popupLayer = function() {
             var popupEntries = popupLayer.popupEntries;
             for (var i = 0; i < response.elements.length; ++i)
             {
-              var entry = newPopupEntry(response.elements[i], popupEntries.length);
-              if (entry.show)
+              var exists_already = 0;
+              if (response.elements[i].tags)
               {
-                popupEntries.push(entry);
-                popupLayer.addContent(entry.show());
+                var jsonRep = JSON.stringify(response.elements[i].tags);
+                for (var j = 0; j < popupEntries.length; ++j)
+                {
+                  if (JSON.stringify(popupEntries[j].element.tags) == jsonRep)
+                  {
+                    exists_already = 1;
+                    if (response.elements[i].type == "node"
+                        || response.elements[i].type == "way"
+                        || response.elements[i].type == "relation")
+                      popupEntries[j].sameTags.push(response.elements[i]);
+                    break;
+                  }
+                }
+                if (!exists_already)
+                {
+                  var entry = newPopupEntry(response.elements[i], popupEntries.length);
+                  if (entry.show)
+                  {
+                    popupEntries.push(entry);
+                    popupLayer.addContent(entry.show());
+                  }
+                }
               }
             }
+            if (popupEntries.length > 0)
+              popupLayer.showContentPage(currentPage);
           }
         }
         else
