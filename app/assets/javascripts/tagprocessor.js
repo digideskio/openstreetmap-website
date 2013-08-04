@@ -1,3 +1,17 @@
+
+/* TagProcessor: This module collects all functions that make evaluations of objects
+ * based purely on their tags.
+ * 
+ * classifyElement: Takes an OSM element and returns a string that identifies the type of object.
+ * 
+ * adressDetector: Returns for a set of tags the adress that can be distilled from these tags.
+ *     It uses a generic international format, from specific to general, i.e.
+ *     housenumber street, postal_code city.
+ * 
+ * linkDetector: Returns a bunch of HTML that contains formatted links for all tags that can be
+ *     interpreted as containing URLs or siginificant parts of URLs.
+ * */
+
 var TagProcessor = function()
 {
   function linkDetector(tags)
