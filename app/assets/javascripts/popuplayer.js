@@ -419,16 +419,16 @@ var popupLayer = function() {
     if (tags.url)
     {
       if (tags.url.substr(0, 4) == "http")
-        links += "&nbsp;[<a href=\"" + tags.url + "\" target=\"_blank\">&nbsp;url&nbsp;</a>]";
+        links += "&nbsp;[<a href=\"" + tags.url + "\" target=\"_blank\" rel=\"nofollow\">&nbsp;url&nbsp;</a>]";
       else
-        links += "&nbsp;[<a href=\"http://" + tags.url + "\" target=\"_blank\">&nbsp;url&nbsp;</a>]";
+        links += "&nbsp;[<a href=\"http://" + tags.url + "\" target=\"_blank\" rel=\"nofollow\">&nbsp;url&nbsp;</a>]";
     }
     if (tags.website)
     {
       if (tags.website.substr(0, 4) == "http")
-        links += "&nbsp;[<a href=\"" + tags.website + "\" target=\"_blank\">&nbsp;website&nbsp;</a>]";
+        links += "&nbsp;[<a href=\"" + tags.website + "\" target=\"_blank\" rel=\"nofollow\">&nbsp;website&nbsp;</a>]";
       else
-        links += "&nbsp;[<a href=\"http://" + tags.website + "\" target=\"_blank\">&nbsp;website&nbsp;</a>]";
+        links += "&nbsp;[<a href=\"http://" + tags.website + "\" target=\"_blank\" rel=\"nofollow\">&nbsp;website&nbsp;</a>]";
     }
     
     if (links == "")
@@ -483,6 +483,8 @@ var popupLayer = function() {
     details_added += linkDetector(element.tags);
     details_added += addressDetector(element.tags);
     
+    var lastState = 0;
+    
     return {
       'element': element,
       'class_': class_,
@@ -490,6 +492,7 @@ var popupLayer = function() {
       'name': name,
       'details_added': details_added,
       'sameTags': [],
+      'lastState': lastState,
       
       'generateHeadline': function()
       {
@@ -516,6 +519,7 @@ var popupLayer = function() {
       
       'headline': function()
       {
+        this.lastState = 0;
         var result = this.generateHeadline();
         if (this.details_added == "")
           result += "&nbsp;[&nbsp;details&nbsp;]";
@@ -530,6 +534,7 @@ var popupLayer = function() {
       
       'details': function()
       {
+        this.lastState = 1;
         var result = this.generateHeadline()
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]"
@@ -544,6 +549,7 @@ var popupLayer = function() {
       
       'tags': function()
       {
+        this.lastState = 2;
         var result = this.generateHeadline()
           + "&nbsp;[<a href=\"#\" onclick=\"popupLayer.popupEntries[" + index + "]"
           + ".showHeadline()\">&nbsp;brief&nbsp;</a>]";
@@ -560,7 +566,12 @@ var popupLayer = function() {
       
       'show': function()
       {
-        return "<p id=\"popupEntry_" + index + "\">" + this.headline() + "</p>";
+        if (this.lastState == 0)
+          return "<p id=\"popupEntry_" + index + "\">" + this.headline() + "</p>";
+        else if (this.lastState == 1)
+          return "<p id=\"popupEntry_" + index + "\">" + this.details() + "</p>";
+        else if (this.lastState == 2)
+          return "<p id=\"popupEntry_" + index + "\">" + this.tags() + "</p>";
       },
       
       'showHeadline': function()
