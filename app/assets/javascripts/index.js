@@ -140,13 +140,15 @@ $(document).ready(function () {
     addObjectToMap(params.object, map, { zoom: params.object_zoom });
   }
 
-  map.on('click', popupLayer.onMapClick);
+  map.on('mouseup', popupLayer.onMapClick);
   map.on('popupopen', popupLayer.onPopupOpen);
   map.on('popupclose', popupLayer.onPopupClose);
   map.on('dblclick', popupLayer.onDoubleClick);
+  map.on('dragend', popupLayer.onDoubleClick);
+  map.on('moveend', popupLayer.onDoubleClick);
   map.on('zoomend', popupLayer.onDoubleClick);
   popupLayer.setBasemap(map);
-
+ 
   $("body").on("click", "a.set_position", setPositionLink(map));
 
   $("a[data-editor=remote]").click(function(e) {

@@ -169,6 +169,7 @@ var popupLayer = function() {
     if (queryState == 0)
     {
       popupLayer.popupEntries = new Array();
+      popupEntryDictionary = {};
       display = "";
     }
     if (queryState <= 3)
