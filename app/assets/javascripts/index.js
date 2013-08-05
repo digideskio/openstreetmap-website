@@ -145,6 +145,7 @@ $(document).ready(function () {
   map.on('popupclose', popupLayer.onPopupClose);
   map.on('dblclick', popupLayer.onDoubleClick);
   map.on('zoomend', popupLayer.onDoubleClick);
+  popupLayer.setBasemap(map);
 
   $("body").on("click", "a.set_position", setPositionLink(map));
 

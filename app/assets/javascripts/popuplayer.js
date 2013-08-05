@@ -41,7 +41,8 @@ var popupLayer = function() {
   }();
   if (ajaxRequest == null)
     alert ("This browser does not support HTTP Request");
-  
+
+  var basemap = {};
   
   function onMapClick(e)
   {
@@ -52,7 +53,7 @@ var popupLayer = function() {
       setTimeout(openPopup, 300);
     }
     else if (popupOpen == 3)
-      map.popupClose();
+      basemap.popupClose();
   }
   
   
@@ -67,8 +68,8 @@ var popupLayer = function() {
   
   function onPopupClose(e)
   {
-    if (map.hasLayer(boundsLayer))
-      map.removeLayer(boundsLayer);
+    if (basemap.hasLayer(boundsLayer))
+      basemap.removeLayer(boundsLayer);
     popupOpen = 1;
     setTimeout( function() {
       popupOpen = 0;
@@ -101,16 +102,16 @@ var popupLayer = function() {
     if (recordedClicks == 1)
     {
       queryState = 0;
-      popup.setLatLng(global_latlng).setContent("<div id=\"popupContent\" style=\"width: 320px\">Loading data ...</div>").openOn(map);
+      popup.setLatLng(global_latlng).setContent("<div id=\"popupContent\" style=\"width: 320px\">Loading data ...</div>").openOn(basemap);
       
       latlng = global_latlng;
-      tolerance = calculateCoordTolerance(map.getZoom());
+      tolerance = calculateCoordTolerance(basemap.getZoom());
       latScale = Math.cos(latlng.lat / 180.0 * Math.PI);
       
       boundsLayer.setBounds(
           [[Number(latlng.lat) - tolerance * latScale,Number(latlng.lng) - tolerance],
            [Number(latlng.lat) + tolerance * latScale,Number(latlng.lng) + tolerance]]);
-      boundsLayer.addTo(map);
+      boundsLayer.addTo(basemap);
       
       currentPage = 0;
       askForPopupContent();
@@ -301,6 +302,9 @@ var popupLayer = function() {
     },
     'expand': function(i) {
       document.getElementById("popup_" + i).innerHTML = expanded_content[i];
+    },
+    'setBasemap': function(map) {
+      basemap = map;
     },
     'popupEntries': popupEntries
   }
