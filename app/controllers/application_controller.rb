@@ -5,11 +5,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :fetch_body
 
-  if STATUS == :database_readonly or STATUS == :database_offline
-    def self.cache_sweeper(*sweepers)
-    end
-  end
-
   def authorize_web
     if session[:user]
       @user = User.where(:id => session[:user]).where("status IN ('active', 'confirmed', 'suspended')").first
@@ -50,9 +45,13 @@ class ApplicationController < ActionController::Base
       if request.get?
         redirect_to :controller => 'user', :action => 'login', :referer => request.fullpath
       else
-        render :nothing => true, :status => :forbidden
+        render :text => "", :status => :forbidden
       end
     end
+  end
+
+  def require_oauth
+    @oauth = @user.access_token(OAUTH_KEY) if @user and defined? OAUTH_KEY
   end
 
   ##
@@ -112,6 +111,9 @@ class ApplicationController < ActionController::Base
   def require_allow_write_gpx
     require_capability(:allow_write_gpx)
   end
+  def require_allow_write_notes
+    require_capability(:allow_write_notes)
+  end
 
   ##
   # require that the user is a moderator, or fill out a helpful error message
@@ -122,7 +124,7 @@ class ApplicationController < ActionController::Base
         flash[:error] = t('application.require_moderator.not_a_moderator')
         redirect_to :action => 'index'
       else
-        render :nothing => true, :status => :forbidden
+        render :text => "", :status => :forbidden
       end
     end
   end
@@ -206,18 +208,47 @@ class ApplicationController < ActionController::Base
   end
 
   def check_api_readable
-    if STATUS == :database_offline or STATUS == :api_offline
+    if api_status == :offline
       report_error "Database offline for maintenance", :service_unavailable
       return false
     end
   end
 
   def check_api_writable
-    if STATUS == :database_offline or STATUS == :database_readonly or
-       STATUS == :api_offline or STATUS == :api_readonly
+    unless api_status == :online
       report_error "Database offline for maintenance", :service_unavailable
       return false
     end
+  end
+
+  def database_status
+    if STATUS == :database_offline
+      :offline
+    elsif STATUS == :database_readonly
+      :readonly
+    else 
+      :online
+    end
+  end
+
+  def api_status
+    status = database_status
+    if status == :online
+      if STATUS == :api_offline
+        status = :offline
+      elsif STATUS == :api_readonly
+        status = :readonly
+      end
+    end
+    return status
+  end
+
+  def gpx_status
+    status = database_status
+    if status == :online
+      status = :offline if STATUS == :gpx_offline
+    end
+    return status
   end
 
   def require_public_data
@@ -245,51 +276,56 @@ class ApplicationController < ActionController::Base
 
       render :text => result.to_s, :content_type => "text/xml"
     else
-      render :text => message, :status => status
+      render :text => message, :status => status, :content_type => "text/plain"
     end
   end
   
   def set_locale
     response.header['Vary'] = 'Accept-Language'
 
-    if @user
-      if !@user.languages.empty?
-        request.user_preferred_languages = @user.languages
-        response.header['Vary'] = '*'
-      elsif !request.user_preferred_languages.empty?
-        @user.languages = request.user_preferred_languages
-        @user.save
-      end
+    if @user && !@user.languages.empty?
+      request.user_preferred_languages = @user.languages
+      response.header['Vary'] = '*'
     end
 
-    if request.compatible_language_from(I18n.available_locales).nil?
+    I18n.locale = select_locale
+
+    if @user && @user.languages.empty? && !request.user_preferred_languages.empty?
+      @user.languages = request.user_preferred_languages
+      @user.save
+    end
+
+    response.headers['Content-Language'] = I18n.locale.to_s
+  end
+
+  def select_locale(locales = I18n.available_locales)
+    if params[:locale]
+      request.user_preferred_languages = [ params[:locale] ]
+    end
+
+    if request.compatible_language_from(locales).nil?
       request.user_preferred_languages = request.user_preferred_languages.collect do |pl|
         pls = [ pl ]
 
         while pl.match(/^(.*)-[^-]+$/)
-          pls.push($1) if I18n.available_locales.include?($1.to_sym)
+          pls.push($1) if locales.include?($1) or locales.include?($1.to_sym)
           pl = $1
         end
 
         pls
       end.flatten
-
-      if @user and not request.compatible_language_from(I18n.available_locales).nil?
-        @user.languages = request.user_preferred_languages
-        @user.save        
-      end
     end
 
-    I18n.locale = params[:locale] || request.compatible_language_from(I18n.available_locales) || I18n.default_locale
-
-    response.headers['Content-Language'] = I18n.locale.to_s
+    request.compatible_language_from(locales) || I18n.default_locale
   end
+
+  helper_method :select_locale
 
   def api_call_handle_error
     begin
       yield
     rescue ActiveRecord::RecordNotFound => ex
-      render :nothing => true, :status => :not_found
+      render :text => "", :status => :not_found
     rescue LibXML::XML::Error, ArgumentError => ex
       report_error ex.message, :bad_request
     rescue ActiveRecord::RecordInvalid => ex
@@ -348,40 +384,6 @@ class ApplicationController < ActionController::Base
   end
 
   ##
-  # extend caches_action to include the parameters, locale and logged in
-  # status in all cache keys
-  def self.caches_action(*actions)
-    options = actions.extract_options!
-    cache_path = options[:cache_path] || Hash.new
-
-    options[:unless] = case options[:unless]
-                       when NilClass then Array.new
-                       when Array then options[:unless]
-                       else unlessp = [ options[:unless] ]
-                       end
-
-    options[:unless].push(Proc.new do |controller|
-      controller.params.include?(:page)
-    end)
-
-    options[:cache_path] = Proc.new do |controller|
-      cache_path.merge(controller.params).merge(:host => SERVER_URL, :locale => I18n.locale)
-    end
-
-    actions.push(options)
-
-    super *actions
-  end
-
-  ##
-  # extend expire_action to expire all variants
-  def expire_action(options = {})
-    I18n.available_locales.each do |locale|
-      super options.merge(:host => SERVER_URL, :locale => locale)
-    end
-  end
-
-  ##
   # is the requestor logged in?
   def logged_in?
     !@user.nil?
@@ -403,7 +405,7 @@ class ApplicationController < ActionController::Base
 
     respond_to do |format|
       format.html { render :template => "user/no_such_user", :status => :not_found }
-      format.all { render :nothing => true, :status => :not_found }
+      format.all { render :text => "", :status => :not_found }
     end
   end
 

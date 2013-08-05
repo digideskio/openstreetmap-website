@@ -888,7 +888,6 @@ hr:
     user_diaries_tooltip: Prikaži korisničke dnevnike
     view: Karta
     view_tooltip: Pogledaj na karti
-    welcome_user: Dobrodošli, %{user_link}
     welcome_user_link_tooltip: Tvoja korisnička stranica
     wiki: Wiki
     wiki_title: Wiki stranice projekta
@@ -967,8 +966,6 @@ hr:
       back_to_outbox: Nazad u odlaznu poštu
       date: Datum
       from: Od
-      reading_your_messages: Vaše poruke
-      reading_your_sent_messages: Čitanje tvojih poslanih poruka
       reply_button: Odgovori
       subject: Tema
       title: Pročitaj poruku
@@ -994,8 +991,6 @@ hr:
     email_confirm_plain: 
       click_the_link: Ako si ovo ti, molim klinkni na link ispod da potvrdiš promjene.
       greeting: Bok,
-      hopefully_you_1: Netko (nadam se ti) želio bi promjeniti njihove email adrese preko u
-      hopefully_you_2: "%{server_url} na %{new_address}."
     friend_notification: 
       befriend_them: Također, možete ih dodati kao prijatelja na %{befriendurl}.
       had_added_you: "%{user} te je dodao kao prijatelja na OpenStreetMap-u."
@@ -1024,8 +1019,6 @@ hr:
     lost_password_plain: 
       click_the_link: Ako si ovo ti, klikni na link ispod za reset lozinke.
       greeting: Bok,
-      hopefully_you_1: Netko (moguće ti) je pitao za reset lozinke na
-      hopefully_you_2: email adrese openstreetmap.org korisničkog računa.
     message_notification: 
       footer1: Možete također pročitiati poruku na %{readurl}
       footer2: i možete odgovoriti na %{replyurl}
@@ -1048,7 +1041,6 @@ hr:
       blog_and_twitter: "Budite u toku s najnovijim vijestima preko OpenstreetMap bloga ili Twittera:"
       introductory_video: "Možeš pogledati uvodni video za OpenStreetMap ovdje:"
       more_videos: "Ovdje ima više videa:"
-      opengeodata: "OpenGeoData.org je blog osnivača OpenStreetMap-a, Steva Coasta, i ima podcaste također:"
       the_wiki: "Čitaj o OpenStreetMap-u na wiki-ju:"
       the_wiki_url: http://wiki.openstreetmap.org/wiki/HR:Beginners_Guide
       wiki_signup: "Možda želiš otvoriti račun na OpenStreetMap wiki na:"
@@ -1136,8 +1128,6 @@ hr:
       remote_failed: Uređivanje nije uspjelo - provjerite da li je JOSM ili Merkaartor učitan i da je opcija "remote control" omogućena
       shortlink: Shortlink
     key: 
-      map_key: Legenda
-      map_key_tooltip: Legenda karte
       table: 
         entry: 
           admin: Administrativna granica

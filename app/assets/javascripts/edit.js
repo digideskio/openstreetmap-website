@@ -1,35 +1,12 @@
 function maximiseMap() {
-  $("#left").hide();
-  $("#top-bar").hide();
-
-  $("#content").css("top", "0px");
-  if ($("html").attr("dir") == "ltr") {
-    $("#content").css("margin-left", "0px");
-  } else {
-    $("#content").css("margin-right", "0px");
-  }
-
-  handleResize();
+  $("#content").addClass("maximised");
 }
 
 function minimiseMap() {
-  $("#left").show();
-  $("#top-bar").show();
-
-  $("#content").css("top", "30px");
-  if ($("html").attr("dir") == "ltr") {
-    $("#content").css("margin-left", "185px");
-  } else {
-    $("#content").css("margin-right", "185px");
-  }
-
-  handleResize();
+  $("#content").removeClass("maximised");
 }
 
 $(document).ready(function () {
-  $(window).resize(handleResize);
-  handleResize();
-
   $("#search_form").submit(function () {
     $("#sidebar_title").html(I18n.t('site.sidebar.search_results'));
     $("#sidebar_content").load($(this).attr("action"), {

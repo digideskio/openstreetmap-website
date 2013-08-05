@@ -933,7 +933,6 @@ be-Tarask:
     user_diaries_tooltip: Паказаць дзёньнікі карыстальнікаў
     view: Прагляд
     view_tooltip: Паказаць мапу
-    welcome_user: Вітаем, %{user_link}
     welcome_user_link_tooltip: Ваша старонка ўдзельніка
     wiki: Вікі
     wiki_title: Вікі-сайт праекту
@@ -1029,8 +1028,6 @@ be-Tarask:
       back_to_outbox: Вярнуцца да выходных
       date: Дата
       from: Ад
-      reading_your_messages: Чытаньне Вашых паведамленьняў
-      reading_your_sent_messages: Чытаньне Вашых дасланых паведамленьняў
       reply_button: Адказаць
       subject: Тэма
       title: Чытаць паведамленьне
@@ -1056,8 +1053,6 @@ be-Tarask:
     email_confirm_plain: 
       click_the_link: Калі гэта Вы, калі ласка, націсьніце на спасылку ніжэй, каб пацьвердзіць зьмену.
       greeting: Вітаем,
-      hopefully_you_1: Нехта (спадзяемся, што Вы) жадае зьмяніць свой адрас электроннай пошты ў
-      hopefully_you_2: "%{server_url} на %{new_address}."
     friend_notification: 
       befriend_them: Вы таксама можаце дадаць іх у якасьці сябраў на %{befriendurl}.
       had_added_you: "%{user} дадаў Вас у сьпіс сяброў на OpenStreetMap."
@@ -1086,8 +1081,6 @@ be-Tarask:
     lost_password_plain: 
       click_the_link: Калі гэта Вы, калі ласка, націсьніце на спасылку ніжэй, каб скінуць Ваш пароль.
       greeting: Вітаем,
-      hopefully_you_1: Нехта (магчыма Вы), запытаўся на зьмену пароля для гэтага
-      hopefully_you_2: адрасы электроннай пошты рахункаў openstreetmap.org.
     message_notification: 
       footer1: Вы можаце таксама прачытаць паведамленьне %{readurl}
       footer2: і Вы можаце адказаць на %{replyurl}
@@ -1110,7 +1103,6 @@ be-Tarask:
       blog_and_twitter: "Даведацца пра апошнія навіны праз блёг OpenStreetMap ці Twitter:"
       introductory_video: "Вы можаце праглядзець відэа-уводзіны ў OpenStreetMap тут:"
       more_videos: "Тут яшчэ відэа:"
-      opengeodata: "OpenGeoData.org — блёг заснавальніка OpenStreetMap Стыва Коуста, і тут ёсьць падкасты:"
       the_wiki: "Прачытаць пра OpenStreetMap на вікі:"
       wiki_signup: "Вы таксама можаце зарэгістравацца на OpenStreetMap вікі на:"
   oauth: 
@@ -1198,8 +1190,6 @@ be-Tarask:
       remote_failed: Памылка рэдагаваньня. Упэўніцеся, што JOSM ці Merkaartor загружаныя і дазволеная магчымасьць аддаленага кіраваньня
       shortlink: Кароткая спасылка
     key: 
-      map_key: Умоўныя знакі
-      map_key_tooltip: Умоўныя знакі мапы
       table: 
         entry: 
           admin: Адміністрацыйная мяжа
@@ -1497,7 +1487,7 @@ be-Tarask:
           title: Увайсьці ў сыстэму з дапамогай Yahoo
       password: "Пароль:"
       register now: Зарэгістравацца зараз
-      remember: "Запамятаць мяне:"
+      remember: Запомніць мяне
       title: Увайсьці
       to make changes: Каб рабіць зьмены ў зьвестках OpenStreetMap, Вам неабходна мець рахунак.
       with openid: "Для ўваходу можаце выкарыстаць Ваш OpenID:"

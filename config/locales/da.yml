@@ -1,12 +1,16 @@
 # Messages for Danish (dansk)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
+# Author: Brufnus
 # Author: Christian List
 # Author: Ebbe
+# Author: Fenrisdk
 # Author: Freek
 # Author: Gnonthgol
 # Author: Gorbi
 # Author: Hylle
+# Author: Kaare
+# Author: Luckas
 # Author: Nemo bis
 # Author: OleLaursen
 # Author: Peter Alberti
@@ -131,11 +135,13 @@ da:
       edit: 
         area: Rediger område
         node: Rediger punkt
+        note: Redigér bemærkning
         relation: Rediger relation
         way: Rediger vej
       larger: 
         area: Vis område på større kort
         node: Vis punkt på større kort
+        note: Vis bemærkning på større kort
         relation: Vis relation på større kort
         way: Vis vej på større kort
       loading: Indlæser...
@@ -143,10 +149,12 @@ da:
       all: 
         next_changeset_tooltip: Næste ændringssæt
         next_node_tooltip: Næste punkt
+        next_note_tooltip: Næste bemærkning
         next_relation_tooltip: Næste relation
         next_way_tooltip: Næste vej
         prev_changeset_tooltip: Forrige ændringssæt
         prev_node_tooltip: Forrige punkt
+        prev_note_tooltip: Forrige bemærkning
         prev_relation_tooltip: Forrige relation
         prev_way_tooltip: Forrige vej
       user: 
@@ -174,9 +182,20 @@ da:
         node: punkt
         relation: relation
         way: vej
+    note: 
+      at_by_html: "%{when} siden af %{user}"
+      at_html: "%{when} siden"
+      closed: "Lukket:"
+      closed_title: "Løst bemærkning: %{note_name}"
+      comments: "Kommentarer:"
+      description: "Beskrivelse:"
+      last_modified: "Senest ændret:"
+      open_title: "Uløst bemærkning: %{note_name}"
+      opened: "Åbnet:"
+      title: Bemærkning
     paging_nav: 
       of: af
-      showing_page: Viser side
+      showing_page: side
     redacted: 
       message_html: Version %{version} af denne %{type} kan ikke vises, da den er omarbejdet. Se venligst %{redaction_link} for detaljer.
       redaction: Omarbejdelse %{id}
@@ -214,9 +233,10 @@ da:
       loaded_an_area_with_num_features: "Du har indlæst et område som indeholder %{num_features} objekter. Nogle browsere kan have problemer ved håndtering af så meget data. Browsere fungerer generelt bedst med mindre end %{max_features} objekter ad gangen: flere objekter kan gøre at din browser bliver langsom. Hvis du er sikker på, at du vil se alle disse data, så klik på knappen nedenfor."
       loading: Indlæser...
       manually_select: Vælg et andet område manuelt
+      notes_layer_name: Gennemse bemærkninger
       object_list: 
         api: Hent dette område fra API'et
-        back: Vis objektliste
+        back: Tilbage til objektliste
         details: Detaljer
         heading: Objektliste
         history: 
@@ -258,8 +278,8 @@ da:
       way_title: "Vej: %{way_name}"
     way_details: 
       also_part_of: 
-        one: også del af vejen %{related_ways}
-        other: også del af vejene %{related_ways}
+        one: del af vejen %{related_ways}
+        other: del af vejene %{related_ways}
       nodes: "Punkter:"
       part_of: "Del af:"
     way_history: 
@@ -279,7 +299,7 @@ da:
     changeset_paging_nav: 
       next: Næste »
       previous: « Forrige
-      showing_page: Viser side %{page}
+      showing_page: Side %{page}
     changesets: 
       area: Område
       comment: Kommentar
@@ -287,13 +307,13 @@ da:
       saved_at: Gemt
       user: Bruger
     list: 
-      description: Seneste ændringer
+      description: Seneste ændringer af kortet
       description_bbox: Ændringer inden for %{bbox}
       description_friend: Ændringssæt af dine venner
       description_nearby: Ændringssæt af nærliggende brugere
       description_user: Ændringssæt af %{user}
       description_user_bbox: Ændringssæt af %{user} inden for %{bbox}
-      empty_anon_html: Ingen redigeringer foretaget endnu
+      empty_anon_html: Ingen redigeringer foretaget endnu.
       empty_user_html: Det ser ud til du endnu ikke har lavet nogen redigeringer. Tjek <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>begynderens' guide</a> for at komme i gang.
       heading: Ændringssæt
       heading_bbox: Ændringssæt
@@ -361,7 +381,7 @@ da:
       newer_entries: Nyere indlæg
       no_entries: Ingen blogindlæg
       older_entries: Ældre indlæg
-      recent_entries: "Seneste blogindlæg:"
+      recent_entries: Seneste blogindlæg
       title: Brugerblogs
       title_friends: Venners blogs
       title_nearby: Blogs fra brugere i nærheden
@@ -385,6 +405,9 @@ da:
       user_title: "%{user}'s blog"
   editor: 
     default: Foretrukket (i øjeblikket %{name})
+    id: 
+      description: iD (in-browser editor)
+      name: iD
     potlatch: 
       description: Potlatch 1 (redigér i browseren)
       name: Potlatch 1
@@ -461,6 +484,14 @@ da:
         uk_postcode: Resultater fra <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Resultater fra <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
+      admin_levels: 
+        level10: Forstadsgrænse
+        level2: Landegrænse
+        level4: Statsgrænse
+        level5: Regionsgrænse
+        level6: Kommunegrænse
+        level8: Bygrænse
+        level9: Landsbygrænse
       prefix: 
         aeroway: 
           aerodrome: Flyveplads
@@ -706,6 +737,8 @@ da:
           airfield: Militær flyveplads
           barracks: Kaserne
           bunker: Bunker
+        mountain_pass: 
+          "yes": Bjergpas
         natural: 
           bay: Bugt
           beach: Strand
@@ -928,7 +961,30 @@ da:
         cycle_map: Cykelkort
         standard: Standard
         transport_map: Transportkort
+    notes: 
+      new: 
+        add: Tilføj bemærkning
+        intro: For at forbedre kortet, vil de oplysninger du indtaster, blive vist til andre kortlæggere, så vær så beskrivende og præcis som muligt, når du flytter markøren til den korrekte position og indtaster din bemærkning nedenfor.
+      show: 
+        anonymous_warning: Denne bemærkning indeholder kommentarer fra anonyme brugere som bør undergå en uafhængig kontrol af oplysningerne.
+        closed_by: løst af <a href='%{user_url}'>%{user}</a> den %{time}
+        closed_by_anonymous: løst anonymt %{time}
+        comment: Kommenter
+        comment_and_resolve: Kommentere på og løse
+        commented_by: kommentar fra <a href='%{user_url}'>%{user}</a> den %{time}
+        commented_by_anonymous: kommentar fra anonym %{time}
+        hide: Skjul
+        opened_by: oprettet af <a href='%{user_url}'>%{user}</a> den %{time}
+        opened_by_anonymous: oprettet anonymt %{time}
+        permalink: Permanent link
+        reactivate: Genaktiver
+        reopened_by: genaktiveret af <a href='%{user_url}'>%{user}</a> den %{time}
+        reopened_by_anonymous: genaktiveret anonymt %{time}
+        resolve: Løs
     site: 
+      createnote_disabled_tooltip: Zoom ind for at tilføje en bemærkning til kortet
+      createnote_tooltip: Tilføj en bemærkning på kortet
+      createnote_zoom_alert: Du skal zoome ind for at tilføje en bemærkning til kortet
       edit_disabled_tooltip: Zoom ind for at redigere kortet
       edit_tooltip: Rediger kortet
       edit_zoom_alert: Du skal zoome ind for at redigere kortet
@@ -966,7 +1022,7 @@ da:
     intro_1: OpenStreetMap er et frit kort over hele verden, lavet af folk som dig.
     intro_2_create_account: Opret en brugerkonto
     intro_2_download: hent
-    intro_2_html: Dataene er gratis at %{download} og %{use} under sin %{license}. %{create_account} for at forbedre kortet.
+    intro_2_html: Dataene kan frit [[%{download}|hentes]] og [[%{use}|anvendes]] under den [[%{license}|åbne licens]]. %{create_account} for at forbedre kortet.
     intro_2_license: åben licens
     intro_2_use: brug
     log_in: log på
@@ -992,7 +1048,6 @@ da:
     user_diaries_tooltip: Vis brugerblogs
     view: Vis
     view_tooltip: Vis kortet
-    welcome_user: Velkommen, %{user_link}
     welcome_user_link_tooltip: Din brugerside
     wiki: Wiki
     wiki_title: Wikisite for projektet
@@ -1093,8 +1148,6 @@ da:
       back_to_outbox: Tilbage til udbakke
       date: Dato
       from: Fra
-      reading_your_messages: Læser dine beskeder
-      reading_your_sent_messages: Læser dine sendte beskeder
       reply_button: Svar
       subject: Emne
       title: Læs besked
@@ -1105,6 +1158,34 @@ da:
       wrong_user: Du er logget på som '%{user}', men den besked du har bedt om at svare på blev ikke sendt til den bruger. Log venligst på som den korrekte bruger for at svare.
     sent_message_summary: 
       delete_button: Slet
+  note: 
+    description: 
+      closed_at_by_html: Løst for %{when} siden af %{user}
+      closed_at_html: Løst for %{when} siden
+      commented_at_by_html: Opdateret for %{when} siden af %{user}
+      commented_at_html: Opdateret for %{when} siden
+      opened_at_by_html: Oprettet for %{when} siden af %{user}
+      opened_at_html: Oprettet for %{when} siden
+      reopened_at_by_html: Genaktiveret for %{when} siden af %{user}
+      reopened_at_html: Genaktiveret for %{when} siden
+    entry: 
+      comment: Kommentar
+      full: Fuld bemærkning
+    mine: 
+      ago_html: "%{when} siden"
+      created_at: Oprettet den
+      creator: Oprettet af
+      description: Beskrivelse
+      heading: "%{user}s bemærkninger"
+      id: Id
+      last_changed: Sidst ændret
+      subheading: Bemærkninger indsendt eller kommenteret af %{user}
+      title: Bemærkninger indsendt eller kommenteret af %{user}
+    rss: 
+      closed: lukket bemærkning (nær %{place})
+      description_area: En liste over bemærkninger, rapporteret, kommenteret på eller lukket i dit område [(%{min_lat}|%{min_lon}) -- (%{max_lat}|%{max_lon})]
+      description_item: Et RSS-feed for bemærkninger %{id}
+      title: OpenStreetMap-bemærkninger
   notifier: 
     diary_comment_notification: 
       footer: Du kan også læse kommentaren på %{readurl}, og du kan kommentere på %{commenturl} eller svare på %{replyurl}
@@ -1120,8 +1201,7 @@ da:
     email_confirm_plain: 
       click_the_link: Hvis det er dig, skal du klikke på linket nedenfor for at bekræfte ændringen.
       greeting: Hej,
-      hopefully_you_1: En eller anden (forhåbentlig dig) vil gerne ændre sin emailadresse på
-      hopefully_you_2: "%{server_url} til %{new_address}."
+      hopefully_you: En eller anden (forhåbentlig dig) ønsker at ændre sin e-mailadresse på %{server_url} til %{new_address}.
     friend_notification: 
       befriend_them: Du kan også tilføje dem som ven på %{befriendurl}.
       had_added_you: "%{user} har tilføjet dig som ven på OpenStreetMap."
@@ -1150,13 +1230,26 @@ da:
     lost_password_plain: 
       click_the_link: Hvis dette er dig, så klik på linket nedenfor for at nulstille din adgangskode.
       greeting: Hej,
-      hopefully_you_1: En eller anden (muligvis dig) har bedt om at adgangskoden skal nulstilles for denne
-      hopefully_you_2: email-adresse for openstreetmap.org-konto.
+      hopefully_you: En eller anden (forhåbentlig dig) har bedt om at få adgangskoden nulstillet på denne e-mailadresses openstreetmap.org-konto.
     message_notification: 
       footer1: Du kan også læse beskeden på %{readurl}
       footer2: og du kan svare på %{replyurl}
       header: "%{from_user} har sendt dig en besked gennem OpenStreetMap med emnet %{subject}:"
       hi: Hej %{to_user},
+    note_comment_notification: 
+      anonymous: En anonym bruger
+      closed: 
+        commented_note: "%{commenter} har løst en kortbemærkning du har kommenteret på. Bemærkningen er i nærheden af %{place}."
+        subject_other: "[OpenStreetMap] %{commenter} har løst en bemærkning, du er interesseret i"
+        subject_own: "[OpenStreetMap] %{commenter} har løst en af dine bemærkninger"
+        your_note: "%{commenter} har løst en af dine kortbemærkninger nær %{place}."
+      commented: 
+        commented_note: "%{commenter} har efterladt en kommentar til en kortbemærkning du har kommenteret. Bemærkningen er i nærheden af %{place}."
+        subject_other: "[OpenStreetMap] %{commenter} har kommenteret på en bemærkning, du er interesseret i"
+        subject_own: "[OpenStreetMap] %{commenter} har kommenteret på en af dine bemærkninger"
+        your_note: "%{commenter} har efterladt en kommentar på en af dine kortbemærkninger nær %{place}."
+      details: Flere oplysninger om bemærkningen kan findes på %{url}.
+      greeting: Hej,
     signup_confirm: 
       confirm: "Før vi gør mere, har vi brug at bekræfte, at denne anmodning kommer fra dig, så hvis det er tilfældet bedes du venligst klikke på nedenstående link for at bekræfte din konto:"
       created: En person (forhåbentlig dig) har lige oprettet en konto på %{site_url}.
@@ -1179,7 +1272,6 @@ da:
       current_user: "En liste over nuværende brugere i kategorier, baseret på hvor i verden de er, er tilgængelig fra:"
       introductory_video: "Du kan se en introduktionsvideo til OpenStreetMap her:"
       more_videos: "Der er flere videoer her:"
-      opengeodata: "OpenGeoData.org er OpenStreetMap-stifteren Steve Coasts blog, og der er også podcasts:"
       the_wiki: "Læs mere om OpenStreetMap på wikien:"
       user_wiki_page: Det anbefales, at du opretter en bruger wiki side, som indeholder kategori tags, der viser hvor du er, som [[Category:Users_in_Copenhagen]].
       wiki_signup: "Du kan også tilmelde dig til OpenStreetMap-wikien på:"
@@ -1191,6 +1283,7 @@ da:
       allow_write_api: tilpas kortet.
       allow_write_diary: oprette blogsider, kommentarer og lave venskaber.
       allow_write_gpx: Upload GPS-spor.
+      allow_write_notes: ændre bemærkninger.
       allow_write_prefs: ændre dine brugerindstillinger.
       request_access: Programmet %{app_name} anmoder om adgang til din konto, %{user}. Kontroller, om du vil tillade adgang til følgende funktioner. Du kan vælge lige så mange eller så få, som du ønsker.
     revoke: 
@@ -1209,6 +1302,7 @@ da:
       allow_write_api: ændre kortet.
       allow_write_diary: oprette blogindlæg, kommentarer og lave venskaber.
       allow_write_gpx: upload GPS-spor.
+      allow_write_notes: ændre bemærkninger.
       allow_write_prefs: ændre deres brugerindstillinger.
       callback_url: Callback URL
       name: Navn
@@ -1239,6 +1333,7 @@ da:
       allow_write_api: tilpas kortet.
       allow_write_diary: oprette blogindlæg, kommentarer og lave venskaber.
       allow_write_gpx: upload GPS-spor.
+      allow_write_notes: ændre bemærkninger.
       allow_write_prefs: ændre deres brugerindstillinger.
       authorize_url: "Godkend URL:"
       confirm: Er du sikker?
@@ -1247,7 +1342,7 @@ da:
       key: "Forbrugernøgle:"
       requests: "Anmoder brugeren om følgende tilladelser:"
       secret: "Forbrugerhemmelighed:"
-      support_notice: Vi understøtter HMAC-SHA1 (anbefales) og almindelig tekst i SSL-tilstand.
+      support_notice: Vi understøtter HMAC-SHA1- (anbefales) og RSA-SHA1-signaturer.
       title: OAuth detaljer for %{app_name}
       url: "Request Token URL:"
     update: 
@@ -1287,6 +1382,7 @@ da:
     edit: 
       anon_edits_link_text: Find ud af hvorfor.
       flash_player_required: Du har brug for en Flash afspiller for at bruge Potlatch, OpenStreetMap Flash editoren. Du kan <a href="http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">hente Flash Player fra Adobe.com</a>. <a href="http://wiki.openstreetmap.org/wiki/Editing">Flere andre indstillinger</a> er også tilgængelige til redigering af OpenStreetMap.
+      id_not_configured: iD er ikke blevet konfigureret
       no_iframe_support: Din browser understøtter ikke HTML-iframes som er nødvendige for denne funktion.
       not_public: Du har ikke angivet af dine ændringer skal være offentlige.
       not_public_description: Du kan ikke længere redigere kortet medmindre du gør dette. Du kan gøre dine ændringer offentlige fra din %{user_page}.
@@ -1295,6 +1391,7 @@ da:
       potlatch_unsaved_changes: Du har ugemte ændringer (for at gemme i Potlatch skal du afmarkere den nuværende vej eller nuværende punkt hvis du retter i live-tilstand, eller klikke på gem-knappen hvis du har en).
       user_page_link: brugerside
     index: 
+      createnote: Tilføj en bemærkning
       js_1: Du bruger enten en browser som ikke understøtter Javascript, eller du har deaktiveret Javascript.
       js_2: OpenStreetMap bruger JavaScript til det interaktive kort.
       license: 
@@ -1303,8 +1400,6 @@ da:
       remote_failed: Redigering mislykkede - tjek at JOSM eller Merkaartor er startet og fjernbetjening er aktiveret
       shortlink: Kort link
     key: 
-      map_key: Signaturforklaring
-      map_key_tooltip: Signaturforklaring for kortet
       table: 
         entry: 
           admin: Administrativ grænse
@@ -1424,6 +1519,7 @@ da:
       visibility: "Synlighed:"
       visibility_help: hvad betyder det her?
     list: 
+      description: Gennemse de seneste GPS track uploads
       empty_html: Der er ingenting her endnu. <a href='%{upload_link}'>Upload et nyt spor</a> eller lær mere om GPS sporing på <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>wiki siden</a>.
       public_traces: Offentlige GPS-spor
       public_traces_from: Offentlige GPS-spor fra %{user}
@@ -1464,14 +1560,16 @@ da:
     trace_header: 
       see_all_traces: Vis alle spor
       see_your_traces: Vis alle dine spor
-      traces_waiting: Du har allerede %{count} GPS-spor i køen. Overvej at vente på disse før du uploader flere spor for ikke at blokkere køen for andre brugere.
+      traces_waiting: 
+        one: Du har allerede et GPS-spor i køen. Overvej at vente på dette før du uploader flere spor for ikke at blokere køen for andre brugere.
+        other: Du har allerede %{count} GPS-spor i køen. Overvej at vente på disse før du uploader flere spor for ikke at blokere køen for andre brugere.
       upload_trace: Upload et spor
     trace_optionals: 
       tags: Egenskaber
     trace_paging_nav: 
       newer: Nyere spor
       older: Ældre spor
-      showing_page: Viser side %{page}
+      showing_page: Side %{page}
     view: 
       delete_track: Slet dette spor
       description: "Beskrivelse:"
@@ -1575,8 +1673,8 @@ da:
       heading: Brugere
       hide: Skjul valgte brugere
       showing: 
-        one: Viser side %{page} (%{first_item} af %{items})
-        other: Viser side %{page} (%{first_item}-%{last_item} af %{items})
+        one: Side %{page} (%{first_item} af %{items})
+        other: Side %{page} (%{first_item}-%{last_item} af %{items})
       summary: "%{name} oprettet fra %{ip_address} på %{date}"
       summary_no_ip: "%{name} oprettet på %{date}"
       title: Brugere
@@ -1638,7 +1736,7 @@ da:
       button: Tilføj som en ven
       failed: Desværre, kunne ikke tilføje %{name} som din ven.
       heading: Tilføj %{user} som en ven?
-      success: "%{name} er nu din ven."
+      success: "%{name} er nu din ven!"
     new: 
       confirm email address: "Bekræft e-mail-adresse:"
       confirm password: "Bekræft adgangskode:"
@@ -1671,8 +1769,8 @@ da:
       nearby mapper: Bruger i nærheden
       your location: Din position
     remove_friend: 
-      button: Fjern som en ven
-      heading: Fjern %{user} som en ven?
+      button: Fjern som ven
+      heading: Fjern %{user} som ven?
       not_a_friend: "%{name} er ikke en af dine venner."
       success: "%{name} blev fjernet fra din liste af venner."
     reset_password: 
@@ -1727,10 +1825,10 @@ da:
       diary: blog
       edits: ændringer
       email address: "E-mail-adresse:"
-      friends_changesets: Gennemse alle ændringssæt af venner
-      friends_diaries: Gennemse alle blogindlæg af venner
+      friends_changesets: venners ændringssæt
+      friends_diaries: venners blogindlæg
       hide_user: skjul denne bruger
-      if set location: Hvis du indstiller din position, viser der sig et pænt kort her. Du kan indstille din hjemmeposition på din %{settings_link}-side.
+      if set location: Indstil din hjemmeposition på siden %{settings_link} for at se andre brugere i nærheden.
       km away: "%{count}km væk"
       latest edit: "Seneste ændring %{ago}:"
       m away: "%{count}m væk"
@@ -1739,14 +1837,16 @@ da:
       my comments: mine kommentarer
       my diary: min blog
       my edits: mine redigeringer
+      my notes: mine kortbemærkninger
       my settings: mine indstillinger
       my traces: mine GPS-spor
       nearby users: "Andre brugere i nærheden:"
-      nearby_changesets: Gennemse alle ændringssæt af brugere i nærheden
-      nearby_diaries: Gennemse alle blogindlæg af brugere i nærheden
+      nearby_changesets: ændringssæt af brugere i nærheden
+      nearby_diaries: blogindlæg af brugere i nærheden
       new diary entry: nyt blogindlæg
       no friends: Du har ikke tilføjet nogle venner endnu.
       no nearby users: Der er ingen andre brugere der har angivet at de kortlægger i nærheden.
+      notes: kortbemærkninger
       oauth settings: oauth-indstillinger
       remove as friend: fjern som ven
       role: 
@@ -1827,7 +1927,7 @@ da:
       revoke: Tilbagekald!
       revoker_name: Tilbagekaldt af
       show: Vis
-      showing_page: Viser side %{page}
+      showing_page: Side %{page}
       status: Status
     period: 
       one: 1 time

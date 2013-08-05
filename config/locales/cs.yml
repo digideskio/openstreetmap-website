@@ -3,6 +3,7 @@
 # Export driver: syck-pecl
 # Author: Bilbo
 # Author: Chmee2
+# Author: JAn Dudík
 # Author: Jezevec
 # Author: Jkjk
 # Author: Kuvaly
@@ -136,11 +137,13 @@ cs:
       edit: 
         area: Upravit oblast
         node: Upravit uzel
+        note: Upravit poznámku
         relation: Upravit relaci
         way: Upravit cestu
       larger: 
         area: Zobrazit oblast na větší mapě
         node: Zobrazit uzel na větší mapě
+        note: Zobrazit poznámku na větší mapě
         relation: Zobrazit relaci na větší mapě
         way: Zobrazit cestu na větší mapě
       loading: Načítá se…
@@ -148,10 +151,12 @@ cs:
       all: 
         next_changeset_tooltip: Další sada změn
         next_node_tooltip: Následující uzel
+        next_note_tooltip: Následující poznámka
         next_relation_tooltip: Následující relace
         next_way_tooltip: Následující cesta
         prev_changeset_tooltip: Předchozí sada změn
         prev_node_tooltip: Předchozí uzel
+        prev_note_tooltip: Předchozí poznámka
         prev_relation_tooltip: Předchozí relace
         prev_way_tooltip: Předchozí cesta
       user: 
@@ -179,9 +184,20 @@ cs:
         node: uzel
         relation: relace
         way: cesta
+    note: 
+      at_by_html: před %{when} od %{user}
+      at_html: před %{when}
+      closed: "Uzavřena:"
+      closed_title: "Vyřešená poznámka: %{note_name}"
+      comments: "Komentáře:"
+      description: "Popis:"
+      last_modified: "Naposledy změněna:"
+      open_title: "Nevyřešená poznámka: %{note_name}"
+      opened: "Otevřena:"
+      title: Poznámka
     paging_nav: 
       of: z
-      showing_page: Zobrazuji stranu
+      showing_page: stránka
     redacted: 
       message_html: Verzi %{version} tohoto objektu %{type} nelze zobrazit, protože byla skryta. Více informací uvádí stránka %{redaction_link}.
       redaction: Redakce %{id}
@@ -219,9 +235,10 @@ cs:
       loaded_an_area_with_num_features: Máte načtenu oblast, která obsahuje %{num_features} prvků. Některé prohlížeče mohou mít potíže při zobrazování takového množství dat. Obecně fungují prohlížeče nejlépe při zobrazování ne více než %{max_features} prvků současně – větší množství může způsobit, že bude prohlížeč reagovat pomalu či vůbec. Pokud jste si jisti, že chcete tato data zobrazit, klikněte na tlačítko níže.
       loading: Načítá se…
       manually_select: Ručně vybrat jinou oblast
+      notes_layer_name: Procházet poznámky
       object_list: 
         api: Získat tuto oblast pomocí API
-        back: Zobrazit seznam objektů
+        back: Zpět na seznam objektů
         details: Detaily
         heading: Seznam objektů
         history: 
@@ -263,8 +280,8 @@ cs:
       way_title: "Cesta: %{way_name}"
     way_details: 
       also_part_of: 
-        one: patří také do cesty %{related_ways}
-        other: patří také do cest %{related_ways}
+        one: patří do cesty %{related_ways}
+        other: patří do cest %{related_ways}
       nodes: "Uzly:"
       part_of: "Součást:"
     way_history: 
@@ -284,7 +301,7 @@ cs:
     changeset_paging_nav: 
       next: Následující »
       previous: « Předchozí
-      showing_page: Zobrazuji stranu %{page}
+      showing_page: Stránka %{page}
     changesets: 
       area: Oblast
       comment: Komentář
@@ -292,13 +309,13 @@ cs:
       saved_at: Uloženo v
       user: Uživatel
     list: 
-      description: Poslední změny
+      description: Procházení nedávných příspěvků do mapy
       description_bbox: Sady změn v %{bbox}
       description_friend: Sady změn vašich přátel
       description_nearby: Sady změn uživatelů poblíž
       description_user: Sady změn uživatele %{user}
       description_user_bbox: Sady změn uživatele %{user} v %{bbox}
-      empty_anon_html: Zatím žádné editace
+      empty_anon_html: Zatím žádné editace.
       empty_user_html: Vypadá to, že jste zatím neprovedli žádné editace. Pokud chcete začít, podívejte se do <a href='http://wiki.openstreetmap.org/wiki/CS:Beginners_Guide_1.3'>Příručky pro začátečníka</a>.
       heading: Sady změn
       heading_bbox: Sady změn
@@ -367,7 +384,7 @@ cs:
       newer_entries: Novější záznamy
       no_entries: Žádné záznamy v deníčku
       older_entries: Starší záznamy
-      recent_entries: "Aktuální deníčkové záznamy:"
+      recent_entries: Aktuální deníčkové záznamy
       title: Deníčky uživatelů
       title_friends: Deníčky přátel
       title_nearby: Deníčky uživatelů poblíž
@@ -391,6 +408,9 @@ cs:
       user_title: Deníček uživatele %{user}
   editor: 
     default: Výchozí (v současné době %{name})
+    id: 
+      description: iD (editor v prohlížeči)
+      name: iD
     potlatch: 
       description: Potlatch 1 (editor v prohlížeči)
       name: Potlatch 1
@@ -467,6 +487,14 @@ cs:
         uk_postcode: Výsledky z <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Výsledky z <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
+      admin_levels: 
+        level10: Hranice čtvrti
+        level2: Státní hranice
+        level4: Hranice státu
+        level5: Hranice regionu
+        level6: Hranice okresu
+        level8: Hranice obce
+        level9: Hranice vesnice
       prefix: 
         aeroway: 
           aerodrome: Letiště
@@ -712,6 +740,8 @@ cs:
           airfield: Vojenské letiště
           barracks: Kasárna
           bunker: Bunkr
+        mountain_pass: 
+          "yes": Průsmyk
         natural: 
           bay: Záliv
           beach: Pláž
@@ -935,7 +965,30 @@ cs:
         mapquest: MapQuest Open
         standard: Standardní
         transport_map: Dopravní mapa
+    notes: 
+      new: 
+        add: Přidat poznámku
+        intro: Abychom vylepšili mapu, zobrazí se vámi zadané informace ostatním tvůrcům, takže buďte při umisťování značky a zadávání poznámky co nejvíce podrobní a přesní.
+      show: 
+        anonymous_warning: Tato poznámka zahrnuje komentáře anonymních uživatelů, které by se měly nezávisle ověřit.
+        closed_by: vyřešil <a href='%{user_url}'>%{user}</a> v %{time}
+        closed_by_anonymous: vyřešil anonym v %{time}
+        comment: Okomentovat
+        comment_and_resolve: Okomentovat a vyřešit
+        commented_by: komentář od uživatele <a href='%{user_url}'>%{user}</a> z %{time}
+        commented_by_anonymous: komentář od anonyma z %{time}
+        hide: Skrýt
+        opened_by: vytvořil <a href='%{user_url}'>%{user}</a> v %{time}
+        opened_by_anonymous: vytvořil anonym v %{time}
+        permalink: Trvalý odkaz
+        reactivate: Reaktivovat
+        reopened_by: reaktivoval <a href='%{user_url}'>%{user}</a> v %{time}
+        reopened_by_anonymous: reaktivoval anonym v %{time}
+        resolve: Vyřešit
     site: 
+      createnote_disabled_tooltip: Pro přidání poznámky přejděte na větší měřítko
+      createnote_tooltip: Přidat do mapy poznámku
+      createnote_zoom_alert: Pro přidání poznámky do mapy musíte přejít na větší měřítko
       edit_disabled_tooltip: Pro editaci mapy přejděte na větší měřítko
       edit_tooltip: Upravit mapu
       edit_zoom_alert: Upravovat mapu můžete jen ve větším přiblížení
@@ -977,6 +1030,7 @@ cs:
     intro_2_html: Data si můžete volně %{download} a %{use} pod %{license}. Mapu můžete vylepšit, pokud %{create_account}.
     intro_2_license: svobodnou licencí
     intro_2_use: používat
+    intro_2_use_url: http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap?uselang=cs
     log_in: přihlásit se
     log_in_tooltip: Přihlásit se k existujícímu účtu
     logo: 
@@ -993,6 +1047,7 @@ cs:
     partners_ic: Imperial College London
     partners_partners: partneři
     partners_ucl: středisko VR UCL
+    partners_url: http://wiki.openstreetmap.org/wiki/Partners?uselang=cs
     sign_up: zaregistrovat se
     sign_up_tooltip: Vytvořit si uživatelský účet pro editaci
     tag_line: Otevřená wiki-mapa světa
@@ -1000,7 +1055,6 @@ cs:
     user_diaries_tooltip: Zobrazit deníčky uživatelů
     view: Zobrazit
     view_tooltip: Zobrazit mapu
-    welcome_user: Vítejte, %{user_link}
     welcome_user_link_tooltip: Vaše uživatelská stránka
     wiki: wiki
     wiki_title: Wiki k tomuto projektu
@@ -1105,8 +1159,6 @@ cs:
       back_to_outbox: Zpět do odeslaných zpráv
       date: Datum
       from: Od
-      reading_your_messages: Čtení zpráv
-      reading_your_sent_messages: Čtení odeslaných zpráv
       reply_button: Odpovědět
       subject: Předmět
       title: Čtení zprávy
@@ -1117,6 +1169,37 @@ cs:
       wrong_user: Jste přihlášeni jako „%{user}“, ale zpráva, na kterou chcete odpovědět, nebyla poslána tomuto uživateli. Pokud na ni chcete odpovědět, přihlaste se pod správným účtem.
     sent_message_summary: 
       delete_button: Smazat
+  note: 
+    description: 
+      closed_at_by_html: Vyřešeno před %{when} uživatelem %{user}
+      closed_at_html: Vyřešeno před %{when}
+      commented_at_by_html: Aktualizováno před %{when} uživatelem %{user}
+      commented_at_html: Aktualizováno před %{when}
+      opened_at_by_html: Vytvořeno před %{when} uživatelem %{user}
+      opened_at_html: Vytvořeno před %{when}
+      reopened_at_by_html: Reaktivováno před %{when} uživatelem %{user}
+      reopened_at_html: Reaktivováno před %{when}
+    entry: 
+      comment: Komentář
+      full: Celá poznámka
+    mine: 
+      ago_html: před %{when}
+      created_at: Vytvořeno
+      creator: Tvůrce
+      description: Popis
+      heading: Poznámky uživatele %{user}
+      id: ID
+      last_changed: Poslední změna
+      subheading: Poznámky vytvořené nebo okomentované uživatelem %{user}
+      title: Poznámky vytvořené nebo okomentované uživatelem %{user}
+    rss: 
+      closed: poznámka uzavřena (poblíž %{place})
+      commented: nový komentář (poblíž %{place})
+      description_area: Seznam poznámek hlášených, komentovaných nebo uzavřených ve vaší oblasti [(%{min_lat}|%{min_lon}) – (%{max_lat}|%{max_lon})]
+      description_item: RSS kanál k poznámce %{id}
+      opened: nová poznámka (poblíž %{place})
+      reopened: reaktivovaná poznámka (poblíž %{place})
+      title: Poznámky OpenStreetMap
   notifier: 
     diary_comment_notification: 
       footer: Také si můžete komentář přečíst na %{readurl}, komentovat na %{commenturl} nebo odpovědět na %{replyurl}
@@ -1132,8 +1215,7 @@ cs:
     email_confirm_plain: 
       click_the_link: Pokud jste to byli vy, potvrďte změnu kliknutím na následující odkaz.
       greeting: Ahoj,
-      hopefully_you_1: Někdo (snad vy) požádal o změnu e-mailové adresy na serveru
-      hopefully_you_2: "%{server_url} na %{new_address}."
+      hopefully_you: Někdo (snad vy) požádal o změnu e-mailové adresy na serveru %{server_url} na %{new_address}.
     friend_notification: 
       befriend_them: Můžete si ho/ji také přidat jako přítele na %{befriendurl}.
       had_added_you: "%{user} si vás na OpenStreetMap přidal(a) jako přítele."
@@ -1144,6 +1226,7 @@ cs:
       and_the_tags: "a následujícími štítky:"
       failure: 
         failed_to_import: "se nepodařilo nahrát. Chybové hlášení následuje:"
+        import_failures_url: http://wiki.openstreetmap.org/wiki/GPX_Import_Failures?uselang=cs
         more_info_1: Další informace o chybách při importu GPX a rady, jak se
         more_info_2: "jim vyhnout, naleznete na:"
         subject: "[OpenStreetMap] Neúspěšný import GPX"
@@ -1162,13 +1245,31 @@ cs:
     lost_password_plain: 
       click_the_link: Pokud tedy chcete, kliknutím na níže uvedený odkaz získáte nové heslo.
       greeting: Ahoj,
-      hopefully_you_1: Někdo (patrně vy) požádal o vygenerování nového hesla pro uživatele
-      hopefully_you_2: serveru openstreetmap.org s touto e-mailovou adresou.
+      hopefully_you: Někdo (patrně vy) požádal o vygenerování nového hesla pro uživatele serveru openstreetmap.org s touto e-mailovou adresou.
     message_notification: 
       footer1: Také si můžete zprávu přečíst na %{readurl}
       footer2: a můžete odpovědět na %{replyurl}
       header: "%{from_user} vám poslal(a) prostřednictvím OpenStreetMap zprávu s předmětem %{subject}:"
       hi: Dobrý den, uživateli %{to_user},
+    note_comment_notification: 
+      anonymous: Jako anonymní uživatel
+      closed: 
+        commented_note: "%{commenter} vyřešil poznámku k mapě, kterou jste komentovali. Poznámka je umístěna poblíž %{place}."
+        subject_other: "[OpenStreetMap] %{commenter} vyřešil jednu z poznámek, která vás zajímá"
+        subject_own: "[OpenStreetMap] %{commenter} vyřešil jednu z vašich poznámek"
+        your_note: "%{commenter} vyřešil jednu z vašich poznámek k mapě nedaleko %{place}."
+      commented: 
+        commented_note: "%{commenter} okomentoval poznámku k mapě, kterou jste také komentovali. Poznámka je umístěna poblíž %{place}."
+        subject_other: "[OpenStreetMap] %{commenter} okomentoval jednu z poznámek, která vás zajímá"
+        subject_own: "[OpenStreetMap] %{commenter} okomentoval jednu z vašich poznámek"
+        your_note: "%{commenter} okomentoval jednu z vašich poznámek k mapě nedaleko %{place}."
+      details: Podrobnosti k poznámce můžete najít na %{url}.
+      greeting: Ahoj,
+      reopened: 
+        commented_note: "%{commenter} reaktivoval poznámku k mapě, kterou jste komentovali. Poznámka je umístěna poblíž %{place}."
+        subject_other: "[OpenStreetMap] %{commenter} reaktivoval jednu z poznámek, která vás zajímá"
+        subject_own: "[OpenStreetMap] %{commenter} reaktivoval jednu z vašich poznámek"
+        your_note: "%{commenter} reaktivoval jednu z vašich poznámek k mapě nedaleko %{place}."
     signup_confirm: 
       confirm: "Než budeme pokračovat, potřebujeme potvrdit, že tento požadavek přišel od vás, takže pokud jste to byli vy, klikněte prosím na odkaz níže, abyste svůj účet potvrdili:"
       created: Někdo (doufáme, že vy) si právě založil účet na %{site_url}.
@@ -1178,7 +1279,7 @@ cs:
     signup_confirm_html: 
       ask_questions: Libovolné otázky k OpenStreetMap můžete klást na našem <a href="http://help.openstreetmap.org/">webu otázek a odpovědí</a>.
       current_user: Seznam existujících uživatelů v kategoriích podle místa bydliště je dostupný v <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">kategorii Users by geographical region</a>.
-      get_reading: Přečtěte si něco o OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Cz:Beginners_Guide">na wiki</a>, sledujte aktuální dění na našem <a href="http://blog.openstreetmap.org/">blogu</a> či <a href="http://twitter.com/openstreetmap">Twitteru</a> nebo si projděte blog zakladatele OpenStreetMap Steva Coasta <a href="http://www.opengeodata.org/">OpenGeoData</a> se stručnou historií projektu i ve formě <a href="http://www.opengeodata.org/?cat=13">podcastů</a>!
+      get_reading: Přečtěte si něco o OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Cs:Beginners%27_guide">na wiki</a> a sledujte aktuální dění na našem <a href="http://blog.openstreetmap.org/">blogu</a> či <a href="http://twitter.com/openstreetmap">Twitteru</a>.
       introductory_video: Můžete si prohlédnout %{introductory_video_link}.
       more_videos: Máme i %{more_videos_link}.
       more_videos_here: další videa
@@ -1191,9 +1292,8 @@ cs:
       current_user: "Seznam stávajících kategorií pro dělení uživatelů podle bydliště je dostupný na:"
       introductory_video: "Můžete si prohlédnout úvodní video k OpenStreetMap:"
       more_videos: "Další videa najdete na:"
-      opengeodata: "OpenGeoData.org je blog zakladatele OpenStreetMap Steva Coasta, nabízí i podcasty:"
       the_wiki: "Přečtěte si něco o OpenStreetMap na wiki:"
-      the_wiki_url: http://wiki.openstreetmap.org/wiki/CS:Beginners_Guide?uselang=cs
+      the_wiki_url: http://wiki.openstreetmap.org/wiki/Cs:Beginners%27_guide?uselang=cs
       user_wiki_page: Doporučujeme, abyste si na wiki založili uživatelskou stránku, na které kategoriemi označíte, odkud pocházíte, například [[Category:Users in Praha]].
       wiki_signup: "Také se můžete chtít zaregistrovat na OpenStreetMap wiki:"
       wiki_signup_url: http://wiki.openstreetmap.org/index.php?title=Special:UserLogin&type=signup&returnto=CS:Main_Page&uselang=cs
@@ -1205,6 +1305,7 @@ cs:
       allow_write_api: upravovat mapu.
       allow_write_diary: vytvářet deníčkové záznamy, komentovat a navazovat přátelství.
       allow_write_gpx: nahrávat GPS stopy.
+      allow_write_notes: měnit poznámky.
       allow_write_prefs: měnit vaše uživatelské nastavení.
       request_access: Aplikace %{app_name} žádá o přístup k vašemu účtu %{user}. Vyberte si, zda si přejete, aby aplikace měla následující oprávnění. Můžete jich zvolit libovolný počet.
     revoke: 
@@ -1223,6 +1324,7 @@ cs:
       allow_write_api: upravovat mapu.
       allow_write_diary: vytvářet deníčkové záznamy, komentovat a navazovat přátelství.
       allow_write_gpx: nahrávat GPS stopy.
+      allow_write_notes: měnit poznámky.
       allow_write_prefs: měnit jejich uživatelské nastavení.
       callback_url: URL pro zpětné volání
       name: Název
@@ -1253,6 +1355,7 @@ cs:
       allow_write_api: upravovat mapu.
       allow_write_diary: vytvářet deníčkové záznamy, komentovat a navazovat přátelství.
       allow_write_gpx: nahrávat GPS stopy.
+      allow_write_notes: měnit poznámky.
       allow_write_prefs: měnit jejich uživatelské nastavení.
       authorize_url: "Autorizační URL:"
       confirm: Opravdu?
@@ -1261,7 +1364,7 @@ cs:
       key: "Uživatelský klíč:"
       requests: "Uživatelé se žádají o následující oprávnění:"
       secret: "Tajný klíč uživatele:"
-      support_notice: Podporujeme HMAC-SHA1 (doporučeno) i prostý text v režimu SSL.
+      support_notice: Podporujeme HMAC-SHA1 (doporučeno) a podpisy RSA-SHA1.
       title: Podrobnosti OAuth pro %{app_name}
       url: "URL tokenu požadavku:"
     update: 
@@ -1301,6 +1404,7 @@ cs:
     edit: 
       anon_edits_link_text: Proč to tak je?
       flash_player_required: Pokud chcete používat Potlatch, flashový editor OpenStreetMap, potřebujete přehrávač Flashe. Můžete si <a href="http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">stáhnout Flash Player z Adobe.com</a>. Pro editaci OpenStreetMap existuje <a href="http://wiki.openstreetmap.org/wiki/Editing">mnoho dalších možností</a>.
+      id_not_configured: iD nebyl nakonfigurován
       no_iframe_support: Váš prohlížeč nepodporuje vložené HTML rámy (iframes), které jsou pro tuto funkci nezbytné.
       not_public: Nenastavili jste své editace jako veřejné.
       not_public_description: Dokud tak neučiníte, nemůžete editovat mapu. Své editace můžete zveřejnit na %{user_page}.
@@ -1309,6 +1413,7 @@ cs:
       potlatch_unsaved_changes: Máte neuložené změny. (V Potlatchi odznačte aktuální cestu nebo bod, pokud editujete v živém režimu, nebo klikněte na tlačítko uložit, pokud tam je.)
       user_page_link: uživatelské stránce
     index: 
+      createnote: Přidat poznámku
       js_1: Buď používáte prohlížeč bez podpory JavaScriptu, nebo máte JavaScript zakázaný.
       js_2: OpenStreetMap používá pro svou interaktivní mapu JavaScript.
       license: 
@@ -1317,8 +1422,6 @@ cs:
       remote_failed: Editace se nezdařila – ujistěte se, že JOSM nebo Merkaartor běží a je zapnuto dálkové ovládání
       shortlink: Krátký odkaz
     key: 
-      map_key: Legenda
-      map_key_tooltip: Legenda k mapě
       table: 
         entry: 
           admin: Administrativní hranice
@@ -1413,6 +1516,7 @@ cs:
       search_results: Výsledky vyhledávání
   time: 
     formats: 
+      blog: "%e. %L. %Y"
       friendly: "%e. %m. %Y v %H:%M"
   trace: 
     create: 
@@ -1437,7 +1541,9 @@ cs:
       uploaded_at: "Nahráno v:"
       visibility: "Viditelnost:"
       visibility_help: co tohle znamená?
+      visibility_help_url: http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=cs
     list: 
+      description: Procházení nedávno nahraných GPS stop
       empty_html: Nic tu ještě není. <a href='%{upload_link}'>Nahrajte novou stopu</a> nebo si něco o GPS stopách přečtěte na <a href='http://wiki.openstreetmap.org/wiki/CS:Beginners_Guide_1.2'>wiki</a>.
       public_traces: Veřejné GPS stopy
       public_traces_from: Veřejné GPS stopy uživatele %{user}
@@ -1469,23 +1575,28 @@ cs:
     trace_form: 
       description: "Popis:"
       help: Nápověda
+      help_url: http://wiki.openstreetmap.org/wiki/Upload?uselang=cs
       tags: "Štítky:"
       tags_help: oddělené čárkou
       upload_button: Nahrát
       upload_gpx: "Nahrát GPX soubor:"
       visibility: "Viditelnost:"
       visibility_help: co tohle znamená?
+      visibility_help_url: http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=cs
     trace_header: 
       see_all_traces: Zobrazit všechny stopy
-      see_your_traces: Zobrazit všechny vaše stopy
-      traces_waiting: Na zpracování čeká %{count} vašich stop. Zvažte, zda by nebylo před nahráním dalších lepší počkat, dokud nebudou zpracovány, abyste neblokovali frontu dalším uživatelům.
+      see_your_traces: Zobrazit vaše stopy
+      traces_waiting: 
+        few: Na zpracování čekají %{count} vaše stopy. Zvažte, zda by nebylo před nahráním dalších lepší počkat, dokud nebudou zpracovány, abyste neblokovali frontu dalším uživatelům.
+        one: Na zpracování čeká %{count} vaše stopa. Zvažte, zda by nebylo před nahráním dalších lepší počkat, dokud nebude zpracována, abyste neblokovali frontu dalším uživatelům.
+        other: Na zpracování čeká %{count} vašich stop. Zvažte, zda by nebylo před nahráním dalších lepší počkat, dokud nebudou zpracovány, abyste neblokovali frontu dalším uživatelům.
       upload_trace: Nahrát stopu
     trace_optionals: 
       tags: Štítky
     trace_paging_nav: 
       newer: Novější stopy
       older: Starší stopy
-      showing_page: Zobrazuji stranu %{page}
+      showing_page: Stránka %{page}
     view: 
       delete_track: Smazat tuto stopu
       description: "Popis:"
@@ -1590,8 +1701,8 @@ cs:
       heading: Uživatelé
       hide: Skrýt vybrané uživatele
       showing: 
-        one: Zobrazuje se stránka %{page} (%{first_item} z %{items})
-        other: Zobrazuje se stránka %{page} (%{first_item}–%{last_item} z %{items})
+        one: Stránka %{page} (%{first_item} z %{items})
+        other: Stránka %{page} (%{first_item}–%{last_item} z %{items})
       summary: "%{name} vytvořeno %{date} z %{ip_address}"
       summary_no_ip: "%{name} vytvořen %{date}"
       title: Uživatelé
@@ -1653,7 +1764,7 @@ cs:
       button: Přidat jako přítele
       failed: Je mi líto, nepodařilo se přidat %{name} jako přítele.
       heading: Přidat uživatele %{user} jako přítele?
-      success: "%{name} je nyní váš přítel."
+      success: "%{name} je nyní váš přítel!"
     new: 
       confirm email address: "Potvrdit e-mailovou adresu:"
       confirm password: "Potvrdit heslo:"
@@ -1724,7 +1835,7 @@ cs:
       you need to accept or decline: Pro pokračování si prosím přečtěte a přijměte nebo odmítněte nové Podmínky pro přispěvatele.
     view: 
       activate_user: aktivovat tohoto uživatele
-      add as friend: přidat jako přítele
+      add as friend: přidat do přátel
       ago: (před %{time_in_words_ago})
       block_history: zablokování
       blocks by me: zablokování mnou
@@ -1744,10 +1855,10 @@ cs:
       diary: deníček
       edits: editace
       email address: "E-mailová adresa:"
-      friends_changesets: Procházet všechny sady změn mých přátel
-      friends_diaries: Procházet všechny záznamy v deníčcích přátel
+      friends_changesets: sady změn přátel
+      friends_diaries: záznamy v deníčcích přátel
       hide_user: skrýt tohoto uživatele
-      if set location: Když si nastavíte svou polohu, objeví se níže hezká mapka atp. Polohu domova si můžete nastavit na stránce %{settings_link}.
+      if set location: Pokud chcete vidět blízké uživatele, nastavte si na stránce %{settings_link} domácí souřadnice.
       km away: "%{count} km"
       latest edit: "Poslední editace %{ago}:"
       m away: "%{count} m"
@@ -1756,16 +1867,18 @@ cs:
       my comments: moje komentáře
       my diary: můj deníček
       my edits: moje editace
+      my notes: moje poznámky k mapě
       my settings: moje nastavení
       my traces: moje stopy
       nearby users: Další uživatelé poblíž
-      nearby_changesets: Procházet všechny sady změn uživatelů poblíž
-      nearby_diaries: Procházet všechny záznamy v deníčcích uživatelů poblíž
+      nearby_changesets: sady změn uživatelů poblíž
+      nearby_diaries: záznamy v deníčcích uživatelů poblíž
       new diary entry: nový záznam do deníčku
       no friends: Zatím jste nepřidali žádné přátele.
       no nearby users: Nejsou známi žádní uživatelé, kteří by uvedli domov blízko vás.
+      notes: poznámky k mapě
       oauth settings: nastavení oauth
-      remove as friend: odstranit jako přítele
+      remove as friend: odebrat z přátel
       role: 
         administrator: Tento uživatel je správce
         grant: 
@@ -1844,7 +1957,7 @@ cs:
       revoke: Zrušit !
       revoker_name: Zrušno
       show: Zobrazit
-      showing_page: Zobrazuji stranu %{page}
+      showing_page: Stránka %{page}
       status: Stav
     period: 
       one: 1 hodina

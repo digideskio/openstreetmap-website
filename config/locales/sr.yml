@@ -1,6 +1,7 @@
 # Messages for Serbian (Cyrillic script) (српски (ћирилица)‎)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
+# Author: Milicevic01
 # Author: Nemo bis
 # Author: Nikola Smolenski
 # Author: Rancher
@@ -39,7 +40,7 @@ sr:
       user: 
         active: Активан
         description: Опис
-        display_name: Име приказа
+        display_name: Приказано име
         email: Е-пошта
         languages: Језици
         pass_crypt: Лозинка
@@ -142,10 +143,12 @@ sr:
       all: 
         next_changeset_tooltip: Следећи скуп измена
         next_node_tooltip: Следећи чвор
+        next_note_tooltip: Следећа белешка
         next_relation_tooltip: Следећи однос
         next_way_tooltip: Следећа путања
         prev_changeset_tooltip: Претходни скуп измена
         prev_node_tooltip: Претходни чвор
+        prev_note_tooltip: Претходна белешка
         prev_relation_tooltip: Претходни однос
         prev_way_tooltip: Претходна путања
       paging: 
@@ -180,9 +183,18 @@ sr:
         node: чвор
         relation: однос
         way: путања
+    note: 
+      at_by_html: пре %{when} од стране %{user}
+      at_html: пре %{when}
+      closed: "Затворено:"
+      comments: "Коментари:"
+      description: "Опис:"
+      last_modified: "Последња измена:"
+      opened: "Отворено:"
+      title: Белешка
     paging_nav: 
       of: од
-      showing_page: Приказ странице
+      showing_page: страница
     redacted: 
       message_html: Верзија %{version} ове %{type} не може да се прикаже будући да је редигована. Више на %{redaction_link}.
       redaction: Редакција %{id}
@@ -223,7 +235,7 @@ sr:
       manually_select: Ручно изаберите друго подручје
       object_list: 
         api: Добави ово подручје помоћу АПИ-ја
-        back: Прикажи списак предмета
+        back: Назад на списак предмета
         details: Детаљи
         heading: Списак предмета
         history: 
@@ -241,6 +253,7 @@ sr:
       show_areas: Прикажи подручја
       show_history: Прикажи историју
       unable_to_load_size: "Не могу да учитам: гранична величина оквира %{bbox_size} је превелика (мора бити мања од %{max_bbox_size})"
+      view_data: Прикажи податке за тренутни приказ мапе
       wait: Причекајте…
       zoom_or_select: Увећајте или изаберите подручје које желите да погледате
     tag_details: 
@@ -277,7 +290,6 @@ sr:
     changeset: 
       anonymous: Анонимно
       big_area: (велико)
-      id: бр. %{id}
       no_comment: (нема коментара)
       no_edits: (нема измена)
       show_area_box: погледај оквир подручја
@@ -286,7 +298,7 @@ sr:
     changeset_paging_nav: 
       next: Следећа »
       previous: « Претходна
-      showing_page: Приказ странице %{page}
+      showing_page: Страница %{page}
     changesets: 
       area: Подручје
       comment: Коментар
@@ -467,6 +479,14 @@ sr:
         uk_postcode: Резултати из <a href="http://www.npemap.org.uk/">NPEMap-а</a>
         us_postcode: Резултати из <a href="http://geocoder.us/">Геокодера</a>
     search_osm_nominatim: 
+      admin_levels: 
+        level10: Приградска граница
+        level2: Државна граница
+        level4: Савезна граница
+        level5: Регионална граница
+        level6: Окружна граница
+        level8: Градска граница
+        level9: Сеоска граница
       prefix: 
         aeroway: 
           aerodrome: Аеродром
@@ -712,6 +732,8 @@ sr:
           airfield: Војни аеродром
           barracks: Касарна
           bunker: Бункер
+        mountain_pass: 
+          "yes": Планински прелаз
         natural: 
           bay: Залив
           beach: Плажа
@@ -938,8 +960,12 @@ sr:
         mapquest: Мапквест опен
         standard: Стандардна
         transport_map: Саобраћајна мапа
-      overlays: 
-        maplint: Маплинт
+    notes: 
+      show: 
+        comment: Коментариши
+        comment_and_resolve: Коментариши и реши
+        hide: Сакриј
+        resolve: Реши
     site: 
       edit_disabled_tooltip: Увећајте приказ да бисте уредили мапу
       edit_tooltip: Уредите мапу
@@ -1008,7 +1034,6 @@ sr:
     user_diaries_tooltip: Погледајте корисничке дневнике
     view: Преглед
     view_tooltip: Погледајте мапу
-    welcome_user: Добро дошли, %{user_link}
     welcome_user_link_tooltip: Ваша корисничка страница
     wiki: вики
     wiki_title: Вики странице пројекта
@@ -1108,8 +1133,6 @@ sr:
       back_to_outbox: Назад на послате
       date: Датум
       from: Од
-      reading_your_messages: Ваше поруке
-      reading_your_sent_messages: Ваше послате поруке
       reply_button: Одговори
       subject: Наслов
       title: Прочитај поруку
@@ -1120,6 +1143,18 @@ sr:
       wrong_user: Пријављени сте као %{user}, али порука на коју сте желели да одговорите није послата том кориснику. Пријавите се као исправан корисник да бисте одговорили.
     sent_message_summary: 
       delete_button: Обриши
+  note: 
+    description: 
+      opened_at_html: Направљено пре %{when}
+    entry: 
+      comment: Коментар
+      full: Потпуна белешка
+    mine: 
+      created_at: Направљено
+      creator: Творац
+      description: Опис
+      id: Id
+      last_changed: Последња измена
   notifier: 
     diary_comment_notification: 
       footer: Можете прочитати коментаре на %{readurl}, прокоментарисати на %{commenturl} или одговорити на %{replyurl}
@@ -1135,8 +1170,7 @@ sr:
     email_confirm_plain: 
       click_the_link: Ако сте то ви, кликните на везу испод да бисте потврдили измене.
       greeting: Поздрав,
-      hopefully_you_1: Неко (вероватно ви) желео би да промени е-адресу на
-      hopefully_you_2: "%{server_url} на %{new_address}."
+      hopefully_you: Неко (вероватно ви) желео би да промени е-адресу са %{server_url} на %{new_address}.
     friend_notification: 
       befriend_them: Можете га/је додати и као пријатеља на %{befriendurl}.
       had_added_you: "%{user} вас је додао као пријатеља на Опенстритмапу."
@@ -1166,14 +1200,15 @@ sr:
     lost_password_plain: 
       click_the_link: Ако сте то ви, кликните на везу испод да бисте поништили лозинку.
       greeting: Поздрав,
-      hopefully_you_1: Неко (вероватно ви) затражио је поништавање лозинке за
-      hopefully_you_2: налог с овом е-адресом.
     message_notification: 
       footer1: Можете прочитати поруку и на %{readurl}
       footer2: и можете одговорити на %{replyurl}
       header: "%{from_user} вам посла поруку преко Опенстритмапа под насловом %{subject}:"
       hi: Поздрав, %{to_user},
       subject_header: "[Опенстритмап] – %{subject}"
+    note_comment_notification: 
+      anonymous: Анонимни корисник
+      greeting: Поздрав,
     signup_confirm: 
       created: Неко (надамо се ви) управо је отворио налог на %{site_url}.
       greeting: Здраво!
@@ -1193,7 +1228,6 @@ sr:
       blog_and_twitter: "Будите у току с најновијим вестима преко блога или Твитера:"
       introductory_video: "Погледајте уводни видео-снимак за Опенстритмап овде:"
       more_videos: "Више видео-снимака можете наћи овде:"
-      opengeodata: "OpenGeoData.org је блог Стива Коста, оснивача Опенстритмапа:"
       the_wiki: "Прочитајте више о Опенстритмапу на викију:"
       the_wiki_url: http://wiki.openstreetmap.org/wiki/Sr:Beginners'_guide?uselang=sr-ec
       wiki_signup: "Можете и отворити налог на нашем викију:"
@@ -1224,6 +1258,7 @@ sr:
       allow_write_api: мењање мапе.
       allow_write_diary: прављење уноса у дневнику, коментарисање и додавање пријатеља.
       allow_write_gpx: отпремање ГПС трагова.
+      allow_write_notes: измени белешке.
       allow_write_prefs: мењање корисничких поставки.
       callback_url: Повратна адреса
       name: Име
@@ -1254,6 +1289,7 @@ sr:
       allow_write_api: мења мапу.
       allow_write_diary: прави уносе у дневнику, коментарише и додаје пријатеље.
       allow_write_gpx: отпрема ГПС трагове.
+      allow_write_notes: измени белешке.
       allow_write_prefs: мења корисничке поставке.
       authorize_url: "Адреса овлашћења:"
       confirm: Јесте ли сигурни?
@@ -1313,6 +1349,7 @@ sr:
       potlatch_unsaved_changes: Нисте сачували измене. Да бисте то урадили, поништите текућу путању или тачку, ако уређујете наживо, или кликните на дугме за чување.
       user_page_link: корисничке странице
     index: 
+      createnote: Додај белешку
       js_1: Користите прегледач који не подржава јаваскрипт или сте га онемогућили.
       js_2: Опенстритмап користи јаваскрипт за приказивање мапа.
       license: 
@@ -1321,8 +1358,6 @@ sr:
       remote_failed: Уређивање није успело. Проверите да ли је JOSM или Merkaartor учитан и да је могућност даљинског управљања омогућена
       shortlink: Кратка веза
     key: 
-      map_key: Легенда
-      map_key_tooltip: Легенда мапе
       table: 
         entry: 
           admin: Административна граница
@@ -1637,7 +1672,7 @@ sr:
           title: Пријава путем Јахуа
       password: "Лозинка:"
       register now: Отворите налог
-      remember: "Запамти ме:"
+      remember: Запамти ме
       title: Пријава
       to make changes: Да бисте правили измене, морате имати налог.
       with openid: "Резервни начин је да користите OpenID:"

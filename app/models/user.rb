@@ -4,14 +4,16 @@ class User < ActiveRecord::Base
   has_many :traces, :conditions => { :visible => true }
   has_many :diary_entries, :order => 'created_at DESC'
   has_many :diary_comments, :order => 'created_at DESC'
-  has_many :messages, :foreign_key => :to_user_id, :conditions => { :to_user_visible => true }, :order => 'sent_on DESC'
+  has_many :messages, :foreign_key => :to_user_id, :conditions => { :to_user_visible => true }, :order => 'sent_on DESC', :include => [:sender, :recipient]
   has_many :new_messages, :class_name => "Message", :foreign_key => :to_user_id, :conditions => { :to_user_visible => true, :message_read => false }, :order => 'sent_on DESC'
-  has_many :sent_messages, :class_name => "Message", :foreign_key => :from_user_id, :conditions => { :from_user_visible => true }, :order => 'sent_on DESC'
+  has_many :sent_messages, :class_name => "Message", :foreign_key => :from_user_id, :conditions => { :from_user_visible => true }, :order => 'sent_on DESC', :include => [:sender, :recipient]
   has_many :friends, :include => :befriendee, :conditions => "users.status IN ('active', 'confirmed')"
   has_many :friend_users, :through => :friends, :source => :befriendee
   has_many :tokens, :class_name => "UserToken"
   has_many :preferences, :class_name => "UserPreference"
   has_many :changesets, :order => 'created_at DESC'
+  has_many :note_comments, :foreign_key => :author_id
+  has_many :notes, :through => :note_comments
 
   has_many :client_applications
   has_many :oauth_tokens, :class_name => "OauthToken", :order => "authorized_at desc", :include => [:client_application]
@@ -50,6 +52,7 @@ class User < ActiveRecord::Base
 
   after_initialize :set_defaults
   before_save :encrypt_password
+  after_save :spam_check
 
   has_attached_file :image,
     :default_url => "/assets/:class/:attachment/:style.png",
@@ -142,14 +145,7 @@ class User < ActiveRecord::Base
   end
 
   def is_friends_with?(new_friend)
-    res = false
-    @new_friend = new_friend
-    self.friends.each do |friend|
-      if friend.friend_user_id == @new_friend.id
-        return true
-      end
-    end
-    return false
+    self.friends.where(:friend_user_id => new_friend.id).exists?
   end
 
   ##
@@ -219,6 +215,14 @@ class User < ActiveRecord::Base
     score -= trace_score
 
     return score.to_i
+  end
+
+  ##
+  # perform a spam check on a user
+  def spam_check
+    if status == "active" and spam_score > SPAM_THRESHOLD
+      update_column(:status, "suspended")
+    end
   end
 
   ##

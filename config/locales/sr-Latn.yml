@@ -273,7 +273,6 @@ sr-Latn:
     changeset: 
       anonymous: Anonimno
       big_area: (veliko)
-      id: br. %{id}
       no_comment: (nema komentara)
       no_edits: (nema izmena)
       show_area_box: pogledaj okvir područja
@@ -934,8 +933,6 @@ sr-Latn:
         mapquest: Mapkvest open
         standard: Standardna
         transport_map: Saobraćajna mapa
-      overlays: 
-        maplint: Maplint
     site: 
       edit_disabled_tooltip: Uvećajte prikaz da biste uredili mapu
       edit_tooltip: Uredite mapu
@@ -1004,7 +1001,6 @@ sr-Latn:
     user_diaries_tooltip: Pogledajte korisničke dnevnike
     view: Pregled
     view_tooltip: Pogledajte mapu
-    welcome_user: Dobro došli, %{user_link}
     welcome_user_link_tooltip: Vaša korisnička stranica
     wiki: viki
     wiki_title: Viki stranice projekta
@@ -1098,8 +1094,6 @@ sr-Latn:
       back_to_outbox: Nazad na poslate
       date: Datum
       from: Od
-      reading_your_messages: Vaše poruke
-      reading_your_sent_messages: Vaše poslate poruke
       reply_button: Odgovori
       subject: Naslov
       title: Pročitaj poruku
@@ -1125,8 +1119,6 @@ sr-Latn:
     email_confirm_plain: 
       click_the_link: Ako ste to vi, kliknite na vezu ispod da biste potvrdili izmene.
       greeting: Pozdrav,
-      hopefully_you_1: Neko (verovatno vi) želeo bi da promeni e-adresu na
-      hopefully_you_2: "%{server_url} na %{new_address}."
     friend_notification: 
       befriend_them: Možete ga/je dodati i kao prijatelja na %{befriendurl}.
       had_added_you: "%{user} vas je dodao kao prijatelja na Openstritmapu."
@@ -1156,8 +1148,6 @@ sr-Latn:
     lost_password_plain: 
       click_the_link: Ako ste to vi, kliknite na vezu ispod da biste poništili lozinku.
       greeting: Pozdrav,
-      hopefully_you_1: Neko (verovatno vi) zatražio je poništavanje lozinke za
-      hopefully_you_2: nalog s ovom e-adresom.
     message_notification: 
       footer1: Možete pročitati poruku i na %{readurl}
       footer2: i možete odgovoriti na %{replyurl}
@@ -1181,7 +1171,6 @@ sr-Latn:
       blog_and_twitter: "Budite u toku s najnovijim vestima preko bloga ili Tvitera:"
       introductory_video: "Pogledajte uvodni video-snimak za Openstritmap ovde:"
       more_videos: "Više video-snimaka možete naći ovde:"
-      opengeodata: "OpenGeoData.org je blog Stiva Kosta, osnivača Openstritmapa:"
       the_wiki: "Pročitajte više o Openstritmapu na vikiju:"
       the_wiki_url: http://wiki.openstreetmap.org/wiki/Sr:Beginners'_guide?uselang=sr-ec
       wiki_signup: "Možete i otvoriti nalog na našem vikiju:"
@@ -1307,8 +1296,6 @@ sr-Latn:
       remote_failed: Uređivanje nije uspelo. Proverite da li je JOSM ili Merkaartor učitan i da je mogućnost daljinskog upravljanja omogućena
       shortlink: Kratka veza
     key: 
-      map_key: Legenda
-      map_key_tooltip: Legenda mape
       table: 
         entry: 
           admin: Administrativna granica

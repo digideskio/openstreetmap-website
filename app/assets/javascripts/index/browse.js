@@ -2,7 +2,7 @@
 //= require templates/browse/feature_list
 //= require templates/browse/feature_history
 
-$(document).ready(function () {
+function initializeBrowse(map, params) {
   var browseBounds;
   var layersById;
   var selectedLayer;
@@ -10,20 +10,20 @@ $(document).ready(function () {
   var areasHidden = false;
   var locationFilter;
 
-  var dataLayer = new L.OSM.DataLayer(null, {
-    styles: {
-      way: {
-        weight: 3,
-        color: "#000000",
-        opacity: 0.4
-      },
-      area: {
-        weight: 3,
-        color: "#ff0000"
-      },
-      node: {
-        color: "#00ff00"
-      }
+  var dataLayer = map.dataLayer;
+
+  dataLayer.setStyle({
+    way: {
+      weight: 3,
+      color: "#000000",
+      opacity: 0.4
+    },
+    area: {
+      weight: 3,
+      color: "#ff0000"
+    },
+    node: {
+      color: "#00ff00"
     }
   });
 
@@ -34,10 +34,6 @@ $(document).ready(function () {
   dataLayer.on("click", function (e) {
     onSelect(e.layer);
   });
-
-  if (OSM.STATUS != 'api_offline' && OSM.STATUS != 'database_offline') {
-    map.layersControl.addOverlay(dataLayer, I18n.t("browse.start_rjs.data_layer_name"));
-  }
 
   map.on('layeradd', function (e) {
     if (e.layer === dataLayer) {
@@ -53,6 +49,12 @@ $(document).ready(function () {
     }
   });
 
+  if (OSM.STATUS != 'api_offline' && OSM.STATUS != 'database_offline') {
+    if (params.layers.indexOf(dataLayer.options.code) >= 0) {
+      map.addLayer(dataLayer);
+    }
+  }
+
   function startBrowse(sidebarHtml) {
     locationFilter = new L.LocationFilter({
       enableButton: false,
@@ -66,13 +68,15 @@ $(document).ready(function () {
 
     openSidebar();
 
+    if (browseObjectList) loadObjectList();
+
     map.on("moveend", updateData);
     updateData();
 
-    $("#browse_filter_toggle").toggle(enableFilter, disableFilter);
+    $("#browse_filter_toggle").click(toggleFilter);
 
     $("#browse_hide_areas_box").html(I18n.t('browse.start_rjs.hide_areas'));
-    $("#browse_hide_areas_box").toggle(hideAreas, showAreas);
+    $("#browse_hide_areas_box").click(toggleAreas);
 
     $("#sidebar").one("closed", function () {
       map.removeLayer(dataLayer);
@@ -96,28 +100,28 @@ $(document).ready(function () {
     }
   }
 
-  function enableFilter() {
-    $("#browse_filter_toggle").html(I18n.t('browse.start_rjs.view_data'));
-    locationFilter.setBounds(map.getBounds().pad(-0.2));
-    locationFilter.enable();
+  function toggleFilter() {
+    if (locationFilter.isEnabled()) {
+      $("#browse_filter_toggle").html(I18n.t('browse.start_rjs.manually_select'));
+      locationFilter.disable();
+    } else {
+      $("#browse_filter_toggle").html(I18n.t('browse.start_rjs.view_data'));
+      locationFilter.setBounds(map.getBounds().pad(-0.2));
+      locationFilter.enable();
+    }
+
     getData();
   }
 
-  function disableFilter() {
-    $("#browse_filter_toggle").html(I18n.t('browse.start_rjs.manually_select'));
-    locationFilter.disable();
-    getData();
-  }
+  function toggleAreas() {
+    if (areasHidden) {
+      $("#browse_hide_areas_box").html(I18n.t('browse.start_rjs.hide_areas'));
+      areasHidden = false;
+    } else {
+      $("#browse_hide_areas_box").html(I18n.t('browse.start_rjs.show_areas'));
+      areasHidden = true;
+    }
 
-  function hideAreas() {
-    $("#browse_hide_areas_box").html(I18n.t('browse.start_rjs.show_areas'));
-    areasHidden = true;
-    getData();
-  }
-
-  function showAreas() {
-    $("#browse_hide_areas_box").html(I18n.t('browse.start_rjs.hide_areas'));
-    areasHidden = false;
     getData();
   }
 
@@ -140,6 +144,8 @@ $(document).ready(function () {
     $("#browse_content").append(div);
   }
 
+  var dataLoader;
+
   function getData() {
     var bounds = locationFilter.isEnabled() ? locationFilter.getBounds() : map.getBounds();
     var size = bounds.getSize();
@@ -151,7 +157,7 @@ $(document).ready(function () {
 
     setStatus(I18n.t('browse.start_rjs.loading'));
 
-    var url = "/api/" + OSM.API_VERSION + "/map?bbox=" + bounds.toBBOX();
+    var url = "/api/" + OSM.API_VERSION + "/map?bbox=" + bounds.toBBoxString();
 
     /*
      * Modern browsers are quite happy showing far more than 100 features in
@@ -168,7 +174,9 @@ $(document).ready(function () {
       }
     @*/
 
-    $.ajax({
+    if (dataLoader) dataLoader.abort();
+
+    dataLoader = $.ajax({
       url: url,
       success: function (xml) {
         clearStatus();
@@ -207,6 +215,8 @@ $(document).ready(function () {
         } else {
           displayFeatureWarning(features.length, maxFeatures, addFeatures);
         }
+
+        dataLoader = null;
       }
     });
   }
@@ -327,4 +337,4 @@ $(document).ready(function () {
     $("#browse_status").html("");
     $("#browse_status").hide();
   }
-});
+}

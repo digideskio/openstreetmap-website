@@ -269,7 +269,6 @@ tl:
     changeset: 
       anonymous: Hindi nagpapakilala (anonimo)
       big_area: (malaki)
-      id: "#%{id}"
       no_comment: (wala)
       no_edits: (walang mga pamamatnugot)
       show_area_box: ipakita ang kahon ng pook
@@ -930,8 +929,6 @@ tl:
         mapquest: Bukas ang MapQuest
         standard: Pamantayan
         transport_map: Mapa ng Biyahe
-      overlays: 
-        maplint: Maplint
     site: 
       edit_disabled_tooltip: Lumapit upang baguhin ang mapa
       edit_tooltip: Baguhin ang mapa
@@ -1002,7 +999,6 @@ tl:
     user_diaries_tooltip: Tingnan ang mga talaarawan ng tagagamit
     view: Tingnan
     view_tooltip: Tingnan ang mapa
-    welcome_user: Maligayang pagdating, %{user_link}
     welcome_user_link_tooltip: Ang iyong pahina ng tagagamit
     wiki: Wiki
     wiki_title: Lugar ng wiki para sa proyekto
@@ -1097,8 +1093,6 @@ tl:
       back_to_outbox: Bumalik sa kahong-labasan
       date: Petsa
       from: Mula sa
-      reading_your_messages: Binabasa ang mga mensahe mo
-      reading_your_sent_messages: Binabasa ang ipinadala mong mga mensahe
       reply_button: Tumugon
       subject: Paksa
       title: Basahin ang mensahe
@@ -1124,8 +1118,6 @@ tl:
     email_confirm_plain: 
       click_the_link: Kung ikaw ito, mangyaring pindutin ang kawing na nasa ibaba upang tiyakin ang pagbabago.
       greeting: Kumusta,
-      hopefully_you_1: May isang tao (ikaw sana) ang may nais na baguhin ang kanilang tirahan ng e-liham na nandoon sa
-      hopefully_you_2: "%{server_url} papunta sa %{new_address}."
     friend_notification: 
       befriend_them: Maaari mong rin silang idagdag bilang isang kaibigan doon sa %{befriendurl}.
       had_added_you: Idinagdag ka ni %{user} bilang isang kaibigan doon sa OpenStreetMap.
@@ -1155,8 +1147,6 @@ tl:
     lost_password_plain: 
       click_the_link: Kung ikaw ito, mangyaring pindutin ang kawing na nasa ibaba upang itakdang muli ang hudyat mo.
       greeting: Kumusta,
-      hopefully_you_1: May isang tao (marahil ay ikaw) ang humiling na itakdang muli ang hudyat dito sa
-      hopefully_you_2: akawnt ng openstreetmap.org ng mga tirahan ng e-liham.
     message_notification: 
       footer1: Maaari mo ring basahin ang mensahe roon sa %{readurl}
       footer2: at maaari kang tumugon doon sa %{replyurl}
@@ -1180,7 +1170,6 @@ tl:
       blog_and_twitter: "Humabol sa pinakahuling mga balita sa pamamagitan ng blog ng OpenStreetMap o Twitter:"
       introductory_video: "Maaari kang makapanood ng isang bidyo ng pagpapakilala sa OpenStreetMap dito:"
       more_videos: "May marami pang mga bidyo rito:"
-      opengeodata: "Ang OpenGeoData.org ay ang blog ng tagapagtatag ng OpenStreetMap na si Steve Coast, at mayroon din itong mga podkast:"
       the_wiki: "Kumuha ng mababasa tungkol sa OpenStreetMap doon sa wiki:"
       the_wiki_url: http://wiki.openstreetmap.org/wiki/Beginners%27_Guide
       wiki_signup: "Marahil ay nais mo ring magpatala sa wiki ng OpenStreetMap doon sa:"
@@ -1306,8 +1295,6 @@ tl:
       remote_failed: Nabigo ang pamamatnugot - tiyaking naikarga ang JOSM or Merkaartor at kung gumagana ang pagpipilian ng malayong pantaban
       shortlink: Maikling kawing
     key: 
-      map_key: Susi ng Mapa
-      map_key_tooltip: Susi para sa mapa
       table: 
         entry: 
           admin: Hangganang pampangangasiwa

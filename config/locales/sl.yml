@@ -4,6 +4,7 @@
 # Author: Dbc334
 # Author: Eleassar
 # Author: Lesko987
+# Author: Mateju
 # Author: Stefanb
 sl: 
   activerecord: 
@@ -173,7 +174,7 @@ sl:
         way: pot
     paging_nav: 
       of: od
-      showing_page: Prikazana stran
+      showing_page: stran
     redacted: 
       message_html: Verzija %{version} te %{type} ne more biti prikazana, ker je bila zavrnjena licenca. Glej %{redaction_link} za podrobnosti.
       redaction: Redakcija %{id}
@@ -213,7 +214,7 @@ sl:
       manually_select: Ročno izberite drugo področje
       object_list: 
         api: Pridobi področje iz programskega vmesnika (API)
-        back: Prikaži seznam predmetov
+        back: Nazaj na seznam predmetov
         details: Podrobnosti
         heading: Seznam predmetov
         history: 
@@ -255,7 +256,8 @@ sl:
       way_title: "Pot: %{way_name}"
     way_details: 
       also_part_of: 
-        other: tudi del poti %{related_ways}
+        one: del poti %{related_ways}
+        other: del poti %{related_ways}
       nodes: "Vozlišča:"
       part_of: "Del:"
     way_history: 
@@ -267,7 +269,6 @@ sl:
     changeset: 
       anonymous: Brezimen
       big_area: (veliko)
-      id: št. %{id}
       no_comment: (brez)
       no_edits: (brez sprememb)
       show_area_box: prikaži pravokotno področje
@@ -276,7 +277,7 @@ sl:
     changeset_paging_nav: 
       next: Naslednja »
       previous: « Prejšnja
-      showing_page: Prikazovanje strani %{page}
+      showing_page: Stran %{page}
     changesets: 
       area: Področje
       comment: Komentar
@@ -284,13 +285,13 @@ sl:
       saved_at: Shranjen
       user: Uporabnik
     list: 
-      description: Nedavne spremembe
+      description: Prebrskaj nedavno dodane podrobnosti zemljevida
       description_bbox: Paketi sprememb znotraj področja %{bbox}
       description_friend: Paketi sprememb vaših prijateljev
       description_nearby: Paketi sprememb bližnjih uporabnikov
       description_user: Paketi sprememb uporabnika %{user}
       description_user_bbox: Paketi sprememb uporabnika %{user} znotraj %{bbox}
-      empty_anon_html: " Še brez urejanj"
+      empty_anon_html: Vsebina še ni bila spremenjena.
       empty_user_html: Izgleda, da si še niste ničesar urejali. Če želite začeti, preglejte <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>Navodila za začetnike</a>.
       heading: Paketi sprememb
       heading_bbox: Paketi sprememb
@@ -359,7 +360,7 @@ sl:
       newer_entries: Novejši zapisi
       no_entries: Ni zapisov v dnevnik
       older_entries: Starejši zapisi
-      recent_entries: "Nedavni zapisi v dnevnik:"
+      recent_entries: Nedavni vnosi v dnevnik
       title: Dnevniki uporabnikov
       title_friends: Dnevniki vaših prijateljev
       title_nearby: Dnevniki bližnjih uporabnikov
@@ -383,6 +384,9 @@ sl:
       user_title: Dnevnik uporabnika %{user}
   editor: 
     default: Privzet (trenutno %{name})
+    id: 
+      description: iD (vgrajeni urejevalnik)
+      name: iD
     potlatch: 
       description: Potlatch 1 (v brskalniku)
       name: Potlatch 1
@@ -912,6 +916,13 @@ sl:
         cycle_map: Kolesarska karta
         standard: Privzeta karta
         transport_map: Transportna karta
+    notes: 
+      show: 
+        comment: Komentar
+        comment_and_resolve: Komentiraj in razreši
+        hide: Skrij
+        reactivate: Znova aktiviraj
+        resolve: Razreši
     site: 
       edit_disabled_tooltip: Povečajte za urejanje zemljevida
       edit_tooltip: Urejanje zemljevida
@@ -978,7 +989,6 @@ sl:
     user_diaries_tooltip: Pregled dnevnikov uporabnikov
     view: Zemljevid
     view_tooltip: Prikaži zemljevid
-    welcome_user: Dobrodošli, %{user_link}
     welcome_user_link_tooltip: Vaša uporabniška stran
     wiki: Wiki
     wiki_title: Wiki stran za projekt
@@ -987,6 +997,8 @@ sl:
       english_link: angleški izvirnik
       text: V primeru neskladja med tem prevodom in %{english_original_link} se bo uporabila angleška stran
       title: O tem prevodu
+    legal_babble: 
+      title_html: Avtorske pravice in dovoljenja
     native: 
       mapping_link: začnete kartirati
       native_link: Slovensko verzijo
@@ -1056,8 +1068,6 @@ sl:
       back_to_outbox: Nazaj na poslano pošto
       date: Datum
       from: Od
-      reading_your_messages: Prebiranje vaših sporočil
-      reading_your_sent_messages: Prebiranje vaših poslanih sporočil
       reply_button: Odgovori
       subject: Zadeva
       title: Branje sporočila
@@ -1083,8 +1093,6 @@ sl:
     email_confirm_plain: 
       click_the_link: Če ste to vi, vas prosimo, da kliknete na spodnjo povezavo za potrditev spremembe.
       greeting: Pozdravljeni,
-      hopefully_you_1: Nekdo (upamo, da vi) je zahteval spremembo svojega e-poštnega naslova v
-      hopefully_you_2: "%{server_url} na %{new_address}."
     friend_notification: 
       befriend_them: Lahko ga tudi dodate kot prijatelja na %{befriendurl}.
       had_added_you: "%{user} vas je dodal med prijatelje na OpenStreetMap."
@@ -1113,8 +1121,6 @@ sl:
     lost_password_plain: 
       click_the_link: Če ste to vi, vas prosimo, da kliknete na spodnjo povezavo za ponastavitev gesla.
       greeting: Pozdravljeni,
-      hopefully_you_1: Nekdo (upamo, da vi) je zahteval ponastavitev gesla openstreetmap.org
-      hopefully_you_2: uporabniškega računa s tem naslovom e-pošte.
     message_notification: 
       footer1: Sporočilo lahko preberete tudi na %{readurl}
       footer2: in nanj odgovorite na naslovu %{replyurl}
@@ -1125,7 +1131,7 @@ sl:
     signup_confirm_html: 
       ask_questions: Vsa vprašanja, ki jih imate o OpenStreetMap lahko vprašate na naši strani <a href="http://help.openstreetmap.org/">vprašanja in odgovori</a>.
       current_user: Seznam trenutnih uporabnikov po kategorijah glede na njihov geografski položaj je na razpolago v kategoriji <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: Preberite si več o spletišču OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">na wikiju</a>, seznanite se z najnovejšimi novicami prek <a href="http://blog.openstreetmap.org/">bloga OpenStreetMap </a> ali <a href="http://twitter.com/openstreetmap">Twitterja</a> ali prebrskajte blog Steva Coasta, ustanovitelja OpenStreetMap <a href="http://www.opengeodata.org/">OpenGeoData</a> za povzeto zgodovino projekta, ki vsebuje tudi <a href="http://www.opengeodata.org/?cat=13">zvočne poddaje</a>!
+      get_reading: Preberite več o OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_guide">na wikiju</a>, seznanite se z najnovejšimi novicami na <a href="http://blog.openstreetmap.org/">blogu OpenStreetMap</a> ali <a href="http://twitter.com/openstreetmap">Twitterju</a>.
       introductory_video: Ogledate si lahko %{introductory_video_link}.
       more_videos: Ogledate si lahko %{more_videos_link}.
       more_videos_here: še več video posnetkov
@@ -1137,7 +1143,6 @@ sl:
       blog_and_twitter: "Spremljajte novice preko OpenStreetMap bloga ali Twitterja:"
       introductory_video: "Uvodni video posnetek si lahko pogledate na naslovu:"
       more_videos: "Več video posnetkov je na naslovu:"
-      opengeodata: "OpenGeoData.org je blog ustanovitelja OpenStreetMap Steva Coasta, ima pa tudi podcaste:"
       the_wiki: "Več o projektu OpenStreetMap si preberite v wiki-ju:"
       wiki_signup: "Lahko ustvarite račun tudi na wiki projektu OpenStreetMap na naslovu:"
   oauth: 
@@ -1204,7 +1209,7 @@ sl:
       key: "Uporabnikov ključ:"
       requests: "Zahteva dovoljenja za naslednje dostope do uporabnikovih podatkov:"
       secret: "Uporabnikova skrivnost:"
-      support_notice: Podpiramo HMAC-SHA1 (priporočeno), pa tudi kot golo besedilo v ssl načinu.
+      support_notice: Podpiramo HMAC-SHA1 (priporočeno) in podpise RSA-SHA1.
       title: Podatki OAuth za %{app_name}
       url: "URL zahteve žetona:"
     update: 
@@ -1260,8 +1265,6 @@ sl:
       remote_failed: Urejanje ni uspelo - poskrbite da je JOSM ali Merkaartor naložen in je možnost daljinskega upravljanja omogočena
       shortlink: Kratka povezava
     key: 
-      map_key: Legenda
-      map_key_tooltip: Legenda zemljevida
       table: 
         entry: 
           admin: Upravna razmejitev
@@ -1381,6 +1384,7 @@ sl:
       visibility: "Vidljivost:"
       visibility_help: kaj to pomeni?
     list: 
+      description: Prebrskaj nedavno poslane sledi GPS
       empty_html: Prazno. <a href='%{upload_link}'>Naložite novo sled</a> oziroma izvedete več o GPS sledeh na <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>wiki strani</a>.
       public_traces: Javne sledi GPS
       public_traces_from: Javne sledi GPS uporabnika %{user}
@@ -1421,14 +1425,16 @@ sl:
     trace_header: 
       see_all_traces: Seznam vseh sledi
       see_your_traces: Seznam vseh mojih sledi
-      traces_waiting: Imate %{count} sledi v vrsti za obdelavo. Prosimo, počakajte, da se te poti obdelajo pred nadaljnjim nalaganjem, tako da lahko storitev uporabljajo tudi drugi uporabniki.
+      traces_waiting: 
+        one: V vrsti za obdelavo imate %{count} sled. Prosimo, počakajte, da se obdelajo pred nadaljnjim nalaganjem, tako da lahko storitev uporabljajo tudi drugi uporabniki.
+        other: V vrsti za obdelavo imate %{count} sledi. Prosimo, počakajte, da se obdelajo pred nadaljnjim nalaganjem, tako da lahko storitev uporabljajo tudi drugi uporabniki.
       upload_trace: Naloži sled GPS
     trace_optionals: 
       tags: Oznake
     trace_paging_nav: 
       newer: Novejše sledi
       older: Starejše sledi
-      showing_page: Prikazujem stran %{page}
+      showing_page: Stran %{page}
     view: 
       delete_track: Izbriši to sled
       description: "Opis:"
@@ -1497,7 +1503,7 @@ sl:
         heading: "Javno urejanje:"
       public editing note: 
         heading: Javno urejanje
-        text: Trenutno so vaše spremembe anonimne in ljudje vam ne morejo poslali sporočil oz. videti vašo lokacijo. Da pokažet kaj ste je uredili in ljudem omogočite, da se obrnejo na var preko spletne strani, kliknite na gumb spodaj. <b>Od prehoda na API 0.6, lahko le javni uporabniki urejate karto.</b> ( <a href="http://wiki.openstreetmap.org/wiki/Anonymous_edits">Ugotovi zakaj</a> ). <ul><li> Vaš e-naslov ne bo pokazana s tem, da postane javni.</li><li>Tega dejanja ni mogoče razveljaviti in vsi novi uporabniki, so sedaj  privzeto javni.</li></ul>
+        text: Trenutno so vaše spremembe anonimne in ljudje vam ne morejo poslali sporočil oz. videti vaše lokacije. Da prikažete, kaj ste urejali in ljudem omogočite, da vas kontaktirajo prek spletne strani, kliknite spodnji gumb. <b>Od prehoda na API 0.6 lahko karto urejajo le javni uporabniki.</b> ( <a href="http://wiki.openstreetmap.org/wiki/Anonymous_edits">Ugotovite, zakaj</a>). <ul><li> Vaš e-naslov se ob tem, ko boste postali javen uporabnik, ne bo razkril.</li><li>Dejanja ni mogoče razveljaviti in vsi novi uporabniki so zdaj javni po privzetem.</li></ul>
       replace image: Zamenjaj trenutno sliko
       return to profile: Nazaj na profil
       save changes button: Shrani spremembe
@@ -1524,7 +1530,7 @@ sl:
     filter: 
       not_an_administrator: Morate biti administrator za izvedbo tega dejanja.
     go_public: 
-      flash success: Vsi vaši prispevki so sedaj javni in sedaj imate pravico do urejanja.
+      flash success: Zdaj so vsi vaši prispevki javni in lahko urejate podatke.
     list: 
       confirm: Potrdi izbrane uporabnike
       empty: Ne najdem nobenega uporabnika
@@ -1594,7 +1600,7 @@ sl:
       button: Dodaj prijatelja
       failed: Oprostite, uporabnika %{name} ni bilo mogoče dodati med prijatelje.
       heading: Dodaj %{user} med prijatelje?
-      success: Uporabnik %{name} je sedaj vaš prijatelj.
+      success: "%{name} je sedaj vaš prijatelj!"
     new: 
       confirm email address: "Potrdite naslov e-pošte:"
       confirm password: "Potrdite geslo:"
@@ -1682,10 +1688,10 @@ sl:
       diary: dnevnik
       edits: prispevki
       email address: "E-poštni naslov:"
-      friends_changesets: Brskanje po paketih sprememb vaših prijateljev
-      friends_diaries: Brskanje po dnevnikih vaših prijateljev
+      friends_changesets: paketi sprememb prijateljev
+      friends_diaries: dnevniki prijateljev
       hide_user: skriti tega uporabnika
-      if set location: Če nastavite vašo domačo lokacijo bo tu prikazan lep zemljevd in podobne dobrote. Domačo lokacijo lahko nastavite v %{settings_link}.
+      if set location: Nastavite vašo domačo lokacijo na strani %{settings_link}, da vidite bližnje uporabnike.
       km away: oddaljen %{count} km
       latest edit: "Zadnje urejanje %{ago}:"
       m away: oddaljen %{count} m
@@ -1697,8 +1703,8 @@ sl:
       my settings: moje nastavitve
       my traces: moje sledi
       nearby users: Drugi bližnji uporabniki
-      nearby_changesets: Brskanje po paketih sprememb bližnjih uporabnikov
-      nearby_diaries: Brskanje po dnevnikih bližnjih uporabnikov
+      nearby_changesets: paketi sprememb bližnjih uporabnikov
+      nearby_diaries: dnevniški vnosi bližnjih uporabnikov
       new diary entry: nov vnos v dnevnik
       no friends: Niste še dodali nobenih prijateljev.
       no nearby users: Ni še drugih uporabnikov, ki bi priznali, da kartirajo v vaši bližini.
@@ -1782,7 +1788,7 @@ sl:
       revoke: Prekliči!
       revoker_name: Preklical
       show: Prikaži
-      showing_page: Prikazujem stran %{page}
+      showing_page: Stran %{page}
       status: Stanje
     period: 
       few: "%{count} ure"
