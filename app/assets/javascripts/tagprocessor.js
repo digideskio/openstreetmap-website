@@ -65,6 +65,23 @@ var TagProcessor = function()
   }
   
   
+  function i18nDetector(tags)
+  {
+    var nameXX = "";
+    
+    for (key in tags)
+    {
+      if (key.substr(0,5) == "name:")
+        nameXX += "<option>" + key.substr(5) + ": " + tags[key] + "</option>";
+    }
+    
+    if (nameXX == "")
+      return "";
+    else
+      return "<br/><select size=\"1\">" + nameXX + "</select>";
+  }
+  
+  
   function classifyElement(element)
   {
     if (!element.tags)
@@ -260,6 +277,7 @@ var TagProcessor = function()
   return {
     'linkDetector': linkDetector,
     'addressDetector': addressDetector,
+    'i18nDetector': i18nDetector,
     'classifyElement': classifyElement
   }
 }();

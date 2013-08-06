@@ -261,7 +261,9 @@ var popupLayer = function() {
       // This allows to otherwise extend the search radius. It makes sense because areas exist virtually
       // everywhere on the planet, even in significant parts of the oceans, while no real objects
       // are a quite good indicator that the user meant a larger search radius.
-      if (queryState < 2 || (queryState == 2 && popupEntries.length > 0))
+      if (queryState < 2
+          || (queryState == 2 && popupEntries.length > 0)
+          || (queryState == 2 && tolerance >= 0.5))
       {
         document.getElementById("popupContent").innerHTML = display + "<p><em>Searching for more ...</em></p>";
         ++queryState;
@@ -333,6 +335,7 @@ var createPopupEntry = function(element, index)
   var details_added = "";
   details_added += TagProcessor.linkDetector(element.tags);
   details_added += TagProcessor.addressDetector(element.tags);
+  details_added += TagProcessor.i18nDetector(element.tags);
   
   var lastState = 0;
   
