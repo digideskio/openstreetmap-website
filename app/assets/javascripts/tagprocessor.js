@@ -56,7 +56,7 @@ var TagProcessor = function()
       address += " " + tags["addr:city"];
 
     if (tags["addr:full"])
-      address += " " + tags["addr:full"];
+      address = " " + tags["addr:full"];
     
     if (address == "")
       return "";
