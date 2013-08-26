@@ -57,6 +57,37 @@ abbr, acronym {
     clear: both;
 }
 
+/* Basic grid */
+
+.col0    { float:left; width:04.1666%; }
+.col1    { float:left; width:08.3333%; }
+.col2    { float:left; width:16.6666%; }
+.col3    { float:left; width:25.0000%; }
+.col4    { float:left; width:33.3333%; }
+.col5    { float:left; width:41.6666%; }
+.col6    { float:left; width:50.0000%; }
+.col7    { float:left; width:58.3333%; }
+.col8    { float:left; width:66.6666%; }
+.col9    { float:left; width:75.0000%; }
+.col10   { float:left; width:83.3333%; }
+.col11   { float:left; width:91.6666%; }
+.col12   { width:100%; }
+
+.margin0  { margin-left:04.1666%; }
+.margin1  { margin-left:08.3333%; }
+.margin2  { margin-left:16.6666%; }
+.margin3  { margin-left:25.0000%; }
+.margin4  { margin-left:33.3333%; }
+.margin5  { margin-left:41.6666%; }
+.margin6  { margin-left:50.0000%; }
+.margin7  { margin-left:58.3333%; }
+.margin8  { margin-left:66.6666%; }
+.margin9  { margin-left:75.0000%; }
+.margin10 { margin-left:83.3333%; }
+.margin11 { margin-left:91.6666%; }
+.margin12 { margin-left:100.0000%; }
+
+.fillL { background-color: white; }
 /* Default rules for the body of every page */
 
 * {
@@ -171,6 +202,7 @@ h6:first-child {
 .icon.close       { background-position: -200px 0; }
 .icon.check       { background-position: -220px 0; }
 .icon.note        { background-position: -240px 0; }
+.icon.gear        { background-position: -260px 0; }
 
 /* Rules for links */
 
@@ -250,6 +282,10 @@ table {
 
 #small-title {
   display: none;
+
+  img {
+    vertical-align: text-bottom;
+  }
 }
 
 /* Rules for the introductory text displayed in the left sidebar to new users */
@@ -306,7 +342,7 @@ table {
 .left_menu {
   left: 0px;
   margin: 0;
-  padding: $lineheight/4 $lineheight/2;
+  padding: $lineheight/4 $lineheight/2 $lineheight/2 $lineheight/2;
   font-size: 12px;
   line-height: 1.25;
   list-style-type: none;
@@ -331,10 +367,6 @@ table {
     padding: $lineheight/4 0 $lineheight/4 0;
     font-size: 12px;
     margin: 0;
-  }
-
-  li:last-child h4 {
-    padding-top: 0;
   }
 }
 
@@ -441,61 +473,73 @@ a.donate {
   height: 30px;
   border-bottom: 1px solid #ccc;
   background: white;
-  z-index: 100;
+  z-index: 1001;
+
+  .caret {
+    margin-top: 10px;
+  }
 }
 
 .site-edit #top-bar,
 .site-index #top-bar,
 .site-export #top-bar {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
 }
 
 #tabnav {
   height: 29px;
-  margin-bottom:0;
-  overflow: hidden;
-  li {
-    display: inline;
-  }
-  a, a:link, a:visited {
+  margin-bottom: 0;
+
+  > li {
     float: left;
+
+    > * {
+      padding: 3px $lineheight/2;
+    }
+  }
+
+  a.tab {
+    display: inline-block;
     font-weight: bold;
-    padding: 3px $lineheight/2;
     text-decoration: none;
     color: #333;
-    float: left;
-    margin-right: 1px;
+
     -webkit-transition: color 200ms ease-in;
        -moz-transition: color 200ms ease-in;
          -o-transition: color 200ms ease-in;
             transition: color 200ms ease-in;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .disabled a {
+    color: #ccc;
+    cursor: default;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .caret {
+      border-top-color: #ccc;
+    }
+  }
+
+  .dropdown {
+    height: 29px;
   }
 }
 
-.site-index #tabnav a#viewanchor,
-.site-edit #tabnav a#editanchor,
-.changeset-list #tabnav a#historyanchor,
-.site-export #tabnav a#exportanchor {
-  border-bottom: 1px solid #aaa;
+.site-index #view_tab,
+.site-edit #edit_tab,
+.changeset-list #history_tab {
   background: #9ed485;
   color: #000;
-}
-
-#tabnav a:link:hover, #tabnav a:visited:hover {
-  text-decoration: underline;
-}
-
-#tabnav a:link.disabled,
-#tabnav a:visited.disabled,
-#tabnav a:link:hover.disabled,
-#tabnav a:visited:hover.disabled {
-  color: #ccc;
-  cursor: default;
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 /* Utility for styling notification numbers */
@@ -513,12 +557,52 @@ a.donate {
 
 #greeting {
   float: right;
-  padding-top: 3px;
-  margin-right: $lineheight/4;
-}
+  height: 100%;
 
-.greeting-bar-unread {
-  font-weight: bold;
+  &.secondary-actions {
+    padding: 3px $lineheight/2;
+  }
+
+  &.dropdown {
+    background-color: #EEE;
+    &:hover {
+      background-color: #CCC;
+    }
+  }
+
+  img {
+    vertical-align: top;
+    border-radius: 2px 0 0 2px;
+    margin-right: 5px;
+  }
+
+  #inboxanchor {
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    top: -2px;
+    margin: 0 2px 0 0;
+    padding: 0 5px 0 0;
+    border-radius: 2px;
+  }
+
+  .dropdown-toggle {
+    display: block;
+    padding: 3px 7px;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+
+    .count-number {
+      float: right;
+      padding: 0 5px;
+      margin: 0;
+    }
+  }
 }
 
 /* Rules for the message shown in place of the map when javascript is disabled */
@@ -530,43 +614,138 @@ a.donate {
   left: 15px;
 }
 
+/* Rules for bootstrap tooltips */
+
+.tooltip {
+  position: absolute;
+  display: none;
+  color: #333;
+  text-align: left;
+  font-size: 12px;
+  max-width: 250px;
+}
+
+.tooltip.in {
+  opacity: 0.8;
+  z-index: 1030;
+  height: auto;
+  display: block;
+}
+
+.tooltip.top {
+  margin-top: -10px;
+  text-align: center;
+}
+
+.tooltip.right {
+  margin-left: 10px;
+}
+
+.tooltip.bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.tooltip.left {
+  margin-left: -10px;
+  text-align: right;
+}
+
+.tooltip-inner {
+  display: inline-block;
+  padding: 10px;
+  font-weight: normal;
+  background-color: white;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: white;
+  border-width: 5px 5px 0;
+}
+
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: -5px;
+  margin-top: -5px;
+  border-right-color: white;
+  border-width: 5px 5px 5px 0;
+}
+
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: -5px;
+  margin-top: -5px;
+  border-left-color: white;
+  border-width: 5px 0 5px 5px;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-color: white;
+  border-width: 0 5px 5px;
+}
+
 /* Rules for Leaflet maps */
 
 .leaflet-control .control-button {
   display: block;
   height: 40px;
   width: 40px;
-  background-color: white;
-  background-color: rgba(255,255,255,.8);
-  border-radius: 4px;
+  background-color: #333;
+  background-color: rgba(0,0,0,.6);
+  -bottom: 1px solid #333; 
+  border-radius: 4px 0 0 4px;
   margin-bottom: 10px;
   outline: none;
+
+  &:hover {
+    background-color: black;
+  }
+
+  &.active {
+    background-color: #9ed485;
+  }
+
+  &.disabled {
+    background-color: #333;
+    background-color: rgba(0,0,0,.5);
+    cursor: default;
+  }
+
+  .icon {
+    margin: 10px;
+  }
 }
 
 .leaflet-control .zoomin,
 .control-layers .control-button {
   margin-bottom: 0px;
-  border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 0 0 0;
 }
 
 .site .leaflet-control .zoomout,
 .control-key .control-button {
-  margin-bottom: 0px;
-  border-radius: 0px;
+  margin-bottom: 0;
+  border-radius: 0;
 }
 
-.leaflet-control .zoomout,
+.leaflet-control .zoomout, // For non-main page maps
 .control-locate .control-button,
 .control-share .control-button {
-  border-radius: 0px 0px 4px 4px;
-}
-
-.leaflet-control .control-button:hover {
-  background-color: white;
-}
-
-.leaflet-control .control-button .icon {
-  margin: 10px;
+  border-radius: 0 0 0 4px;
 }
 
 /* Rules for the home page */
@@ -603,11 +782,14 @@ a.donate {
   }
 }
 
-.layers-ui {
-  ul, li:last-child {
+.layers-ui,
+.share-ui {
+  ul, li:last-child, p:last-child {
     margin-bottom: 0;
   }
+}
 
+.layers-ui {
   li {
     border-radius: 4px;
     overflow: hidden;
@@ -635,18 +817,64 @@ a.donate {
 }
 
 .share-ui {
-  .share-link {
-    li {
-      display: inline-block;
-      width: 50%;
+  .share-tabs {
+    margin-bottom: 10px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      background-color: $lightblue;
+      padding: 5px 10px;
     }
+
+    a:first-child {
+      border-right: 1px solid #fff;
+      border-radius: 4px 0 0 4px;
+    }
+
+    a:last-child {
+      border-left: 1px solid #fff;
+      border-radius: 0 4px 4px 0;
+    }
+
+    a.active {
+      background-color: $blue;
+    }
+  }
+
+  .share-tab {
+    display: none;
+  }
+
+  .share-link {
+    input[type=text],
+    textarea {
+      width: 100%;
+      font-family: monospace;
+      font-size: small;
+      line-height: 1.3;
+    }
+  }
+
+  .share-image {
+    label {
+      margin-right: 10px;
+    }
+  }
+
+  #embed_html {
+    resize: vertical;
+  }
+
+  #mapnik_scale {
+    width: 100px;
   }
 }
 
-.site-index .leaflet-top,
-.site-export .leaflet-top {
+.leaflet-top.leaflet-right {
   top: $lineheight/2 !important;
   .leaflet-control {
+    margin-right: 0px !important;
     margin-top: 0px !important;
   }
 }
@@ -731,7 +959,6 @@ a.donate {
 .sidebar_heading {
   position: relative;
   padding: $lineheight/2 $lineheight;
-  z-index: 9999;
   background: $offwhite;
   border-bottom: 1px solid #ccc;
   h4 {
@@ -851,25 +1078,11 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   margin: $lineheight/4;
 }
 
-.export_details input[type="text"]#export_html_text {
-  width: 100%;
-}
-
-#sidebar #marker_inputs li:last-child {
-  margin-bottom: $lineheight/2;
-}
-
-#export_osm,
-#export_mapnik,
-#export_osmarender {
-  display: none;
-}
-
 /* Rules for the main content area */
 
 #content {
-  padding: $lineheight;
   position: relative;
+  padding: $lineheight;
 }
 
 .site-edit #content,
@@ -882,14 +1095,73 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   border-left: 1px solid #ccc;
 }
 
+/* Overrides for pages that use new layout conventions */
+.user-new,
+.user-create,
+.user-terms,
+.user-confirm,
+.site-copyright,
+.site-welcome {
+  #content {
+    max-width: 740px;
+  }
+}
+
+.user-new,
+.user-create,
+.user-terms,
+.user-confirm {
+  .content-heading {
+    height: 200px;
+  }
+}
+
+.user-new,
+.user-create,
+.user-terms {
+  #content {
+    padding: 0;
+  }
+}
+
+.header-illustration {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+
+  &.new-user-main {
+    background-image: image-url("sign-up-illustration.png");
+  }
+
+  &.confirm-main {
+    background-image: image-url("confirm-illustration.png");
+  }
+
+  &.new-user-terms {
+    background-image: image-url("terms-illustration.png");
+  }
+
+  &.new-user-arm {
+    height: 110px;
+    width: 130px;
+    left: 260px;
+    top: 160px;
+    background-image: image-url("sign-up-illustration-arm.png");
+  }
+}
+
+@media only screen and (max-width:900px) {
+  .header-illustration.new-user-arm { display: none;}
+}
+
 .wrapper {
   margin-left: 184px;
   border-left: 1px solid #ccc;
   text-align: left;
-}
-
-.site-edit #content {
-  top: 30px;
 }
 
 #content.maximised {
@@ -941,6 +1213,7 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   position: relative;
   padding: $lineheight;
   background: $offwhite;
+  z-index: 2;
   h1, h2 {
     margin-bottom: $lineheight/2;
     line-height: 100%;
@@ -1071,11 +1344,8 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   }
 }
 
-#browse_map .geolink {
-  display: none;
-}
-
 #browse_map .secondary-actions {
+  display: none;
   margin-bottom: $lineheight/2;
 }
 
@@ -1299,7 +1569,7 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
   float: left;
 }
 
-/* Rules for the login page */
+/* Rules for the log in page */
 
 #login_openid_buttons {
   margin-bottom: 0;
@@ -1312,7 +1582,7 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 
 /* Rules for the account confirmation page */
 
-#terms {
+.user-terms {
   .legale {
     border: 1px solid #ccc;
     padding: $lineheight;
@@ -1334,27 +1604,16 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
     }
   }
 
-  form.sign {
-    input[type=submit] {
-      float: left;
-    }
-    #decline {
-      background: $grey;
-      &:hover {
-        background: darken($grey, $hovercolor);
-      }
+  #decline {
+    background: $lightblue;
+    &:hover {
+      background: darken($lightblue, $hovercolor);
     }
   }
-  fieldset {
-    margin-bottom: $lineheight;
-  }
-  #contributorGuidance {
-    background-color: $offwhite;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-  }
-  .signing-buttons {
-    height: 50px;
+
+  .form-row {
+    margin: auto;
+    max-width: 370px;
   }
 }
 
@@ -1506,7 +1765,17 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
 .field_with_errors {
   padding: 2px;
   background-color: #ff7070;
-  display: table;
+  display: inline-block;
+}
+
+.formError {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #ff7070;
 }
 
 /* Rules for rails validation error boxes */
@@ -1573,6 +1842,10 @@ ul.results-list li { border-bottom: 1px solid #ccc; }
     padding-top: $lineheight;
     border-top: 1px solid $lightgrey;
   }
+  .horizontal-list .form-row { 
+    float: left;
+    padding-right: 10px;
+  }
   .form-row {
     margin-bottom: $lineheight/2;
   }
@@ -1612,7 +1885,6 @@ textarea {
 textarea {
   padding: 5px;
   width: 100%;
-  height: 100% !important;
 }
 
 /* Rules for user images */
@@ -1668,7 +1940,7 @@ ul.secondary-actions {
     display: inline-block;
     margin-right: 60px;
   }
-  li {
+  > li {
     display: block;
     float: left;
     list-style: none;
@@ -1683,6 +1955,10 @@ ul.secondary-actions {
       margin-right: 0px;
     }
   }
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
 }
 
 /* Utility for managing inner content areas */
@@ -1692,6 +1968,8 @@ ul.secondary-actions {
 .inner12 { padding: $lineheight/2 $lineheight;}
 
 .inner11 { padding: $lineheight/2;}
+
+.inner20 { padding: $lineheight 0;}
 
 .inner02 { padding: 0 $lineheight;}
 
@@ -2023,6 +2301,30 @@ a.button {
 /*
  * Rules for the iD editor
  */
+
+.site-edit-id {
+  #left,
+  #large-title {
+    display: none;
+  }
+
+  #small-title {
+    display: inline-block;
+    width: 185px;
+    height: 30px;
+    font-size: 14px;
+    margin: 0;
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    padding-top: 7px;
+  }
+
+  #content {
+    left: 0;
+  }
+}
+
 .id-embed {
   width: 100%;
   height: 100%;
@@ -2041,4 +2343,212 @@ a.button {
   height: 100px;
   border: 0;
   background: #fff;
+}
+
+/* Rules for dropdown menus */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  *margin-bottom: -3px;
+}
+
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+  outline: 0;
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+.dropdown .caret {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+
+.dropdown-menu .divider {
+  *width: 100%;
+  height: 1px;
+  margin: 9px 1px;
+  *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 10px;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px;
+  color: #333333;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0081c2;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0081c2;
+  outline: 0;
+}
+
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
+
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: default;
+  background-color: transparent;
+  background-image: none;
+}
+
+.open {
+  *z-index: 1000;
+}
+
+.open > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
+}
+
+/* Rules for the "Welcome" page */
+.site-welcome {
+  .center {
+    text-align: center;
+    .sprite { 
+      float: none;
+      margin: auto;
+    }
+  }
+
+  .sprite {
+    background-image: image-url("welcome-sprite.png");
+    background-size: 500px 250px;
+    display: block;
+    float: left;
+  }
+
+  .icon-list { 
+    padding-bottom: 20px;
+    div {
+      margin-bottom: 10px;
+      p {
+        padding-top: 10px;
+      }
+    }
+  }
+  .sprite.small {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sprite.x {
+    background-position: -50px 0;
+  }
+
+  .sprite.term {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .sprite.node {
+    background-position: -100px 0;
+  }
+
+  .sprite.way {
+    background-position: -150px 0;
+  }
+
+  .sprite.tag {
+    background-position: -200px 0;
+  }
+
+  .sprite.editor {
+    background-position: -250px 0;
+  }
+
+  .sprite.question {
+    background-position: -300px 0;
+  }
+
+  .start-mapping {
+    margin: auto;
+    cursor: pointer;
+    border: none;
+    padding: 20px 40px;
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  .note-box {
+    margin-top: 20px;
+    background-color: $offwhite;
+  }
+
+  .icon.note {
+    background-color: #333;
+    border-radius: 4px;
+  }
 }

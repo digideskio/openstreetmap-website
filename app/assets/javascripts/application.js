@@ -3,6 +3,8 @@
 //= require jquery.timers
 //= require jquery.cookie
 //= require jquery.throttle-debounce
+//= require bootstrap.tooltip
+//= require bootstrap.dropdown
 //= require augment
 //= require osm
 //= require leaflet
@@ -15,7 +17,6 @@
 //= require oauth
 //= require piwik
 //= require map
-//= require menu
 //= require sidebar
 //= require richtext
 //= require geocoder
@@ -44,12 +45,21 @@ function remoteEditHandler(bbox, select) {
       };
 
   if (select) query.select = select;
-  $("#linkloader")
+
+  var iframe = $('<iframe>')
+    .hide()
+    .appendTo('body')
     .attr("src", "http://127.0.0.1:8111/load_and_zoom?" + querystring.stringify(query))
-    .load(function() { loaded = true; });
+    .on('load', function() {
+      $(this).remove();
+      loaded = true;
+    });
 
   setTimeout(function () {
-    if (!loaded) alert(I18n.t('site.index.remote_failed'));
+    if (!loaded) {
+      alert(I18n.t('site.index.remote_failed'));
+      iframe.remove();
+    }
   }, 1000);
 
   return false;
@@ -85,32 +95,44 @@ function updatelinks(loc, zoom, layers, bounds, object) {
     }
 
     link.href = href;
-
-    var minzoom = $(link).data("minzoom");
-    if (minzoom) {
-      var name = link.id.replace(/anchor$/, "");
-      $(link).off("click.minzoom");
-      if (zoom >= minzoom) {
-        $(link)
-          .attr("title", I18n.t("javascripts.site." + name + "_tooltip"))
-          .removeClass("disabled");
-      } else {
-        $(link)
-          .attr("title", I18n.t("javascripts.site." + name + "_disabled_tooltip"))
-          .addClass("disabled")
-          .on("click.minzoom", function () {
-            alert(I18n.t("javascripts.site." + name + "_zoom_alert"));
-            return false;
-          });
-      }
-    }
   });
+
+  var editDisabled = zoom < 13;
+  $('#edit_tab')
+    .tooltip({placement: 'bottom'})
+    .off('click.minzoom')
+    .on('click.minzoom', function() { return !editDisabled; })
+    .toggleClass('disabled', editDisabled)
+    .attr('data-original-title', editDisabled ?
+      I18n.t('javascripts.site.edit_disabled_tooltip') : '');
+
+  var historyDisabled = zoom < 11;
+  $('#history_tab')
+    .tooltip({placement: 'bottom'})
+    .off('click.minzoom')
+    .on('click.minzoom', function() { return !historyDisabled; })
+    .toggleClass('disabled', historyDisabled)
+    .attr('data-original-title', historyDisabled ?
+      I18n.t('javascripts.site.history_disabled_tooltip') : '');
 }
 
 // generate a cookie-safe string of map state
 function cookieContent(map) {
   var center = map.getCenter().wrap();
   return [center.lng, center.lat, map.getZoom(), map.getLayersCode()].join('|');
+}
+
+function escapeHTML(string) {
+  var htmlEscapes = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;'
+  };
+  return string == null ? '' : (string + '').replace(/[&<>"']/g, function(match) {
+      return htmlEscapes[match];
+  });
 }
 
 /*
