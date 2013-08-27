@@ -88,187 +88,311 @@ var TagProcessor = function()
       return "Object without tags";
     tags = element.tags;
 
-    if (tags.highway)
+    var class_by_tag = [
     {
-      if (tags.highway == "motorway" || tags.highway == "motorway_link")
-        return "Motorway";
-      if (tags.motorroad && tags.motorroad == "yes")
-        return "Motorroad";
-      if (tags.highway == "trunk" || tags.highway == "trunk_link"
-          || tags.highway == "primary" || tags.highway == "primary_link"
-          || tags.highway == "secondary" || tags.highway == "secondary_link"
-          || tags.highway == "tertiary" || tags.highway == "tertiary_link"
-          || tags.highway == "residential"
-          || tags.highway == "service"
-          || tags.highway == "living_street"
-          || tags.highway == "unclassified")
-        return "Street";
-      if (tags.highway == "footway" || tags.highway == "pedestrian" || tags.highway == "path")
-        return "Footway";
-      if (tags.highway == "cycleway")
-        return "Cycleway";
-      if (tags.highway == "track")
-        return "Track";
-      if (tags.highway == "steps")
-        return "Steps";
-      if (tags.highway == "construction")
-        return "Construction site";
-      if (tags.highway == "bus_stop")
-        return "Bus stop";
+      "key": "motorroad",
+      "values": {
+        "yes": "Motorroad"
+      }
+    },
+    {
+      "key": "highway",
+      "values": {
+        "motorway": "Motorway",
+        "motorway_link": "Motorway",
+        "trunk": "Street",
+        "trunk_link": "Street",
+        "primary": "Street",
+        "primary_link": "Street",
+        "secondary": "Street",
+        "secondary_link": "Street",
+        "tertiary": "Street",
+        "tertiary_link": "Street",
+        "residential": "Street",
+        "service": "Street",
+        "living_street": "Street",
+        "unclassified": "Street",
+        "footway": "Footway",
+        "pedestrian": "Footway",
+        "path": "Footway",
+        "cycleway": "Cycleway",
+        "track": "Track",
+        "steps": "Steps",
+        "construction": "Construction site",
+        "bus_stop": "Bus stop"
+      }
+    },
+    {
+      "key": "vending",
+      "values": {
+        "stamps": "Stamp vending machine",
+        "cigarettes": "Cigarette vending machine",
+        "stamps": "Stamp machine",
+        "sweets": "Sweet vending machine"
+      }
+    },
+    {
+      "key": "amenity",
+      "values": {
+        "atm": "ATM",
+        "bank": "Bank",
+        "cafe": "Café",
+        "fast_food": "Fast food restaurant",
+        "fire_station": "Fire Station",
+        "fuel": "Gas station",
+        "grave_yard": "Grave yard",
+        "hospital": "Hospital",
+        "kindergarten": "Kindergarten",
+        "library": "Library",
+        "parking": "Parking",
+        "place_of_worship": "Place of worship",
+        "police": "Police Station",
+        "post_box": "Post box",
+        "post_office": "Post office",
+        "pub": "Pub",
+        "restaurant": "Restaurant",
+        "school": "School",
+        "shelter": "Shelter",
+        "university": "University",
+        "vending_machine": "Vending Machine"
+      }
+    },
+    {
+      "key": "historic",
+      "values": {
+        "monument": "Monument"
+      }
+    },
+    {
+      "key": "natural",
+      "values": {
+        "water": "Water"
+      }
+    },
+    {
+      "key": "tourism",
+      "values": {
+        "hotel": "Hotel",
+        "museum": "Museum",
+        "information": "Tourist information",
+        "viewpoint": "Viewpoint"
+      }
+    },
+    {
+      "key": "leisure",
+      "values": {
+        "garden": "Leisure park",
+        "golf_course": "Golf Course",
+        "nature_reserve": "Nature Reserve",
+        "park": "Leisure park",
+        "pitch": "Sports pitch",
+        "playground": "Playground",
+        "sports_centre": "Sports centre",
+        "swimming_pool": "Swimming pool",
+        "track": "Sports track",
+        "water_park": "Swimming pool"
+      }
+    },
+    {
+      "key": "shop",
+      "values": {
+        "chemist": "Chemist",
+        "bakery": "Bakery",
+        "alcohol": "Alcohol",
+        "bakery": "Bakery",
+        "beauty": "Beauty Parlor",
+        "beverages": "Beverages Shop",
+        "book": "Book",
+        "boutique": "Boutique",
+        "butcher": "Butcher",
+        "bicycle": "Bicycle",
+        "car": "Cars",
+        "car_parts": "Car Parts",
+        "clothes": "Clothes",
+        "computer": "Computer Shop",
+        "confectionery": "Confections",
+        "convenience": "Convenience store",
+        "copyshop": "Copy Shop",
+        "curtain": "Curtain Store",
+        "deli": "Deli",
+        "department_store": "Department Store",
+        "doityourself": "DoitYourself Shop",
+        "dry_cleaning": "Dry Cleaning",
+        "fabric": "Fabric",
+        "frame": "Frames",
+        "florist": "Florist",
+        "funeral_directors": "Funeral Directors",
+        "hairdresser": "Hairdresser",
+        "hearing_aids": "Hearing aids",
+        "kitchen": "Kitchen Store",
+        "garden_centre": "Garden Centre",
+        "gift": "Gift Shop",
+        "greengrocer": "Greengrocer",
+        "jewelry": "Jewelry",
+        "laundry": "Laundry",
+        "mall": "Shopping Mall",
+        "mobile_phone": "Mobile Phone Shop",
+        "motorcycle": "Motor Cycle",
+        "music": "Music",
+        "musical_instrument": "Musical Instruments",
+        "optician": "Optician",
+        "outdoor": "Outdoor Shop",
+        "pawnbroker": "Pawnbroker",
+        "paint": "Paint Shop",
+        "photo": "Photo Shop",
+        "tailor": "Tailor",
+        "travel_agency": "Travel Agency",
+        "seafood": "Seafood",
+        "supermarket": "Supermarket",
+        "toys": "Toys",
+        "trade": "Trade",
+        "variety_store": "Variety Store"
+      }
+    },
+    {
+      "key": "craft",
+      "values": {
+        "basket_maker": "Basket Maker",
+        "beekeeper": "Bee Keeper",
+        "blacksmith": "Blacksmith",
+        "bookbinder": "Book Binder",
+        "brewery": "Brewery",
+        "carpenter": "carpenter",
+        "clockmaker": "Clockmaker",
+        "distillery": "Distillery",
+        "key_cutter": "Key Cutter",
+        "photographer": "Photographer",
+        "pottery": "Pottery",
+        "saddler": "Saddler",
+        "shoemaker": "Shoemaker",
+        "stonemason": "Stonemason",
+        "upholsterer": "Upholsterer"
+      }
+    },
+    {
+      "key": "office",
+      "values": {
+        "accountant": "Accountant",
+        "administration": "Administrative Office",
+        "architect": "Architect",
+        "company": "Private Company",
+        "employment_agency": "Employment Agency",
+        "estate_agent": "Estate Agent",
+        "foundation": "Foundation Office",
+        "government": "Government Office",
+        "insurance": "Insurance",
+        "it": "IT Specialist",
+        "lawyer": "Lawyer",
+        "newspaper": "Newspaper",
+        "ngo": "NGO",
+        "research": "Research Lab",
+        "telecommunication": "Telecommunication",
+        "travel_agent": "Travel Agent"
+      }
+    },
+    {
+      "key": "waterway",
+      "values": {
+        "dam": "Dam",
+        "river": "River",
+        "stream": "Stream"
+      }
+    },
+    {
+      "key": "railway",
+      "values": {
+        "station": "Railway station",
+        "tram_stop": "Tram stop"
+      }
+    },
+    {
+      "key": "public_transport",
+      "values": {
+        "stop_position": "Public transport stop",
+        "platform": "Public transport stop",
+        "stop_area": "Public transport stop",
+        "stop_area_group": "Public transport stop"
+      }
+    },
+    {
+      "key": "building",
+      "values": {
+        "apartments": "Apartment Building",
+        "university": "University Building"
+      }
+    },
+    {
+      "key": "landuse",
+      "values": {
+        "cemetery": "Grave yard",
+        "commercial": "Commercial area",
+        "forest": "Forest",
+        "farm": "Farm",
+        "industrial": "Industrial park",
+        "meadow": "Meadow",
+        "military": "Military area",
+        "orchard": "Orchard",
+        "quarry": "Quarry",
+        "residential": "Residential area",
+        "retail": "Shopping center"
+      }
+    },
+    {
+      "key": "route",
+      "values": {
+        "bicycle": "Cycling route",
+        "bus": "Bus route",
+        "detour": "Detour",
+        "ferry": "Ferry route",
+        "foot": "Walking route",
+        "hiking": "Walking route",
+        "light_rail": "Light rail",
+        "power": "Power line",
+        "road": "Road number",
+        "subway": "Metro route",
+        "train": "Train route",
+        "tram": "Light rail"
+      }
+    },
+    {
+      "key": "type",
+      "values": {
+        "associatedStreet": "Associated street",
+        "multipolygon": "Area of unknown type",
+        "relatedBuilding": "Area of unknown type",
+        "site": "Area of unknown type"
+      }
+    },
+    {
+      "key": "admin_level",
+      "values": {
+        "2": "Country boundary",
+        "3": "State boundary",
+        "4": "State boundary",
+        "5": "City boundary",
+        "6": "City boundary",
+        "7": "City boundary",
+        "8": "Suburb boundary",
+        "9": "Suburb boundary",
+        "10": "Suburb boundary",
+        "11": "Suburb boundary"
+      }
+    },
+    {
+      "key": "boundary",
+      "values": {
+        "administrative": "Administrative boundary"
+      }
+    } ];
+    
+    for (var i = 0; i < class_by_tag.length; ++i)
+    {
+      if (tags[class_by_tag[i].key])
+      {      
+        if (class_by_tag[i].values[tags[class_by_tag[i].key]])
+          return class_by_tag[i].values[tags[class_by_tag[i].key]];
+      }
     }
-    if (tags.amenity)
-    {
-      if (tags.amenity == "school")
-        return "School";
-      if (tags.amenity == "parking")
-        return "Parking";
-      if (tags.amenity == "place_of_worship")
-        return "Place of worship";
-      if (tags.amenity == "restaurant")
-        return "Restaurant";
-      if (tags.amenity == "fuel")
-        return "Gas station";
-      if (tags.amenity == "post_box")
-        return "Post box";
-      if (tags.amenity == "bank")
-        return "Bank";
-      if (tags.amenity == "fast_food")
-        return "Fast food restaurant";
-      if (tags.amenity == "grave_yard")
-        return "Grave yard";
-      if (tags.amenity == "cafe")
-        return "Café";
-      if (tags.amenity == "kindergarten")
-        return "Kindergarten";
-      if (tags.amenity == "university")
-        return "University";
-      if (tags.amenity == "hospital")
-        return "Hospital";
-      if (tags.amenity == "post_office")
-        return "Post office";
-      if (tags.amenity == "pub")
-        return "Pub";
-    }
-    if (tags.historic)
-    {
-      if (tags.historic == "monument")
-        return "Monument";
-    }
-    if (tags.natural)
-    {
-      if (tags.natural == "water")
-        return "Water";
-    }
-    if (tags.tourism)
-    {
-      if (tags.tourism == "hotel")
-        return "Hotel";
-      if (tags.tourism == "museum")
-        return "Museum";
-      if (tags.tourism == "information")
-        return "Tourist information";
-      if (tags.tourism == "viewpoint")
-        return "Viewpoint";
-    }
-    if (tags.leisure)
-    {
-      if (tags.leisure == "pitch")
-        return "Sports pitch";
-      if (tags.leisure == "track")
-        return "Sports track";
-      if (tags.leisure == "sports_centre")
-        return "Sports centre";
-      if (tags.leisure == "swimming_pool" || tags.leisure == "water_park")
-        return "Swimming pool";
-      if (tags.leisure == "garden" || tags.leisure == "park")
-        return "Leisure park";
-      if (tags.leisure == "playground")
-        return "Playground";
-    }
-    if (tags.shop)
-    {
-      if (tags.shop == "supermarket")
-        return "Supermarket";
-      if (tags.shop == "chemist")
-        return "Chemist";
-    }
-    if (tags.waterway)
-    {
-      if (tags.waterway == "stream")
-        return "Stream";
-      if (tags.waterway == "river")
-        return "River";
-    }
-    if (tags.railway)
-    {
-      if (tags.railway == "tram_stop")
-        return "Tram stop";
-    }
-    if (tags.public_transport)
-    {
-      if (tags.public_transport == "stop_position" || tags.public_transport == "platform"
-          || tags.public_transport == "stop_area" || tags.public_transport == "stop_area_group")
-        return "Public transport stop";
-    }
-    if (tags.landuse)
-    {
-      if (tags.landuse == "forest")
-        return "Forest";
-      if (tags.landuse == "cemetery")
-        return "Grave yard";
-      if (tags.landuse == "meadow")
-        return "Meadow";
-      if (tags.landuse == "farm")
-        return "Farm";
-      if (tags.landuse == "residential")
-        return "Residential area";
-      if (tags.landuse == "industrial")
-        return "Industrial area";
-      if (tags.landuse == "commercial")
-        return "Commercial area";
-    }
-    if (tags.route)
-    {
-      if (tags.route == "train")
-        return "Train route";
-      if (tags.route == "subway" || tags.route == "tram")
-        return "Metro route";
-      if (tags.route == "bus")
-        return "Bus route";
-      if (tags.route == "road")
-        return "Road number";
-      if (tags.route == "detour")
-        return "Detour";
-      if (tags.route == "hiking" || tags.route == "foot")
-        return "Walking route";
-      if (tags.route == "bicycle")
-        return "Cycling route";
-      if (tags.route == "ferry")
-        return "Ferry route";
-      if (tags.route == "power")
-        return "Power line";
-    }
-    if (tags.type)
-    {
-      if (tags.type == "associatedStreet")
-        return "Associated street";
-      if (tags.type == "multipolygon" || tags.type == "site" || tags.type == "relatedBuilding")
-        return "Real estate";
-    }
-    if (tags.admin_level)
-    {
-      if (tags.admin_level == "8" || tags.admin_level == "9"
-          || tags.admin_level == "10" || tags.admin_level == "11")
-        return "Suburb boundary";
-      if (tags.admin_level == "5" || tags.admin_level == "6" || tags.admin_level == "7")
-        return "City boundary";
-      if (tags.admin_level == "3" || tags.admin_level == "4")
-        return "State boundary";
-      if (tags.admin_level == "2")
-        return "Country boundary";
-    }    
-    if (element.tags.boundary == "administrative")
-      return "Administrative boundary";
 
     return "Other object";
   }
