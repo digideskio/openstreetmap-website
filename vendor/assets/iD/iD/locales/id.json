@@ -30,7 +30,8 @@
         "add": {
             "annotation": {
                 "point": "Telah ditambahkan sebuah titik.",
-                "vertex": "Ditambahkan simpul pada jalan."
+                "vertex": "Ditambahkan simpul pada jalan.",
+                "relation": "Tambahkan relasi"
             }
         },
         "start": {
@@ -40,6 +41,9 @@
             }
         },
         "continue": {
+            "title": "Lanjutkan",
+            "description": "Lanjutkan garis ini.",
+            "not_eligible": "Tidak ada garis yang dapat dilanjutkan disini.",
             "annotation": {
                 "line": "Dilanjutkan sebuah garis.",
                 "area": "Dilanjutkan sebuah area."
@@ -68,13 +72,22 @@
             "not_closed": "Ini tidak bisa dibuat berputar karena bukan sebuah garis tertutup."
         },
         "orthogonalize": {
-            "description": "Kotakan sudut ini.",
-            "key": "Q",
+            "title": "Persegi",
+            "description": {
+                "line": "Kotakkan sudut garis ini.",
+                "area": "Mengotakkan sudut area ini."
+            },
             "annotation": {
                 "line": "Mengotakkan sudut dari garis",
                 "area": "Mengotakkan sudut sebuah area."
             },
-            "not_closed": "Tidak bisa dibuat mengkotak karena bukan garis tertutup."
+            "not_squarish": "Tidak bisa dibuat mengkotak karena bukan segi empat."
+        },
+        "straighten": {
+            "title": "Luruskan",
+            "description": "Luruskan garis ini.",
+            "annotation": "Luruskan kembali sebuah garis.",
+            "too_bendy": "Garis ini tidak dapat diluruskan karena terlalu banyak lekukan."
         },
         "delete": {
             "title": "Hapus",
@@ -133,7 +146,6 @@
         },
         "rotate": {
             "title": "Putar",
-            "description": "Putar obyek ini berdasarkan titik pusatnya.",
             "key": "R",
             "annotation": {
                 "line": "Memutas sebua garis.",
@@ -201,6 +213,11 @@
         "list": "Disunting oleh {users}",
         "truncated_list": "Disunting oleh {users} dan {count} lainnya"
     },
+    "geocoder": {
+        "search": "Cari di seluruh dunia...",
+        "no_results_visible": "Hasil pencarian tidak ditemukan pada peta yang ditampilkan",
+        "no_results_worldwide": "Hasil pencarian tidak ditemukan"
+    },
     "geolocate": {
         "title": "Tunjukan Lokasi Saya"
     },
@@ -212,6 +229,7 @@
         "all_tags": "Semua Tags",
         "all_members": "Semua anggota",
         "all_relations": "Seluruh relasi",
+        "new_relation": "Buat relasi baru",
         "role": "Aturan",
         "choose": "Pilih Tipe Fitur",
         "results": "{n}hasil untuk {search}",
@@ -221,6 +239,7 @@
         "search": "Cari",
         "unknown": "Tidak diketahui",
         "incomplete": "<tak terunduh>",
+        "feature_list": "Cari fitur",
         "edit": "Ubah Fitur"
     },
     "background": {
@@ -247,7 +266,9 @@
         "edited_osm": "OSM tersunting!",
         "just_edited": "Anda baru saja menyunting OpenStreetMap!",
         "view_on_osm": "Lihat di OSM",
-        "facebook": "Bagikan di Facebook"
+        "facebook": "Bagikan di Facebook",
+        "twitter": "Berbagi di Twitter",
+        "google": "Berbagi di Google+"
     },
     "confirm": {
         "okay": "Baiklah"
@@ -281,15 +302,11 @@
     },
     "cannot_zoom": "Tidak bisa memperbesar tampilan lebih jauh dengan mode ini.",
     "gpx": {
-        "local_layer": "File GPX lokal",
-        "drag_drop": "Geser dan letakkan sebuah file .gpx ke halaman"
+        "local_layer": "File GPX lokal"
     },
     "help": {
         "title": "Bantuan",
-        "help": "#Bantuan\n\nIni adalah penyunting untuk [OpenStreetMap] (http://www.openstreetmap.org/), peta dunia gratis dan bisa disunting. Anda dapat menggunakannya dengan menambahkan dan memperbarui data di area anda, membangun sebuah peta sumber-terbuka dan data-terbuka yang lebih baik untuk semua orang.\n\nPerubahan yang anda buat akan terlihat ke semua orang yang menggunakan OpenStreetMap. Untuk melakukan penyutingan, anda membutuhkan [free OpenStreetMap account] (https://www.openstreetmap.org/user/new).\n\n[iD editor](http://ideditor.com/) adalah proyek kolaborasi dengan [kode sumber tersedia di GitHub](http://github.com/systemed/iD).\n",
-        "editing_saving": "# Sunting & Simpan\n\nPenyunting ini dirancang untuk berkerja secara daring, dan anda mengaksesnya\nmelalui website sekarang.\n\n### Memilih Fitur\n\nUntuk memilih fitur peta, seperti jalan atau titik menarik, klik\npada titik tersebut di peta. Hal ini akan membuat fitur yang terpilih lebih cerah, terbukanya panel berisi\nrincian titik tersebut, dan menampilkan menu yang bisa dipilih terhadap fitur tersebut.\n\nBeberapa fitur dapat terpilih bersamaan dengan menahan kunci 'Shift', mengklik, dan\nmenggeser pada peta. Maka akan terpilih semua fitur di dalam kotak yang tergambar, memungkinkan\nanda melakukan sesuatu untuk beberapa fitur sekaligus.\n\n### Simpan Suntingan\n\nKetika anda melakukan perubahan seperti menyunting jalan, bangunan, dan tempat, ini akan\ntersimpan lokal sementara sampai anda menyimpannya ke server. Jangan khawatir jika anda melakukan\nkesalahan - anda dapat membatalkan perubahan dengan mengklik tombol Undo, dan redo\nperubahan dengan mengklik tombol redo.\n\nKlik 'Simpan' untuk menyelesaikan kelompok perubahan - seperti, jika anda telah melengkapi\nsebuah area di kota dan akan memulai di area baru lain. Anda memiliki kesempatan \nuntuk meninjau kembali apa yang telah dilakukan, dan penyunting akan memberikan saran berguna\ndan peringatan jika sesuatu yang tidak sesuai terjadi mengenai perubahan.\n\nJika semua terlihat baik, anda dapat memasukan penjelasan pendek mengenai perubahan\nyang anda buat, dan klik 'Simpan' lagi untuk mengirim perubahan\n[OpenStreetMap.org](http://www.openstreetmap.org/), dimana mereka bisa \nterlihat oleh seluruh pengguna dan tersedia bagi yang lain untuk dibangun dan diperbaiki.\n\nJika anda tidak bisa menyelesaikan suntingan dalam sekali waktu, anda dapat meninggalkan jendela\npenyunting dan kembali (pada peramban dan komputer yang sama), dan aplikasi penyunting akan \nmenawarkan untuk mengembalikan kembali apa yang sudah dikerjakan.\n",
-        "gps": "# GPS⏎\n⏎\nData GPS adalah sumber data paling terpercaya untuk OpenStreetMap. Penyunting ini⏎\nmendukung penyusuran lokal file - `.gpx` pada komputer anda. Anda dapat mengumpulkan⏎\npenyusuran GPS seperti ini dengan banyak aplikasi handphone pintar yang sebaik⏎\nalat GPS personal.⏎\n⏎\nInformasi mengenai bagaimana melakukan sebuah survei GPS, baca⏎\n[Surveying with a GPS](http://learnosm.org/en/beginner/using-gps/).⏎\n⏎\nUntuk menggunakan trek GPX untuk pemetaan, geser dan letakan file GPX ke dalam penyunting peta.⏎\nJika dikenali, file tersebut akan ditambahkan ke peta dan tampil sebagai garis hijau cerah.⏎\nKlik pada pilihan 'Pengaturan Latar' di sisi kiri untuk membolehkan, melumpuhkan,⏎\natau memperbesar tampilan ke berkas GPX baru tersebut.⏎\n⏎\nTrek GPX tidak terunggah langsung ke OpenStreetMap - cara terbaik untuk⏎\nmenggunakannya adalah menggambar ulangnya di peta, gunakan sebagai panduan untuk fitur baru⏎\nyang anda tambahkan.⏎\n",
-        "imagery": "# Citra⏎\n⏎\nCitra Foto Udara menjadi sumber penting untuk pemetaan. Kombinasi dari⏎\npemotretan pesawat, pandangan satelit, dan sumber gabungan lain yang tersedia⏎\ndi penyunting ada di pilihan 'Pengaturan Latar' di sebelah kiri.⏎\n⏎\nBiasanya lapisan satelit [Bing Maps](http://www.bing.com/maps/) ditampilkan di⏎\ndi penyunting ini, tapi ketika anda geser atau perbesar tampilan di suatu wilayah baru,⏎\nsumber baru lain juga bisa tersedia. Di beberapa negara, seperti Amerika Serikat,⏎\nPerancis, dan Denmark memiliki citra berkualitas tinggi yang tersedia di beberapa area.⏎\n⏎\nCitra kadang melenceng dari data peta karena ada kesalahan pada⏎\npenyedia data citra. Jika anda melihat banyak jalan yang bergeser dari latarnya,⏎\njangan semerta-merta memindahkan mereka semua ke latar yang pas. Namun, anda bisa menyesuaikan⏎\ncitranya agar pas dengan data yang ada dengan mengklik 'Fix alignment' pada⏎\nbagian bawah Pengaturan Latar.⏎\n"
+        "help": "#Bantuan\n\nIni adalah penyunting untuk [OpenStreetMap] (http://www.openstreetmap.org/), peta dunia gratis dan bisa disunting. Anda dapat menggunakannya dengan menambahkan dan memperbarui data di area anda, membangun sebuah peta sumber-terbuka dan data-terbuka yang lebih baik untuk semua orang.\n\nPerubahan yang anda buat akan terlihat ke semua orang yang menggunakan OpenStreetMap. Untuk melakukan penyutingan, anda membutuhkan [free OpenStreetMap account] (https://www.openstreetmap.org/user/new).\n\n[iD editor](http://ideditor.com/) adalah proyek kolaborasi dengan [kode sumber tersedia di GitHub](http://github.com/systemed/iD).\n"
     },
     "intro": {
         "navigation": {
@@ -323,7 +340,6 @@
         },
         "lines": {
             "title": "Garis",
-            "add": "Garis biasanya digunakan untuk mewakili fitur seperti jalan, jalan raya, dan sungai. **Klik tombol Garis untuk menambahkan garis baru.**",
             "start": "**Mulai garis dengan mengklik pada ujung sebuah jalan.**",
             "intersect": "Klik untuk menambahkan lagi simpul pada garis. Anda dapat menggeser peta ketika menggambar jika diperlukan. Jalan, dan banyak tipe lain dari garis, adalah bagian dari jaringan yang lebih besar. Ini penting untuk garis-garis ini untuk terhubung dengan baik agar alat penelusuran rute bisa berjalan. **Klik di Jalan Flower, untuk membuat percabangan yang menghubungkan dua garis.**",
             "finish": "Garis bisa diselesaikan dengan mengklik ulang pada simpul terakhir. **Selesaikan menggambar jalan.**",
@@ -355,9 +371,6 @@
             },
             "category-route": {
                 "name": "Rute"
-            },
-            "category-water": {
-                "name": "Air"
             }
         },
         "fields": {
@@ -424,9 +437,6 @@
                 "label": "Bangunan"
             },
             "building_area": {
-                "label": "Bangunan"
-            },
-            "building_yes": {
                 "label": "Bangunan"
             },
             "capacity": {
@@ -734,9 +744,6 @@
             },
             "amenity/marketplace": {
                 "name": "Pasar"
-            },
-            "amenity/parking": {
-                "name": "Parkir"
             },
             "amenity/pharmacy": {
                 "name": "Farmasi"
@@ -1155,6 +1162,12 @@
             "shop/computer": {
                 "name": "Toko Komputer"
             },
+            "shop/convenience": {
+                "name": "Toko Kelontong"
+            },
+            "shop/department_store": {
+                "name": "Pasar Swalayan"
+            },
             "shop/electronics": {
                 "name": "Toko Elektronik"
             },
@@ -1187,6 +1200,9 @@
             },
             "shop/music": {
                 "name": "Toko Musik"
+            },
+            "shop/newsagent": {
+                "name": "Agen Koran dan Majalah"
             },
             "shop/optician": {
                 "name": "Optik"

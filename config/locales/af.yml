@@ -57,54 +57,9 @@ af:
       user_preference: Gebruikersvoorkeure
       way: Weg
   browse: 
-    changeset_details: 
-      belongs_to: "Behoort aan:"
-      bounding_box: "Seleksieboks:"
-      box: boks
-      closed_at: "Gesluit op:"
-      created_at: "Geskep op:"
-      has_nodes: 
-        one: "Het die volgende node:"
-        other: "Het die volgende %{count} nodes:"
-      show_area_box: Wys gebied
-    common_details: 
-      changeset_comment: "Opmerking:"
-      edited_at: "Gewysig op:"
-      edited_by: "Opgedateer deur:"
-      version: "Weergawe:"
     containing_relation: 
       entry: Relasie %{relation_name}
       entry_role: Relasie %{relation_name} (as %{relation_role})
-    map: 
-      deleted: Uitgevee
-      larger: 
-        area: Besigtig area op groter kaart
-        node: Besigtig node op groter kaart
-        relation: Besigtig relasie op groter kaart
-        way: Besigtig weg op groter kaart
-      loading: Besig om af te laai...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Volgende stel wysigings
-        prev_changeset_tooltip: Vorige stel wysigings
-      user: 
-        name_changeset_tooltip: Wys wysigings deur %{user}
-        next_changeset_tooltip: Volgende wysiging deur %{user}
-        prev_changeset_tooltip: Vorige wysiging deur %{user}
-    node: 
-      download_xml: Laai XML af
-      edit: wysig
-      node: Node
-      node_title: "Node: %{node_name}"
-      view_history: wys geskiedenis
-    node_details: 
-      coordinates: "Koördinate:"
-      part_of: "Deel af:"
-    node_history: 
-      download_xml: Laai XML af
-      node_history: Nodegeskiedenis
-      node_history_title: "Nodegeskiedenis: %{node_name}"
-      view_details: besigtig besonderhede
     not_found: 
       sorry: Jammer, %{type} %{id} kan nie gevind word nie.
       type: 
@@ -112,20 +67,6 @@ af:
         node: node
         relation: relasie
         way: weg
-    paging_nav: 
-      of: van
-      showing_page: Bladsy
-    relation: 
-      download_xml: Laai XML af
-      view_history: wys geskiedenis
-    relation_details: 
-      members: "Lede:"
-      part_of: "Deel van:"
-    relation_history: 
-      download_xml: Laai XML af
-      relation_history: Relasiegeskiedenis
-      relation_history_title: "Relasie Geskiedenis: %{relation_name}"
-      view_details: besigtig besonderhede
     relation_member: 
       entry_role: "%{type} %{name} as %{role}"
       type: 
@@ -133,66 +74,18 @@ af:
         relation: Relasie
         way: Weg
     start_rjs: 
-      data_frame_title: Gegewens
-      data_layer_name: Data
-      details: Details
-      edited_by_user_at_timestamp: Verander deur %{user} om %{timestamp}
-      history_for_feature: Geskiedenis van %{feature}
       load_data: Laai data
-      loaded_an_area_with_num_features: Hierdie area het %{num_features} items. Party webblaaiers mag stadig raak wanneer hulle om soveel data te vertoon. Om nietemin aan te gaan, kies die skakel hier onder.
       loading: Laai...
-      manually_select: Kies 'n ander gebied handmatig
-      object_list: 
-        api: Verkry die data van hierdie gebied
-        back: Vertoon objeklys
-        details: Besonderhede
-        heading: Objeklys
-        history: 
-          type: 
-            node: Node %{id}
-            way: Weg %{id}
-        selected: 
-          type: 
-            node: Node %{id}
-            way: Weg %{id}
-        type: 
-          node: Node
-          way: Weg
-      private_user: private gebruiker
-      show_history: Wys Geskiedenis
-      unable_to_load_size: Aflaai van data onmoontlik. Area van grootte %{bbox_size} is te groot. Moet kleiner as %{max_bbox_size} wees
-      wait: Wag asseblief...
-      zoom_or_select: Zoom in of kies 'n gebied op die kaart om te besigtig
     tag_details: 
       tags: "Etikette:"
     timeout: 
       sorry: Jammer, dit het te lank geneem om data vir die %{type} met die id %{id} op te soek.
       type: 
         node: node
-    way: 
-      download_xml: Laai XML af
-      edit: wysig
-      view_history: besigtig geskiedenis
-      way: Weg
-      way_title: "Weg: %{way_name}"
-    way_details: 
-      also_part_of: 
-        one: ook deel van weg %{related_ways}
-        other: ook deel van weë %{related_ways}
-      nodes: "Nodes:"
-      part_of: "Deel van:"
-    way_history: 
-      download_xml: Laai XML af
-      view_details: besigtig besonderhede
-      way_history: Weggeskiedenis
-      way_history_title: "Weggeskiedenis: %{way_name}"
   changeset: 
     changeset: 
       anonymous: Anoniem
-      big_area: (groot)
-      no_comment: (geen)
       no_edits: (geen wysigings)
-      still_editing: (steeds besig met wysiging)
     changeset_paging_nav: 
       next: Volgende »
       previous: » Vorige
@@ -203,8 +96,6 @@ af:
       id: ID
       saved_at: Gestoor op
       user: Gebruiker
-    list: 
-      description: Onlangse wysigings
   diary_entry: 
     comments: 
       when: Wanneer
@@ -289,17 +180,7 @@ af:
       osm_xml_data: OpenStreetMap XML-data
       output: Afvoer
       scale: Skaal
-      too_large: 
-        heading: Gebied te groot
       zoom: Zoom
-    start_rjs: 
-      add_marker: Plaas 'n merker op die kaart
-      change_marker: Verander posisie van merker
-      click_add_marker: Kliek op die kaart om 'n merker te plaas
-      drag_a_box: Trek 'n boks op die kaart om 'n gebied te kies
-      export: Eksporteer
-      manually_select: Kies 'n ander gebied handmatig
-      view_larger_map: Wys groter kaart
   geocoder: 
     description: 
       title: 
@@ -691,32 +572,20 @@ af:
     map: 
       base: 
         cycle_map: Fietskaart
-    site: 
-      edit_zoom_alert: u moet in zoom om die kaart te wysig
-      history_zoom_alert: U moet in zoom om die kaart se wysigingsgeskiedenis te sien
   layouts: 
     copyright: Outeursreg & lisensie
     donate: Ondersteun OpenStreetMap deur aan die Hardeware Opgradeer-fonds te %{link}.
-    donate_link_text: skenk
     edit: Wysig
     export: Eksporteer
-    export_tooltip: Eksporteer kaartdata
     gps_traces: GPS-spore
     gps_traces_tooltip: Beheer GPS-spore
     history: Geskiedenis
     home: tuis
-    home_tooltip: Gaan na tuisligging
-    inbox_tooltip: 
-      one: U inboks bevat 1 ongeleesde boodskap
-      other: U inboks bevat %{count} ongeleesde boodskappe
-      zero: U inboks bevat geen ongelees boodskappe nie
-    intro_1: OpenStreetMap is 'n vry bewerkbare kaart van die hele wêreld. Dit word deur mense soos u geskep.
     log_in: meld aan
     log_in_tooltip: Teken aan met 'n bestaande rekening
     logo: 
       alt_text: OpenStreetMap-logo
     logout: teken af
-    logout_tooltip: Teken af
     make_a_donation: 
       text: Maak 'n donasie
       title: Ondersteun OpenStreetMap met'n geldelike donasie
@@ -726,9 +595,6 @@ af:
     tag_line: Die vrye wiki-wêreldkaart
     user_diaries: Gebruikersdagboeke
     user_diaries_tooltip: Wys gebruikersdagboeke
-    view: Wys
-    view_tooltip: Wys die kaart
-    welcome_user_link_tooltip: U gebruikersblad
   license_page: 
     foreign: 
       title: Oor hierdie vertaling
@@ -774,8 +640,6 @@ af:
       title: Gestuur
       to: Aan
     read: 
-      back_to_inbox: Terug na inboks
-      back_to_outbox: Terug na uitboks
       date: Datum
       from: Van
       reply_button: Antwoord
@@ -815,21 +679,9 @@ af:
       click_the_link: As dit u is, kliek op die onderstaande skakel om die wagwoord te herstel.
       greeting: Hallo,
     message_notification: 
-      footer1: U kan ook die boodskap by %{readurl} lees
-      footer2: en u kan antwoord by %{replyurl}
       hi: Hallo %{to_user},
     signup_confirm: 
       subject: "[OpenStreetMap] Bevestig u e-posadres"
-    signup_confirm_html: 
-      get_reading: Lees meer oor OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">op die wiki</a> of <a href="http://www.opengeodata.org/">die opengeodata-blog</a> waar u ook na <a href="http://www.opengeodata.org/?cat=13">podgooie</a> kan luister!
-      introductory_video: U kan na 'n %{introductory_video_link} kyk.
-      more_videos: Daar is %{more_videos_link}.
-      more_videos_here: meer video's hier
-      video_to_openstreetmap: inleidende video oor OpenStreetMap
-    signup_confirm_plain: 
-      more_videos: "Daar is meer videos hier:"
-      the_wiki: "Lees meer oor OpenStreetMap op die wiki:"
-      wiki_signup: "U kan ook op die OpenStreetMap-wiki registreer by:"
   oauth: 
     oauthorize: 
       allow_read_prefs: u gebruikersvoorkeure te lees.
@@ -942,7 +794,6 @@ af:
           wood: Bos
     search: 
       search: Soek
-      search_help: "voorbeelde: 'Alkmaar', 'Regent Street, Cambridge', 'CB2 5AQ', or 'post offices near Lünen' <a href='http://wiki.openstreetmap.org/wiki/Search'>meer voorbeelde...</a>"
       submit_text: OK
       where_am_i: Waar is ek?
     sidebar: 
@@ -1103,9 +954,6 @@ af:
       continue: Gaan voort
       display name: "Vertoon naam:"
       email address: "E-posadres:"
-      fill_form: Vul die vorm in en ons stuur so spoedig moontlik aan u 'n e-pos om u rekening te aktiveer.
-      flash create success message: U rekening is suksesvol geskep. Kontroleer u e-pos vir 'n bevestigingsboodskap.<br /><br />Let daarop dat u nie sal kan aanteken alvorens u nie u rekening bevestig het nie.<br /><br />As u 'n spamfilter gebruik, sorg asseblief dat dit boodskappe vanaf webmaster@openstreetmap.org sal toelaat. Die stelsel stuur nie antwoorde op bevestigings-epos nie.
-      heading: Skep 'n rekening
       license_agreement: Deur 'n rekening hier te skep bevestig u dat u akkoord gaan met voorwaarde dat al die werk wat u na OpenStreetMap oplaai onder die <a href="http://creativecommons.org/licenses/by-sa/2.0/deed.af">Creative Commons-lisensie (by-sa)</a> gelisensieer word (nie-eksklusief).
       not displayed publicly: Word nie publiek vertoon nie (sien <a href="http://wiki.openstreetmap.org/wiki/Privacy_Policy" title="wiki-geheimhoudingbeleid insluitend afdeling oor e-posadresse">geheimhoudingbeleid</a>)
       password: "Wagwoord:"

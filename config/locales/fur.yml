@@ -4,6 +4,8 @@
 # Author: Davio
 # Author: Klenje
 fur: 
+  about_page: 
+    next: Prossim
   activerecord: 
     attributes: 
       diary_comment: 
@@ -63,125 +65,63 @@ fur:
       way_node: Grop de vie
       way_tag: Etichete de vie
   browse: 
+    anonymous: anonim
     changeset: 
-      changeset: "Grup di cambiaments: %{id}"
+      belongs_to: Autôr
       changesetxml: Grup di cambiaments XML
       feed: 
         title: Grup di cambiaments %{id}
         title_comment: Grup di cambiaments %{id} - %{comment}
       osmchangexml: XML in formât osmChange
-      title: Grup di cambiaments
-    changeset_details: 
-      belongs_to: "Al è di:"
-      bounding_box: "Retangul di selezion:"
-      box: retangul
-      closed_at: "Sierât ai:"
-      created_at: "Creât ai:"
-      has_nodes: 
-        one: "Al à il grop ca sot:"
-        other: "Al à i %{count} grops ca sot:"
-      has_relations: 
-        one: "Al à la relazion ca sot:"
-        other: "Al à lis %{count} relazions ca sot:"
-      has_ways: 
-        one: "Al à la vie ca sot:"
-        other: "Al à lis %{count} viis ca sot:"
-      no_bounding_box: Nissun retangul di selezion salvât par chest grup di cambiaments.
-      show_area_box: Mostre ricuadri de aree
-    common_details: 
-      changeset_comment: "Coment:"
-      deleted_at: "Eliminât ai:"
-      deleted_by: "Eliminât di:"
-      edited_at: "Cambiât ai:"
-      edited_by: "Cambiât di:"
-      in_changeset: "Tal grup di cambiaments:"
-      version: "Version:"
+      relation: Relazions (%{count})
+      relation_paginated: Relazions (%{x}-%{y} su %{count})
+      title: "Grup di cambiaments: %{id}"
+    closed: Sierât
+    closed_by_html: Sierât <abbr title='%{title}'>%{time} indaûr</abbr> di %{user}
+    closed_html: Sierât <abbr title='%{title}'>%{time} indaûr</abbr>
     containing_relation: 
       entry: Relazion %{relation_name}
       entry_role: Relazion %{relation_name} (come %{relation_role})
-    map: 
-      deleted: Eliminât
-      edit: 
-        area: Modifiche aree
-        node: Modifiche il grop
-        note: Cambie la note
-        relation: Modifiche relazion
-        way: Modifiche la vie
-      larger: 
-        area: Viôt la aree suntune mape plui grande
-        node: Viôt il grop suntune mape plui grande
-        note: Viôt la note suntune mape plui grande
-        relation: Viôt la relazion suntune mape plui grande
-        way: Viôt la vie suntune mape plui grande
-      loading: Daûr a cjamâ...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Grup di cambiaments sucessîf
-        next_node_tooltip: Grop sucessîf
-        next_note_tooltip: Note sucessive
-        next_relation_tooltip: Relazion sucessive
-        next_way_tooltip: Vie sucessive
-        prev_changeset_tooltip: Grup di cambiaments precedent
-        prev_node_tooltip: Grop precedent
-        prev_note_tooltip: Note precedente
-        prev_relation_tooltip: Relazion precedente
-        prev_way_tooltip: Vie precedente
-      user: 
-        name_changeset_tooltip: Viôt i cambiaments di %{user}
-        next_changeset_tooltip: Cambiament sucessîf di %{user}
-        prev_changeset_tooltip: Cambiament precedent di %{user}
-    node: 
-      download_xml: Discjame XML
-      edit: Cambie il grop
-      node: Grop
-      node_title: "Grop: %{node_name}"
-      view_history: Cjale il storic
-    node_details: 
-      coordinates: "Coordenadis:"
-      part_of: "Part di:"
-    node_history: 
-      download_xml: Discjame XML
-      node_history: Storic dal grop
-      node_history_title: "Storic dal grop: %{node_name}"
-      view_details: Cjale i detais
+    created: Creât
+    created_by_html: Creât <abbr title='%{title}'>%{time} indaûr</abbr> di %{user}
+    created_html: Creât <abbr title='%{title}'>%{time} indaûr</abbr>
+    deleted_by_html: Eliminât <abbr title='%{title}'>%{time} indaûr</abbr> di %{user}
+    download_xml: Discjame XML
+    edited_by_html: Cambiât <abbr title='%{title}'>%{time} indaûr</abbr> di %{user}
+    in_changeset: Grup di cambiaments
+    no_comment: (nissun coment)
     not_found: 
-      sorry: Nus displâs, nol è stât pussibil cjatâ il %{type} cun id %{id}.
+      sorry: "Nus displâs, nol è stât pussibil cjatâ il %{type} cun id #%{id}."
       type: 
         changeset: "Non dal file:"
         node: grop
         relation: relazion
         way: vie
     note: 
-      at_by_html: "%{when} indaûr di %{user}"
-      at_html: "%{when} indaûr"
-      closed: "Sierade:"
-      closed_title: "Note risolte: %{note_name}"
-      comments: "Coments:"
-      description: "Descrizion:"
-      last_modified: "Ultin cambiament:"
-      open_title: "Note no risolte: %{note_name}"
-      opened: "Vierte:"
-    paging_nav: 
-      of: su
-      showing_page: pagjine
+      closed_by: Risolte di %{user} <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      closed_by_anonymous: Risolte di anonim <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      closed_title: "Note risolte #%{note_name}"
+      commented_by: Coment di %{user} <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      commented_by_anonymous: Coment di un anonim <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      hidden_by: Platade di %{user} <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      hidden_title: "Note platade #%{note_name}"
+      new_note: Gnove note
+      open_by: Creade di %{user} <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      open_by_anonymous: Creade di un anonim <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      open_title: "Note no risolte #%{note_name}"
+      reopened_by: Tornade a ativâ di %{user} <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      reopened_by_anonymous: Tornade a ativâ di un anonim <abbr title='%{exact_time}'>%{when} indaûr</abbr>
+      title: "Note: %{id}"
+    part_of: Part di
     redacted: 
       type: 
         node: grop
         relation: relazion
         way: vie
     relation: 
-      download_xml: Discjame XML
-      relation: Relazion
-      relation_title: "Relazion: %{relation_name}"
-      view_history: Cjale il storic
-    relation_details: 
-      members: "Membris:"
-      part_of: "Part di:"
-    relation_history: 
-      download_xml: Discjame XML
-      relation_history: Storic relazion
-      relation_history_title: "Storic de relazion: %{relation_name}"
-      view_details: Cjale i detais
+      history_title: "Storic de relazion: %{name}"
+      members: Membris
+      title: "Relazion: %{name}"
     relation_member: 
       entry_role: "%{type} %{name} come %{role}"
       type: 
@@ -189,41 +129,10 @@ fur:
         relation: Relazion
         way: Vie
     start_rjs: 
-      data_frame_title: Dâts
-      data_layer_name: Esplore i dâts de mape
-      details: Detais
-      edited_by_user_at_timestamp: Cambiât di %{user} ai %{timestamp}
-      hide_areas: Plate areis
-      history_for_feature: Storic par %{feature}
       load_data: Cjame i dâts
-      loaded_an_area_with_num_features: "Tu âs cjamât une aree che e conten %{num_features} carataristichis. In gjenerâl, cualchi sgarfadôr al podarès no rivâ a gjestî ben cheste cuantitât di dâts. I sgarfadôrs par solit a lavorin miôr se a mostrin mancul di %{max_features} carataristichis ae volte: cualsisei altri numar al podarès ralentâ/no fâ plui rispuindi il sgarfadôr. Se tu sês sigûr di volê mostrâ chescj dâts, frache sul boton ca sot."
       loading: Daûr a cjamâ...
-      manually_select: Sielç a man une aree divierse
-      notes_layer_name: Mostre lis notis
-      object_list: 
-        api: Recupere cheste aree doprant l'API
-        back: Torne ae liste dai ogjets
-        details: Detais
-        heading: di
-        history: 
-          type: 
-            node: Grop %{id}
-            way: Vie %{id}
-        selected: 
-          type: 
-            node: Grop %{id}
-            way: Vie %{id}
-        type: 
-          node: Grop
-          way: Vie
-      private_user: utent privât
-      show_areas: Mostre areis
-      show_history: Mostre storic
-      view_data: Viôt i dâts pe viodude atuâl de mape
-      wait: Daûr a spietâ...
-      zoom_or_select: Ingrandìs o sielç la aree de mape che tu vuelis viodi
     tag_details: 
-      tags: "Etichetis:"
+      tags: Etichetis
       wiki_link: 
         key: La pagjine de vichi cu la descrizion de etichete %{key}.
         tag: La pagjine de vichi cu la descrizion de etichete %{key}=%{value}
@@ -234,31 +143,13 @@ fur:
         node: grop
         relation: relazion
         way: vie
-    way: 
-      download_xml: Discjame XML
-      edit: Cambie la vie
-      view_history: Cjale il storic
-      way: Vie
-      way_title: "Vie: %{way_name}"
-    way_details: 
-      also_part_of: 
-        one: part de vie %{related_ways}
-        other: part des viis %{related_ways}
-      nodes: "Grops:"
-      part_of: "Part di:"
-    way_history: 
-      download_xml: Discjame XML
-      view_details: Cjale i detais
-      way_history: Storic de vie
-      way_history_title: "Storic de vie: %{way_name}"
+    version: Version
+    view_details: Cjale i detais
+    view_history: Cjale il storic
   changeset: 
     changeset: 
       anonymous: Anonim
-      big_area: (grant)
-      no_comment: (nissun)
       no_edits: (nissun cambiament)
-      show_area_box: mostre il ricuadri de aree
-      still_editing: (ancjemò in cambiament)
       view_changeset_details: Viôt detais dal grup di cambiaments
     changeset_paging_nav: 
       next: Sucessîf »
@@ -271,25 +162,14 @@ fur:
       saved_at: Salvât ai
       user: Utent
     list: 
-      description: Sgarfe tai ultins cambiaments ae mape
-      description_bbox: Grups di cambiaments jentri di %{bbox}
-      description_friend: Grups di cambiaments dai tiei amîs
-      description_nearby: Grups di cambiaments dai utents dongje
-      description_user: Grups di cambiaments di %{user}
-      description_user_bbox: Grups di cambiaments di %{user} jentri di %{bbox}
-      empty_anon_html: Ancjemò nissun cambiament.
-      heading: Grups di cambiaments
-      heading_bbox: Grups di cambiaments
-      heading_friend: Grups di cambiaments
-      heading_nearby: Grups di cambiaments
-      heading_user: Grups di cambiaments
-      heading_user_bbox: Grups di cambiaments
+      empty: Nissun grup di cambiaments cjatât.
+      load_more: Cjame di plui
       title: Grups di cambiaments
-      title_bbox: Grups di cambiaments jentri di %{bbox}
       title_friend: Grups di cambiaments dai tiei amîs
       title_nearby: Grups di cambiaments dai utents dongje
       title_user: Grups di cambiaments di %{user}
-      title_user_bbox: Grups di cambiaments di %{user} jentri di %{bbox}
+    timeout: 
+      sorry: Nus displâs, la liste dai grups di cambiaments che tu âs domandât e je stade masse timp a cjamâsi.
   diary_entry: 
     comments: 
       ago: "%{ago} indaûr"
@@ -397,17 +277,9 @@ fur:
       paste_html: Tache l'HTML par inserîlu tal to sît web
       scale: Scjale
       too_large: 
-        body: Cheste aree e je masse grande par espuartâle come dâts XML di OpenStreetMap. Par plasê incrès il zoom o sielç une aree plui piçule.
-        heading: La aree e je masse largje
+        body: Cheste aree e je masse grande par espuartâle come dâts XML di OpenStreetMap. Par plasê incrès il zoom, sielç une aree plui piçule o dopre une des sorzints ca sot par discjamâ un grum di dâts.
       zoom: Ingrandiment
-    start_rjs: 
-      add_marker: Zonte un segnalut ae mape
-      change_marker: Cambie la posizion dal segnalut
-      click_add_marker: Frache su la mape par zontâ un segn
-      drag_a_box: Disegne un retangul su la mape par sielzi une aree
-      export: Espuarte
-      manually_select: Sielç a man une aree divierse
-      view_larger_map: Viôt une mape plui grande
+    title: Espuarte
   geocoder: 
     description: 
       title: 
@@ -437,8 +309,10 @@ fur:
       title: 
         ca_postcode: Risultâts cjolts di <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: Risultâts cjolts di <a href="http://www.geonames.org/">GeoNames</a>
+        geonames_reverse: Risultâts di <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Risultâts cjolts dal <a href="http://openstreetmap.org/">sît interni</a>
         osm_nominatim: Risultâts di <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
+        osm_nominatim_reverse: Risultâts di <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: Risultâts cjolts di <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Risultâts cjolts di <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
@@ -549,6 +423,7 @@ fur:
           building: Edifici
           castle: Cjiscjel
           church: Glesie
+          citywalls: Muris
           fort: Fuart
           house: Cjase
           icon: Icone
@@ -688,81 +563,96 @@ fur:
           ditch: Fuesse
           river: Flum
   javascripts: 
+    close: Siere
+    edit_help: Môf la mape e aumente il zoom tal lûc che tu vuelis cambiâ, po frache culì
+    key: 
+      title: Leiende
+      tooltip: Leiende
+      tooltip_disabled: La leiende e je disponibile dome pal nivel Standard
     map: 
       base: 
         cycle_map: Cycle Map
+        hot: Umanitari
         standard: Standard
         transport_map: Mape dai traspuarts
+      copyright: © <a href='%{copyright_url}'>Colaboradôrs di OpenStreetMap</a>
+      donate_link_text: <a class='donate-attr' href='%{donate_url}'>Fâs une donazion</a>
+      layers: 
+        data: Dâts de mape
+        header: Nivei de mape
+        notes: Notis de mape
+        overlays: Ative i nivei utii par risolvi i problemis de mape
+        title: Nivei
+      locate: 
+        popup: Tu sês a {distance} {unit} di chest pont
+        title: Mostre la mê posizion
+      zoom: 
+        in: Aumente zoom
+        out: Diminuìs zoom
     notes: 
       new: 
         add: Zonte une note
         intro: Par vê une mape simpri miôr, lis informazions che tu inserissis a son mostradis a chei altris che a mapin, par cui cîr di jessi plui descritîf pussibil e di spostâ il segnalut te posizion precise prime di inserî ca sot la tô note.
       show: 
         anonymous_warning: Cheste note e inclût coments di utents anonims che a varessin di jessi verificâts in mût indipendent.
-        closed_by: risolte di <a href='%{user_url}'>%{user}</a> a lis %{time}
-        closed_by_anonymous: risolte di un anonim a lis %{time}
         comment: Coment
         comment_and_resolve: Comente e risolf
-        commented_by: coment di <a href='%{user_url}'>%{user}</a> a lis %{time}
-        commented_by_anonymous: coment di un anonim a lis %{time}
         hide: Plate
-        opened_by: creade di <a href='%{user_url}'>%{user}</a> a lis %{time}
-        opened_by_anonymous: creade di un anonim a lis %{time}
-        permalink: Leam permanent
         reactivate: Torne a ativâ
-        reopened_by: tornade a ativâ di <a href='%{user_url}'>%{user}</a> a lis %{time}
-        reopened_by_anonymous: tornade a ativâ di un anonim a lis %{time}
         resolve: Risolf
+    share: 
+      cancel: Scancele
+      center_marker: Centre la mape sul marcadôr
+      custom_dimensions: Dopre dimensions personalizadis
+      download: Discjame
+      embed: HTML
+      format: "Formât:"
+      image: Figure
+      image_size: La figure e mostrarà il nivel standard a
+      include_marker: Inclût il marcadôr
+      link: Leam o HTML
+      long_link: Leam
+      paste_html: Tache l'HTML par inserîlu tal to sît web
+      scale: "Scjale:"
+      short_link: Leam curt
+      short_url: URL curte
+      title: Condivît
+      view_larger_map: Viôt une mape plui grande
     site: 
       createnote_disabled_tooltip: Aumente il zoom par zontâ une note ae mape
       createnote_tooltip: Zonte une note ae mape
-      createnote_zoom_alert: Tu scugnis aumentâ il zoom par zontâ une note ae mape
       edit_disabled_tooltip: Cres il zoom par cambiâ la mape
       edit_tooltip: Cambie la mape
-      edit_zoom_alert: Tu scugnis cressi il zoom par cambiâ la mape
-      history_disabled_tooltip: Cres il zoom par viodi i cambiaments in cheste aree
-      history_tooltip: Cjale i cambiaments in cheste aree
-      history_zoom_alert: Tu scugnis cressi il zoom par viodi il storic dai cambiaments
+      map_data_zoom_in_tooltip: Aumente il zoom par viodi i dâts de mape
+      map_notes_zoom_in_tooltip: Aumente il zoom par viodi lis notis su la mape
   layouts: 
+    about: Informazions
     community: Comunitât
     community_blogs: Blogs de comunitât
     community_blogs_title: Blogs di bande dai membris de comunitât OpenStreetMap
-    copyright: Copyright & Licence
-    documentation: Documentazion
-    documentation_title: Documentazion dal progjet
+    copyright: Copyright
+    data: Dâts
     donate: Sosten OpenStreetMap %{link} al font pal inzornament dal hardware.
-    donate_link_text: donant
     edit: Cambie
     edit_with: Cambie cun %{editor}
     export: Espuarte
-    export_tooltip: Espuarte i dâts de mape
+    export_data: Espuarte i dâts
     foundation: Fondazion
     foundation_title: La fondazion OpenStreetMap
     gps_traces: Percors GPS
     gps_traces_tooltip: Gjestìs i percors GPS
     help: Jutori
-    help_centre: Jutori
-    help_title: Sît di jutori pal progjet
     history: Storic
-    home: lûc iniziâl
-    home_tooltip: Va al lûc iniziâl
-    inbox_html: in jentrade %{count}
-    inbox_tooltip: 
-      one: Al è un messaç di lei te pueste in jentrade
-      other: A son %{count} messaçs di lei te pueste in jentrade
-      zero: Nol è nissun messaç di lei te pueste in jentrade
-    intro_1: OpenStreetMap al è une mape libare e modificabile dal marimont. Al è fat di int come te.
+    home: Va al lûc iniziâl
     intro_2_create_account: Cree il to profîl utent
-    intro_2_download: discjamâ
-    intro_2_html: I dâts si puedin liberementri %{download} e %{use} sot de lôr %{license}. %{create_account} par miorâ la mape.
-    intro_2_license: licence vierte
-    intro_2_use: doprâ
-    log_in: jentre
+    intro_header: Benvignût in OpenStreetMap!
+    intro_text: OpenStreetMap e je une mape dal mont, creade di int come te e di ûs libar sot di une licence vierte.
+    learn_more: Par savênt di plui
+    log_in: Jentre
     log_in_tooltip: Jentre cuntun profîl esistint
     logo: 
       alt_text: Logo di OpenStreetMap
-    logout: jes
-    logout_tooltip: Jes
+    logout: Jes
     make_a_donation: 
       text: Done alc
       title: Sosten OpenStreetMap fasint une donazion monetarie
@@ -771,18 +661,18 @@ fur:
     partners_html: L'hosting al è sostignût di %{ucl}, %{ic}, %{bytemark} e altris %{partners}.
     partners_ic: Imperial College di Londre
     partners_ucl: UCL VR Centre
-    sign_up: regjistriti
+    sign_up: Regjistriti
     sign_up_tooltip: Cree un profîl par colaborâ
+    start_mapping: Scomence a mapâ
     tag_line: Il WikiMapeMont libar
     user_diaries: Diaris dai utents
     user_diaries_tooltip: Viôt i diaris dai utents
-    view: Viôt
-    view_tooltip: Viôt la mape
-    welcome_user_link_tooltip: La tô pagjine utent
-    wiki: Vichi
-    wiki_title: Vichi dal progjet
   license_page: 
+    foreign: 
+      title: Informazions su cheste traduzion
     legal_babble: 
+      contributors_title_html: Nestris colaboradôrs
+      more_title_html: Par savênt di plui
       title_html: Copyright e licence
     native: 
       mapping_link: scomence a mapâ
@@ -839,8 +729,7 @@ fur:
       title: In jessude
       to: A
     read: 
-      back_to_inbox: Torne ai messaçs in jentrade
-      back_to_outbox: Torne ai messaçs in jessude
+      back: Indaûr
       date: Date
       from: Di
       reply_button: Rispuint
@@ -906,17 +795,12 @@ fur:
       with_description: cu la descrizion
       your_gpx_file: Al somee che il to file GPX
     message_notification: 
-      footer1: Tu puedis ancje lei il messaç su %{readurl}
-      footer2: e tu puedis rispuindi su %{replyurl}
       header: "%{from_user} ti à mandât un messaç su OpenStreetMap cun sogjet %{subject}:"
       hi: Mandi %{to_user},
+    note_comment_notification: 
+      anonymous: Un utent anonim
     signup_confirm: 
       subject: "[OpenStreetMap] Benvignût in OpenStreetMap"
-    signup_confirm_html: 
-      introductory_video: Tu puedis viodi un %{introductory_video_link}.
-      more_videos: A son %{more_videos_link}.
-      more_videos_here: altris videos culì
-      video_to_openstreetmap: video di introduzion a OpenStreetMap
   oauth: 
     oauthorize: 
       allow_read_prefs: lei lis tôs preferencis dal utent.
@@ -1050,7 +934,6 @@ fur:
       preview: Anteprime
     search: 
       search: Cîr
-      search_help: "esemplis: 'Cividât', 'Vie Julie, Naiarêt', 'CB2 5AQ', o se no 'post offices near Gurize' <a href='http://wiki.openstreetmap.org/wiki/Search'>altris esemplis...</a>"
       submit_text: Va
       where_am_i: Dulà soio?
       where_am_i_title: Descrîf il lûc atuâl doprant il motôr di ricercje
@@ -1190,11 +1073,13 @@ fur:
       update home location on click: Aio di inzornâ il lûc iniziâl cuant che o frachi parsore la mape?
     confirm: 
       already active: Chest profîl al è za stât confermât.
-      before you start: O savìn che tu varâs premure di scomençâ a mapâ, ma prime tu podaressis jemplâ culì sot cualchidune des informazions su di te.
       button: Conferme
-      heading: Conferme di un profîl utent
+      heading: Controle la tô pueste!
+      introduction_1: Ti vin mandât un messaç di conferme.
+      introduction_2: Conferme il to profîl fracant sul leam tal messaç di pueste e tu podarâs scomençâ a mapâ daurman.
       press confirm button: Frache il boton Conferme par ativâ il to profîl.
-      success: Profîl confermât, graziis par jessiti regjistrât!
+      reconfirm_html: Se tu âs bisugne di un altri messaç di pueste par conferme, <a href="%{reconfirm}">frache culì</a>.
+      unknown token: Chest codiç di conferme al è scjadût o nol esist.
     confirm_email: 
       button: Conferme
       heading: Conferme dal cambiament de direzion email
@@ -1270,18 +1155,15 @@ fur:
     new: 
       confirm email address: "Conferme direzion pueste:"
       confirm password: "Conferme la password:"
-      continue: Va indevant
+      continue: Regjistriti
       display name: "Non di mostrâ:"
       display name description: Il non utent che al vignarà mostrât a ducj. Tu podarâs gambiâlu plui tart tes preferencis.
       email address: "Direzion di pueste eletroniche:"
-      fill_form: Jemple il modul e ti mandarin in curt un messaç di pueste par ativâ il to profîl.
-      flash create success message: Graciis par jessiti regjistrât. Spiete che ti rivedi par pueste il messaç di conferme che o vin mandât a %{email} e po tu podarâs scomençâ a mapâ intun lamp :-)<br /><br />Se tu dopris un sisteme antispam che al mande richiestis di conferme, siguriti di meti te whitelist webmaster@openstreetmap.org, parcè che no podin rispuindi aes richiestis di conferme.
-      heading: Cree un account utent
       license_agreement: Creant un profîl tu scugnis aprovâ i <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">tiermins par contribuî</a>.
       openid: "%{logo} OpenID:"
       password: "Password:"
       terms accepted: Graziis par vê acetât i gnûfs tiermins par contribuî!
-      title: Cree profîl
+      title: Regjistriti
       use openid: O se no, dopre %{logo} OpenID par jentrâ
     no_such_user: 
       body: Nol esist un utent di non %{user}. Controle par plasê la grafie o che tu vedis seguît il leam just.
@@ -1319,12 +1201,13 @@ fur:
       title: Tiermins par contribuî
       you need to accept or decline: Par plasê lei e po acete o refude i gnûfs Tiermins par Contribuî par lâ indevant.
     view: 
-      add as friend: zonte ai amîs
+      activate_user: ative chest utent
+      add as friend: Zonte ai amîs
       ago: (%{time_in_words_ago} indaûr)
       block_history: blocs ricevûts
-      blocks by me: blocs aplicâts di me
-      blocks on me: blocs su di me
-      comments: coments
+      blocks by me: Blocs aplicâts di me
+      blocks on me: Blocs su di me
+      comments: Coments
       confirm: Conferme
       confirm_user: conferme chest utent
       create_block: bloche chest utent
@@ -1333,10 +1216,11 @@ fur:
       ct declined: Refudâts
       ct status: "Tiermins par contribuî:"
       ct undecided: Nol à decidût
+      deactivate_user: disative chest utent
       delete_user: elimine chest utent
       description: Descrizion
-      diary: diari
-      edits: cambiaments
+      diary: Diari
+      edits: Cambiaments
       email address: "Direzion di pueste:"
       friends_changesets: grups di cambiaments dai amîs
       friends_diaries: vôs di diari dai amîs
@@ -1347,29 +1231,31 @@ fur:
       m away: "%{count}m di distance"
       mapper since: "Al mape dai:"
       moderator_history: blocs aplicâts
-      my comments: i mei coments
-      my diary: il gno diari
-      my edits: miei cambiaments
-      my notes: lis mês notis ae mape
-      my settings: mês impostazions
-      my traces: percors personâi
+      my comments: I mei coments
+      my diary: Il gno diari
+      my edits: I miei cambiaments
+      my notes: Lis mês notis
+      my profile: Il gno profîl
+      my settings: Impostazions
+      my traces: I miei percors
       nearby users: Altris utents dongje
       nearby_changesets: grups di cambiaments dai utents dongje
       nearby_diaries: vôs di diari dai utents dongje
       new diary entry: gnove vôs dal diari
       no friends: No tu âs ancjemò nissun amì.
       no nearby users: Nol è ancjemò nissun utent che al declare di mapâ dongje di te.
-      notes: notis ae mape
+      notes: Notis ae mape
       oauth settings: configurazion OAuth
-      remove as friend: gjave dai amîs
+      remove as friend: Gjave dai amîs
       role: 
         administrator: Chest utent al è un aministradôr
         moderator: Chest utent al è un moderatôr
-      send message: mande messaç
+      send message: Mande messaç
       settings_link_text: impostazions
       spam score: "Ponts di spam:"
       status: "Stât:"
-      traces: percors
+      traces: Percors
+      unhide_user: mostre chest utent
       user location: Lûc dal utent
       your friends: I tiei amîs
   user_block: 
@@ -1439,3 +1325,10 @@ fur:
       confirm: Conferme
     revoke: 
       confirm: Conferme
+  welcome_page: 
+    add_a_note: 
+      title: No tu âs timp par fâ i cambiaments? Zonte une note!
+    questions: 
+      title: Domandis?
+    start_mapping: Scomence a mapâ
+    title: Benvignût!

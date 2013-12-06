@@ -25,13 +25,28 @@
 # Author: Olasd
 # Author: Peter17
 # Author: Phoenamandre
+# Author: Pipo
+# Author: Pyrog
 # Author: Quentinv57
 # Author: Seb35
 # Author: Sherbrooke
 # Author: Urhixidur
+# Author: Vcalame
 # Author: Verdy p
 # Author: Yvecai
 fr: 
+  about_page: 
+    community_driven_html: "La communauté d’OpenStreetMap est diverse, passionée et grossit chaque jour. Nos contributeurs incluent des cartographes enthousiastes, des professionnels du GIS, des ingénieurs qui conduisent les serveurs OSM, des humanitaires cartographiant les zones dévastées par une catastrophe et bien d’autres.\nPour en savoir plus sur la communauté, consultez les <a href='%{diary_path}'>annuaires d’utilisateurs</a>, <a href='http://blogs.openstreetmap.org/'>les blogues communautaires</a> et le site web de la <a href='http://www.osmfoundation.org/'>Fondation OSM</a>."
+    community_driven_title: Conduit par la communauté
+    copyright_html: <span>&copy;</span>Contributeurs<br /> d’OpenStreetMap
+    lede_text: OpenStreetMap est bâti par une communauté de cartographes bénévoles qui contribuent et maintiennent les données des routes, sentiers, cafés, stations ferroviaires et bien plus encore, partout dans le monde.
+    local_knowledge_html: OpenStreetMap encourage et met en avant la connaissance locale du terrain. Les contributeurs utilisent l’imagerie aérienne, les récepteurs GPS et les cartes classiques du terrain pour vérifier qu’OSM est exact et à jour.
+    local_knowledge_title: Connaissance locale
+    next: Suivant
+    open_data_html: "OpenStreetMap est en <i>open data</i> : vous êtes libre de l’utiliser pour n’importe quel but tant que vous créditez OpenStreetMap et ses contributeurs. Si vous modifiez ou vous appuyez sur les données d’une façon quelconque, vous pouvez distribuez le résultat seulement suivant la même licence. Consultez la page sur les <a href='%{copyright_path}'>droits d’auteur et licence</a> pour plus de détails."
+    open_data_title: Données libres
+    partners_title: Partenaires
+    used_by: "%{name} fournit des données cartographie sur des centaines de sites web, applications mobiles et appareils"
   activerecord: 
     attributes: 
       diary_comment: 
@@ -69,7 +84,7 @@ fr:
     models: 
       acl: Liste de contrôle d’accès
       changeset: Groupe de modifications
-      changeset_tag: Balise du groupe de modifications
+      changeset_tag: Attribut du groupe de modifications
       country: Pays
       diary_comment: Commentaire du journal
       diary_entry: Entrée du journal
@@ -77,29 +92,29 @@ fr:
       language: Langue
       message: Message
       node: Nœud
-      node_tag: Balise de nœud
+      node_tag: Attribut du nœud
       notifier: Notificateur
       old_node: Ancien nœud
-      old_node_tag: Balise de l'ancien nœud
+      old_node_tag: Attribut de l’ancien nœud
       old_relation: Ancienne relation
-      old_relation_member: Membre de l'ancienne relation
-      old_relation_tag: Balise de l’ancienne relation
+      old_relation_member: Membre de l’ancienne relation
+      old_relation_tag: Attribut de l’ancienne relation
       old_way: Ancien chemin
       old_way_node: Nœud de l’ancien chemin
-      old_way_tag: Balise de l’ancien chemin
+      old_way_tag: Attribut de l’ancien chemin
       relation: Relation
       relation_member: Membre de la relation
-      relation_tag: Balise de relation
+      relation_tag: Attribut de la relation
       session: Session
       trace: Trace
       tracepoint: Point de la trace
-      tracetag: Balise de la piste
+      tracetag: Mot-clé de la trace
       user: Utilisateur
       user_preference: Préférences de l’utilisateur
-      user_token: Jeton de l'utilisateur
+      user_token: Jeton de l’utilisateur
       way: Chemin
       way_node: Nœud du chemin
-      way_tag: Balise du chemin
+      way_tag: Attribut du chemin
   application: 
     require_cookies: 
       cookies_needed: Il semble que les cookies soient désactivés sur votre navigateur. Veuillez les activer avant de continuer.
@@ -109,128 +124,72 @@ fr:
       blocked: Votre accès à l'API a été bloqué. Connectez-vous sur l'interface web pour plus d'informations.
       need_to_see_terms: Votre accès à l’API est temporairement suspendu. Veuillez vous connecter à l’interface web pour afficher les conditions de contributions. Vous n'avez pas besoin d’accord, mais vous devez les visualiser.
   browse: 
+    anonymous: anonyme
     changeset: 
-      changeset: "Groupe de modifications : %{id}"
-      changesetxml: Groupe de modifications XML
+      belongs_to: Auteur
+      changesetxml: XML du groupe de modifications
       feed: 
         title: Groupe de modifications %{id}
         title_comment: Groupe de modifications %{id} – %{comment}
-      osmchangexml: osmChange XML
-      title: Groupe de modifications
-    changeset_details: 
-      belongs_to: "Appartient à :"
-      bounding_box: "Cadre de délimitation :"
-      box: cadre
-      closed_at: "Terminé le :"
-      created_at: "Créé le :"
-      has_nodes: 
-        one: "Concerne le nœud suivant :"
-        other: "Concerne les %{count} nœuds suivants :"
-      has_relations: 
-        one: "Concerne la relation suivante :"
-        other: "Concerne les %{count} relations suivantes :"
-      has_ways: 
-        one: "Concerne le chemin suivant :"
-        other: "Concerne les %{count} chemins suivants :"
-      no_bounding_box: Aucun cadre de délimitation n’a été stocké pour ce groupe de modifications.
-      show_area_box: Montrer le cadre de la zone
-    common_details: 
-      changeset_comment: "Commentaire :"
-      deleted_at: "Supprimé à :"
-      deleted_by: "Supprimé par :"
-      edited_at: "Modifié le :"
-      edited_by: "Modifié par :"
-      in_changeset: "Dans le groupe de modifications :"
-      version: "Version :"
+      node: Nœuds (%{count})
+      node_paginated: Nœuds (%{x} à %{y} sur %{count})
+      osmchangexml: XML osmChange
+      relation: Relations (%{count})
+      relation_paginated: Relations (%{x} à %{y} sur %{count})
+      title: "Groupe de modifications : %{id}"
+      way: Chemins (%{count})
+      way_paginated: Chemins (%{x} à %{y} sur %{count})
+    closed: Fermé
+    closed_by_html: Fermé <abbr title='%{title}'>il y a %{time}</abbr> par %{user}
+    closed_html: Fermé <abbr title='%{title}'>il y a %{time}</abbr>
     containing_relation: 
       entry: Relation %{relation_name}
       entry_role: Relation %{relation_name} (en tant que %{relation_role})
-    map: 
-      deleted: Effacé
-      edit: 
-        area: Modifier la zone
-        node: Modifier le nœud
-        note: Modifier la note
-        relation: Modifier la relation
-        way: Modifier le chemin
-      larger: 
-        area: Voir la zone dans une carte plus grande
-        node: Voir le nœud dans une carte plus grande
-        note: Voir la note sur une carte plus large
-        relation: Voir la relation sur une carte plus grande
-        way: Voir le chemin sur une carte plus grande
-      loading: Chargement...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Groupe de modifications suivant
-        next_node_tooltip: Nœud suivant
-        next_note_tooltip: Note suivante
-        next_relation_tooltip: Relation suivante
-        next_way_tooltip: Chemin suivant
-        prev_changeset_tooltip: Groupe de modifications précédent
-        prev_node_tooltip: Nœud précédent
-        prev_note_tooltip: Note précédente
-        prev_relation_tooltip: Relation précédente
-        prev_way_tooltip: Chemin précédent
-      user: 
-        name_changeset_tooltip: Voir les modifications par %{user}
-        next_changeset_tooltip: Modifications suivantes par %{user}
-        prev_changeset_tooltip: Modifications précédentes par %{user}
+    created: Créé
+    created_by_html: Créé <abbr title='%{title}'>il y a %{time}</abbr> par %{user}
+    created_html: Créé <abbr title='%{title}'>il y a %{time}</abbr>
+    deleted_by_html: Supprimé <abbr title='%{title}'>il y a %{time}</abbr> par %{user}
+    download_xml: Télécharger le XML
+    edited_by_html: Modifié <abbr title='%{title}'>il y a %{time}</abbr> par %{user}
+    in_changeset: Groupe de modifications
+    no_comment: (sans commentaire)
     node: 
-      download_xml: Télécharger en XML
-      edit: Modifier le nœud
-      node: Nœud
-      node_title: "Nœud : %{node_name}"
-      view_history: Afficher l’historique
-    node_details: 
-      coordinates: "Coordonnées :"
-      part_of: "Faisant partie de :"
-    node_history: 
-      download_xml: Télécharger en XML
-      node_history: Historique du nœud
-      node_history_title: "Historique du nœud : %{node_name}"
-      view_details: Voir les détails
+      history_title: "Historique du nœud : %{name}"
+      title: "Nœud : %{name}"
     not_found: 
-      sorry: Désolé, l’objet de type %{type} avec l’identifiant %{id} n’a pas pu être trouvé.
+      sorry: "Désolé, %{type} #%{id} n’a pas pu être trouvé."
       type: 
         changeset: groupe de modifications
         node: nœud
         relation: relation
         way: chemin
     note: 
-      at_by_html: il y a %{when} par %{user}
-      at_html: il y a %{when}
-      closed: "Fermé :"
-      closed_title: "Note résolue : %{note_name}"
-      comments: "Commentaires :"
-      description: "Description :"
-      last_modified: "Dernière modification :"
-      open_title: "Note non résolue : %{note_name}"
-      opened: "Ouvert :"
-      title: Note
-    paging_nav: 
-      of: de
-      showing_page: page
+      closed_by: Résolu par %{user} <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      closed_by_anonymous: Résolu par un utilisateur anonyme <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      closed_title: Note résolue nº %{note_name}
+      commented_by: Commenté par %{user} <abbr title='%{exact_time}'>il  y a %{when}</abbr>
+      commented_by_anonymous: Commenté par un utilisateur anonyme <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      hidden_by: Masqué par %{user} <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      hidden_title: Note masquée nº %{note_name}
+      new_note: Nouvelle note
+      open_by: Créé par %{user} <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      open_by_anonymous: Créé par un utilisateur anonyme <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      open_title: Note non résolue nº %{note_name}
+      reopened_by: Réactivé par %{user} <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      reopened_by_anonymous: Réactivé par un utilisateur anonyme <abbr title='%{exact_time}'>il y a %{when}</abbr>
+      title: "Note : %{id}"
+    part_of: Partie de
     redacted: 
-      message_html: La version %{version} de ce(tte) %{type} ne peut être affichée car elle a été masquée. Veuillez consulter %{redaction_link} pour plus d'informations.
+      message_html: La version %{version} de ce(tte) %{type} ne peut être affichée car elle a été masquée. Veuillez consulter %{redaction_link} pour plus d’informations.
       redaction: Masquage %{id}
       type: 
         node: nœud
         relation: relation
         way: chemin
     relation: 
-      download_xml: Télécharger en XML
-      relation: Relation
-      relation_title: "Relation : %{relation_name}"
-      view_history: Afficher l’historique
-    relation_details: 
-      members: "Membres :"
-      part_of: "Faisant partie de :"
-    relation_history: 
-      download_xml: Télécharger en XML
-      relation_history: Historique de la relation
-      relation_history_title: "Historique de la relation : %{relation_name}"
-      view_details: Afficher les détails
+      history_title: "Historique de la relation : %{name}"
+      members: Membres
+      title: "Relation : %{name}"
     relation_member: 
       entry_role: "%{type} %{name} avec le rôle %{role}"
       type: 
@@ -238,110 +197,59 @@ fr:
         relation: Relation
         way: Chemin
     start_rjs: 
-      data_frame_title: Données
-      data_layer_name: Parcourir les données de la carte
-      details: Détails
-      edited_by_user_at_timestamp: Modifié par %{user} le %{timestamp}
-      hide_areas: Masquer les zones
-      history_for_feature: Historique pour %{feature}
+      feature_warning: Le chargement de %{num_features} caractéristiques pourrait rendre votre navigateur lent ou il pourrait ne plus répondre. Êtes-vous sûr de vouloir afficher ces données ?
       load_data: Charger les données
-      loaded_an_area_with_num_features: "Vous avez chargé une zone qui contient %{num_features} éléments. En général, certains navigateurs ne supportent pas bien l’affichage de tant de données et travaillent mieux lorsqu’ils affichent moins de 100 objets à la fois : procéder autrement pourrait rendre votre navigateur lent ou non fonctionnel. Si vous êtes sûr de vouloir afficher ces données, vous pouvez le faire en appuyant sur le bouton ci-dessous."
       loading: Chargement...
-      manually_select: Sélectionner manuellement une zone différente
-      notes_layer_name: Parcourir les notes
-      object_list: 
-        api: Obtenir cette zone depuis l’API
-        back: Revenir à la liste d’objets
-        details: Détails
-        heading: Liste d’objets
-        history: 
-          type: 
-            node: Nœud %{id}
-            way: Chemin %{id}
-        selected: 
-          type: 
-            node: Nœud %{id}
-            way: Chemin %{id}
-        type: 
-          node: Nœud
-          way: Chemin
-      private_user: utilisateur privé
-      show_areas: Afficher les zones
-      show_history: Afficher l’historique
-      unable_to_load_size: "Impossible de charger les données : le cadre de délimitation d’une taille de %{bbox_size} est trop grand (il doit être inférieur à %{max_bbox_size})"
-      view_data: Afficher les données sur la vue actuelle de la carte
-      wait: Patientez...
-      zoom_or_select: Zoomer ou sélectionner une zone de la carte pour la visualiser
     tag_details: 
-      tags: "Balises :"
+      tags: Attributs
       wiki_link: 
-        key: La description de la balise <code>%{key}</code> sur le wiki
-        tag: La description de la balise <code>%{key}=%{value}</code> sur le wiki
+        key: La description de l’attribut <code>%{key}</code> sur le wiki
+        tag: La description de l’attribut <code>%{key}=%{value}</code> sur le wiki
       wikipedia_link: L’article « %{page} » sur Wikipédia
     timeout: 
-      sorry: Désolé, les données pour le type %{type} avec l'id %{id} prennent trop de temps à être récupérées.
+      sorry: Désolé, les données pour le type %{type} avec l’id %{id} prennent trop de temps à être récupérées.
       type: 
         changeset: groupe de modifications
         node: nœud
         relation: relation
         way: chemin
+    version: Version
+    view_details: Afficher les détails
+    view_history: Afficher l’historique
     way: 
-      download_xml: Télécharger en XML
-      edit: Modifier la route
-      view_history: Afficher l’historique
-      way: Chemin
-      way_title: "Chemin : %{way_name}"
-    way_details: 
       also_part_of: 
         one: partie du chemin %{related_ways}
         other: partie des chemins %{related_ways}
-      nodes: "Nœuds :"
-      part_of: "Faisant partie de :"
-    way_history: 
-      download_xml: Télécharger en XML
-      view_details: Afficher les détails
-      way_history: Historique du chemin
-      way_history_title: "Historique du chemin : %{way_name}"
+      history_title: "Historique du chemin : %{name}"
+      nodes: Nœuds
+      title: "Chemin : %{name}"
   changeset: 
     changeset: 
       anonymous: Anonyme
-      big_area: (grand)
-      no_comment: (aucun)
       no_edits: (aucune modification)
-      show_area_box: montrer le cadre de la zone
-      still_editing: (en cours de modification)
       view_changeset_details: Afficher les détails du groupe de modifications
     changeset_paging_nav: 
-      next: Suivants »
-      previous: « Précédents
+      next: Suivant »
+      previous: « Précédent
       showing_page: Page %{page}
     changesets: 
       area: Zone
       comment: Commentaire
       id: Identifiant
-      saved_at: Sauvegardé à
+      saved_at: Enregistré le
       user: Utilisateur
     list: 
-      description: Parcourir les contributions récentes sur la carte
-      description_bbox: Groupes de modifications dans %{bbox}
-      description_friend: Groupes de modifications par vos amis
-      description_nearby: Groupes de modifications par les utilisateurs à proximité
-      description_user: Groupes de modifications par %{user}
-      description_user_bbox: Groupes de modifications par %{user} dans %{bbox}
-      empty_anon_html: Encore aucune modification faite.
-      empty_user_html: Il semble que vous n'avez pas encore fait de modification. Pour commencer, regardez le <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>Guide du débutant</a>.
-      heading: Groupes de modifications
-      heading_bbox: Groupes de modifications
-      heading_friend: Groupes de modifications
-      heading_nearby: Groupes de modifications
-      heading_user: Groupes de modifications
-      heading_user_bbox: Groupes de modifications
+      empty: Aucun groupe de modifications trouvé.
+      empty_area: Aucun groupe de modifications dans cette zone.
+      empty_user: Aucun groupe de modifications par cet utilisateur.
+      load_more: Charger plus
+      no_more: Aucun autre groupe de modifications trouvé.
+      no_more_area: Aucun autre groupe de modifications dans cette zone.
+      no_more_user: Aucun autre groupe de modifications par cet utilisateur.
       title: Groupes de modifications
-      title_bbox: Groupes de modifications dans %{bbox}
       title_friend: Groupes de modifications par vos amis
-      title_nearby: Groupes de modifications des utilisateurs à proximité
+      title_nearby: Groupes de modifications par des utilisateurs à proximité
       title_user: Groupes de modifications par %{user}
-      title_user_bbox: Groupes de modifications par %{user} dans %{bbox}
     timeout: 
       sorry: Désolé, la liste des groupes de modifications que vous avez demandée met trop de temps pour être récupérée.
   diary_entry: 
@@ -374,25 +282,25 @@ fr:
       latitude: "Latitude :"
       location: "Lieu :"
       longitude: "Longitude :"
-      marker_text: Emplacement de l'entrée du journal
-      save_button: Sauvegarder
+      marker_text: Emplacement de l’entrée du journal
+      save_button: Enregistrer
       subject: "Objet :"
       title: Modifier l’entrée du journal
-      use_map_link: Utiliser la carte
+      use_map_link: utiliser la carte
     feed: 
       all: 
-        description: Entrées récentes du journal des utilisateurs d'OpenStreetMap
-        title: Entrées du journal d'OpenStreetMap
+        description: Entrées récentes du journal des utilisateurs d’OpenStreetMap
+        title: Entrées du journal d’OpenStreetMap
       language: 
-        description: Entrées récentes du journal des utilisateurs d'OpenStreetMap en %{language_name}
-        title: Entrées du journal d'OpenStreetMap en %{language_name}
+        description: Entrées récentes du journal des utilisateurs d’OpenStreetMap en %{language_name}
+        title: Entrées du journal d’OpenStreetMap en %{language_name}
       user: 
-        description: Entrées récentes du journal d'OpenStreetMap pour %{user}
-        title: Entrées du journal d'OpenStreetMap pour %{user}
+        description: Entrées récentes du journal d’OpenStreetMap pour %{user}
+        title: Entrées du journal d’OpenStreetMap pour %{user}
     list: 
       in_language_title: Entrées du journal en %{language}
       new: Nouvelle entrée du journal
-      new_title: Ajouter une nouvelle entrée dans votre journal
+      new_title: Écrire une nouvelle entrée dans votre journal
       newer_entries: Entrées plus récentes
       no_entries: Aucune entrée dans votre journal
       older_entries: Entrées plus anciennes
@@ -408,13 +316,13 @@ fr:
     new: 
       title: Nouvelle entrée du journal
     no_such_entry: 
-      body: Desolé, il n'y a aucune entrée dans le journal ou commentaires avec l'id %{id}. Veuillez vérifier l'orthographe, ou le lien que vous avez cliqué n'est pas valide.
-      heading: "Aucune entrée avec l'id : %{id}"
-      title: Aucune entrée du journal n'a été trouvé
+      body: Desolé, il n’y a aucune entrée dans le journal ni aucun commentaire avec l’id %{id}. Veuillez vérifier votre orthographe ou la validité du lien que vous avez cliqué.
+      heading: "Aucune entrée avec l’id : %{id}"
+      title: Aucune entrée du journal n’a été trouvée
     view: 
-      leave_a_comment: Ajouter un commentaire
-      login: Connectez-vous
-      login_to_leave_a_comment: "%{login_link} pour ajouter un commentaire"
+      leave_a_comment: Laisser un commentaire
+      login: Utilisateur
+      login_to_leave_a_comment: "%{login_link} pour laisser un commentaire"
       save_button: Enregistrer
       title: Journal de %{user} | %{title}
       user_title: Journal de %{user}
@@ -441,7 +349,7 @@ fr:
       export_details: Les données d’OpenStreetMap sont publiées sous la <a href="http://opendatacommons.org/licenses/odbl/1.0/">licence Open Data Commons ­– Base de données Ouverte</a> (ODbL).
       format: Format
       format_to_export: Format à exporter
-      image_size: Taille de l'image
+      image_size: Taille de l’image
       latitude: "Lat :"
       licence: Licence
       longitude: "Lon :"
@@ -449,22 +357,26 @@ fr:
       map_image: Image de carte (affiche un calque normal)
       max: max
       options: Options
-      osm_xml_data: Données XML d'OpenStreetMap
+      osm_xml_data: Données XML d’OpenStreetMap
       output: Sortie
-      paste_html: Collez le code HTML pour incorporer dans un site web.
+      paste_html: Copier le code HTML à intégrer dans un site web
       scale: Échelle
       too_large: 
-        body: Cette zone est trop vaste pour être exportée comme données XML OpenStreetMap. Veuillez zoomer ou sélectionner une zone plus petite.
-        heading: Zone trop grande
+        body: "Cette zone est trop vaste pour être exportée comme données XML OpenStreetMap. Veuillez zoomer ou sélectionner une zone plus petite, ou utiliser une des sources suivantes pour le téléchargement de données massives :"
+        geofabrik: 
+          description: Extractions régulièrement mises à jour de continents, pays et villes sélectionnées
+          title: Téléchargements de Geofabrik
+        metro: 
+          description: Extractions des principales villes du monde et de leurs environs
+          title: Extractions de Metro
+        other: 
+          description: Sources supplémentaires listées dans le wiki de OpenStreetMap
+          title: Autres sources
+        planet: 
+          description: Copies régulièrement mises à jour de la base de données complète de OpenStreetMap
+          title: Planète OSM
       zoom: Zoom
-    start_rjs: 
-      add_marker: Ajouter un marqueur à la carte
-      change_marker: Modifier la position du marqueur
-      click_add_marker: Cliquer sur la carte pour ajouter un marqueur
-      drag_a_box: Dessiner un cadre sur la carte pour sélectionner une zone
-      export: Exporter
-      manually_select: Sélectionner manuellement une zone différente
-      view_larger_map: Voir une carte plus grande
+    title: Exporter
   geocoder: 
     description: 
       title: 
@@ -472,7 +384,7 @@ fr:
         osm_nominatim: Localisation depuis <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
       types: 
         cities: Villes
-        places: Places
+        places: Lieux
         towns: Villages
     direction: 
       east: est
@@ -486,28 +398,34 @@ fr:
     distance: 
       one: environ 1 km
       other: environ %{count} km
-      zero: moins de 1 km
+      zero: moins d’1 km
     results: 
       more_results: Plus de résultats
-      no_results: Aucun résultat n'a été trouvé
+      no_results: Aucun résultat n’a été trouvé
     search: 
       title: 
         ca_postcode: Résultats depuis <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: Résultats depuis <a href="http://www.geonames.org/">GeoNames</a>
+        geonames_reverse: Résultats de <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Résultats <a href="http://openstreetmap.org/">internes</a>
         osm_nominatim: Résultats de <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
+        osm_nominatim_reverse: Résultats de <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: Résultats depuis <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Résultats depuis <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
       admin_levels: 
-        level10: Limite de la banlieue
+        level10: Frontière de quartier
         level2: Frontière du pays
-        level4: Frontière de l’état
-        level5: Frontière de la région
-        level6: Frontière du comté
-        level8: Limite de la ville
-        level9: Limite du village
+        level4: Frontière d’État / de province
+        level5: Frontière de région
+        level6: Frontière de comté
+        level8: Frontière de ville
+        level9: Frontière de village
       prefix: 
+        aerialway: 
+          chair_lift: Télésiège
+          drag_lift: Téléski
+          station: Gare de télécabine
         aeroway: 
           aerodrome: Aérodrome
           apron: Tablier
@@ -542,7 +460,7 @@ fr:
           cinema: Cinéma
           clinic: Clinique
           club: Club
-          college: Établissement d'enseignement supérieur
+          college: Établissement d’enseignement supérieur
           community_centre: Salle polyvalente
           courthouse: Palais de justice
           crematorium: Crématorium
@@ -552,30 +470,30 @@ fr:
           drinking_water: Eau potable
           driving_school: École de conduite
           embassy: Ambassade
-          emergency_phone: Téléphone d'urgence
+          emergency_phone: Borne d’appel d’urgence
           fast_food: Restauration rapide
           ferry_terminal: Terminal de ferry
-          fire_hydrant: Bouche d'incendie
+          fire_hydrant: Bouche d’incendie
           fire_station: Caserne des pompiers
           food_court: Aire de restauration
           fountain: Fontaine
           fuel: Carburant
           grave_yard: Cimetière
-          gym: Fitness /gymnastique
+          gym: Fitness / gymnastique
           hall: Salle
-          health_centre: Centre de santé
+          health_centre: Centre de santé / dispensaire
           hospital: Hôpital
           hotel: Hôtel
           hunting_stand: Stand de tir
           ice_cream: Crème glacée
-          kindergarten: Jardin d'enfant
+          kindergarten: Jardin d’enfant
           library: Bibliothèque
           market: Marché
           marketplace: Place de marché
           mountain_rescue: Secours en montagne
           nightclub: Boîte de nuit
           nursery: Nurserie
-          nursing_home: Maison de santé
+          nursing_home: Soins infirmiers
           office: Bureau
           park: Parc
           parking: Parking
@@ -589,18 +507,19 @@ fr:
           pub: Bar
           public_building: Bâtiment public
           public_market: Marché public
-          reception_area: Zone de réception
+          reception_area: Zone de livraison
           recycling: Point de recyclage
           restaurant: Restaurant
           retirement_home: Maison de retraite
           sauna: Sauna
           school: École
           shelter: Refuge
-          shop: Magasin
+          shop: Boutique
           shopping: Commerce
           shower: Douche
           social_centre: Centre social
           social_club: Club social
+          social_facility: Service social
           studio: Studio
           supermarket: Supermarché
           swimming_pool: Piscine
@@ -608,12 +527,12 @@ fr:
           telephone: Téléphone public
           theatre: Théâtre
           toilets: Toilettes
-          townhall: Hôtel de ville
+          townhall: Hôtel de ville / mairie
           university: Université
           vending_machine: Distributeur automatique
           veterinary: Chirurgie vétérinaire
-          village_hall: Salle communale
-          waste_basket: Corbeille
+          village_hall: Salle municipale
+          waste_basket: Poubelle
           wifi: Accès WiFi
           youth_centre: Centre pour la jeunesse
         boundary: 
@@ -629,42 +548,47 @@ fr:
           "yes": Pont
         building: 
           "yes": Bâtiment
+        emergency: 
+          fire_hydrant: Bouche d’incendie
+          phone: Borne d’appel d’urgence
         highway: 
           bridleway: Chemin pour cavaliers
-          bus_guideway: Voie de bus guidée
+          bus_guideway: Voie de bus guidé / trolley
           bus_stop: Arrêt de bus
           byway: Route secondaire
           construction: Autoroute en construction
           cycleway: Piste cyclable
-          emergency_access_point: Point d'accès d'urgence
+          emergency_access_point: Point d’accès d’urgence
           footway: Chemin piéton
           ford: Gué
           living_street: Rue en zone de rencontre
           milestone: Borne kilométrique
           minor: Route mineure
           motorway: Autoroute
-          motorway_junction: Jonction d'autoroute
-          motorway_link: Route autoroutière
+          motorway_junction: Jonction d’autoroute
+          motorway_link: Voie autoroutière
           path: Chemin
           pedestrian: Chemin piéton
           platform: Plateforme
           primary: Route principale
           primary_link: Route principale
+          proposed: Projet de route
           raceway: Circuit
           residential: Rue résidentielle
           rest_area: Aire de repos
           road: Route
           secondary: Route secondaire
           secondary_link: Route secondaire
-          service: Route de service
+          service: Voie de service
           services: Services autoroutiers
           speed_camera: Radar de vitesse
           steps: Escalier
           stile: Échalier
+          street_lamp: Lampadaire
           tertiary: Route tertiaire
           tertiary_link: Route tertiaire
           track: Piste
-          trail: Piste
+          trail: Sentier
           trunk: Voie express
           trunk_link: Voie express
           unclassified: Route mineure
@@ -676,6 +600,7 @@ fr:
           building: Bâtiment
           castle: Château
           church: Église
+          citywalls: Remparts
           fort: Fort
           house: Maison
           icon: Icône
@@ -685,28 +610,29 @@ fr:
           monument: Monument
           museum: Musée
           ruins: Ruines
+          tomb: Tombeau
           tower: Tour
-          wayside_cross: Croix de chemin
+          wayside_cross: Calvaire
           wayside_shrine: Oratoire
           wreck: Épave
         landuse: 
           allotments: Jardins familiaux
           basin: Bassin
-          brownfield: Terrain rasé
+          brownfield: Friche industrielle
           cemetery: Cimetière
           commercial: Zone tertiaire
-          conservation: Zone protégée
+          conservation: Zone préservée
           construction: Construction
-          farm: Zone agricole
-          farmland: Terrains agricoles
-          farmyard: Bâtiments de ferme
+          farm: Ferme
+          farmland: Terres agricoles
+          farmyard: Corps de ferme
           forest: Forêt
           garages: Garages
-          grass: Herbe
-          greenfield: Zone de construction future
+          grass: Pelouse
+          greenfield: Terrain vierge
           industrial: Zone industrielle
           landfill: Décharge
-          meadow: Prairie
+          meadow: Prairie / bocage
           military: Zone militaire
           mine: Mine
           nature_reserve: Réserve naturelle
@@ -721,7 +647,7 @@ fr:
           residential: Zone résidentielle
           retail: Zone commerciale
           road: Zone routière
-          village_green: Zone publique herborée
+          village_green: Espace vert public
           vineyard: Vignoble
           wetland: Zone humide
           wood: Bois
@@ -749,7 +675,7 @@ fr:
           track: Piste
           water_park: Parc aquatique
         military: 
-          airfield: Terrain d'aviation militaire
+          airfield: Terrain d’aviation militaire
           barracks: Caserne
           bunker: Bunker
         mountain_pass: 
@@ -798,14 +724,14 @@ fr:
         office: 
           accountant: Comptable
           architect: Architecte
-          company: Société
-          employment_agency: Agence pour l'emploi
+          company: Entreprise
+          employment_agency: Agence pour l’emploi
           estate_agent: Agent immobilier
           government: Agence gouvernementale
-          insurance: Bureau d'assurance
+          insurance: Agence d’assurance
           lawyer: Avocat
-          ngo: Bureau d'une ONG
-          telecommunication: Bureaux de télécommunication
+          ngo: Agence d’une ONG
+          telecommunication: Agence de télécommunication
           travel_agent: Agence de voyage
           "yes": Bureau
         place: 
@@ -823,6 +749,7 @@ fr:
           locality: Localité
           moor: Maure
           municipality: Municipalité
+          neighbourhood: Quartier
           postcode: Code postal
           region: Région
           sea: Mer
@@ -830,7 +757,7 @@ fr:
           subdivision: Subdivision
           suburb: Quartier
           town: Ville
-          unincorporated_area: Lieu non organisé
+          unincorporated_area: Territoire non organisé
           village: Village
         railway: 
           abandoned: Voie ferrée abandonnée
@@ -842,14 +769,16 @@ fr:
           historic_station: Arrêt de train historique
           junction: Jonction ferroviaire
           level_crossing: Passage à niveau
-          light_rail: Petite voie ferrée
+          light_rail: Voie ferrée légère
           miniature: Voie ferrée miniature
           monorail: Monorail
-          narrow_gauge: Chemin de fer à voie étroite
+          narrow_gauge: Voie ferrée étroite
           platform: Plateforme ferroviaire
           preserved: Voie ferrée conservée
-          spur: Voie de connexion
+          proposed: Voie ferrée en projet
+          spur: Embranchement ferroviaire
           station: Gare ferroviaire
+          stop: Arrêt de chemin de fer
           subway: Station de métro
           subway_entrance: Bouche de métro
           switch: Aiguillage
@@ -857,40 +786,42 @@ fr:
           tram_stop: Arrêt de tram
           yard: Voie de triage
         shop: 
-          alcohol: Magasin officiel d'alcool
+          alcohol: Vendeur d’alcool à emporter / caviste
           antiques: Antiquaire
-          art: Boutique d'art
+          art: Boutique d’art
           bakery: Boulangerie
           beauty: Magasin de produits de beauté
           beverages: Magasin de boissons
           bicycle: Magasin de vélos
           books: Librairie
-          butcher: Boucher
-          car: Magasin de voitures
-          car_parts: Pièces d'automobile
-          car_repair: Réparation de voitures
+          boutique: Boutique
+          butcher: Boucherie
+          car: Concession automobile
+          car_parts: Pièces d’automobile
+          car_repair: Garage de réparation automobile
           carpet: Magasin de tapis
-          charity: Magasin de bienfaisance
-          chemist: Magasin de produits d'hygiène
-          clothes: Magasin de vêtements
-          computer: Magasin informatique
+          charity: Boutique humanitaire
+          chemist: Droguerie
+          clothes: Boutique de vêtements
+          computer: Boutique informatique
           confectionery: Confiserie
           convenience: Épicerie
-          copyshop: Magasin de photocopies
-          cosmetics: Magasin de cosmétiques
+          copyshop: Boutique de photocopies
+          cosmetics: Boutique de cosmétiques
+          deli: Traiteur
           department_store: Grand magasin
           discount: Magasin discount
           doityourself: Magasin de bricolage
-          dry_cleaning: Nettoyage à sec
-          electronics: Magasin d'électronique
+          dry_cleaning: Pressing de nettoyage à sec
+          electronics: Boutique de produits électroniques
           estate_agent: Agent immobilier
           farm: Magasin de produits agricoles
-          fashion: Magasin de mode
+          fashion: Boutique de mode
           fish: Poissonnerie
           florist: Fleuriste
-          food: Magasin d'alimentation
+          food: Magasin d’alimentation
           funeral_directors: Pompes funèbres
-          furniture: Ameublement
+          furniture: Magasin de meubles
           gallery: Galerie
           garden_centre: Jardinerie
           general: Magasin généraliste
@@ -906,25 +837,29 @@ fr:
           laundry: Blanchisserie
           mall: Galerie marchande
           market: Marché
-          mobile_phone: Magasin de téléphones mobiles
-          motorcycle: Magasin de moto
-          music: Magasin de musique
-          newsagent: Marchand de journaux
+          mobile_phone: Boutique de téléphones mobiles
+          motorcycle: Magasin de motos
+          music: Boutique de musique / disquaire
+          newsagent: Marchand de journaux / maison de la presse
           optician: Opticien
-          organic: Magasin bio
-          outdoor: Magasin d'activités de plein air
-          pet: Magasin d'animaux
-          photo: Magasin de photographie
-          salon: Salon
+          organic: Magasin d’alimentation bio
+          outdoor: Magasin d’articles pour activité en plein air
+          pet: Animalerie
+          pharmacy: Pharmacie
+          photo: Boutique de photographie
+          salon: Salon de beauté
+          second_hand: Boutique de produits d’occasion
           shoes: Magasin de chaussures
           shopping_centre: Centre commercial
-          sports: Magasin de sport
+          sports: Magasin de d’articles de sport
           stationery: Papeterie
           supermarket: Supermarché
+          tailor: Tailleur
           toys: Magasin de jouets
           travel_agency: Agence de voyage
           video: Magasin de vidéos
-          wine: Caviste
+          wine: Vendeur d’alcool à emporter / caviste
+          "yes": Boutique
         tourism: 
           alpine_hut: Refuge
           artwork: Œuvre d’art
@@ -938,141 +873,167 @@ fr:
           hostel: Auberge
           hotel: Hôtel
           information: Informations
-          lean_to: Stand
+          lean_to: Abri ouvert
           motel: Motel
           museum: Musée
-          picnic_site: Site de pique-nique
+          picnic_site: Aire de pique-nique
           theme_park: Parc à thème
           valley: Vallée
           viewpoint: Point de vue
           zoo: Zoo
         tunnel: 
+          culvert: Ponceau
           "yes": Tunnel
         waterway: 
-          artificial: Cours d'eau artificiel
+          artificial: Cours d’eau artificiel
           boatyard: Chantier naval
           canal: Canal
-          connector: Connexion hydrographique
+          connector: Canal de connexion
           dam: Digue
           derelict_canal: Canal de délaissement
           ditch: Fossé
           dock: Dock
           drain: Drain
           lock: Écluse
-          lock_gate: Porte d'écluse
-          mineral_spring: Source d'eau minérale
+          lock_gate: Porte d’écluse
+          mineral_spring: Source d’eau minérale
           mooring: Mouillage
           rapids: Rapides
           river: Rivière
           riverbank: Lit de rivière
           stream: Ruisseau
           wadi: Oued
-          water_point: Point d'eau
-          waterfall: Chute d'eau
+          water_point: Point d’eau
+          waterfall: Chute d’eau
           weir: Barrage
+  help_page: 
+    help: 
+      description: Poser une question ou chercher des réponses sur le site questions-et-réponses de OSM.
+      title: help.openstreetmap.org
+      url: https://help.openstreetmap.org/
+    introduction: OpenStreetMap a plusieurs ressources pour apprendre le projet, pour poser et répondre à des questions, et pour discuter en collaboration avec d’autres et documenter les sujets de cartographie.
+    title: Obtenir de l’aide
+    welcome: 
+      description: Commencer avec ce guide rapide couvrant les bases de OpenStreetMap.
+      title: Bienvenue à OSM
+      url: /welcome
+    wiki: 
+      description: Parcourez le wiki pour la documentation approfondie d’OSM
+      title: wiki.openstreetmap.org
+      url: http://wiki.openstreetmap.org/
   javascripts: 
+    close: Fermer
+    edit_help: Déplacez la carte et zoomer sur un emplacement que vous voulez modifier, puis cliquez là.
+    key: 
+      title: Légende
+      tooltip: Clé de carte
+      tooltip_disabled: La légende n’est disponible que pour la couche standard
     map: 
       base: 
         cycle_map: Carte cyclable
+        hot: Humanitaire
         mapquest: MapQuest ouverte
         standard: Standard
         transport_map: Carte de transport
+      copyright: © <a href='%{copyright_url}'>Contributeurs de OpenStreetMap</a>
+      donate_link_text: <a class='donate-attr' href='%{donate_url}'>Faire un don</a>
+      layers: 
+        data: Données de carte
+        header: Couches de carte
+        notes: Notes de carte
+        overlays: Autoriser les superpositions pour réparer la carte
+        title: Couches
+      locate: 
+        popup: Vous êtes à {distance} {unit} de ce point
+        title: Afficher mon emplacement
+      zoom: 
+        in: Vue rapprochée
+        out: Vue éloignée
     notes: 
       new: 
         add: Ajouter une note
-        intro: Afin d’améliorer la carte, les informations que vous saisissez sont affichées aux autres cartographes ; veuillez donc être aussi descriptif et précis que possible en déplaçant le marqueur à la bonne position et en saisissant votre note dessous.
+        intro: "Vous pouvez signaler une erreur sur la carte ou proposer l'ajout d'un élément qui n'y est pas encore présent. Un membre de la communauté OpenStreetMap lira votre message et prendra soin de la correction ou de l'ajout.\nVeuillez donc être aussi descriptif et précis que possible et placez le marqueur à sa position exacte."
       show: 
         anonymous_warning: Cette note comprend des commentaires d’utilisateurs anonymes, qui devraient être vérifiés de façon indépendante.
-        closed_by: résolu par <a href='%{user_url}'>%{user}</a> à %{time}
-        closed_by_anonymous: résolu anonymement à %{time}
         comment: Commentaire
         comment_and_resolve: Commenter et résoudre
-        commented_by: commentaire de <a href='%{user_url}'>%{user}</a> à %{time}
-        commented_by_anonymous: commentaire anonyme à %{time}
         hide: Masquer
-        opened_by: créé par <a href='%{user_url}'>%{user}</a> à %{time}
-        opened_by_anonymous: créé par un anonyme à %{time}
-        permalink: Lien permanent
         reactivate: Réactiver
-        reopened_by: réactivé par <a href='%{user_url}'>%{user}</a> à %{time}
-        reopened_by_anonymous: réactivé anonymement à %{time}
         resolve: Résoudre
+    share: 
+      cancel: Annuler
+      center_marker: Centrer la carte sur le marqueur
+      custom_dimensions: Définir les dimensions personnalisées
+      download: Télécharger
+      embed: HTML
+      format: "Format :"
+      image: Image
+      image_size: L’image affichera la couche standard en
+      include_marker: Inclure le marqueur
+      link: Lien ou HTML
+      long_link: Lien
+      paste_html: Coller le HTML à inclure dans le site web
+      scale: "Échelle :"
+      short_link: Lien abrégé
+      short_url: URL courte
+      title: Partager
+      view_larger_map: Afficher une carte plus grande
     site: 
       createnote_disabled_tooltip: Zoomer pour ajouter une note sur la carte
-      createnote_tooltip: Ajouter une note sur la carte
-      createnote_zoom_alert: Vous devez zoomer pour ajouter une note à la carte
+      createnote_tooltip: Suggérer une amélioration de la carte
       edit_disabled_tooltip: Zoomez en avant pour modifier la carte
       edit_tooltip: Modifier la carte
-      edit_zoom_alert: Vous devez zoomer pour modifier la carte
-      history_disabled_tooltip: Zoomez en avant pour voir les modifications dans cette zone
-      history_tooltip: Voir les modifications dans cette zone
-      history_zoom_alert: Vous devez zoomer pour voir l’historique des modifications
+      map_data_zoom_in_tooltip: Zoomez pour lire voir les données sur la carte
+      map_notes_zoom_in_tooltip: Zoomez pour lire les notes sur la carte
   layouts: 
+    about: À propos
     community: Communauté
-    community_blogs: Blogs de la communauté
-    community_blogs_title: Blogs de membres de la communauté OpenStreetMap
-    copyright: Copyright & Licence
-    documentation: Documentation
-    documentation_title: Documentation du projet
-    donate: Soutenez OpenStreetMap, %{link} au fonds pour améliorer le matériel.
-    donate_link_text: participez
+    community_blogs: Blogues de la communauté
+    community_blogs_title: Blogues de membres de la communauté OpenStreetMap
+    copyright: Droits d’auteur
+    data: Données
+    donate: Soutenez OpenStreetMap, %{link} au fonds de mise à niveau du matériel.
     edit: Modifier
     edit_with: Modifier avec %{editor}
     export: Exporter
-    export_tooltip: Exporter les données de la carte
+    export_data: Exporter les données
     foundation: La Fondation
     foundation_title: La Fondation OpenStreetMap
     gps_traces: Traces GPS
     gps_traces_tooltip: Gérer les traces GPS
     help: Aide
-    help_centre: Centre d'aide
-    help_title: site d’aide pour le projet
     history: Historique
-    home: Chez moi
-    home_tooltip: Aller à l'emplacement de mon domicile
-    inbox_html: message(s) reçu(s) %{count}
-    inbox_tooltip: 
-      one: Votre boîte aux lettres contient 1 message non lu
-      other: Votre boîte aux lettres contient %{count} messages non lus
-      zero: Votre boîte aux lettres ne contient pas de messages non lus
-    intro_1: OpenStreetMap est une carte du monde librement modifiable, faite par des gens comme vous.
+    home: Aller à votre domicile
     intro_2_create_account: Créez un compte d'utilisateur
-    intro_2_download: téléchargées
-    intro_2_html: Les données sont libres d'être %{download} et %{use}, sous les termes d'une %{license}. %{create_account} pour améliorer la carte.
-    intro_2_license: licence ouverte
-    intro_2_use: utilisées
-    intro_2_use_url: http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap
-    log_in: Connexion
+    intro_header: Bienvenue dans OpenStreetMap !
+    intro_text: OpenStreetMap est une carte du monde, créée par des gens comme vous et libre d’utilisation sous licence libre.
+    learn_more: En savoir plus
+    log_in: Se connecter
     log_in_tooltip: Se connecter avec un compte existant
     logo: 
-      alt_text: Logo d'OpenStreetMap
-    logout: Déconnexion
-    logout_tooltip: Se déconnecter
+      alt_text: Logo d’OpenStreetMap
+    logout: Se déconnecter
     make_a_donation: 
       text: Faire un don
       title: Soutenez OpenStreetMap avec un don financier
-    osm_offline: La base de données de OpenStreetMap est actuellement hors ligne; une maintenance essentielle à son bon fonctionnement est en cours.
-    osm_read_only: La base de données de OpenStreetMap est actuellement en mode lecture seule ; une maintenance essentielle à son bon fonctionnement est en cours.
+    osm_offline: La base de données OpenStreetMap est actuellement hors ligne ; une maintenance essentielle à son bon fonctionnement est en cours.
+    osm_read_only: La base de données OpenStreetMap est actuellement en mode lecture seule ; une maintenance essentielle à son bon fonctionnement est en cours.
     partners_bytemark: Hébergement Bytemark
     partners_html: L'hébergement est pris en charge par %{ucl}, %{ic} et %{bytemark}, et d'autres %{partners}.
-    partners_ic: le Collège Impérial de Londres
+    partners_ic: le Collège impérial de Londres
     partners_partners: partenaires
-    partners_ucl: le VR Centre de l'UCL
+    partners_ucl: le Centre VR de l’UCL
     partners_url: http://wiki.openstreetmap.org/wiki/Partners
-    sign_up: S'inscrire
+    sign_up: Créer un compte
     sign_up_tooltip: Créer un compte pour la modification
-    tag_line: La carte coopérative libre
+    start_mapping: Commencer à cartographier
+    tag_line: La carte wiki libre du monde
     user_diaries: Journaux
-    user_diaries_tooltip: Voir les journaux d'utilisateurs
-    view: Voir
-    view_tooltip: Afficher la carte
-    welcome_user_link_tooltip: Votre page utilisateur
-    wiki: Wiki
-    wiki_title: site Wiki pour le projet
+    user_diaries_tooltip: Voir les journaux d’utilisateurs
   license_page: 
     foreign: 
-      english_link: original en anglais
-      text: En cas de conflit entre cette page et la page %{english_original_link}, la version anglaise prime
+      english_link: l’original en anglais
+      text: En cas de conflit entre la présente page traduite et %{english_original_link}, la version anglaise prévaudra
       title: À propos de cette traduction
     legal_babble: 
       attribution_example: 
@@ -1089,7 +1050,7 @@ fr:
       contributors_nz_html: "<strong>Nouvelle-Zélande</strong> : contient des données provenant du\n   <em>Land Information New Zealand</em>. © Copyright de la Couronne réservé."
       contributors_title_html: Nos contributeurs
       contributors_za_html: "<strong>Afrique du Sud</strong>: Contient des données issues de\n<a href=\"http://www.ngi.gov.za/\">Direction principale:\nInformation Géospatiale Nationale</a>, tous droits de l'État réservés."
-      credit_1_html: Nous demandons que votre crédit comporte la mention &laquo;&nbsp;&copy; les contributeurs d’OpenStreetMap&nbsp;&raquo;.
+      credit_1_html: Nous demandons que votre crédit comporte la mention « © les contributeurs d’OpenStreetMap ».
       credit_2_html: "Vous devez également préciser clairement que les données sont disponibles sous la licence\n  ODbL, et si vous utilisez les tuiles de notre carte, que la carte est sous\n  la licence CC-BY-SA. Vous pouvez mentionner ceci avec un lien hypertexte vers\n  <a href=\"http://www.openstreetmap.org/copyright\">cette page de mentions légales</a>.\n  Alternativement, et obligatoirement si vous distribuez OpenStreetMap sous\n  forme de données brutes, vous pouvez directement nommer et fournir un lien vers la ou les licences.\n  Sur les supports où les liens hypertexte sont impossibles (par exemple sur un support papier), nous vous suggérons\n  de rediriger vos lecteurs vers le site openstreetmap.org (éventuellement en développant\n  &laquo;&nbsp;OpenStreetMap&nbsp;&raquo; en l'adresse openstreetmap.org), vers opendatacommons.org, et,\n  si c'est pertinent, vers creativecommons.org."
       credit_3_html: "Pour une carte électronique navigable, le crédit devrait apparaître dans le coin de la carte.\nPar exemple:"
       credit_title_html: Comment créditer OpenStreetMap
@@ -1097,16 +1058,16 @@ fr:
       infringement_2_html: Si vous pensez que des données ont été ajoutées à la base de données OpenStreetMap ou à ce site en violation des droits d'auteur, veuillez vous référer à notre <a href="http://www.osmfoundation.org/wiki/License/Takedown_procedure">procédure de retrait de données</a> ou notifiez nous directement à travers notre <a href="http://dmca.openstreetmap.org/">formulaire en ligne</a>.
       infringement_title_html: Violation des droits d'auteur
       intro_1_html: "OpenStreetMap est un ensemble de <i>données ouvertes</i>, disponibles sous la licence <a\nhref=\"http://opendatacommons.org/licenses/odbl/\">Open Data Commons Open Database License</a> (ODbL)."
-      intro_2_html: " Vous êtes libre de copier, distribuer, transmettre et adapter nos données,\n  à condition que vous créditiez OpenStreetMap et ses\n  contributeurs. Si vous modifiez ou utilisez nos données dans d’autres œuvres dérivées, vous\n  ne pouvez distribuer celles-ci que sous la même licence. Le\n  <a href=\"http://opendatacommons.org/licenses/odbl/1.0/\">texte\n  légal</a> complet détaille vos droits et responsabilités."
-      intro_3_html: "Les tuiles de notre carte, ainsi que notre documentation, sont\n   disponibles sous la licence <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Creative\n   Commons paternité – partage à l’identique 2.0</a> (CC-BY-SA)."
+      intro_2_html: Vous êtes libre de copier, distribuer, transmettre et adapter nos données, à condition que vous créditiez OpenStreetMap et ses contributeurs. Si vous modifiez ou utilisez nos données dans d’autres œuvres dérivées, vous ne pouvez distribuer celles-ci que sous la même licence. Le <a href="http://opendatacommons.org/licenses/odbl/1.0/">texte légal</a> complet détaille vos droits et responsabilités.
+      intro_3_html: Nos carreaux de rendu cartographiqus, ainsi que notre documentation, sont disponibles sous la licence <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons paternité – partage à l’identique 2.0</a> (CC-BY-SA).
       more_1_html: "Si vous voulez obtenir plus d’informations sur comment réutiliser nos données et nous créditer, lisez la <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">FAQ\n  légale</a>."
       more_2_html: "Bien qu'OpenStreetMap soit un ensemble de données libres et ouverte, nous ne pouvons pas fournir une API gratuite en libre accès pour les développeurs tiers.\nVeuillez vous référer à notre <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">politique d'utilisation de l'API</a>, à notre <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">politique d'utilisation des tuiles</a>, et à la <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">politique d'utilisation de Nominatim</a>."
       more_title_html: Pour trouver plus d’informations
-      title_html: Copyright et Licence
+      title_html: Droits d’auteur et licence
     native: 
       mapping_link: commencer à contribuer
-      native_link: version française
-      text: Vous lisez la version anglaise de la page de copyright. Vous pouvez retourner à la %{native_link} de cette page ou arrêter de lire cette page et %{mapping_link}.
+      native_link: traduction française
+      text: Vous lisez la version anglaise originale de la page au sujet des droits d’auteur. Vous pouvez retourner à la %{native_link} de cette page ou arrêter de lire à son sujet et %{mapping_link}.
       title: À propos de cette page
   message: 
     delete: 
@@ -1162,8 +1123,7 @@ fr:
       title: Boîte d'envoi
       to: À
     read: 
-      back_to_inbox: Revenir à la boîte de réception
-      back_to_outbox: Revenir à la boîte d'envoi
+      back: Retour
       date: Date
       from: De
       reply_button: Répondre
@@ -1207,54 +1167,6 @@ fr:
       opened: nouvelle note (près de %{place})
       reopened: note réactivée (près de %{place})
       title: Notes OpenStreetMap
-  welcome_page:
-    title: Bienvenue !
-    introduction_html: |
-      Bienvenue à OpenStreetMap, la carte du monde libre et éditable. Maintenant que vous
-      êtes enregistré, vous avez tout ce qu'il faut pour commencer à cartographier. Ce qui
-      suit est un petit guide des choses les plus importantes à savoir.
-    whats_on_the_map:
-      title: Ce qu'il y a sur la carte
-      on_html: |
-        OpenStreetMap sert à cartographier des choses à la fois <em>réelles et actuelles</em>
-        - il inclut des millions de bâtiments, de routes, et d'autres détails de lieux. Vous
-        pouvez cartographier n'importe quel élément du monde réel qui vous intéresse.
-      off_html: |
-        Ce qui est par contre <em>exclu</em> sont les données subjectives comme les cotes de
-        popularité, les éléments historiques ou hypothétiques, et les données venant de source
-        copyrightée. À moins d'avoir une permission spéciale, ne copiez pas à partir d'une
-        carte papier ou en ligne.
-    basic_terms:
-      title: Vocabulaire de base de cartographie
-      paragraph_1_html: |
-        OpenStreetMap a son propre jargon. Voici quelques mots clefs qui vous seront utiles.
-      editor_html: |
-        Un <strong>éditeur</strong> est un programme ou site web qui vous permet d'éditer la carte.
-      node_html: |
-        Un <strong>nœud</strong> est un point sur la carte, comme un restaurant ou un arbre individuel.
-      way_html: |
-        Un <strong>chemin</strong est une ligne ou une surface, comme par exemple une rue, un
-        ruisseau, un lac, ou un bâtiment.
-      tag_html: |
-        Un <strong>tag</strong> est une information à propos d'un nœud ou d'un chemin, comme
-        le nom d'un restaurant ou la vitesse limite d'une rue.
-    questions:
-      title: Des questions ?
-      paragraph_1_html: |
-        Besoin d'aide pour cartographier, ou pas sûr de comment utilise OpenStreetMap ?
-        Obtenez les réponses à vos questions sur <a href='http://help.openstreetmap.org/'>
-        le site d'aide</a>.
-    start_mapping: Commencer à cartographier
-    add_a_note:
-      title: Pas le temps d'éditer ? Ajoutez une note !
-      paragraph_1_html: |
-        Si vous voulez juste faire une petite correction et n'avez pas le temps de vous
-        enregistrer et d'apprendre à éditer, il est facile d'ajouter une note.
-      paragraph_2_html: |
-        Allez simplement sur <a href='%{map_url}'>la carte</a> et cliquez sur l'icône note:
-        <span class='icon note'></span>. Cela ajoutera un marqueur sur la carte, que vous
-        pouvez déplacer en faisant glisser la carte. Ajoutez votre message puis cliquez sur
-        "ajouter une note", et d'autres contributeurs iront regarder.
   notifier: 
     diary_comment_notification: 
       footer: Vous pouvez également lire le commentaire sur %{readurl}, commenter sur %{commenturl} ou répondre sur %{replyurl}
@@ -1277,8 +1189,8 @@ fr:
       see_their_profile: "Vous pouvez voir son profil ici : %{userurl}."
       subject: "[OpenStreetMap] %{user} vous a ajouté comme ami"
     gpx_notification: 
-      and_no_tags: et sans balise.
-      and_the_tags: "et les balises suivantes :"
+      and_no_tags: et sans mot-clé.
+      and_the_tags: "et les mots-clés suivants :"
       failure: 
         failed_to_import: "n'a pas pu être importé. Voici l'erreur :"
         more_info_1: Plus d'informations sur les erreurs lors de l'import GPX et comment les éviter
@@ -1301,8 +1213,7 @@ fr:
       greeting: Bonjour,
       hopefully_you: Quelqu’un (peut-être vous) a demandé la réinitialisation du mot de passe du compte openstreetmap.org de cette adresse de courriel.
     message_notification: 
-      footer1: Vous pouvez également lire le message sur %{readurl}
-      footer2: et vous pouvez répondre sur %{replyurl}
+      footer_html: Vous pouvez aussi lire le message à %{readurl} et vous pouvez y répondre à %{replyurl}
       header: "%{from_user} vous a envoyé un message depuis OpenStreetMap avec le sujet %{subject} :"
       hi: Bonjour %{to_user},
     note_comment_notification: 
@@ -1329,27 +1240,7 @@ fr:
       created: Quelqu'un (vous, avec un peu de chance) vient juste de créer un compte sur %{site_url}.
       greeting: Bonjour!
       subject: "[OpenStreetMap] Bienvenue dans OpenStreetMap"
-      welcome: Nous tenons à vous accueillir et à vous fournir des informations supplémentaires pour démarrer.
-    signup_confirm_html: 
-      ask_questions: Vous pouvez poser toutes les questions que vous pourriez avoir à propos d’OpenStreetMap sur <a href="http://help.openstreetmap.org/">notre site de questions-réponses</a>.
-      current_user: Une liste par catégories des utilisateurs actuels, basée sur leur position géographique, est disponible dans <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: Informez-vous sur OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_guide">sur le wiki</a>, et restez au courant des dernières infos via le <a href="http://blog.openstreetmap.org/">blog de OpenStreetMap</a> ou <a href="http://twitter.com/openstreetmap">Twitter</a>.
-      introductory_video: Vous pouvez visionner une %{introductory_video_link}.
-      more_videos: Il y a %{more_videos_link}.
-      more_videos_here: plus de vidéos ici
-      user_wiki_page: Nous vous conseillons de créer une page utilisateur sur le wiki, et d'y placer des marqueurs de catégories indiquant où vous êtes, tels que <a href="http://wiki.openstreetmap.org/wiki/Category:Users_in_Paris">[[Category:Users_in_Paris]]</a>.
-      video_to_openstreetmap: vidéo introductive à OpenStreetMap
-      wiki_signup: Vous pouvez également vous <a href="http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_Page">créer un compte sur le wiki d'OpenStreetMap</a>.
-    signup_confirm_plain: 
-      ask_questions: "Vous pouvez poser toutes les questions que vous pourriez avoir à propos d’OpenStreetMap sur notre site de questions-réponses :"
-      blog_and_twitter: "Restez au courant des dernières infos ''via'' le blogue OpenStreetMap ou Twitter :"
-      current_user: "Une liste des utilisateurs actuellement dans des catégories, d'après l'endroit du monde où ils se trouvent, est disponible depuis:"
-      introductory_video: "Vous pouvez visionner une vidéo introductive à OpenStreetMap ici :"
-      more_videos: "Davantage de vidéos sont disponibles ici :"
-      the_wiki: "Lisez à propos d'OpenStreetMap sur le wiki :"
-      the_wiki_url: http://wiki.openstreetmap.org/wiki/FR:Beginners_Guide
-      user_wiki_page: Il est recommandé de créer une page wiki d'utilisateur, qui inclut les balises de catégorie notant qui vous êtes, comme [[Category:Users_in_London]].
-      wiki_signup: "Vous pouvez également vous créer un compte sur le wiki d'OpenStreetMap sur :"
+      welcome: Une fois que vous aurez confirmé votre compte, nous vous fournirons des informations supplémentaires pour démarrer.
   oauth: 
     oauthorize: 
       allow_read_gpx: lire vos traces GPS privées.
@@ -1361,6 +1252,15 @@ fr:
       allow_write_notes: modifier les notes.
       allow_write_prefs: modifier vos préférences utilisateur.
       request_access: L'application %{app_name} demande l'accès à votre compte, %{user}. Vérifiez si vous désirez que l'application ait les possibilités suivantes. Vous pouvez en choisir autant ou aussi peu que vous voulez.
+      title: Autoriser l’accès à votre compte
+    oauthorize_failure: 
+      denied: Vous avez refusé à l’application %{app_name} l’accès à votre compte.
+      invalid: Le jeton d’autorisation n’est pas valide.
+      title: La demande d’autorisation a échoué
+    oauthorize_success: 
+      allowed: Vous avez accordé à l’application %{app_name} l’accès à votre compte.
+      title: La demande d’autorisation a été acceptée
+      verification: Le code de vérification est %{code}.
     revoke: 
       flash: Vous avez révoqué le jeton pour %{application}
   oauth_clients: 
@@ -1560,7 +1460,6 @@ fr:
       preview: Aperçu
     search: 
       search: Recherche
-      search_help: "exemples : « Ouagadougou », « Place Grenette, Grenoble », « H2Y 1C6 », ou « post office near Alger »<a href='http://wiki.openstreetmap.org/wiki/Search'>Autres exemples...</a>"
       submit_text: Ok
       where_am_i: Où suis-je ?
       where_am_i_title: Décrit la position actuelle en utilisant le moteur de recherche
@@ -1576,6 +1475,11 @@ fr:
       upload_trace: Envoyer la trace GPS
     delete: 
       scheduled_for_deletion: Piste prévue pour la suppression
+    description: 
+      description_with_count: 
+        one: Fichier GPX file avec %{count} point de %{user}
+        other: Fichier GPX avec %{count} points de %{user}
+      description_without_count: Fichier GPX de %{user}
     edit: 
       description: "Description :"
       download: télécharger
@@ -1587,12 +1491,14 @@ fr:
       points: "Points :"
       save_button: Enregistrer les modifications
       start_coord: "Coordonnées de départ :"
-      tags: "Balises :"
+      tags: "Mots-clés :"
       tags_help: séparées par des virgules
       title: Modifier la trace %{name}
       uploaded_at: "Envoyé le :"
       visibility: "Visibilité :"
       visibility_help: que signifie ceci ?
+    georss: 
+      title: Traces GPS de OpenStreetMap
     list: 
       description: Parcourir les récentes traces GPS téléchargées
       empty_html: Rien à voir par ici. <a href='%{upload_link}'>Télécharger une nouvelle trace</a> ou pour en savoir plus sur le traçage GPS, consultez la <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>page wiki</a>.
@@ -1626,7 +1532,7 @@ fr:
     trace_form: 
       description: "Description :"
       help: Aide
-      tags: "Balises :"
+      tags: "Mots-clés :"
       tags_help: séparées par des virgules
       upload_button: Envoyer
       upload_gpx: "Envoyer un fichier GPX :"
@@ -1640,7 +1546,7 @@ fr:
         other: Vous avez %{count} traces en attente de chargement. Il serait peut-être préférable d’attendre qu’il soit terminé avant d’en charger d’autres, pour ne pas bloquer la file d’attente aux autres utilisateurs.
       upload_trace: Envoyer une trace
     trace_optionals: 
-      tags: Balises
+      tags: Mots-clés
     trace_paging_nav: 
       newer: Nouvelles traces
       older: Anciennes traces
@@ -1659,7 +1565,7 @@ fr:
       pending: EN ATTENTE
       points: "Points :"
       start_coordinates: "Coordonnées de départ :"
-      tags: "Balises :"
+      tags: "Mots-clés :"
       title: Affichage de la trace %{name}
       trace_not_found: Trace non trouvée !
       uploaded: "Envoyé le :"
@@ -1722,13 +1628,13 @@ fr:
       update home location on click: Mettre a jour l'emplacement de votre domicile quand vous cliquez sur la carte ?
     confirm: 
       already active: Ce compte a déjà été confirmé.
-      before you start: Nous savons que vous êtes probablement pressé de commencer à cartographier, mais avant, vous pourriez vouloir fournir de plus amples informations sur vous-même, dans le formulaire ci-dessous.
       button: Confirmer
-      heading: Confirmer un compte utilisateur
+      heading: Vérifiez votre courriel !
+      introduction_1: Nous vous avons envoyé un courriel de confirmation.
+      introduction_2: Confirmez votre compte en cliquant sur le lien dans le courriel et vous pourrez commencer à cartographier.
       press confirm button: Appuyer le bouton confirmer ci-dessous pour activer votre compte.
-      reconfirm: Si cela fait longtemps que vous vous êtes inscrit, vous pourriez vouloir <a href="%{reconfirm}">vous renvoyer un courrier électronique de confirmation</a>.
-      success: Compte confirmé, merci de vous être enregistré !
-      unknown token: Ce jeton ne semble pas exister.
+      reconfirm_html: Si vous avez besoin que nous vous renvoyions un courriel de confirmation, <a href="%{reconfirm}">cliquez ici</a>.
+      unknown token: Le code de confirmation a expiré ou n’existe pas.
     confirm_email: 
       button: Confirmer
       failure: Une adresse email a déjà été confirmée avec ce jeton d'authentification.
@@ -1813,17 +1719,16 @@ fr:
       heading: Ajouter %{user} en tant qu'ami?
       success: "%{name} est désormais votre ami!"
     new: 
+      about: 
+        header: Libre et modifiable
+        html: "<p>À la différence des autres cartes, OpenStreetMap est entièrement créé par des gens comme vous, et chacun est libre de le modifier, le mettre à jour, le télécharger et l’utiliser.</p>\n<p>Inscrivez-vous pour commencer à participer. Nous vous enverrons un courriel pour confirmer votre compte.</p>"
       confirm email address: "Confirmer l'adresse e-mail :"
       confirm password: "Confirmez le mot de passe :"
       contact_webmaster: Veuillez contacter le <a href='mailto:webmaster@openstreetmap.org'>webmaster</a> pour qu'il vous crée un compte - nous essaierons de traiter votre demande le plus rapidement possible.
-      continue: Continuer
+      continue: S’inscrire
       display name: "Nom affiché :"
       display name description: Votre nom d'utilisateur affiché publiquement. Vous pouvez changer ceci ultérieurement dans les préférences.
       email address: "Adresse e-mail :"
-      fill_form: Remplissez le formulaire et nous vous enverrons un e-mail pour activer votre compte.
-      flash create success message: Merci de vous être enregistré ! Nous avons envoyé une note de confirmation à %{email}. Dès que vous aurez confirmé votre compte, vous pourrez commencer à cartographier.<br /><br />Si vous utilisez un logiciel anti-spam qui envoie des requêtes de confirmation, veuillez mettre webmaster@openstreetmap.org dans votre liste blanche, car nous sommes incapables de répondre à ces messages.
-      flash welcome: Merci de votre inscription. Nous avons envoyé un message de bienvenue à %{email} avec quelques astuces pour le démarrage.
-      heading: Créer un compte utilisateur
       license_agreement: En confirmant votre compte, vous devrez accepter les <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">termes du contributeur</a>.
       no_auto_account_create: Malheureusement, nous sommes actuellement dans l'impossibilité de vous créer un compte automatiquement.
       not displayed publicly: Non affichée publiquement (voir <a href="http://wiki.openstreetmap.org/wiki/Privacy_Policy" title="wiki privacy policy including section on email addresses">notre charte sur la confidentialité</a>)
@@ -1833,7 +1738,7 @@ fr:
       password: "Mot de passe :"
       terms accepted: Merci d’avoir accepté les nouveaux termes du contributeur !
       terms declined: Nous sommes désolés que vous ayez décidé de ne pas accepter les nouvelles conditions de contributions. Pour plus d’informations, veuillez consulter <a href="%{url}">cette page wiki</a>.
-      title: Créer un compte
+      title: S’inscrire
       use openid: Vous pouvez également utiliser %{logo} OpenID pour vous identifier
     no_such_user: 
       body: Désolé, il n'y a pas d'utilisateur avec le nom %{user}. Veuillez vérifier l'orthographe, ou le lien que vous avez cliqué n'est pas valide.
@@ -1880,12 +1785,12 @@ fr:
       you need to accept or decline: Veuillez lire et ensuite soit accepter ou refuser les nouvelles conditions de contributeur pour continuer.
     view: 
       activate_user: activer cet utilisateur
-      add as friend: ajouter en tant qu’ami
+      add as friend: Ajouter en tant qu’ami
       ago: (il y a %{time_in_words_ago})
       block_history: blocages reçus
-      blocks by me: blocages donnés
-      blocks on me: mes blocages
-      comments: commentaires
+      blocks by me: Blocages de ma part
+      blocks on me: Blocages me concernant
+      comments: Commentaires
       confirm: Confirmer
       confirm_user: confirmer cet utilisateur
       create_block: bloquer cet utilisateur
@@ -1897,8 +1802,8 @@ fr:
       deactivate_user: désactiver cet utilisateur
       delete_user: supprimer cet utilisateur
       description: Description
-      diary: journal
-      edits: modifications
+      diary: Journal
+      edits: Modifications
       email address: "Adresse de courriel :"
       friends_changesets: Groupes de modifications des amis
       friends_diaries: Entrées de journal des amis
@@ -1909,21 +1814,22 @@ fr:
       m away: distant de %{count} m
       mapper since: "Mappeur depuis:"
       moderator_history: blocages fournis
-      my comments: mes commentaires
-      my diary: mon journal
-      my edits: mes modifications
-      my notes: mes notes de carte
-      my settings: mes options
-      my traces: mes traces
+      my comments: Mes commentaires
+      my diary: Mon journal
+      my edits: Mes modifications
+      my notes: Mes notes
+      my profile: Mon profil
+      my settings: Mes options
+      my traces: Mes traces
       nearby users: Autres utilisateurs à proximité
       nearby_changesets: Groupes de modifications des utilisateurs à proximité
       nearby_diaries: Entrées de journal des utilisateurs à proximité
       new diary entry: nouvelle entrée dans le journal
       no friends: Vous n'avez pas encore ajouté d'ami
       no nearby users: Aucun utilisateur n'a encore signalé qu'il cartographiait à proximité.
-      notes: notes de carte
+      notes: Notes de carte
       oauth settings: paramètres OAuth
-      remove as friend: supprimer en tant qu’ami
+      remove as friend: Supprimer en tant qu’ami
       role: 
         administrator: Cet utilisateur est un adminstrateur
         grant: 
@@ -1933,11 +1839,11 @@ fr:
         revoke: 
           administrator: Révoquer l'accès administrateur
           moderator: Révoquer l'accès modérateur
-      send message: envoyer un message
+      send message: Envoyer un message
       settings_link_text: options
       spam score: "Note pour le spam :"
       status: "Statut :"
-      traces: traces
+      traces: Traces
       unhide_user: ré-afficher cet utilisateur
       user location: Emplacement de l'utilisateur
       your friends: Vos amis
@@ -2050,3 +1956,25 @@ fr:
       fail: Impossible de révoquer le rôle « %{role} » de l'utilisateur « %{name} ». Vérifiez que l'utilisateur et le rôle sont valides.
       heading: Confirmer la révocation du rôle
       title: Confirmer la révocation du rôle
+  welcome_page: 
+    add_a_note: 
+      paragraph_1_html: "Si vous voulez juste faire une petite correction et n'avez pas le temps de vous\nenregistrer et d'apprendre à éditer, il est facile d'ajouter une note."
+      paragraph_2_html: "Allez simplement sur <a href='%{map_url}'>la carte</a> et cliquez sur l'icône note:\n<span class='icon note'></span>. Cela ajoutera un marqueur sur la carte, que vous\npouvez déplacer en faisant glisser la carte. Ajoutez votre message puis cliquez sur\n\"ajouter une note\", et d'autres contributeurs iront regarder."
+      title: Pas le temps d'éditer ? Ajoutez une note !
+    basic_terms: 
+      editor_html: Un <strong>éditeur</strong> est un programme ou site web qui vous permet d'éditer la carte.
+      node_html: Un <strong>nœud</strong> est un point sur la carte, comme un restaurant ou un arbre individuel.
+      paragraph_1_html: OpenStreetMap a son propre jargon. Voici quelques mots clefs qui vous seront utiles.
+      tag_html: "Un <strong>tag</strong> est une information à propos d'un nœud ou d'un chemin, comme\nle nom d'un restaurant ou la vitesse limite d'une rue."
+      title: Vocabulaire de base de cartographie
+      way_html: "Un <strong>chemin</strong est une ligne ou une surface, comme par exemple une rue, un\nruisseau, un lac, ou un bâtiment."
+    introduction_html: "Bienvenue à OpenStreetMap, la carte du monde libre et éditable. Maintenant que vous\nêtes enregistré, vous avez tout ce qu'il faut pour commencer à cartographier. Ce qui\nsuit est un petit guide des choses les plus importantes à savoir."
+    questions: 
+      paragraph_1_html: "OpenStreetMap a plusieurs ressources pour apprendre le projet, pour poser et répondre à des questions, et pour discuter en collaboration avec d’autres et documenter les sujets de cartographie.\n<a href='%{help_url}'>Trouvez de l’aide ici</a>."
+      title: Des questions ?
+    start_mapping: Commencer à cartographier
+    title: Bienvenue !
+    whats_on_the_map: 
+      off_html: "Ce qui est par contre <em>exclu</em> sont les données subjectives comme les cotes de\npopularité, les éléments historiques ou hypothétiques, et les données venant de source\ncopyrightée. À moins d'avoir une permission spéciale, ne copiez pas à partir d'une\ncarte papier ou en ligne."
+      on_html: "OpenStreetMap sert à cartographier des choses à la fois <em>réelles et actuelles</em>\n- il inclut des millions de bâtiments, de routes, et d'autres détails de lieux. Vous\npouvez cartographier n'importe quel élément du monde réel qui vous intéresse."
+      title: Ce qu'il y a sur la carte

@@ -57,95 +57,28 @@ eu:
       way: Bidea
       way_tag: Bidearen etiketa
   browse: 
-    changeset_details: 
-      box: kutxa
-      closed_at: "Noiz itxita:"
-      created_at: "Noiz sortua:"
-    common_details: 
-      changeset_comment: "Iruzkin:"
-      edited_at: "Noiz aldatuta:"
-      edited_by: "Nork aldatuta:"
-      version: "Bertsio:"
     containing_relation: 
       entry: "%{relation_name} erlazioa"
-    map: 
-      deleted: Ezabatua
-      loading: Kargatzen...
-    node: 
-      download_xml: XML jaitsi
-      edit: aldatu
-      node: Nodo
-      node_title: "%{node_name} nodoa"
-      view_history: historia ikusi
-    node_details: 
-      coordinates: "Koordenatuak:"
-    node_history: 
-      download_xml: XML jaitsi
-      view_details: xehetasunak ikusi
     not_found: 
       type: 
         node: nodo
         relation: erlazio
         way: bide
-    relation: 
-      download_xml: XML jaitsi
-      relation: Erlazio
-      relation_title: "%{relation_name} erlazioa"
-      view_history: historia ikusi
-    relation_details: 
-      members: "Kideak:"
-    relation_history: 
-      download_xml: XML jaitsi
-      view_details: Xehetasunak ikusi
     relation_member: 
       type: 
         node: Nodo
         relation: Erlazio
         way: Bide
     start_rjs: 
-      data_frame_title: Datuak
-      data_layer_name: Datuak
-      details: Xehetasunak
       loading: Kargatzen...
-      object_list: 
-        back: Objetu zerrendara itzuli
-        details: Xehetasunak
-        heading: Objetu zerrenda
-        history: 
-          type: 
-            node: "%{id}. nodoa"
-            way: "%{id}. bidea"
-        selected: 
-          type: 
-            node: "%{id}. nodoa"
-            way: "%{id}. bidea"
-        type: 
-          node: Nodo
-          way: Bide
-      private_user: erabiltzaile pribatua
-      show_history: Historia Ikusi
-      wait: Itxoin...
     tag_details: 
       tags: "Etiketak:"
     timeout: 
       type: 
         relation: erlazio
-    way: 
-      download_xml: XML jaitsi
-      edit: Bidea aldatu
-      view_history: Historia ikusi
-      way: Bide
-      way_title: "%{way_name} bidea"
-    way_details: 
-      nodes: "Nodoak:"
-    way_history: 
-      download_xml: XML jaitsi
-      view_details: xehetasunak ikusi
   changeset: 
     changeset: 
       anonymous: Anonimoa
-      big_area: (handia)
-      no_comment: (bat ere)
     changeset_paging_nav: 
       next: Hurrengoa »
       previous: « Aurrekoa
@@ -202,9 +135,6 @@ eu:
       osm_xml_data: OpenStreetMap XML Data
       scale: Eskala
       zoom: Zooma
-    start_rjs: 
-      export: Esportatu
-      view_larger_map: Ikusi Mapa Handiagoa
   geocoder: 
     description: 
       types: 
@@ -528,21 +458,15 @@ eu:
     edit: Aldatu
     export: Esportatu
     help: Laguntza
-    help_centre: Laguntza Zentroa
     history: Historia
     home: hasiera
     log_in: Saioa hasi
     logo: 
       alt_text: OpenStreetMap logoa
     logout: saioa itxi
-    logout_tooltip: Saioa itxi
     make_a_donation: 
       text: Dohaintza egin
     sign_up: izena eman
-    view: Ikusi
-    view_tooltip: Mapa ikusi
-    welcome_user_link_tooltip: Zure lankide orrialdea
-    wiki: Wikia
   license_page: 
     foreign: 
       title: Itzulpen honi buruz
@@ -577,7 +501,6 @@ eu:
       subject: Gaia
       to: Hartzailea
     read: 
-      back_to_inbox: Sarrera-ontzira itzuli
       date: Data
       from: Igorlea
       reply_button: Erantzun
@@ -604,10 +527,6 @@ eu:
       greeting: Kaixo,
     message_notification: 
       hi: Kaixo %{to_user},
-    signup_confirm_html: 
-      introductory_video: "%{introductory_video_link} ikus dezakezu."
-      more_videos: "%{more_videos_link} daude."
-      more_videos_here: bideo gehiago hemen
   oauth: 
     oauthorize: 
       allow_write_api: mapa aldatu.
@@ -771,7 +690,6 @@ eu:
       continue: Jarraitu
       display name: "Erakusteko izena:"
       email address: "Eposta Helbidea:"
-      heading: Erabiltzaile Kontua sortu
       password: "Pasahitza:"
       title: Kontua sortu
     popup: 

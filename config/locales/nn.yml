@@ -89,93 +89,15 @@ nn:
       need_to_see_terms: Tilgjenget ditt til API-eit er mellombels stoppa. Logg inn på nettsiden for å lese bidragsytervilkårene. Du treng ikkje godta vilkåra, men du må lese dei.
   browse: 
     changeset: 
-      changeset: "Endringssett: %{id}"
       changesetxml: XML for endringssett
       feed: 
         title: Endringssett %{id}
         title_comment: "Endringssett: %{id} - %{comment}"
       osmchangexml: osmChange XML
       title: Endringssett
-    changeset_details: 
-      belongs_to: "Tilhøyrer:"
-      bounding_box: "Avgrensingsboks:"
-      box: boks
-      closed_at: "Lukka:"
-      created_at: "Oppretta:"
-      has_nodes: 
-        one: "Har følgjande %{count} node:"
-        other: "Har følgjande %{count} nodar:"
-      has_relations: 
-        one: "Har følgjande %{count} relasjon:"
-        other: "Har følgjande %{count} relasjonar:"
-      has_ways: 
-        one: "Har følgjande %{count} veg:"
-        other: "Har følgjande %{count} vegar:"
-      no_bounding_box: Ingen avgrensingsboks er lagra for dette endringssettet.
-      show_area_box: Vis boks for område
-    common_details: 
-      changeset_comment: "Kommentar:"
-      deleted_at: "Sletta:"
-      deleted_by: "Sletta av:"
-      edited_at: "Redigert:"
-      edited_by: "Redigert av:"
-      in_changeset: "I endringssett:"
-      version: "Versjon:"
     containing_relation: 
       entry: Relasjon %{relation_name}
       entry_role: Relasjon %{relation_name} (som %{relation_role})
-    map: 
-      deleted: Sletta
-      edit: 
-        area: Rediger område
-        node: Rediger node
-        note: Rediger notis
-        relation: Rediger relasjon
-        way: Rediger rute
-      larger: 
-        area: Vis område på større kart
-        node: Vis node på større kart
-        note: Vis notis på større kart
-        relation: Vis relasjon på større kart
-        way: Vis veg på større kart
-      loading: Lastar...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Neste endringssett
-        next_node_tooltip: Neste node
-        next_note_tooltip: Neste notis
-        next_relation_tooltip: Neste relasjon
-        next_way_tooltip: Neste veg
-        prev_changeset_tooltip: Forrige endringssett
-        prev_node_tooltip: Forrige node
-        prev_note_tooltip: Forrige notis
-        prev_relation_tooltip: Forrige relasjon
-        prev_way_tooltip: Forrige veg
-      paging: 
-        all: 
-          next: "%{id} »"
-          prev: « %{id}
-        user: 
-          next: "%{id} »"
-          prev: « %{id}
-      user: 
-        name_changeset_tooltip: Vis redigeringar av %{user}
-        next_changeset_tooltip: Neste redigering av %{user}
-        prev_changeset_tooltip: Forrige redigering av %{user}
-    node: 
-      download_xml: Last ned XML
-      edit: Rediger node
-      node: Node
-      node_title: "Node: %{node_name}"
-      view_history: Sjå historikken
-    node_details: 
-      coordinates: "Koordinatar:"
-      part_of: "Del av:"
-    node_history: 
-      download_xml: Last ned XML
-      node_history: Nodehistorik
-      node_history_title: "Nodehistorikk: %{node_name}"
-      view_details: Vis detaljar
     not_found: 
       sorry: Klarte ikkje finne %{type}-ein med ID %{id}.
       type: 
@@ -184,18 +106,8 @@ nn:
         relation: relasjon
         way: veg
     note: 
-      at_by_html: "%{when} sidan av %{user}"
-      at_html: "%{when} sidan"
-      closed: "Attlatne:"
       closed_title: "Oppklara notis: %{note_name}"
-      comments: "Kommentarar:"
-      description: "Skildring:"
-      last_modified: "Sist endra:"
       open_title: "Uoppklara notis: %{note_name}"
-      opened: "Opna:"
-    paging_nav: 
-      of: av
-      showing_page: side
     redacted: 
       message_html: Versjon %{version} av denne %{type} kan ikkje visast fordi den er blitt maskert. Sjå %{redaction_link} for detaljar.
       redaction: Maskering %{id}
@@ -203,19 +115,6 @@ nn:
         node: noden
         relation: relasjonen
         way: vegen
-    relation: 
-      download_xml: Last ned XML
-      relation: Relasjon
-      relation_title: "Relasjon: %{relation_name}"
-      view_history: Sjå historikken
-    relation_details: 
-      members: "Medlemmar:"
-      part_of: "Del av:"
-    relation_history: 
-      download_xml: Last ned XML
-      relation_history: Relasjonshistorikk
-      relation_history_title: "Relasjonshistorikk: %{relation_name}"
-      view_details: Vis detaljar
     relation_member: 
       entry: "%{type} %{name}"
       entry_role: "%{type} %{name} som %{role}"
@@ -224,40 +123,8 @@ nn:
         relation: Relasjon
         way: Veg
     start_rjs: 
-      data_frame_title: Data
-      data_layer_name: Kartdata
-      details: Detaljar
-      edited_by_user_at_timestamp: Redigert av %{user},  %{timestamp}
-      hide_areas: Skjul områder
-      history_for_feature: Historikk for %{feature}
       load_data: Last inn data
-      loaded_an_area_with_num_features: Dette området inneheld %{num_features} objekt. Nokre nettlesarar kan ikkje handtere så mykje data. For å ikkje risikere at nettlesaren låsar seg bør du halde deg til under %{max_features} objekt. Om du er sikker på at du vil sjå informasjonen kan du klikke på knappen nedanfor.
       loading: Lastar...
-      manually_select: Vel eit anna område manuelt
-      notes_layer_name: Bla gjennom notiser
-      object_list: 
-        api: Hent dette området frå API-et
-        back: Tilbake til objektlista
-        details: Detaljar
-        heading: Objektliste
-        history: 
-          type: 
-            node: Node %{id}
-            way: Veg %{id}
-        selected: 
-          type: 
-            node: Node %{id}
-            way: Veg %{id}
-        type: 
-          node: Node
-          way: Veg
-      private_user: privat brukar
-      show_areas: Vis områder
-      show_history: Vis historikk
-      unable_to_load_size: "Klarte ikkje laste inn: Avgrensingsboks med storleik %{bbox_size} er for stor (må vere mindre enn %{max_bbox_size})"
-      view_data: Vis data for gjeldande kartvising
-      wait: Vent ...
-      zoom_or_select: Zoom inn eller vel eit område av kartet for vising
     tag_details: 
       tags: "Merkelapper:"
       wiki_link: 
@@ -271,31 +138,10 @@ nn:
         node: node
         relation: relasjon
         way: veg
-    way: 
-      download_xml: Last ned XML
-      edit: Rediger veg
-      view_history: Sjå historikken
-      way: Veg
-      way_title: "Veg: %{way_name}"
-    way_details: 
-      also_part_of: 
-        one: del av vegen %{related_ways}
-        other: del av vegane %{related_ways}
-      nodes: "Nodar:"
-      part_of: "Del av:"
-    way_history: 
-      download_xml: Last ned XML
-      view_details: Vis detaljar
-      way_history: Veghistorikk
-      way_history_title: "Veghistorikk: %{way_name}"
   changeset: 
     changeset: 
       anonymous: Anonym
-      big_area: (stor)
-      no_comment: (ingen)
       no_edits: (ingen redigeringar)
-      show_area_box: vis boks for område
-      still_editing: (redigerer forsatt)
       view_changeset_details: Vis detaljar for endringssett
     changeset_paging_nav: 
       next: Neste »
@@ -308,26 +154,10 @@ nn:
       saved_at: Lagra
       user: Brukar
     list: 
-      description: Vis siste bidrag til kartet
-      description_bbox: Endringssett innanfor %{bbox}
-      description_friend: Endringssett av venene dine
-      description_nearby: Endringssett av næliggande brukarar
-      description_user: Endringssett av %{user}
-      description_user_bbox: Endringssett av %{user} innan %{bbox}
-      empty_anon_html: Ingen endringar endå.
-      empty_user_html: Du har ikkje gjort nokre endringar endå. For å starte, sjå på <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>Startveiledninga</a>.
-      heading: Endringssett
-      heading_bbox: Endringssett
-      heading_friend: Endringssett
-      heading_nearby: Endringssett
-      heading_user: Endringssett
-      heading_user_bbox: Endringssett
       title: Endringssett
-      title_bbox: Endringssett innanfor %{bbox}
       title_friend: Endringssett av venene dine
       title_nearby: Endringssett av naboar
       title_user: Endringssett av %{user}
-      title_user_bbox: Endringssett av %{user} innan %{bbox}
     timeout: 
       sorry: Lista over endringssett tok for lang tid å hente.
   diary_entry: 
@@ -438,16 +268,7 @@ nn:
       scale: Skala
       too_large: 
         body: Dette området er for stort for å eksporterast som OpenStreetMap XML-data. Zoom inn eller vel eit mindre område.
-        heading: For stort område
       zoom: Zoom
-    start_rjs: 
-      add_marker: Legg til ein markør på kartet
-      change_marker: Endre markørposisjon
-      click_add_marker: Klikk på kartet for å leggja til ein markør
-      drag_a_box: Dra ein boks på kartet for å velje eit område
-      export: Eksporter
-      manually_select: Vel eit anna område manuelt
-      view_larger_map: Vis større kart
   geocoder: 
     description: 
       title: 
@@ -958,51 +779,28 @@ nn:
     site: 
       edit_disabled_tooltip: Zoom inn for å redigere kartet
       edit_tooltip: Rediger kartet
-      edit_zoom_alert: Du må zoome inn for å redigere kartet
-      history_disabled_tooltip: Zoom inn for å vise redigeringar i dette området
-      history_tooltip: Vis redigeringar for dette området
-      history_zoom_alert: Du må zoome inn for å vise redigeringar i dette området
   layouts: 
     community: Samfunnet
     community_blogs: Bloggar
     community_blogs_title: Bloggar frå medlemmane i OpenStreetMap-felleskapet
     copyright: Opphavsrett & lisens
-    documentation: Dokumentasjon
-    documentation_title: Dokumentasjon for prosjektet
     donate: Støytt OpenStreetMap ved %{link} til Hardware Upgrade Fund (eit fond for maskinvareoppgraderinger).
-    donate_link_text: donering
     edit: Rediger
     edit_with: Rediger med %{editor}
     export: Eksporter
-    export_tooltip: Eksporter kartdata
     foundation: Stifting
     foundation_title: OpenStreetMap-stiftinga
     gps_traces: GPS-spor
     gps_traces_tooltip: Handsam GPS-spor
     help: Hjelp
-    help_centre: Brukarstøtte
-    help_title: Hjelpenettstad for prosjektet
-    help_url: http://help.openstreetmap.org/
     history: Historikk
     home: heim
-    home_tooltip: Gå til heimeposisjon
-    inbox_html: innboks %{count}
-    inbox_tooltip: 
-      one: Din innboks inneheld 1 ulesen melding
-      other: Din innboks inneheld %{count} ulesne meldingar
-      zero: Din innboks inneheld ingen ulesne meldingar
-    intro_1: OpenStreetMap er eit fritt redigerbart kart over heile jorda. Det er laga av folk som deg.
     intro_2_create_account: Opprett ein brukarkonto
-    intro_2_download: last ned
-    intro_2_html: Du står fritt til å %{download} informasjonen og til å %{use} den under ein %{license}. %{create_account} for å forbedre kartet.
-    intro_2_license: åpen lisens
-    intro_2_use: bruke
     log_in: logg inn
     log_in_tooltip: Logg inn med ein eksisterande konto
     logo: 
       alt_text: OpenStreetMap-logo
     logout: logg ut
-    logout_tooltip: Logg ut
     make_a_donation: 
       text: Gje pengegåve
       title: Støtt OpenStreetMap med ei pengegåve
@@ -1021,12 +819,6 @@ nn:
     tag_line: Fritt Wiki-verdenskart
     user_diaries: Brukardagbok
     user_diaries_tooltip: Vis brukaren si dagbok
-    view: Vis
-    view_tooltip: Vis kartet
-    welcome_user_link_tooltip: Din brukarside
-    wiki: Wiki
-    wiki_title: Wikinettstad for prosjektet
-    wiki_url: http://wiki.openstreetmap.org/
   license_page: 
     foreign: 
       english_link: den engelske originalen
@@ -1120,8 +912,6 @@ nn:
       title: Utboks
       to: Til
     read: 
-      back_to_inbox: Tilbake til innboks
-      back_to_outbox: Tilbake til utboks
       date: Dato
       from: Frå
       reply_button: Svar
@@ -1179,8 +969,6 @@ nn:
       click_the_link: Om dette er deg, vennligst klikk på lenkja under for å tilbakestille passordet.
       greeting: Hei,
     message_notification: 
-      footer1: Du kan òg lese meldinga på %{readurl}
-      footer2: og du kan svare til %{replyurl}
       header: "%{from_user} har sendt deg ei melding gjennom OpenStreetMap med emnet %{subject}:"
       hi: Hei %{to_user},
       subject_header: "[OpenStreetMap] %{subject}"
@@ -1194,27 +982,6 @@ nn:
       greeting: Hei der!
       subject: "[OpenStreetMap] Velkommen til OpenStreetMap"
       welcome: Me vil ynskje velkommen og gje deg litt meir informasjon for å få deg igang.
-    signup_confirm_html: 
-      ask_questions: Du kan stille spørsmål du har om OpenStreetMap på vårt <a href="http://help.openstreetmap.org/">spørsmål og svar-nettsted</a>.
-      current_user: Ei liste over noverande brukarar i kategoriar, basert på kor i verda dei er, er tilgjengeleg frå <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: Start å lese om OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_guide">på wikien</a>, få med deg dei siste nyhenda via  <a href="http://blog.openstreetmap.org/">OpenStreetMap-bloggen</a> eller <a href="http://twitter.com/openstreetmap">Twitter</a>. Eller bla gjennom OpenStreetMaps grunnlegg Steve Coasts <a href="http://www.opengeodata.org/">OpenGeoData-blogg</a> for heile historia til prosjektet, som òg har <a href="http://www.opengeodata.org/?cat=13">engelske podkaster</a> du kan lytte til.
-      introductory_video: Du kan sjå ein %{introductory_video_link}.
-      more_videos: Det er %{more_videos_link}.
-      more_videos_here: fleire videoar her
-      user_wiki_page: Det er tilrådd at du opprettar ei brukarside på wikien som inneheld kategorimerker som viser kor du er, f.eks <a href="http://wiki.openstreetmap.org/wiki/Category:Users_in_norway">[[Category:Users_in_norway]]</a>.
-      video_to_openstreetmap: introduksjonsvideo til OpenStreetMap
-      wiki_signup: Du vil kanskje <a href="http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_page">melde deg inn i OpenStreetMap-wikien</a> òg.
-    signup_confirm_plain: 
-      ask_questions: "Du kan stille spørsmål du har om OpenStreetMap på vår spørsmål og svar-nettsted:"
-      blog_and_twitter: "Få med deg dei siste nyhenda gjennom OpenStreetMap-bloggen eller Twitter:"
-      current_user: "Ei liste over brukarar i kategoriar basert på kvar i verda dei er er tilgjenglig på:"
-      introductory_video: "Du kan sjå ein introduksjonsvideo for OpenStreetMap her:"
-      more_videos: "Det er fleire videoar her:"
-      the_wiki: "Les meir om OpenStreetMap på wikien:"
-      the_wiki_url: http://wiki.openstreetmap.org/wiki/Beginners%27_guide
-      user_wiki_page: Det er ambefalt at du òg lagar ei wiki brukar side som inneheld kategori for kvar du er, til dømes [[Category:Users_in_Norway]].
-      wiki_signup: "Du vil kanskje òg melde deg inn i OpenStreetMap-wikien på:"
-      wiki_signup_url: http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_page
   oauth: 
     oauthorize: 
       allow_read_gpx: lese dine private GPS-spor.
@@ -1427,7 +1194,6 @@ nn:
       preview: Førehandsvising
     search: 
       search: Søk
-      search_help: "Døme: 'Lindesnes', 'Karl Johans gate', 'Sør-Trøndelag' og <a href='http://wiki.openstreetmap.org/wiki/Search'>fleire ...</a>"
       submit_text: Gå
       where_am_i: Kor er eg?
       where_am_i_title: Bruk søkjemotoren til å skildre gjeldande lokasjon.
@@ -1591,12 +1357,9 @@ nn:
       update home location on click: Oppdater hjemmelokasjon når eg klikkar på kartet?
     confirm: 
       already active: Denne kontoen har allereie stadfesta.
-      before you start: Me veit du sannsynlegvis har hastverk med å byrja å lage kart, men før du gjer dette kan du fylle inn litt informasjon om deg sjølv i skjemaet under.
       button: Stadfest
       heading: Stadfest ein brukerkonto
       press confirm button: Klikk bekreftknappen nedanfor for å aktivare kontoen din.
-      reconfirm: Viss det er ei stund sidan du registrerte deg kan det hende du må <a href=%{reconfirm}">sende deg sjølv ein ny bekreftelsesepost</a>.
-      success: Kontoen din er stadfesta - takk for at du registrerte deg.
       unknown token: Den koda ser ikkje ut til å eksistere.
     confirm_email: 
       button: Stadfest
@@ -1689,10 +1452,6 @@ nn:
       display name: "Visningsnavn:"
       display name description: Ditt offentleg framviste brukernavn. Du kan endre dette seinare i innstellingane.
       email address: "E-postadresse:"
-      fill_form: Fyll ut skjemaet og me vil sende deg ein e-post for å aktivare kontoen din.
-      flash create success message: Takk for at du registrerte deg. Me har sendt ein bekreftelsesmelding til %{email} og så snart du stadfestar kontoen din kan du byrje å lage kart.<br /><br />Om du brukar eit antispamsystem som sender bekreftelsesforspørsler, kontrollar at du har hvitelistet webmaster@openstreetmap.org sidan me ikkje kan svare på bekreftelsesforespørsler.
-      flash welcome: Takk for at du blei medlem. Me har sendt deg ei velkomstmelding til %{email} med nokre hint om korleis du kjem igang.
-      heading: Opprett ein brukerkonto
       license_agreement: Når du stadfestar kontoen din må du godkjenne <a href="http://www.osmfoundation.org/wiki/License/Contributor_terms">bidragsytervilkåra</a>.
       no_auto_account_create: Beklagelegvis kan me for augneblunken ikkje opprette ein konto for deg automatisk.
       not displayed publicly: Ikkje vist offentleg (sjå <a href="http://wiki.openstreetmap.org/wiki/Privacy_policy" title="Personvernpolitikk for Wiki-en inklusiv avsnitt om e-postadressser">vår personvernpolitikk</a>)

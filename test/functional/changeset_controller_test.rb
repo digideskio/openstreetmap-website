@@ -40,40 +40,28 @@ class ChangesetControllerTest < ActionController::TestCase
       { :controller => "changeset", :action => "query" }
     )
     assert_routing(
-      { :path => "/user/name/edits", :method => :get },
+      { :path => "/user/name/history", :method => :get },
       { :controller => "changeset", :action => "list", :display_name => "name" }
     )
     assert_routing(
-      { :path => "/user/name/edits/feed", :method => :get },
+      { :path => "/user/name/history/feed", :method => :get },
       { :controller => "changeset", :action => "feed", :display_name => "name", :format => :atom }
     )
     assert_routing(
-      { :path => "/browse/friends", :method => :get },
+      { :path => "/history/friends", :method => :get },
       { :controller => "changeset", :action => "list", :friends => true }
     )
     assert_routing(
-      { :path => "/browse/nearby", :method => :get },
+      { :path => "/history/nearby", :method => :get },
       { :controller => "changeset", :action => "list", :nearby => true }
     )
     assert_routing(
-      { :path => "/browse/changesets", :method => :get },
+      { :path => "/history", :method => :get },
       { :controller => "changeset", :action => "list" }
     )
     assert_routing(
-      { :path => "/browse/changesets/feed", :method => :get },
+      { :path => "/history/feed", :method => :get },
       { :controller => "changeset", :action => "feed", :format => :atom }
-    )
-    assert_recognizes(
-      { :controller => "changeset", :action => "list" },
-      { :path => "/browse", :method => :get }
-    )
-    assert_recognizes(
-      { :controller => "changeset", :action => "list" },
-      { :path => "/history", :method => :get }
-    )
-    assert_recognizes(
-      { :controller => "changeset", :action => "feed", :format => :atom },
-      { :path => "/history/feed", :method => :get }
     )
   end
 
@@ -175,7 +163,7 @@ class ChangesetControllerTest < ActionController::TestCase
       begin
         get :read, :id => id
         assert_response :not_found, "should get a not found"
-      rescue ActionController::RoutingError => ex
+      rescue ActionController::UrlGenerationError => ex
         assert_match /No route matches/, ex.to_s
       end
     end
@@ -241,7 +229,7 @@ class ChangesetControllerTest < ActionController::TestCase
       begin
         put :close, :id => id
         assert_response :unauthorized, "Shouldn't be able close the non-existant changeset #{id}, when not authorized"
-      rescue ActionController::RoutingError => ex
+      rescue ActionController::UrlGenerationError => ex
         assert_match /No route matches/, ex.to_s
       end
     end
@@ -252,7 +240,7 @@ class ChangesetControllerTest < ActionController::TestCase
       begin
         put :close, :id => id
         assert_response :not_found, "The changeset #{id} doesn't exist, so can't be closed"
-      rescue ActionController::RoutingError => ex
+      rescue ActionController::UrlGenerationError => ex
         assert_match /No route matches/, ex.to_s
       end
     end
@@ -1555,6 +1543,13 @@ EOF
     get :query, :closed => 'true', :user => users(:public_user).id
     assert_response :success, "can't get changesets by closed-ness and user"
     assert_changesets [7]
+
+    get :query, :changesets => '1,2,3'
+    assert_response :success, "can't get changesets by id (as comma-separated string)"
+    assert_changesets [1,2,3]
+
+    get :query, :changesets => ''
+    assert_response :bad_request, "should be a bad request since changesets is empty"
   end
 
   ##
@@ -1728,14 +1723,23 @@ EOF
   ##
   # This should display the last 20 changesets closed.
   def test_list
-    changesets = Changeset.find(:all, :order => "created_at DESC", :conditions => ['num_changes > 0'], :limit=> 20)
-    assert changesets.size <= 20
     get :list, {:format => "html"}
     assert_response :success
+    assert_template "changeset/history"
+    assert_select "h2", :text => "Changesets", :count => 1
+
+    get :list, {:format => "html", :list => '1', :bbox => '-180,-90,90,180'}
+    assert_response :success
     assert_template "list"
+
+    changesets = Changeset.
+        where("num_changes > 0 and min_lon is not null").
+        order(:created_at => :desc).
+        limit(20)
+    assert changesets.size <= 20
+
     # Now check that all 20 (or however many were returned) changesets are in the html
-    assert_select "h1", :text => "Changesets", :count => 1
-    assert_select "div[id='changeset_list'] ul", :count => changesets.size
+    assert_select "li", :count => changesets.size
     changesets.each do |changeset|
       # FIXME this test needs rewriting - test for table contents
     end
@@ -1747,7 +1751,7 @@ EOF
     user = users(:public_user)
     get :list, {:format => "html", :display_name => user.display_name}
     assert_response :success
-    assert_template "changeset/_user"
+    assert_template "changeset/history"
     ## FIXME need to add more checks to see which if edits are actually shown if your data is public
   end
   
@@ -1762,7 +1766,7 @@ EOF
   ##
   # This should display the last 20 changesets closed.
   def test_feed
-    changesets = Changeset.find(:all, :order => "created_at DESC", :conditions => ['num_changes > 0'], :limit=> 20)
+    changesets = Changeset.where("num_changes > 0").order(:created_at => :desc).limit(20)
     assert changesets.size <= 20
     get :feed, {:format => "atom"}
     assert_response :success
@@ -1781,7 +1785,8 @@ EOF
     user = users(:public_user)
     get :feed, {:format => "atom", :display_name => user.display_name}
     assert_response :success
-    assert_template "changeset/_user"
+    assert_template "changeset/list"
+    assert_equal "application/atom+xml", response.content_type
     ## FIXME need to add more checks to see which if edits are actually shown if your data is public
   end
 

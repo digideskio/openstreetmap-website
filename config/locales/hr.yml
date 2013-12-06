@@ -84,79 +84,15 @@ hr:
       blocked: Tvoj pristup API-u je blokiran. Prijavite se na web sučelje da saznate više.
   browse: 
     changeset: 
-      changeset: "Changeset: %{id}"
       changesetxml: XLM Changeset
       feed: 
         title: Changeset %{id}
         title_comment: Changeset %{id} - %{comment}
       osmchangexml: osmChange XML
       title: Changeset
-    changeset_details: 
-      belongs_to: "Pripada:"
-      bounding_box: "Granični okvir:"
-      box: okvir
-      closed_at: "Zatvoreno:"
-      created_at: "Napravljeno:"
-      has_nodes: 
-        few: Sadrži slijedeće %{count} točke
-        one: "Sadrži slijedeću %{count} točku:"
-        other: "Sadrži sljedećih %{count} točaka:"
-      has_relations: 
-        few: "Sadrži slijedeće %{count} relacije:"
-        one: "Sadrži slijedeću %{count} relaciju:"
-        other: "Sadrži slijedećih %{count} relacija:"
-      has_ways: 
-        few: "Sadrži slijedeća %{count} puta:"
-        many: "Sadrži slijedećih %{count} puteva:"
-        one: "Sadrži slijedeći %{count} put:"
-        other: "Sadrži slijedećih %{count} puteva:"
-      no_bounding_box: Granični okvir nije pohranjen za ovaj set promjena.
-      show_area_box: Prikaži granični okvir
-    common_details: 
-      changeset_comment: "Komentar:"
-      edited_at: "Uređeno:"
-      edited_by: "Uredio:"
-      in_changeset: "U changesetu:"
-      version: "Verzija:"
     containing_relation: 
       entry: Relacija %{relation_name}
       entry_role: Relacija %{relation_name} (kao %{relation_role})
-    map: 
-      deleted: Izbrisano
-      larger: 
-        area: Prikaži područje na većoj karti
-        node: Prikaži točku na većoj karti
-        relation: Prikaži relaciju na većoj karti
-        way: Prikaži put na većoj karti
-      loading: Učitavanje...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Slijedeći changeset
-        next_node_tooltip: Sljedeća točka
-        next_relation_tooltip: Sljedeća relacija
-        next_way_tooltip: Sljedeći put
-        prev_changeset_tooltip: Prethodni changeset
-        prev_node_tooltip: Prethodna točka
-        prev_relation_tooltip: Prethodna relacija
-        prev_way_tooltip: Prethodni put
-      user: 
-        name_changeset_tooltip: "Prikaži promjene korisnika:  %{user}"
-        next_changeset_tooltip: Slijedeća promjena od %{user}
-        prev_changeset_tooltip: Prethodno uredio %{user}
-    node: 
-      download_xml: Preuzimanje XML
-      edit: uredi
-      node: Točka
-      node_title: "Točka: %{node_name}"
-      view_history: prikaži povijest
-    node_details: 
-      coordinates: "Koordinate:"
-      part_of: "Dio od:"
-    node_history: 
-      download_xml: Preuzimanje XML
-      node_history: Povijest točke
-      node_history_title: "Povijest točke: %{node_name}"
-      view_details: prikaži detalje
     not_found: 
       sorry: Žao mi je, ali %{type} sa ID %{id}, se ne može naći.
       type: 
@@ -164,22 +100,6 @@ hr:
         node: točka
         relation: relacija
         way: put
-    paging_nav: 
-      of: od
-      showing_page: Prikazujem stranicu
-    relation: 
-      download_xml: Preuzimanje XML
-      relation: Relacija
-      relation_title: "Relacija: %{relation_name}"
-      view_history: prikaži povijest
-    relation_details: 
-      members: "Članovi:"
-      part_of: "Dio:"
-    relation_history: 
-      download_xml: Preuzimanje XML
-      relation_history: Povijest relacije
-      relation_history_title: "Povijest relacije: %{relation_name}"
-      view_details: prikaži detalje
     relation_member: 
       entry_role: "%{type} %{name} kao %{role}"
       type: 
@@ -187,38 +107,8 @@ hr:
         relation: Relacija
         way: Put
     start_rjs: 
-      data_frame_title: Podaci
-      data_layer_name: Podaci
-      details: Detalji
-      edited_by_user_at_timestamp: Uredio %{user} u %{timestamp}
-      hide_areas: Sakrij područja
-      history_for_feature: Povijest za %{feature}
       load_data: Učitaj podatke
-      loaded_an_area_with_num_features: "Učitali ste područje koje sadrži %{num_features} značajki. Općenito, neki se internetski preglednici ne mogu nositi s tolikom količinom podataka. Preglednici najbolje rade kada prikazuju manje od 100 značajki istovremeno: ako radite još nešto, može usporiti preglednik ili ga zablokirati. Ako ste sigurni da želite prikazati ove podtake, možete pritisnuti puce ispod."
       loading: Učitavanje...
-      manually_select: Ručno izaberi drugo područje
-      object_list: 
-        api: Preuzmi ovo područje iz API
-        back: Prikaži listu objekata
-        details: Detalji
-        heading: Lista objekata
-        history: 
-          type: 
-            node: Točka %{id}
-            way: Put  %{id}
-        selected: 
-          type: 
-            node: Točka %{id}
-            way: Put %{id}
-        type: 
-          node: Točka
-          way: Put
-      private_user: privatni korisnik
-      show_areas: Prikaži područja
-      show_history: Prikaži povijest
-      unable_to_load_size: "Ne mogu učitati: Granični okvir veličine %{bbox_size} je prevelik (mora biti manji od %{max_bbox_size})"
-      wait: Pričekajte...
-      zoom_or_select: Zoomiraj ili izaberi područje karte za pregled
     tag_details: 
       tags: "Oznake:"
       wiki_link: 
@@ -232,31 +122,10 @@ hr:
         node: točka
         relation: relacija
         way: put
-    way: 
-      download_xml: Preuzimanje XML
-      edit: uredi
-      view_history: prikaži povijest
-      way: Put
-      way_title: "Put: %{way_name}"
-    way_details: 
-      also_part_of: 
-        one: također dio puta %{related_ways}
-        other: također dio puteva %{related_ways}
-      nodes: "Točke:"
-      part_of: "Dio od:"
-    way_history: 
-      download_xml: Preuzimanje XML
-      view_details: prikaži detalje
-      way_history: Povijest puta
-      way_history_title: "Povijest puta: %{way_name}"
   changeset: 
     changeset: 
       anonymous: Anonimno
-      big_area: (veliko)
-      no_comment: (bez komentara)
       no_edits: (nema promjena)
-      show_area_box: prikaži okvir područja
-      still_editing: (još uređuje)
       view_changeset_details: Prikaži detalje changeseta
     changeset_paging_nav: 
       next: Slijedeća »
@@ -269,18 +138,8 @@ hr:
       saved_at: Spremljeno
       user: Korisnik
     list: 
-      description: Nedavne promjene
-      description_bbox: Changesets unutar %{bbox}
-      description_user: Changesets od %{user}
-      description_user_bbox: Changesets od %{user} unutar %{bbox}
-      heading: Changesets
-      heading_bbox: Changesets
-      heading_user: Changesets
-      heading_user_bbox: Changesets
       title: Changesets
-      title_bbox: Changesets unutar %{bbox}
       title_user: Changesets od %{user}
-      title_user_bbox: Changesets od %{user} unutar %{bbox}
     timeout: 
       sorry: Nažalost, popis Changeseta (skupa promjena) koje ste zatražili je predugo trajalo za preuzimanje.
   diary_entry: 
@@ -379,16 +238,7 @@ hr:
       scale: Mjerilo
       too_large: 
         body: Ovo područje je preveliko da bi se izvezlo kao OpenStreetMap XML podaci. Molimo povećajte (zoom) ili odaberite manju površinu.
-        heading: Područje je preveliko
       zoom: Zoom
-    start_rjs: 
-      add_marker: Dodaj makrker na kartu
-      change_marker: Promjeni poziciju markera
-      click_add_marker: Klikni da dodaš marker na kartu
-      drag_a_box: Povuci okvir na karti da izabereš područje
-      export: Export
-      manually_select: Ručno izaberi drugo područje
-      view_larger_map: Prikaži veću kartu
   geocoder: 
     description: 
       title: 
@@ -839,43 +689,26 @@ hr:
     site: 
       edit_disabled_tooltip: Uvećajte za uređivanje karte
       edit_tooltip: Uredi kartu
-      edit_zoom_alert: Morate zoomirati da bi uređivali kartu
-      history_disabled_tooltip: Zoomirajte da biste vidjeli uređivanja za ovo područje
-      history_tooltip: Prikaži izmjene za ovo područje
-      history_zoom_alert: Morate zoomirati da bi vidjeli povijest izmjena
   layouts: 
     community_blogs: Blogovi zajednice
     community_blogs_title: Blogovi članova OpenStreetMap zajednice
     copyright: Autorska prava & Dozvola
-    documentation: Dokumentacija
-    documentation_title: Dokumentacija za projekt
     donate: Podržite OpenStreetMap sa %{link} Hardware Upgrade Fond.
-    donate_link_text: donacije
     edit: Uredi
     edit_with: Uredi s %{editor}
     export: Izvoz
-    export_tooltip: Izvoz podataka karte
     foundation: Zaklada
     foundation_title: OpenStreetMap zaklada
     gps_traces: GPS trase
     gps_traces_tooltip: Upravljaj GPS trasama
     help: Pomoć
-    help_centre: Centar pomoći
-    help_title: Stranice pomoći za projekt
     history: Povijest
     home: dom
-    home_tooltip: Idi na lokaciju svog doma
-    inbox_tooltip: 
-      one: Imate 1 nepročitanu poruku
-      other: Imate %{count} nepročitane(ih) poruke(a)
-      zero: Nema nepročitanih poruka
-    intro_1: OpenStreetMap je slobodna, promjenjiva karta cijelog svijeta. Napravili su je ljudi slični tebi.
     log_in: prijava
     log_in_tooltip: Prijavi se sa postojećim korisničkim računom
     logo: 
       alt_text: OpenStreetMap logotip
     logout: odjava
-    logout_tooltip: Odjava
     make_a_donation: 
       text: Donirajte
       title: Podržite Openstreetmap novčanom donacijom
@@ -886,12 +719,6 @@ hr:
     tag_line: Slobodna wiki karta Svijeta
     user_diaries: Dnevnik
     user_diaries_tooltip: Prikaži korisničke dnevnike
-    view: Karta
-    view_tooltip: Pogledaj na karti
-    welcome_user_link_tooltip: Tvoja korisnička stranica
-    wiki: Wiki
-    wiki_title: Wiki stranice projekta
-    wiki_url: http://wiki.openstreetmap.org/wiki/Hr:Main_Page?uselang=hr
   license_page: 
     foreign: 
       english_link: Engleski izvornik
@@ -962,8 +789,6 @@ hr:
       title: Odlazna pošta
       to: Za
     read: 
-      back_to_inbox: Nazad u dolaznu poštu
-      back_to_outbox: Nazad u odlaznu poštu
       date: Datum
       from: Od
       reply_button: Odgovori
@@ -1020,30 +845,10 @@ hr:
       click_the_link: Ako si ovo ti, klikni na link ispod za reset lozinke.
       greeting: Bok,
     message_notification: 
-      footer1: Možete također pročitiati poruku na %{readurl}
-      footer2: i možete odgovoriti na %{replyurl}
       header: "%{from_user} ti je poslao poruku preko OpenStreetMap sa predmetom %{subject}:"
       hi: Bok %{to_user},
     signup_confirm: 
       subject: "[OpenStreetMap] potvrdi email adresu"
-    signup_confirm_html: 
-      ask_questions: Možete postaviti bilo kakva pitanja koja imate o projektu OpenStreetMap na našim <a href="http://help.openstreetmap.org/">stranicama pitanja i odgovora</a>.
-      current_user: Lista trenutnih korisnika u kategorijama, bazirano gdje su na svijetu, je dostupna s <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: Čitajte o OpenStreetMap-u <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">na wiki-ju</a>, budute u toku s zadnjim novostima preko <a href="http://blog.openstreetmap.org/">OpenStreetMap bloga</a> ili <a href="http://twitter.com/openstreetmap">Twittera</a>, ili pregledajte <a href="http://www.opengeodata.org/">OpenGeoData blog</a> osnivača OpenStreetMap-a, Stevea Coasta za povijest projekta, gdje imate i <a href="http://www.opengeodata.org/?cat=13">podcaste za slušanje</a>!
-      introductory_video: Možeš pogledati %{introductory_video_link}.
-      more_videos: Postoji %{more_videos_link}.
-      more_videos_here: više video snimki ovdje
-      user_wiki_page: Preporuka je da napravite korisničku wiki stranicu, koja uključuje category oznake, koje označavaju gdje ste, kao npr.<a href="http://wiki.openstreetmap.org/wiki/Category:Users_in_London">[[Category:Users_in_London]]</a>.
-      video_to_openstreetmap: uvodni video za OpenStreetMap
-      wiki_signup: Možda se želiš <a href="http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_Page">otvoriti račun na OpenStreetMap wiki</a>.
-    signup_confirm_plain: 
-      ask_questions: "Možete postaviti bilo kakva pitanja koja imate o projektu OpenStreetMap na našim stranicama pitanja i odgovora:"
-      blog_and_twitter: "Budite u toku s najnovijim vijestima preko OpenstreetMap bloga ili Twittera:"
-      introductory_video: "Možeš pogledati uvodni video za OpenStreetMap ovdje:"
-      more_videos: "Ovdje ima više videa:"
-      the_wiki: "Čitaj o OpenStreetMap-u na wiki-ju:"
-      the_wiki_url: http://wiki.openstreetmap.org/wiki/HR:Beginners_Guide
-      wiki_signup: "Možda želiš otvoriti račun na OpenStreetMap wiki na:"
   oauth: 
     oauthorize: 
       allow_read_gpx: Pročitaj svoje privatne GPS trase.
@@ -1196,7 +1001,6 @@ hr:
           wood: Šume (prirodne, neodržavane)
     search: 
       search: Traži
-      search_help: "primjer: 'Osijek', 'Zelenjak 52, Zagreb', ili 'kolodvor, Split' <a href='http://wiki.openstreetmap.org/wiki/Search'>više primjera...</a>"
       submit_text: Idi
       where_am_i: Gdje sam?
       where_am_i_title: Opiši trenutnu lokaciju koristeći pretraživač
@@ -1344,12 +1148,9 @@ hr:
       update home location on click: Ažuriraj lokaciju doma kada kliknem na kartu?
     confirm: 
       already active: Ovaj račun je već potvrđen.
-      before you start: Znamo da ste vjerojatno u žurbi za početak mapiranja, ali prije nego što počnete, možda bi željeli ispuniti neke dodatne informacije o sebi u donji obrazac.
       button: Potvrdi
       heading: Potvrdi korisnički  račun
       press confirm button: Pritisni potvrdi da bi aktivirali svoj korisnički račun.
-      reconfirm: Ako je prošlo neko vrijeme otkad ste se prijavili možda će te morati <a href="%{reconfirm}">poslati sebi novu e-poštu potvrde</a> .
-      success: Tvoj račun je potvrđen , hvala na uključenju!
       unknown token: Izgleda da taj token ne postoji.
     confirm_email: 
       button: Potvrdi
@@ -1413,9 +1214,6 @@ hr:
       display name: "Korisničko ime:"
       display name description: Javno prikazano korisničko ime. Možete ga promjeniti i kasnije u postavkama.
       email address: "Email:"
-      fill_form: Ispuni formular i i ubrzo će te dobtiti email za aktivaciju korisničkog računa.
-      flash create success message: Hvala što ste se prijavili! Poslali smo vam e-mail za potvrdu na %{email}, i čim potvrdite svoj račun možete  mapirati<br /><br />Ako kortstite antispam sustav koji šalje potvrde zahtjeva budite sigurni da je na tzv. "whitelisti" webmaster@openstreetmap.org jer nećemo moći odgovoriti na potvrdni zahtjev.
-      heading: Otvori korisnički račun
       license_agreement: Kada potvrdite vaš račun morati će te pristati na <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">uvjete pridonositelja</a> .
       no_auto_account_create: Nažalost nismo u mogućnosti automatski otvarati korisničke račune.
       not displayed publicly: Nije javno prikazano (vidi <a href="http://wiki.openstreetmap.org/wiki/Privacy_Policy" title="wiki privacy policy including section on email addresses">privacy policy</a>)

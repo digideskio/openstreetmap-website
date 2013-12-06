@@ -4,7 +4,12 @@
 # Author: Davio
 # Author: Les Meloures
 # Author: Robby
+# Author: Soued031
 lb: 
+  about_page: 
+    next: Weider
+    open_data_title: Open Data
+    partners_title: Partner
   activerecord: 
     attributes: 
       diary_entry: 
@@ -45,79 +50,38 @@ lb:
       user_preference: Benotzerastellung
       way: Wee
   browse: 
+    anonymous: anonym
     changeset: 
+      belongs_to: Auteur
       osmchangexml: osmChange XML
-    changeset_details: 
-      belongs_to: "Gehéiert dem:"
-      box: Këscht
-      closed_at: "Zougemaach den:"
-    common_details: 
-      changeset_comment: "Bemierkung:"
-      deleted_by: "Geläscht vum:"
-      edited_at: "Geännert den:"
-      edited_by: "Geännert vum:"
-      version: "Versioun:"
+      relation: Relatiounen (%{count})
+      relation_paginated: Relatiounen (%{x}-%{y} vu(n) %{count})
+      way: Weeër (%{count})
+    closed: Zou
     containing_relation: 
       entry: Relatioun %{relation_name}
       entry_role: Relatioun %{relation_name} (als %{relation_role})
-    map: 
-      deleted: Geläscht
-      edit: 
-        way: Wee änneren
-      larger: 
-        area: Géigend op méi enger grousser Kaart weisen
-        node: Knuet op méi enger grousser Kaart weisen
-        relation: D'Relatioun op méi enger grousser Kaart weisen
-        way: Wee op méi enger grousser Kaart weisen
-      loading: Lueden...
-    navigation: 
-      all: 
-        next_node_tooltip: Nächste Knuet
-        next_relation_tooltip: Nächst Relatioun
-        next_way_tooltip: Nächste Wee
-        prev_node_tooltip: Virege Knuet
-        prev_relation_tooltip: Vireg Relatioun
-        prev_way_tooltip: Virege Wee
-      user: 
-        name_changeset_tooltip: Ännerunge vum %{user} weisen
-        next_changeset_tooltip: Nächst Ännerung vum %{user}
-        prev_changeset_tooltip: Vireg Ännerung vum %{user}
-    node: 
-      download_xml: XML eroflueden
-      edit: Knuet änneren
-      node: Knuet
-      node_title: "Knuet: %{node_name}"
-      view_history: Versioune weisen
-    node_details: 
-      coordinates: "Koordinaten:"
-      part_of: "Deel vu(n):"
-    node_history: 
-      download_xml: XML eroflueden
-      view_details: Detailer weisen
+    deleted_by_html: Geläscht <abbr title='%{title}'>viru(n) %{time}</abbr> vum %{user}
+    download_xml: XML eroflueden
+    edited_by_html: Geännert <abbr title='%{title}'>viru(n) %{time}</abbr> vum %{user}
+    no_comment: (keng Bemierkung)
     not_found: 
-      sorry: Pardon, den %{type} mat der Id %{id}, konnt net fonnt ginn.
+      sorry: Pardon, den %{type}#%{id}, konnt net fonnt ginn.
       type: 
         node: Knuet
         relation: Relatioun
         way: Wee
-    paging_nav: 
-      of: vu(n)
-      showing_page: Säit
+    note: 
+      new_note: Nei Notiz
+      title: "Notiz: %{id}"
+    part_of: Deel vu(n)
     redacted: 
       type: 
         relation: Relatioun
         way: Wee
     relation: 
-      download_xml: XML eroflueden
-      relation: Relatioun
-      relation_title: "Relatioun: %{relation_name}"
-      view_history: Versioune weisen
-    relation_details: 
-      members: "Memberen:"
-      part_of: "Deel vu(n):"
-    relation_history: 
-      download_xml: XML eroflueden
-      view_details: Detailer weisen
+      members: Memberen
+      title: "Relatioun: %{name}"
     relation_member: 
       entry_role: "%{type} %{name} als %{role}"
       type: 
@@ -125,29 +89,8 @@ lb:
         relation: Relatioun
         way: Wee
     start_rjs: 
-      data_frame_title: Donnéeën
-      data_layer_name: Donnéeë vun de Kaarten duerchkucken
-      details: Detailer
-      edited_by_user_at_timestamp: Vum %{user} de(n) %{timestamp} geännert
       load_data: Donnéeë lueden
       loading: Lueden...
-      object_list: 
-        details: Detailer
-        heading: Lëscht mat Objeten
-        history: 
-          type: 
-            node: Knuet %{id}
-            way: Wee %{id}
-        selected: 
-          type: 
-            node: Knuet %{id}
-            way: Wee %{id}
-        type: 
-          node: Knuet
-          way: Wee
-      private_user: private Benotzer
-      show_history: Versioune weisen
-      wait: Waart w.e.g. ...
     tag_details: 
       wiki_link: 
         key: D'Wiki-Beschreiwungssäit fir den %{key}-Tag
@@ -158,23 +101,13 @@ lb:
         node: Knuet
         relation: Relatioun
         way: Wee
+    version: Versioun
+    view_details: Detailer weisen
     way: 
-      download_xml: XML eroflueden
-      edit: Wee änneren
-      view_history: Versioune weisen
-      way: Wee
-      way_title: "Wee: %{way_name}"
-    way_details: 
-      nodes: "Kniet:"
-      part_of: "Deel vu(n):"
-    way_history: 
-      download_xml: XML eroflueden
-      view_details: Detailer weisen
+      title: "Wee: %{name}"
   changeset: 
     changeset: 
       anonymous: Anonym
-      big_area: (grouss)
-      no_comment: (keen)
       no_edits: (keng Ännerungen)
     changeset_paging_nav: 
       next: Nächst »
@@ -186,7 +119,7 @@ lb:
       saved_at: Gespäichert de(n)
       user: Benotzer
     list: 
-      description: Rezent KOntributioune un der Kaart duerchbliederen
+      load_more: Méi lueden
   diary_entry: 
     comments: 
       comment: Bemierkung
@@ -221,11 +154,12 @@ lb:
       options: Optiounen
       scale: Maassstab
       too_large: 
-        heading: Beräich ze grouss
+        other: 
+          description: Zousätzlech Quelle stinn an der OpenStreetMap Wiki
+          title: Aner Quellen
+        planet: 
+          description: Regelméisseg aktualiséiert Kopie vun der kompletter OpenStreetMap Datebank
       zoom: Zoom
-    start_rjs: 
-      export: Exportéieren
-      view_larger_map: Méi grouss Kaart weisen
   geocoder: 
     description: 
       types: 
@@ -246,6 +180,7 @@ lb:
       title: 
         ca_postcode: Resultater vu <a href="http://geocoder.ca/">Geocoder.ca</a>
         geonames: Resultater vu <a href="http://www.geonames.org/">GeoNames</a>
+        geonames_reverse: Resultater vun <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Resultater vun <a href="http://openstreetmap.org/">Internal</a>
         uk_postcode: Resultater vun <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Resultater vu <a href="http://geocoder.us/">Geocoder.us</a>
@@ -292,6 +227,7 @@ lb:
           sauna: Sauna
           school: Schoul
           shop: Geschäft
+          social_facility: Sozial Ariichtung
           studio: Studio
           supermarket: Supermarché
           taxi: Taxi
@@ -307,6 +243,8 @@ lb:
           "yes": Bréck
         building: 
           "yes": Gebai
+        emergency: 
+          phone: Noutruff-Telefon
         highway: 
           footway: Fousswee
           motorway: Autobunn
@@ -317,6 +255,7 @@ lb:
           road: Strooss
           secondary_link: Niewestrooss
           steps: Trap
+          street_lamp: Stroosseluucht
         historic: 
           archaeological_site: Archeologesche Site
           battlefield: Schluechtfeld
@@ -327,6 +266,7 @@ lb:
           monument: Monument
           museum: Musée
           ruins: Ruinen
+          tomb: Graf
           tower: Tuerm
           wreck: Wrack
         landuse: 
@@ -383,6 +323,7 @@ lb:
           houses: Haiser
           island: Insel
           municipality: Gemeng
+          neighbourhood: Noperschaft
           region: Regioun
           sea: Mier
           town: Stad
@@ -391,12 +332,14 @@ lb:
           abandoned: Fréier Eisebunn
           disused: Fréier Eisebunn
           miniature: Miniatur-Eisebunn
+          proposed: Proposéiert Eisebunnslinn
           station: Gare (Eisebunn)
           subway: Metro-Statioun
           tram: Tramvia
         shop: 
           bakery: Bäckerei
           books: Bichergeschäft
+          boutique: Boutique
           car_repair: Garage
           chemist: Apdikt
           clothes: Kleedergeschäft
@@ -410,11 +353,15 @@ lb:
           jewelry: Bijouterie
           laundry: Botzerei
           optician: Optiker
+          pharmacy: Apdikt
           photo: Fotosgeschäft
+          second_hand: Secondhand-Geschäft
           shoes: Schonggeschäft
           sports: Sportsgeschäft
           supermarket: Supermarché
+          tailor: Schneider
           travel_agency: Reesbüro
+          "yes": Geschäft
         tourism: 
           artwork: Konschtwierk
           attraction: Attraktioun
@@ -432,39 +379,57 @@ lb:
           river: Floss
           wadi: Wadi
           waterfall: Waasserfall
+  help_page: 
+    title: Hëllef kréien
+    welcome: 
+      title: Wëllkomm bäi OSM
+      url: /welcome
+    wiki: 
+      url: http://wiki.openstreetmap.org/
   javascripts: 
     map: 
       base: 
         cycle_map: Vëloskaart
+        hot: Humanitär
+      donate_link_text: <a class='donate-attr' href='%{donate_url}'>Maacht een Don</a>
+      locate: 
+        popup: Dir sidd {distance} {unit} vun dësem Punkt ewech
+        title: Weise wou ech sinn
+    share: 
+      custom_dimensions: Personaliséiert Dimensiounen astellen
+      download: Eroflueden
+      embed: HTML
+      format: "Format:"
+      image: Bild
+      link: Link oder HTML
+      long_link: Link
+      scale: "Maassstab:"
+      short_url: Kuerz URL
+      view_larger_map: Méi grouss Kaart weisen
     site: 
       edit_disabled_tooltip: Erazoomen fir d'Kaart z'änneren
       edit_tooltip: Kaart änneren
   layouts: 
+    about: Iwwer
     community: Communautéit
-    copyright: Copyright & Lizenz
-    documentation: Dokumentatioun
-    documentation_title: Dokumentatioun vum Projet
-    donate_link_text: Don
+    copyright: Copyright
+    data: Donnéeën
     edit: Änneren
     export: Exportéieren
+    export_data: Donnéeën exportéieren
     foundation: Fondatioun
     help: Hëllef
-    home: Doheem
-    intro_2_download: erofgelueden
-    intro_2_use: benotzt
+    home: Op déi Plaz zréckgoen déi als Doheem definéiert ass
+    learn_more: Méi wëssen
+    log_in: Aloggen
     logo: 
       alt_text: OpenStreetMap Logo
-    logout: ausloggen
-    logout_tooltip: Ausloggen
+    logout: Ausloggen
     make_a_donation: 
       text: En Don maachen
       title: Ënnerstëtzt OpenStreetMap mat engem Don
     partners_partners: Partner
     user_diaries: Benotzer Bloggen
-    view: Weisen
-    view_tooltip: Kaart weisen
-    welcome_user_link_tooltip: Är Benotzersäit
-    wiki: Wiki
   license_page: 
     foreign: 
       english_link: den engleschen Original
@@ -492,12 +457,13 @@ lb:
       subject: Sujet
       title: Noriicht schécken
     no_such_message: 
-      heading: Keen esou ee Message
-      title: Keen esou ee Message
+      heading: Kee sou ee Message
+      title: Kee sou ee Message
     outbox: 
       date: Datum
       subject: Sujet
     read: 
+      back: Zréck
       date: Datum
       from: Vum
       reply_button: Äntwerten
@@ -522,15 +488,10 @@ lb:
     lost_password_plain: 
       greeting: Salut,
     message_notification: 
-      footer1: Dir kënnt de Message och op %{readurl} liesen
+      footer_html: Dir kënnt de Message och op %{readurl} liesen an Dir kënnt op %{replyurl} äntwerten
       hi: Salut %{to_user},
     signup_confirm: 
       greeting: Bonjour !
-    signup_confirm_html: 
-      more_videos: Et gëtt nach méi %{more_videos_link}.
-      more_videos_here: méi Videoen hei
-    signup_confirm_plain: 
-      more_videos: "Hei si méi Videoen:"
   oauth_clients: 
     edit: 
       submit: Änneren
@@ -654,7 +615,7 @@ lb:
     account: 
       contributor terms: 
         link text: wat ass dëst?
-      current email address: "Aktuell E-Mailadress:"
+      current email address: "Aktuell E-Mail-Adress:"
       delete image: Dat aktuellt Bild ewechhuelen
       email never displayed publicly: (ni ëffentlech gewisen)
       flash update success: Benotzerinformatioun ass elo aktualiséiert.
@@ -664,7 +625,7 @@ lb:
       keep image: Dat aktuellt Bild behalen
       make edits public button: All meng Ännerunge ëffentlech maachen
       my settings: Meng Astellungen
-      new email address: "Nei E-Mailadress:"
+      new email address: "Nei E-Mail-Adress:"
       new image: E Bild derbäisetzen
       openid: 
         link text: wat ass dat?
@@ -680,8 +641,10 @@ lb:
     confirm: 
       already active: Dëse Kont gouf scho confirméiert.
       button: Confirméieren
-      heading: E Benotzerkont confirméieren
+      heading: Iwwerpréift Är E-Mail!
+      introduction_1: Mir hunn Iech eng Confirmatiouns-E-Mail geschéckt.
       press confirm button: Klickt w.e.g. op de Knäppchen confirméieren fir Äre Benotzerkont z'aktivéieren.
+      unknown token: Dee Confirmatiouns-Code ass ofgelaf oder et gëtt en net.
     confirm_email: 
       button: Confirméieren
       heading: Eng Ännerung vun enger E-Mailadress confirméieren
@@ -693,16 +656,16 @@ lb:
       flash success: All Är Ännerunge sinn elo ëffentlech, an Dir däerft elo änneren.
     list: 
       confirm: Erausgesichte Benotzer confirméieren
-      empty: Et goufe keng esou Benotzer fonnt
+      empty: Et goufe keng sou Benotzer fonnt
       heading: Benotzer
       hide: Erausgesichte Benotzer vrstoppen
       title: Benotzer
     login: 
-      email or username: "E-Mailadress oder Benotzernumm:"
+      email or username: "E-Mail-Adress oder Benotzernumm:"
       heading: Umellen
       login_button: Umellen
       lost password link: Hutt Dir Äert Passwuert vergiess?
-      new to osm: Nei bäi OpenStreetMap?
+      new to osm: Nei bei OpenStreetMap?
       openid_providers: 
         google: 
           title: Alogge mat Google
@@ -716,10 +679,10 @@ lb:
       logout_button: Ofmellen
       title: Ofmellen
     lost_password: 
-      email address: "E-Mailadress:"
+      email address: "E-Mail-Adress:"
       heading: Passwuert vergiess?
       new password button: Passwuert zrécksetzen
-      notice email cannot find: Déi E-Mailadress konnt net fonnt ginn, pardon
+      notice email cannot find: Déi E-Mail-Adress konnt net fonnt ginn, pardon
       title: Passwuert vergiess
     make_friend: 
       already_a_friend: Dir sidd schonn de Frënd vum %{name}.
@@ -728,18 +691,19 @@ lb:
       heading: "%{user} als Frënd derbäisetzen?"
       success: "%{name} ass elo Äre Frënd!"
     new: 
-      confirm email address: "E-Mailadress confirméieren:"
+      about: 
+        header: Fäi a verännerbar
+      confirm email address: "E-Mail-Adress confirméieren:"
       confirm password: "Passwuert confirméieren:"
-      continue: Weider
+      continue: Mellt Iech un
       display name: Numm weisen
-      email address: "E-Mailadress:"
-      heading: E Benotzerkont uleeën
+      email address: "E-Mail-Adress:"
       no_auto_account_create: Leider kënne mir den Ament kee Benotzerkont automatesch fir Iech opmaachen.
       password: "Passwuert:"
-      title: Benotzerkont opmaachen
+      title: Mellt Iech un
     no_such_user: 
       heading: De Benotzer %{user} gëtt et net
-      title: Esou e Benotzer gëtt et net
+      title: Sou e Benotzer gëtt et net
     popup: 
       friend: Frënn
     remove_friend: 
@@ -766,7 +730,7 @@ lb:
       activate_user: dëse Benotzer aktivéieren
       add as friend: Frënd derbäisetzen
       ago: (viru(n) %{time_in_words_ago})
-      blocks by me: vu mir gespaart
+      blocks by me: vu Mir Gespaart
       comments: Bemierkungen
       confirm: Confirméieren
       confirm_user: dëse Benotzer confirméieren
@@ -776,15 +740,19 @@ lb:
       description: Beschreiwung
       diary: Blog
       edits: Ännerungen
-      email address: "E-Mailadress:"
+      email address: "E-Mail-Adress:"
       hide_user: dëse Benotzer verstoppen
       km away: "%{count} km ewech"
       m away: "%{count} m ewech"
-      my diary: mäi Blog
-      my edits: meng Ännerungen
-      my settings: meng Astellungen
+      my comments: Meng Bemierkungen
+      my diary: Mäi Blog
+      my edits: Meng Ännerungen
+      my notes: Meng Notizen
+      my profile: Mäi Profil
+      my settings: Meng Astellungen
       nearby users: Aner Benotzer nobäi
       no friends: Dir hutt nach keng Frënn derbäi gesat.
+      notes: Notizen op der Kaart
       remove as friend: Frënd ewechhuelen
       role: 
         administrator: Dëse Benotzer ass en Administrateur
@@ -795,7 +763,7 @@ lb:
         revoke: 
           administrator: Administrateur-Zougang ofhuelen
           moderator: Moderateursrechter ewechhuelen
-      send message: Noriicht schécken
+      send message: Message schécken
       settings_link_text: Astellungen
       status: "Status:"
       unhide_user: dëse Benotzer net méi verstoppen
@@ -863,3 +831,11 @@ lb:
       fail: D'Roll '%{role}' konnt met vum Benotzer '%{name}' ewechgeholl ginn. Kuckt w.e.g. no ob de Benotzer an d'Roll allen zwee valabel sinn.
       heading: Confirméiert d'Zréckzéie vun der Roll
       title: Confirméiert d'Zréckzéie vun der Roll
+  welcome_page: 
+    add_a_note: 
+      title: Keng Zäit fir z'änneren? Setzt eng Notiz derbäi!
+    questions: 
+      title: Nach Froen?
+    title: Wëllkomm!
+    whats_on_the_map: 
+      title: Wat ass op der Kaart

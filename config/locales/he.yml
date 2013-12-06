@@ -3,13 +3,16 @@
 # Export driver: syck-pecl
 # Author: Amire80
 # Author: Aude
+# Author: Dekel E
 # Author: Deror avi
 # Author: Ex-Diktator
 # Author: ExampleTomer
 # Author: GilCahana
 # Author: Inkbug
 # Author: Itay naor
+# Author: Metraduk
 # Author: Nemo bis
+# Author: Orsa
 # Author: YaronSh
 # Author: תומר ט
 he: 
@@ -90,87 +93,30 @@ he:
       blocked: גישתך ל־API נחסמה. נא להיכנס לממשק הווב למידע נוסף.
       need_to_see_terms: גישתך ל־API מושעית זמנית. נא להיכנס לאתר כדי לצפות בתנאי התרומה. אין צורך לקבל אותם, אבל חובה להציג אותם.
   browse: 
+    anonymous: אלמוני
     changeset: 
-      changeset: "ערכת שינויים: %{id}"
+      belongs_to: יוצר
       changesetxml: XML של ערכת שינויים
       feed: 
         title: ערכת שינויים %{id}
         title_comment: ערכת שינויים %{id} – %{comment}
+      node: צמתים (%{count})
+      node_paginated: צמתים (%{x}–%{y} מתוך %{count})
       osmchangexml: osmChange XML
-      title: ערכת שינויים
-    changeset_details: 
-      belongs_to: "שייכת ל:"
-      bounding_box: "תיבה תוחמת:"
-      box: תיבה
-      closed_at: "נסגרה ב:"
-      created_at: "נוצר בתאריך:"
-      has_nodes: 
-        one: "מחזיק בצומת אחד:"
-        other: "מחזיק ב־%{count} צמתים:"
-      has_relations: 
-        one: "מחזיק ביחס אחד:"
-        other: "מחזיק ב־%{count} יחסים:"
-      has_ways: 
-        one: "מחזיק בדרך אחת:"
-        other: "מחזיק ב־%{count} דרכים:"
-      no_bounding_box: לא נשמרה תיבה תוחמת עבור ערכת השינויים הזאת.
-      show_area_box: הצגת תיבת אזור
-    common_details: 
-      changeset_comment: "הערה:"
-      deleted_at: "נמחק ב:"
-      deleted_by: "נמחק על־ידי:"
-      edited_at: "נערך ב:"
-      edited_by: "נערך על־ידי:"
-      in_changeset: "בערכת השינויים:"
-      version: "גרסה:"
+      relation: יחסים (%{count})
+      relation_paginated: יחסים (%{x}–%{y} מתוך %{count})
+      title: "ערכת שינויים: %{id}"
+      way: דרכים (%{count})
+      way_paginated: דרכים (%{x}–%{y} מתוך %{count})
     containing_relation: 
       entry: יחס %{relation_name}
       entry_role: יחס %{relation_name} (בתור %{relation_role})
-    map: 
-      deleted: נמחק
-      edit: 
-        area: עריכת אזור
-        node: עריכת צומת
-        note: עריכת ההערה
-        relation: עריכת יחס
-        way: עריכת דרך
-      larger: 
-        area: צפייה בשטח במפה גדולה יותר
-        node: צפייה בצומת במפה גדולה יותר
-        note: הצגת ההערה במפה גדולה יותר
-        relation: צפייה ביחס במפה גדולה יותר
-        way: צפייה בדרך במפה גדולה יותר
-      loading: בטעינה...
-    navigation: 
-      all: 
-        next_changeset_tooltip: ערכת השינויים הבאה
-        next_node_tooltip: הצומת הבא
-        next_note_tooltip: ההערה הבאה
-        next_relation_tooltip: היחס הבא
-        next_way_tooltip: הדרך הבאה
-        prev_changeset_tooltip: ערכת השינויים הקודמת
-        prev_node_tooltip: הצומת הקודם
-        prev_note_tooltip: ההערה הקודמת
-        prev_relation_tooltip: היחס הקודם
-        prev_way_tooltip: הדרך הקודמת
-      user: 
-        name_changeset_tooltip: צפייה בעריכות של %{user}
-        next_changeset_tooltip: העריכה הבאה של %{user}
-        prev_changeset_tooltip: העריכה הקודמת של %{user}
+    download_xml: הורדת XML
+    in_changeset: ערכת שינויים
+    no_comment: (אין הערות)
     node: 
-      download_xml: הורדת XML
-      edit: עריכת צומת
-      node: צומת
-      node_title: "צומת: %{node_name}"
-      view_history: צפייה בהיסטוריה
-    node_details: 
-      coordinates: "נקודות ציון:"
-      part_of: "חלק מתוך:"
-    node_history: 
-      download_xml: הורדת XML
-      node_history: היסטוריית הצומת
-      node_history_title: "היסטוריית הצומת: %{node_name}"
-      view_details: צפייה בפרטים
+      history_title: "היסטוריית הצומת: %{name}"
+      title: "צומת: %{name}"
     not_found: 
       sorry: אנו מתנצלים, אך הסוג %{type} בעל המזהה %{id} לא נמצא.
       type: 
@@ -179,19 +125,12 @@ he:
         relation: יחס
         way: דרך
     note: 
-      at_by_html: לפני %{when} על־ידי %{user}
-      at_html: לפני %{when}
-      closed: "נסגרה:"
-      closed_title: "הערה פתורה: %{note_name}"
-      comments: "תגובות:"
-      description: "תיאור:"
-      last_modified: "שונתה לאחרונה:"
-      open_title: "הערה שלא נפתרה: %{note_name}"
-      opened: "נפתחה:"
+      closed_title: הערה פתורה מס' %{note_name}
+      hidden_title: הערה מוסתרת מס' %{note_name}
+      new_note: הערה חדשה
+      open_title: הערה שלא נפתרה מס' %{note_name}
       title: הערה
-    paging_nav: 
-      of: מתוך
-      showing_page: דף
+    part_of: חלק מתוך
     redacted: 
       message_html: "לא ניתן להציג את הגרסה %{version} של %{type} מכיוון שהיא נחתכה. למידע נוסף: %{redaction_link}."
       redaction: חיתוך %{id}
@@ -200,18 +139,7 @@ he:
         relation: יחס
         way: דרך
     relation: 
-      download_xml: הורדת XML
-      relation: יחס
-      relation_title: "יחס: %{relation_name}"
-      view_history: צפייה בהיסטוריה
-    relation_details: 
-      members: "איברים:"
-      part_of: "חלק מתוך:"
-    relation_history: 
-      download_xml: הורדת XML
-      relation_history: היסטוריית היחס
-      relation_history_title: "היסטוריית היחס: %{relation_name}"
-      view_details: צפייה בפרטים
+      members: חברים
     relation_member: 
       entry_role: "%{type} %{name} בתור %{role}"
       type: 
@@ -219,42 +147,10 @@ he:
         relation: יחס
         way: דרך
     start_rjs: 
-      data_frame_title: נתונים
-      data_layer_name: עיון בנתוני מפה
-      details: פרטים
-      edited_by_user_at_timestamp: נערך על־ידי %{user} ב־%{timestamp}
-      hide_areas: להסתרת אזורים
-      history_for_feature: ההיסטוריה של %{feature}
       load_data: טעינת נתונים
-      loaded_an_area_with_num_features: "האזור שנטען מכיל %{num_features} תכונות. באופן כללי, חלק מהדפדפנים לא יוכלו להתמודד עם הצגה של כזו כמות של נתונים. לרוב, דפדפנים עובדים באופן מיטבי בהצגת פחות מ־%{max_features} תכונות בו־זמנית: ביצוע משימות נוספות עלול לגרום לדפדפן לפעול באופן איטי או להיתקע. אם ברצונך בכל זאת להציג מידע זה, באפשרותך להציג אותו בלחיצה על הכפתור למטה."
       loading: בטעינה...
-      manually_select: בחירת אזור אחר ידנית
-      notes_layer_name: עיון בהערות
-      object_list: 
-        api: אחזור אזור זה מה־API
-        back: חזרה אל רשימת הפריטים
-        details: פרטים
-        heading: רשימת פריטים
-        history: 
-          type: 
-            node: צומת %{id}
-            way: דרך %{id}
-        selected: 
-          type: 
-            node: צומת %{id}
-            way: דרך %{id}
-        type: 
-          node: צומת
-          way: דרך
-      private_user: משתמש פרטי
-      show_areas: להצגת אזורים
-      show_history: הצגת ההיסטוריה
-      unable_to_load_size: "לא ניתן לטעון: תיבה תוחמת בגודל %{bbox_size} היא גדולה מדי (מוכרחה להיות קטנה מאשר %{max_bbox_size})"
-      view_data: הצגת נתונים לתצוגת המפה הנוכחית
-      wait: נא להמתין...
-      zoom_or_select: התקרבות או בחירה אזור במפה לצפייה
     tag_details: 
-      tags: "תגים:"
+      tags: תגים
       wiki_link: 
         key: עמוד התיאור עבור התג %{key}
         tag: עמוד התיאור עבור התג %{key}=%{value}
@@ -266,31 +162,17 @@ he:
         node: צומת
         relation: קשר
         way: דרך
+    version: גרסה
+    view_details: הצגת פרטים
+    view_history: הצגת ההיסטוריה
     way: 
-      download_xml: הורדת XML
-      edit: עריכת דרך
-      view_history: צפייה בהיסטוריה
-      way: דרך
-      way_title: "דרך: %{way_name}"
-    way_details: 
-      also_part_of: 
-        one: חלק מהדרך %{related_ways}
-        other: חלק מהדרכים %{related_ways}
-      nodes: "צמתים:"
-      part_of: "חלק מתוך:"
-    way_history: 
-      download_xml: הורדת XML
-      view_details: צפייה בפרטים
-      way_history: היסטוריית הדרך
-      way_history_title: "היסטוריית הדרך: %{way_name}"
+      history_title: "היסטוריית הדרך: %{name}"
+      nodes: צמתים
+      title: "דרך: %{name}"
   changeset: 
     changeset: 
       anonymous: אלמוני
-      big_area: (גדול)
-      no_comment: (אין)
       no_edits: (אין עריכות)
-      show_area_box: הצגת תיבת אזור
-      still_editing: (עדיין בעריכה)
       view_changeset_details: הצגת פרטי ערכת שינויים
     changeset_paging_nav: 
       next: הבא »
@@ -303,26 +185,10 @@ he:
       saved_at: "נשמרו ב:"
       user: משתמש
     list: 
-      description: עיון בשינויים אחרונים למפה
-      description_bbox: ערכות שינויים בתוך %{bbox}
-      description_friend: ערכות שינויים של חברים שלכם
-      description_nearby: ערכות שינויים של משתמשים בסביבה
-      description_user: ערכות שינויים של %{user}
-      description_user_bbox: ערכות שינויים של %{user} בתוך %{bbox}
-      empty_anon_html: עוד לא נעשו עריכות.
-      empty_user_html: נראה שעוד לא ערכת דבר. כדי להתחיל, ר' <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>מדריך למתחילים</a>.
-      heading: ערכות שינויים
-      heading_bbox: ערכות שינויים
-      heading_friend: ערכות שינויים
-      heading_nearby: ערכות שינויים
-      heading_user: ערכות שינויים
-      heading_user_bbox: ערכות שינויים
       title: ערכות שינויים
-      title_bbox: ערכות שינויים בתוך %{bbox}
       title_friend: ערכות שינויים של החברים שלך
       title_nearby: ערכות שינויים של משתמשים בסביבה
       title_user: ערכות שינויים של %{user}
-      title_user_bbox: ערכות שינויים של %{user} בתוך %{bbox}
     timeout: 
       sorry: סליחה, לוקח יותר מדי זמן לאחזר על רשימת ערכות השינויים שביקשת.
   diary_entry: 
@@ -435,17 +301,20 @@ he:
       paste_html: להדביק HTML להטמעה באתר
       scale: קנה מידה
       too_large: 
-        body: האזור גדול מכדי שאפשר יהיה לייצא אותו בתור נתוני XML של OpenStreetMap. נא להתקרב או לבחור אזור קטן יותר.
-        heading: האזור גדול מדי
+        body: "האזור גדול מכדי שאפשר יהיה לייצא אותו בתור נתוני XML של OpenStreetMap. נא להתקרב או לבחור אזור קטן יותר, או להשתמש במקורות הבאים בשביל הורדות נתונים גדולות:"
+        geofabrik: 
+          description: עותקים מעודכנים באופן קבוע של יבשות, מדינות וערים נבחרות
+          title: הורדות של Geofabrik
+        metro: 
+          description: מובאות חלקיות לערים עולמיות גדולות ואזורים בסביבתן
+          title: מובאות מטרו
+        other: 
+          description: מקורות נוספים רשומים בוויקי של OpenStreetMap
+          title: מקורות אחרים
+        planet: 
+          description: עותקים מעודכנים באופן קבוע של כל מסד הנתונים של OpenStreetMap
+          title: פלאנט OSM
       zoom: מרחק מתצוגה
-    start_rjs: 
-      add_marker: הוספת סמן למפה
-      change_marker: שינוי מיקום סמן
-      click_add_marker: לחצו על המפה להוספת סמן
-      drag_a_box: נא לגרור מלבן על המפה לבחירת אזור
-      export: ייצוא
-      manually_select: בחירה ידנית של אזור אחר
-      view_larger_map: לצפייה במפה גדולה יותר
   geocoder: 
     description: 
       title: 
@@ -475,12 +344,26 @@ he:
       title: 
         ca_postcode: תוצאות מאתר <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: תוצאות מאתר <a href="http://www.geonames.org/">GeoNames</a>
+        geonames_reverse: תוצאות מ־<a href="http://www.geonames.org/">GeoNames</a>
         latlon: תוצאות מ<a href="http://openstreetmap.org/">אתר זה</a>
         osm_nominatim: תוצאות מאתר <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
+        osm_nominatim_reverse: תוצאות מ־<a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: תוצאות מאתר <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: תוצאות מאתר <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
+      admin_levels: 
+        level10: גבול הפרבר
+        level2: גבול המדינה
+        level4: גבול המדינה
+        level5: גבול האזור
+        level6: גבול המחוז
+        level8: גבול העיר
+        level9: גבול הכפר
       prefix: 
+        aerialway: 
+          chair_lift: מעלית סקי בישיבה
+          drag_lift: מעלית סקי בגרירה
+          station: תחנת רכבל
         aeroway: 
           aerodrome: מנחת
           apron: רחבת חניה
@@ -574,6 +457,7 @@ he:
           shower: מקלחת
           social_centre: מרכז חברתי
           social_club: מועדון
+          social_facility: מתקן חברתי
           studio: סטודיו
           supermarket: סופרמרקט
           swimming_pool: ברֵכת שחייה
@@ -602,6 +486,9 @@ he:
           "yes": גשר
         building: 
           "yes": בניין
+        emergency: 
+          fire_hydrant: ברז כיבוי אש
+          phone: טלפון חירום
         highway: 
           bridleway: שביל עבור סוסים
           bus_guideway: נתיב תחבורה ציבורית מונחית
@@ -623,6 +510,7 @@ he:
           platform: פלטפורמה
           primary: דרך ראשית
           primary_link: כביש ראשי
+          proposed: כביש מוצע
           raceway: מסלול מרוצים
           residential: מגורים
           rest_area: אזור מנוחה
@@ -634,6 +522,7 @@ he:
           speed_camera: מצלמת מהירות
           steps: מדרגות
           stile: מעבר מעל גדר
+          street_lamp: פנס רחוב
           tertiary: דרך צדית
           tertiary_link: דרך שלישונית
           track: מסלול מרוצים
@@ -649,6 +538,7 @@ he:
           building: בניין
           castle: טירה
           church: כנסייה
+          citywalls: חומות העיר
           fort: מעוז
           house: בית
           icon: איקונין
@@ -658,6 +548,7 @@ he:
           monument: אנדרטה
           museum: מוזיאון
           ruins: הריסות
+          tomb: קבר
           tower: מגדל
           wayside_cross: צלב בצד הדרך
           wayside_shrine: מקדש בצד הדרך
@@ -796,6 +687,7 @@ he:
           locality: יישוב
           moor: אדמת כבול
           municipality: עירייה
+          neighbourhood: שכונה
           postcode: מיקוד
           region: אזור
           sea: ים
@@ -821,8 +713,10 @@ he:
           narrow_gauge: מסילת רכבת צרה
           platform: רציף רכבת
           preserved: רכבת משומרת
+          proposed: פסי רכבת מוצעים
           spur: שלוחת מסילת ברזל
           station: תחנת רכבת
+          stop: תחנת רכבת
           subway: תחנת רכבת תחתית
           subway_entrance: כניסה לתחנת רכבת תחתית
           switch: נקודות מסילת ברזל
@@ -838,6 +732,7 @@ he:
           beverages: חנות משקאות
           bicycle: חנות אפניים
           books: חנות ספרים
+          boutique: בוטיק
           butcher: קצב
           car: חנות כלי רכב
           car_parts: חלקי רכב
@@ -851,6 +746,7 @@ he:
           convenience: מכולת
           copyshop: חנות צילום
           cosmetics: חנות קוסמטיקה
+          deli: מעדנייה
           department_store: כלבו
           discount: חנות מוזלת
           doityourself: חנות עשה־זאת־בעצמך
@@ -887,17 +783,21 @@ he:
           organic: חנות מזון אורגני
           outdoor: חנות ציוד מחנאות
           pet: חנות חיות מחמד
+          pharmacy: בית מרקחת
           photo: חנות צילום
           salon: סלון
+          second_hand: חנות יד שנייה
           shoes: חנות נעליים
           shopping_centre: מרכז קניות
           sports: חנות ספורט
           stationery: חנות כלי כתיבה
           supermarket: סופרמרקט
+          tailor: חייט
           toys: חנות צעצועים
           travel_agency: סוכנות נסיעות
           video: ספריית וידאו
           wine: חנות לממכר משקאות אלכוהוליים
+          "yes": חנות
         tourism: 
           alpine_hut: בקתה אלפינית
           artwork: יצירת אמנות
@@ -920,6 +820,7 @@ he:
           viewpoint: נקודת תצפית
           zoo: גן חיות
         tunnel: 
+          culvert: ביוב
           "yes": מנהרה
         waterway: 
           artificial: נתיב מים מלאכותי
@@ -946,81 +847,90 @@ he:
   html: 
     dir: rtl
   javascripts: 
+    close: סגירה
+    edit_help: עליך להזיז את המפה ולהתמקד על מיקום שברצונך לערוך ואז ללחוץ כאן.
+    key: 
+      title: מפתח במפה
+      tooltip: מפתח במפה
+      tooltip_disabled: מפתח מפה זמין רק לשכבה התקנית
     map: 
       base: 
         cycle_map: מפת אופניים
+        hot: הומניטרי
         standard: תקני
         transport_map: מפת תחבורה
+      copyright: © <a href='%{copyright_url}'>מתנדבי OpenStreetMap</a>
+      layers: 
+        data: נתוני המפה
+        header: שכבות במפה
+        notes: הערות במפה
+        overlays: הפעלת שכבות לפתרון תקלות במפה
+        title: שכבות
+      locate: 
+        popup: המרחק שלך מהנקודה הזאת הוא {distance} {unit}
+        title: הצגת המיקום שלי
+      zoom: 
+        in: התקרבות
+        out: התרחקות
     notes: 
       new: 
         add: הוספת הערה
         intro: כדי לשפר את המפה, המידע שהזנת מוצג לממפים אחרים, אז נא לספק כמה שיותר פירוט בעת הזזת הסמן למיקום המדויק ובהזנת ההערה שלך להלן.
       show: 
         anonymous_warning: ההערה הזאת כוללת תגובות ממשתמשים אלמוניים שצריך לאמת באופן עצמאי.
-        closed_by: נפתר על־ידי <a href='%{user_url}'>%{user}</a> ב־%{time}
-        closed_by_anonymous: נפתרה על־ידי משתמש אלמוני ב־%{time}
         comment: להגיב
         comment_and_resolve: להגיב ולפתור
-        commented_by: תגובה מאת <a href='%{user_url}'>%{user}</a> ב־%{time}
-        commented_by_anonymous: תגובה מאת אלמוני ב־%{time}
         hide: להסתיר
-        opened_by: נוצרה על־ידי <a href='%{user_url}'>%{user}</a> ב־%{time}
-        opened_by_anonymous: נוצר על־ידי אלמוני ב־%{time}
-        permalink: קישור קבוע
-        reopened_by: הופעלה מחדש על־ידי <a href='%{user_url}'>%{user}</a> ב־%{time}
-        reopened_by_anonymous: הופעל מחדש על־ידי משתמש אלמוני ב־%{time}
+        reactivate: הפעלה מחדש
         resolve: לפתור
+    share: 
+      cancel: ביטול
+      center_marker: למרכז את המפה לפי הסמן
+      custom_dimensions: הגדרת ממדים בהתאמה אישית
+      download: הורדה
+      embed: HTML
+      format: "תסדיר:"
+      image: תמונה
+      image_size: התמונה תציג שכבה רגילה תחת
+      include_marker: לכלול סמן
+      link: קישור או HTML
+      long_link: קישור
+      paste_html: הדבקת HTML להטבעה באתר
+      scale: "קנה מידה:"
+      short_link: קישור קצר
+      short_url: כתובת קצרה
+      title: שיתוף
+      view_larger_map: צפייה במפה גדולה יותר
     site: 
       createnote_disabled_tooltip: נא להתקרב כדי להוסיף הערה למפה
       createnote_tooltip: הוספת הערה למפה
-      createnote_zoom_alert: יש להתקרב כדי להוסיף הערה למפה
       edit_disabled_tooltip: להתקרב כדי לערוך את המפה
       edit_tooltip: עריכת המפה
-      edit_zoom_alert: יש להתקרב כדי לערוך את המפה
-      history_disabled_tooltip: יש לקרב כדי להציג עריכות עבור אזור זה
-      history_tooltip: הצגת עריכות עבור אזור זה
-      history_zoom_alert: יש לקרב כדי להציג עריכות עבור אזור זה
   layouts: 
     community: קהילה
     community_blogs: בלוגים של הקהילה
     community_blogs_title: בלוגים של חברי קהילת OpenStreetMap
-    copyright: זכויות יוצרים ורישיון
-    documentation: תיעוד
-    documentation_title: תיעוד המיזם
+    copyright: זכויות יוצרים
+    data: נתונים
     donate: תִמכו ב־OpenStreetMap על־ידי %{link} לקרן לשדרוג החומרה.
-    donate_link_text: תרומה
     edit: עריכה
     edit_with: לעריכה עם %{editor}
     export: ייצוא
-    export_tooltip: ייצוא נתוני המפה
+    export_data: ייצוא נתונים
     foundation: קרן
     foundation_title: קרן אופן סטריט מאפ
     gps_traces: מסלולי GPS
     gps_traces_tooltip: ניהול מסלולי GPS
     help: עזרה
-    help_centre: מרכז עזרה
-    help_title: אתר עזרה עבור המיזם
     history: היסטוריה
-    home: הביתה
-    home_tooltip: מעבר למיקום הבית
-    inbox_html: דואר נכנס %{count}
-    inbox_tooltip: 
-      one: תיבת הדואר הנכנס שלכם מכילה הודעה אחת שלא נקראה
-      other: תיבת הדואר הנכנס שלכם מכילה %{count} הודעות שלא נקראו
-      zero: תיבת הדואר הנכנס שלכם אינה מכילה הודעות שלא נקראו
-    intro_1: OpenStreetMap היא מפה חופשית של כל העולם, שיוצרים אנשים כמוך.
+    home: מעבר למיקום הבית
     intro_2_create_account: נא ליצור חשבון משתמש
-    intro_2_download: להוריד
-    intro_2_html: יש לך חופש %{download} את הנתונים ו%{use} בהם בהתאם ל%{license} שהם מתפרסמים לפיו. %{create_account} כדי לשפר את המפה.
-    intro_2_license: רישיון פתוח
-    intro_2_use: להשתמש
-    intro_2_use_url: http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap
+    learn_more: מידע נוסף
     log_in: כניסה לחשבון
     log_in_tooltip: כניסה עם חשבון קיים
     logo: 
       alt_text: הלוגו של OpenStreetMap
     logout: יציאה מהחשבון
-    logout_tooltip: ניתוק
     make_a_donation: 
       text: תרומה
       title: תִמכו במיזם OpenStreetMap על־ידי מתן תרומה כספית
@@ -1037,11 +947,6 @@ he:
     tag_line: מפת עולם חופשית בשיטת הוויקי
     user_diaries: יומני משתמשים
     user_diaries_tooltip: צפייה ביומני המשתמש
-    view: תצוגה
-    view_tooltip: לצפייה במפה
-    welcome_user_link_tooltip: דף המשתמש שלך
-    wiki: ויקי
-    wiki_title: אתר ויקי עבור המיזם
   license_page: 
     foreign: 
       english_link: העמוד המקורי באנגלית
@@ -1135,8 +1040,7 @@ he:
       title: תיבת דואר יוצא
       to: אל
     read: 
-      back_to_inbox: לחזרה לתיבת הדואר הנכנס
-      back_to_outbox: חזרה לתיבת הדואר היוצא
+      back: חזרה
       date: תאריך
       from: מאת
       reply_button: להשיב
@@ -1174,8 +1078,11 @@ he:
       title: הערות ותגובות של %{user}
     rss: 
       closed: הערה סגורה (ליד %{place})
+      commented: תגובה חדשה (ליד %{place})
       description_area: רשימת הערות שהוספו, שהתקבלו עליהן הערות ושנדבגרו באזור שלך [(%{min_lat}|%{min_lon}) – (%{max_lat}|%{max_lon})]
       description_item: הזנת rss עבור ההערה %{id}
+      opened: הערה חדשה (ליד %{place})
+      reopened: הערה שהופעלה מחדש (ליד %{place})
       title: הערות של OpenStreetMap
   notifier: 
     diary_comment_notification: 
@@ -1223,8 +1130,7 @@ he:
       greeting: שלום,
       hopefully_you: מישהו (אולי את או אתה) ביקש שהססמה המשויכת לחשבון המזוהה עם כתובת הדוא"ל הזאת באתר openstreetmap.org.
     message_notification: 
-      footer1: אפשר גם לקרוא את ההודעה בכתובת %{readurl}
-      footer2: ולענות בכתובת %{replyurl}
+      footer_html: ניתן גם לקרוא את ההודעה בכתובת %{readurl} ולהגיב באמצעות %{replyurl}
       header: "לתיבתך ב־OpenStreetMap הגיעה הודעה מאת %{from_user} עם הנושא %{subject}:"
       hi: שלום %{to_user},
     note_comment_notification: 
@@ -1241,31 +1147,17 @@ he:
         your_note: התקבלה תגובה מאת %{commenter} על אחת מהערות המפה שלך ליד %{place}
       details: אפשר למצוא פרטים נוספים על ההערה בכתובת %{url}
       greeting: שלום,
+      reopened: 
+        commented_note: הערה במפה שהגבת עליה הופעלה מחדש ע״י %{commenter}. ההערה היא ליד %{place}.
+        subject_other: "[OpenStreetMap] הערה שמעניינת אותך הופעלה מחדש ע״י %{commenter}"
+        subject_own: "[OpenStreetMap] אחת ההערות שלך הופעלה מחדש ע״י %{commenter}"
+        your_note: הערה שהוספת ליד %{place} הופעלה מחדש ע״י %{commenter}.
     signup_confirm: 
       confirm: "לפני שאנחנו ממשיכים, אנחנו צריכים לוודא שהבקשה הגיעה ממך, אז אם באמת עשית את זה, צריך ללחוץ כאן כדי לאמת את החשבון שלך:"
       created: מישהו (בתקווה את או אתה) יצר חשבון באתר %{site_url}.
       greeting: אהלן!
       subject: "[אופן סטריט מאפ OpenStreetMap] ברוך בואך לאופן סטריט מאפ"
-      welcome: אנחנו רוצים לברך אותך ולתת לך קצת מידע נוסף כדי שיהיה לך קל יותר להתחיל.
-    signup_confirm_html: 
-      ask_questions: באפשרותך לשאול שאלות על אתר OpenStreetMap ב<a href="http://help.openstreetmap.org/">אתר השאלות ותשובות שלנו</a>.
-      current_user: רשימת משתמשים נוכחיים בקטגוריות, בהתאום למיקומם בעולם, זמינה בדף <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: "לקריאה נוספת על OpenStreetMap <a href=\"http://wiki.openstreetmap.org/wiki/Beginners%27_Guide\">באתר הוויקי</a>, להתעדכן בחדשות האחרונות ב<a href=\"http://blog.openstreetmap.org/\">בלוג OpenStreetMap</a> או ב<a href=\"http://twitter.com/openstreetmap\">טוויטר</a>, או לקריאה בבלוג של מייסד OpenStreetMap סטיב קוסט: <a href=\"http://www.opengeodata.org/\">OpenGeoData blog</a> למידע על ההיסטוריה של המיזם, ויש בו גם <a href=\"http://www.opengeodata.org/?cat=13\">קובצי קול<a/>!"
-      introductory_video: ניתן לצפות בסרטו מבוא ב-%{introductory_video_link}.
-      more_videos: צפייה בסרטונים נוספים בכתובת %{more_videos_link}.
-      more_videos_here: סרטונים נוספים מצויים כאן
-      user_wiki_page: מומלץ ליצור דף משתמש בוויקי, שיכלול קטגוריות שמספרות מה מיקומך כגון such as <a href="http://wiki.openstreetmap.org/wiki/Category:Users_in_London">[[Category:Users_in_London]]</a> (משתמשים בלונדון).
-      video_to_openstreetmap: סרטון מבוא לאתר OpenStreetMap
-      wiki_signup: באפשרותך <a href="http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_Page">להירשם לאתר הוויקי של OpenStreetMap</a>.
-    signup_confirm_plain: 
-      ask_questions: "באפשרותך לשאול שאלות על OpenStreetMap בדף השאלות ותשובות שלנו:"
-      blog_and_twitter: "ניתן להתעדכן בחדשות האחרונות דרך הבלוג או חשבון הטוויטר של OpenStreetMap:"
-      current_user: "רשימה של משתמשים לפי קטגוריות, בהתאם למקום המגורים שלהם, זמין כאן:"
-      introductory_video: "באפשרותך לצפות בסרטון הדרכה לאתר OpenStreetMap כאן:"
-      more_videos: "סרטוני הדרכה נוספים מצויים כאן:"
-      the_wiki: "ניתן לקרוא על OpenStreetMap בדפי ויקי:"
-      user_wiki_page: מומלץ ליצור דף משתמש בוויקי עם תגים שאומרים מה מיקומך, למשל [[Category:Users_in_London]].
-      wiki_signup: "באפשרותך להירשם לוויקי OpenStreetMap בכתובת:"
+      welcome: אחרי אמות החשבון שלך, נספק לך מידע נוסף שיעזור לך להתחיל.
   oauth: 
     oauthorize: 
       allow_read_gpx: לקרוא את מסלולי ה־GPS הפרטיים שלך.
@@ -1476,7 +1368,6 @@ he:
       preview: תצוגה מקדימה
     search: 
       search: לחיפוש
-      search_help: "למשל: ‚נתניה’, ‚רחוב רחל המשוררת, ירושלים’, ‚90880’, או 'סניפי דואר באזור שפרעם' <a href='http://wiki.openstreetmap.org/wiki/Search'>דוגמאות נוספות...</a>"
       submit_text: מעבר
       where_am_i: איפה אני?
       where_am_i_title: נא לתאר את מיקומך הנוכחי באמצעות מנוע החיפוש
@@ -1492,6 +1383,11 @@ he:
       upload_trace: העלאת מסלול GPS
     delete: 
       scheduled_for_deletion: מסלול מיועד למחיקה
+    description: 
+      description_with_count: 
+        one: קובץ GPS עם נקודה אחת מאת %{user}
+        other: קובץ GPS עם %{count} נקודות מאת %{user}
+      description_without_count: קובץ GPS מאת %{user}
     edit: 
       description: "תיאור:"
       download: הורדה
@@ -1509,6 +1405,8 @@ he:
       uploaded_at: "תאריך העלאה:"
       visibility: "נִראוּת:"
       visibility_help: מה זה אומר?
+    georss: 
+      title: מסלולי GPS של OpenStreetMap
     list: 
       description: עיון בהעלאות אחרונות של נתיבי GPS
       empty_html: אין פה עדיין שום דבר. אפשר <a href='%{upload_link}'>להעלות מידע חדש</a> או ללמוד עוד על מעקב מסלולים ב־GPS ב<a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>דף הוויקי</a>.
@@ -1637,13 +1535,13 @@ he:
       update home location on click: עדכון המיקום הראשי שלך בעת לחיצה על המפה?
     confirm: 
       already active: החשבון הזה כבר אושר.
-      before you start: אנחנו יודעים שבטח בא לך להתחיל כבר למפות, אבל אולי אפשר לבקש ממך לפני־כן למלא את הטופס להלן?
       button: אישור
       heading: אימות חשבון משתמש
+      introduction_1: שלחנו לך מכתב אימות.
+      introduction_2: נא לאמת את החשבון שלך באמצעות לחיצה על קישור בדוא"ל, ואחרי זה תהיה לך אפשרות להתחיל למפות.
       press confirm button: נא ללחוץ על כפתור האישור כדי להפעיל את חשבונך.
-      reconfirm: אם עבר זמן רב מאז שנרשמת, אולי צריך <a href="%{reconfirm}">לשלוח לעצמך מכתב אישור חדש</a>.
-      success: חשבונך אושר, תודה שנרשמת!
-      unknown token: נראה שהאסימון הזה אינו קיים.
+      reconfirm_html: אם ברצונך לקבל שוב מכתב אימות, <a href="%{reconfirm}">נא ללחוץ כאן</a>.
+      unknown token: נראה שקוד האישור הזה פג או שאינו קיים.
     confirm_email: 
       button: אישור
       failure: כתובת הדוא״ל שלך כבר אושרה באסימון הזה.
@@ -1728,17 +1626,16 @@ he:
       heading: להוסיף את %{user} בתור חבר?
       success: "%{name} חבר שלך עכשיו!"
     new: 
+      about: 
+        header: חופשית וניתנת לעריכה
+        html: "<p>להבדיל ממפות אחרות, OpenStreetMap נוצרת כולה על־ידי אנשים כמוך,\nוכולם חופשיים לתקן, לעדכן ולהוריד אותה ולהשתמש בה.</p>\n<p>כדי להתחיל לתרום יש להירשם. אנו נשלח דואר אלקטרוני כדי לאמת את חשבונך.</p>"
       confirm email address: "אימות כתובת דוא״ל:"
       confirm password: "אימות ססמה:"
       contact_webmaster: נא ליצור קשר עם <a href="mailto:webmaster@openstreetmap.org">מנהל האתר</a> כדי שייווצר חשבון, ואנחנו נשתדל לטפל בבקשה כמה שיותר מהר.
-      continue: להמשיך
+      continue: הרשמה
       display name: "שם התצוגה:"
       display name description: שם המשתמש שלך, שמוצג בפומבי. אפשר לשנות את זה בהעפות שלך.
       email address: "כתובת דוא״ל:"
-      fill_form: נא למלא את הטופס הבא ונשלח לך מכתב מהיר כדי להפעיל את חשבונך.
-      flash create success message: תודה על הרישום. שלחנו מכתב אישור לכתוב %{email} וכשנקבל ממך את האישור, אפשר יהיה להתחיל למפות.<br /><br />אם נעשה בחשבון הדוא״ל שלך שימוש במערכת שמלבינה הודעות, נא להוסיף את webmaster@openstreetmap.org לרשימה הלבנה, כי איננו יכולים להשיב לבקשות אישור.
-      flash welcome: תודה על הרישום. שלחנו לך הודעת „ברוך בואך” לכתובת %{email} עם כמה עצות שיעזרו לך להתחיל.
-      heading: יצירת חשבון משתמש
       license_agreement: עם אישור החשבון יש לקבל את <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">תנאי התרומה</a>.
       no_auto_account_create: למרבה הצער, כעת איננו יכולים ליצור לך חשבון באופן אוטומטי.
       not displayed publicly: לא מוצג בפומבי (ר׳ <a href="http://wiki.openstreetmap.org/wiki/Privacy_Policy" title="wiki privacy policy including section on email addresses">מידיניות פרטיות</a>)
@@ -1748,7 +1645,7 @@ he:
       password: "ססמה:"
       terms accepted: תודה על קבלת תנאי התרומה החדשים!
       terms declined: אנחנו מצטערים שהחלטת לא לקבל את תנאי התרומה החדשים. למידע נוסף ר׳ <a href="%{url}">דף הוויקי הזה</a>.
-      title: יצירת חשבון
+      title: הרשמה
       use openid: לחלופין, אפשר להשתמש ב־%{logo} OpenID כדי להיכנס
     no_such_user: 
       body: סליחה, אין חשבון בשם %{user}. אולי האיות לא נכון ואולי לחצת על קישור שגוי.
@@ -1828,6 +1725,7 @@ he:
       my diary: היומן שלי
       my edits: העריכות שלי
       my notes: הערות המפה שלי
+      my profile: הפרופיל שלי
       my settings: ההגדרות שלי
       my traces: המסלולים שלי
       nearby users: עוד משתמשים בסביבה
@@ -1965,3 +1863,25 @@ he:
       fail: שלילת התפקיד „%{role}” מהמשתמש „%{name}” נכשלה. נא לבדוק שהמשתמש והתפקיד תקינים.
       heading: אישור שלילת תפקיד
       title: אישור שלילת תפקיד
+  welcome_page: 
+    add_a_note: 
+      paragraph_1_html: אם רק רצית לתקן משהו קטן ואין לך זמן להירשם וללמוד איך לערוך, קל להוסיף הערה.
+      paragraph_2_html: "צריך פשוט ללכת אל <a href='%{map_url}'>המפה</a> וללחוץ על סמל ההערה: <span class='icon note'></span>. זה יוסיף למפה סמן, שאפשר לגרור. אחרי הוספת ההערה יש ללחוץ על שמירה וממפים אחרים יבדקו את זה."
+      title: אין לך זמן לערוך? אפשר להוסיף הערה!
+    basic_terms: 
+      editor_html: <strong>עורך</strong> הוא תכנה או אתר לעריכת המפה.
+      node_html: <strong>צומת</strong> נוא נקודה על מפה, כגון מסעדה אחת או עץ אחד.
+      paragraph_1_html: למיזם OpenStreetMap יש עגה משלו. הנה מספר מילות מפתח שיהיו שימושיות.
+      tag_html: <strong>תג</strong> הוא פיסת מידע על צומת או על נתיב כמו שם של מסעדה או מגבלת מהירות בדרך.
+      title: מונחים בסיסיים למיפוי
+      way_html: <strong>נתיב</strong> הוא קו או אזור כמו דרך, זרם, אגם או מבנה.
+    introduction_html: ברוך בואך ל־OpenStreetMap, מפה חופשית של העולם, שאפשר לערוך. עכשיו שנרשמת, הכול מוכן ואפשר להתחיל לצייר מפות. הנה מדריך קצת שייתן לך את הדברים החשובים שכדאי לך לדעת.
+    questions: 
+      paragraph_1_html: דרושה לך עזרה במיפוי או שלא ברור לך איך להשתמש ב־OpenStreetMap? אפשר לקבל תשובות לשאלות <a href='http://help.openstreetmap.org/'>באתר העזרה</a>.
+      title: יש שאלות?
+    start_mapping: להתחיל למפות
+    title: ברוך בואך!
+    whats_on_the_map: 
+      off_html: מה שאין פה זה מידע דעתני כמו דירוגים, מקומות היסטוריים או היפותטיים ונתונים ומקורות שמוגבלים בזכויות יוצרים. אנו דורשים ממך לא להוסיף  מידע ממפות מקוונות או מודפסות אלא אם יש לך אישור מיוחד לכך.
+      on_html: OpenStreetMap הוא מקום למיפוי דברים אמתיים ונוכחיים – הוא מכיל מיליוני מבנים, דרכים ופרטים אחרים על מקומות. אפשר למפות כל דבר מהעולם מהאמתי שמעניין אותך.
+      title: מה על המפה

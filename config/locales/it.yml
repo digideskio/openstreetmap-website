@@ -7,12 +7,15 @@
 # Author: Darth Kule
 # Author: Davalv
 # Author: Davio
+# Author: Dieterdreist
 # Author: Efred
 # Author: Gianfranco
+# Author: Isiond
 # Author: Kaitu
 # Author: Karika
 # Author: Lollo
 # Author: LucioGE
+# Author: Massimo itaca
 # Author: McDutchie
 # Author: Nemo bis
 # Author: Od1n
@@ -20,11 +23,24 @@
 # Author: Paolopoz
 # Author: Raoli
 # Author: Rippitippi
+# Author: Shirayuki
 # Author: Simone
 # Author: SimoneSVC
 # Author: Ximo17
 # Author: ZioNicco
 it: 
+  about_page: 
+    community_driven_html: La comunità di OpenStreetMap è diversa, appassionante, e cresce ogni giorno. I nostri contributori includono mapper entusiasti, professionisti GIS, ingegneri che gestiscono i server di OSM, mapping umanitario di aree soggette a disastri e molto altro. Per ulteriori informazioni sulla comunità, consultare i <a href='%{diary_path}'>diari degli utenti</a>, il <a href='http://blogs.openstreetmap.org/'>blog della comunità</a>, e il sito <a href='http://www.osmfoundation.org/'>OSM Foundation</a>.
+    community_driven_title: Guidato dalla Comunità
+    copyright_html: <span>&copy;</span>OpenStreetMap<br>contributors
+    lede_text: OpenStreetMap è costruito da una comunità di mappatori che contribuiscono e mantengono i dati sulle strade, sentieri, caffè, stazioni ferroviarie e molto altro ancora, in tutto il mondo.
+    local_knowledge_html: OpenStreetMap enfatizza la conoscenza locale. I contributori usano immagini aeree, dispositivi GPS e mappe sul campo low-tech per verificare che OSM sia accurato e aggiornato.
+    local_knowledge_title: Conoscenza locale
+    next: Successivo
+    open_data_html: "OpenStreetMap è <i>open data</i>: sei libero di usarla per qualsiasi scopo a patto di attribuirla a OpenstreetMap e ai suoi contributori. Se alteri o sviluppi sulla base dei dati in un certo modo, puoi distribuire il risultato solo mediante la stessa licenza. Consultare <a href='%{copyright_path}'>Copyright</a> per i dettagli."
+    open_data_title: Open Data
+    partners_title: Partner
+    used_by: "%{name} fornisce dati geografici su centinaia di siti web, app mobili e dispositivi hardware"
   activerecord: 
     attributes: 
       diary_comment: 
@@ -102,102 +118,61 @@ it:
       blocked: Il tuo accesso alle API è stato bloccato. Si prega di fare log-in all'interfaccia web per saperne di più.
       need_to_see_terms: Il tuo accesso alle API è temporaneamente sospeso. Si prega di accedere all'interfaccia web per visualizzare i termini di contribuzione. Non c'è bisogno che tu aderisca, però è necessario che tu li legga.
   browse: 
+    anonymous: anonimo
     changeset: 
-      changeset: "Gruppo di modifiche: %{id}"
-      changesetxml: gruppo di modifiche XML
+      belongs_to: Autore
+      changesetxml: Gruppo di modifiche XML
       feed: 
         title: Gruppo di modifiche %{id}
         title_comment: Gruppo di modifiche %{id} - %{comment}
+      node: Nodi (%{count})
+      node_paginated: Nodi (%{x}-%{y} di %{count})
       osmchangexml: modificheOsm XML
-      title: Gruppo di modifiche
-    changeset_details: 
-      belongs_to: "Appartiene a:"
-      bounding_box: "Riquadro di selezione:"
-      box: riquadro
-      closed_at: "Chiuso il:"
-      created_at: "Creato il:"
-      has_nodes: "Possiede i seguenti %{count} nodi:"
-      has_relations: "Possiede le seguenti %{count} relazioni:"
-      has_ways: "Possiede i seguenti %{count} percorsi:"
-      no_bounding_box: Per questo gruppo di modifiche non è stato memorizzato alcun riquadro di selezione.
-      show_area_box: Mostra il riquadro dell'area
-    common_details: 
-      changeset_comment: "Commento:"
-      deleted_at: "Cancellato il:"
-      deleted_by: "Cancellato da:"
-      edited_at: "Modificato il:"
-      edited_by: "Modificato da:"
-      in_changeset: "Nel gruppo di modifiche:"
-      version: "Versione:"
+      relation: Relazioni (%{count})
+      relation_paginated: Relazioni (%{x}-%{y} di %{count})
+      title: "Gruppo di modifiche: %{id}"
+      way: Ways (%{count})
+      way_paginated: Ways (%{x}-%{y} di %{count})
+    closed: Chiuso
+    closed_by_html: Chiuso <abbr title='%{title}'>%{time} fa</abbr> da %{user}
+    closed_html: Chiuso <abbr title='%{title}'>%{time} fa</abbr>
     containing_relation: 
       entry: Relazione %{relation_name}
       entry_role: Relazione %{relation_name} (come %{relation_role})
-    map: 
-      deleted: Eliminato
-      edit: 
-        area: Modifica area
-        node: Modifica nodo
-        note: Modifica la nota
-        relation: Modifica relazione
-        way: Modifica percorso
-      larger: 
-        area: Visualizza l'area in una mappa più grande
-        node: Visualizza il nodo in una mappa più grande
-        note: Visualizza la nota in una mappa più grande
-        relation: Visualizza la relazione in una mappa più grande
-        way: Visualizza la way in una mappa più grande
-      loading: Caricamento in corso...
-    navigation: 
-      all: 
-        next_changeset_tooltip: Gruppo di modifiche successivo
-        next_node_tooltip: Nodo successivo
-        next_note_tooltip: Nota successiva
-        next_relation_tooltip: Relazione successiva
-        next_way_tooltip: Percorso successivo
-        prev_changeset_tooltip: Gruppo di modifiche precedente
-        prev_node_tooltip: Nodo precedente
-        prev_note_tooltip: Nota precedente
-        prev_relation_tooltip: Relazione precedente
-        prev_way_tooltip: Percorso precedente
-      user: 
-        name_changeset_tooltip: Visualizza le modifiche di %{user}
-        next_changeset_tooltip: Modifica successiva di %{user}
-        prev_changeset_tooltip: Modifica precedente di %{user}
+    created: Creato
+    created_by_html: Creato <abbr title='%{title}'>%{time} fa</abbr> da %{user}
+    created_html: Creato <abbr title='%{title}'>%{time} fa</abbr>
+    deleted_by_html: Cancellato <abbr title='%{title}'>%{time} fa</abbr> da %{user}
+    download_xml: Scarica XML
+    edited_by_html: Modificato <abbr title='%{title}'>%{time} fa</abbr> da %{user}
+    in_changeset: Gruppo di modifiche
+    no_comment: (nessun commento)
     node: 
-      download_xml: Scarica XML
-      edit: Modifica nodo
-      node: Nodo
-      node_title: "Nodo: %{node_name}"
-      view_history: Visualizza storico
-    node_details: 
-      coordinates: "Coordinate:"
-      part_of: "Parte di:"
-    node_history: 
-      download_xml: Scarica XML
-      node_history: Storico del nodo
-      node_history_title: "Storico del nodo: %{node_name}"
-      view_details: Visualizza dettagli
+      history_title: "Cronologia nodo: %{name}"
+      title: "Nodo: %{name}"
     not_found: 
-      sorry: Spiacenti, non è stato possibile trovare il %{type} con l'identificativo %{id}.
+      sorry: "Spiacenti, %{type} #%{id} non può essere trovato."
       type: 
         changeset: gruppo di modifiche
         node: nodo
         relation: relazione
         way: percorso
     note: 
-      at_by_html: "%{when} fa da %{user}"
-      at_html: "%{when} fa"
-      closed: "Chiusa:"
-      closed_title: "Nota chiusa: %{note_name}"
-      comments: "Commenti:"
-      description: "Descrizione:"
-      last_modified: "Modificata per l'ultima volta:"
+      closed_by: Risolta da %{user} <abbr title='%{exact_time}'>%{when} fa</abbr>
+      closed_by_anonymous: Risolta da anonimo <abbr title='%{exact_time}'>%{when} fa</abbr>
+      closed_title: "Nota risolta #%{note_name}"
+      commented_by: Commento da %{user} <abbr title='%{exact_time}'>%{when} fa</abbr>
+      commented_by_anonymous: Commento da anonimo <abbr title='%{exact_time}'>%{when} fa</abbr>
+      hidden_by: Nascosta da %{user} <abbr title='%{exact_time}'>%{when} fa</abbr>
+      hidden_title: "Note nascosta #%{note_name}"
+      new_note: Nuova nota
+      open_by: Creato da %{user} <abbr title='%{exact_time}'>%{when} fa</abbr>
+      open_by_anonymous: Creato da anonimo <abbr title='%{exact_time}'>%{when} fa</abbr>
       open_title: "Nota irrisolta: %{note_name}"
-      opened: "Aperta:"
-      title: Nota
-    paging_nav: 
-      of: di
-      showing_page: pagina
+      reopened_by: Riattivata da %{user} <abbr title='%{exact_time}'>%{when} fa</abbr>
+      reopened_by_anonymous: Riattivata da anonimo <abbr title='%{exact_time}'>%{when} fa</abbr>
+      title: "Nota: %{id}"
+    part_of: Parte di
     redacted: 
       message_html: La versione %{version} di questo %{type} non può essere mostrata in quanto è stata redatta. Per favore, fai riferimento a %{redaction_link} per i dettagli.
       redaction: Redazione %{id}
@@ -206,18 +181,9 @@ it:
         relation: relazione
         way: percorso
     relation: 
-      download_xml: Scarica XML
-      relation: Relazione
-      relation_title: "Relazione: %{relation_name}"
-      view_history: Visualizza storico
-    relation_details: 
-      members: "Membri:"
-      part_of: "Parte di:"
-    relation_history: 
-      download_xml: Scarica XML
-      relation_history: Storico della relazione
-      relation_history_title: "Storico della relazione: %{relation_name}"
-      view_details: Visualizza dettagli
+      history_title: "Cronologia relazione: %{name}"
+      members: Membri
+      title: "Relazione: %{name}"
     relation_member: 
       entry_role: "%{type} %{name} come %{role}"
       type: 
@@ -225,42 +191,11 @@ it:
         relation: Relazione
         way: Percorso
     start_rjs: 
-      data_frame_title: Dati
-      data_layer_name: Esplora Dati Mappa
-      details: Dettagli
-      edited_by_user_at_timestamp: Modificato da %{user} il %{timestamp}
-      hide_areas: Nascondi le aree
-      history_for_feature: Storico per %{feature}
+      feature_warning: Caricamento di %{num_features} caratteristiche, che possono rendere il tuo browser lento o che non risponde. Sei sicuro di voler visualizzare questi dati?
       load_data: Carica dati
-      loaded_an_area_with_num_features: "È stata caricata un'area che contiene %{num_features} caratteristiche. In generale, alcuni browser potrebbero non visualizzare correttamente questa quantità di dati. Generalmente i browser lavorano al meglio se si visualizzano meno di %{max_features} caratteristiche alla volta: se si fa qualcos'altro il proprio browser potrebbe diventare lento o non rispondere più. Se si è sicuri di voler visualizzare questi dati, allora si può premere il pulsante sottostante."
       loading: Caricamento in corso...
-      manually_select: Seleziona manualmente un'area differente
-      notes_layer_name: Mostra le note
-      object_list: 
-        api: Ottieni quest'area dalle API
-        back: Ritorna all'elenco degli oggetti
-        details: Dettagli
-        heading: Lista degli oggetti
-        history: 
-          type: 
-            node: Nodo %{id}
-            way: Percorso %{id}
-        selected: 
-          type: 
-            node: Nodo %{id}
-            way: Percorso %{id}
-        type: 
-          node: Nodo
-          way: Percorso
-      private_user: utente privato
-      show_areas: Mostra le aree
-      show_history: Visualizza storico
-      unable_to_load_size: "Impossibile caricare: la dimensione del riquadro di selezione di %{bbox_size} è troppo grande (deve essere minore di %{max_bbox_size})"
-      view_data: Mostra i dati per la visualizzazione attuale della mappa
-      wait: Attendere...
-      zoom_or_select: Ingrandire oppure selezionare l'area della mappa che si desidera visualizzare
     tag_details: 
-      tags: "Etichette:"
+      tags: Tag
       wiki_link: 
         key: La pagina wiki per la descrizione del tag %{key}
         tag: La pagina wiki per la descrizione del tag %{key}=%{value}
@@ -272,31 +207,20 @@ it:
         node: nodo
         relation: relazione
         way: percorso
+    version: Versione
+    view_details: Visualizza dettagli
+    view_history: Visualizza cronologia
     way: 
-      download_xml: Scarica XML
-      edit: Modifica percorso
-      view_history: Visualizza storico
-      way: Percorso
-      way_title: "Percorso: %{way_name}"
-    way_details: 
       also_part_of: 
-        one: parte del percorso %{related_ways}
-        other: parte dei percorsi %{related_ways}
-      nodes: "Nodi:"
-      part_of: "Parte di:"
-    way_history: 
-      download_xml: Scarica XML
-      view_details: Visualizza dettagli
-      way_history: Storico del percorso
-      way_history_title: "Storico del percorso: %{way_name}"
+        one: parte di way %{related_ways}
+        other: parte di way %{related_ways}
+      history_title: "Cronologia way: %{name}"
+      nodes: Nodi
+      title: "Way: %{name}"
   changeset: 
     changeset: 
       anonymous: Anonimo
-      big_area: (grande)
-      no_comment: (nessuno)
       no_edits: (nessuna modifica)
-      show_area_box: visualizza il riquadro dell'area
-      still_editing: (ancora in modifica)
       view_changeset_details: Visualizza i dettagli del gruppo di modifiche
     changeset_paging_nav: 
       next: Successivo »
@@ -309,26 +233,17 @@ it:
       saved_at: Salvato il
       user: Utente
     list: 
-      description: Naviga fra le ultime modifiche alla mappa
-      description_bbox: Gruppi di modifiche all'interno di %{bbox}
-      description_friend: Insieme di modifiche dei tuoi amici
-      description_nearby: Gruppi di modifiche da parte di utenti nelle vicinanze
-      description_user: Modifiche dell'utente %{user}
-      description_user_bbox: Gruppi di modifiche dell'utente %{user} all'interno di %{bbox}
-      empty_anon_html: Non sono state fatte modifiche ancora.
-      empty_user_html: Sembra che tu non abbia mai fatto modifiche ancora. Per iniziare, controlla la <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>guida per principianti</a>.
-      heading: Gruppi di modifiche
-      heading_bbox: Gruppi di modifiche
-      heading_friend: Gruppi di modifiche
-      heading_nearby: Gruppi di modifiche
-      heading_user: Gruppi di modifiche
-      heading_user_bbox: Gruppi di modifiche
+      empty: Nessun gruppo di modifiche trovato.
+      empty_area: Nessun gruppo di modifiche in quest'area.
+      empty_user: Nessun gruppo di modifiche da questo utente.
+      load_more: Caricane altri
+      no_more: Nessun gruppo di modifiche trovato.
+      no_more_area: Nessun gruppo di modifiche in quest'area.
+      no_more_user: Nessun gruppo di modifiche da questo utente.
       title: Gruppi di modifiche
-      title_bbox: Modifiche all'interno di %{bbox}
       title_friend: Insieme di modifiche dei tuoi amici
       title_nearby: Gruppi di modifiche da parte di utenti nelle vicinanze
       title_user: Gruppi di modifiche di %{user}
-      title_user_bbox: Modifiche dell'utente %{user} all'interno di %{bbox}
     timeout: 
       sorry: Siamo spiacenti, l'elenco delle modifiche che hai richiesto necessitava di troppo tempo per poter essere recuperato.
   diary_entry: 
@@ -441,17 +356,21 @@ it:
       paste_html: Incolla l'HTML per incapsulare nel sito web
       scale: Scala
       too_large: 
-        body: Quest'area è troppo grande per essere esportata come Dati XML di OpenStreetMap. Si prega di zoomare o di selezionare un'area più piccola.
-        heading: Area troppo grande
+        body: "Quest'area è troppo grande per essere esportata come Dati XML di OpenStreetMap. Si prega di zoomare, di selezionare un'area più piccola o di utilizzare uno delle seguenti fonti per il download di massa dei dati:"
+        geofabrik: 
+          description: Estratti aggiornati regolarmente di continenti, paesi, e città selezionata
+          title: Geofabrik Downloads
+        metro: 
+          description: Estratti per le principali città del mondo e le loro aree circostanti
+          title: Metro Extracts
+        other: 
+          description: Ulteriori fonti elencate sul wiki di OpenStreetMap
+          title: Altre fonti
+        planet: 
+          description: Copie aggiornate regolarmente del database OpenStreetMap completo
+          title: Pianeta OSM
       zoom: Ingrandimento
-    start_rjs: 
-      add_marker: Aggiungi un marcatore alla mappa
-      change_marker: Cambia la posizione del marcatore
-      click_add_marker: Clicca sulla mappa per aggiungere un marcatore
-      drag_a_box: Traccia un riquadro sulla mappa per selezionare un'area
-      export: Esporta
-      manually_select: Seleziona manualmente un'area differente
-      view_larger_map: Visualizza una mappa più ampia
+    title: Esporta
   geocoder: 
     description: 
       title: 
@@ -481,27 +400,34 @@ it:
       title: 
         ca_postcode: Risultati da <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: Risultati da <a href="http://www.geonames.org/">GeoNames</a>
+        geonames_reverse: Risultati da <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Risultati da <a href="http://openstreetmap.org/">Internal</a>
         osm_nominatim: Risultati restituiti da <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
+        osm_nominatim_reverse: Risultati restituiti da <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: Risultati da <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Risultati da <a href="http://geocoder.us/">Geocoder.us</a>
     search_osm_nominatim: 
       admin_levels: 
         level10: Confine Quartiere
+        level2: Confine di paese
         level4: Confine di stato
         level5: Confine regionale
         level6: Confine di Contea
         level8: Confine di Città
         level9: Confine Paese
       prefix: 
+        aerialway: 
+          chair_lift: Seggiovia
+          drag_lift: Sciovia
+          station: Stazione funivia
         aeroway: 
           aerodrome: Aerodromo
-          apron: Grembiule
-          gate: Gate aeroportuale
+          apron: Piazzale di sosta
+          gate: Gate
           helipad: Elisuperficie
           runway: Pista
           taxiway: Pista di rullaggio
-          terminal: Terminal aeroportuale
+          terminal: Terminal
         amenity: 
           WLAN: Punto di accesso WiFi
           airport: Aeroporto
@@ -528,7 +454,7 @@ it:
           cinema: Cinema
           clinic: Clinica
           club: Club
-          college: Scuola superiore
+          college: Accademia
           community_centre: Centro civico
           courthouse: Tribunale
           crematorium: Crematorio
@@ -559,7 +485,7 @@ it:
           market: Mercato
           marketplace: Mercato
           mountain_rescue: Soccorso alpino
-          nightclub: Locale notturno
+          nightclub: Night Club
           nursery: Asilo nido
           nursing_home: Asilo nido
           office: Ufficio
@@ -581,12 +507,13 @@ it:
           retirement_home: Casa di Riposo
           sauna: Sauna
           school: Scuola
-          shelter: Pensilina/ricovero
+          shelter: Pensilina
           shop: Negozio
           shopping: Acquisti
           shower: Doccia
           social_centre: Centro sociale
           social_club: Centro Sociale
+          social_facility: Struttura sociale
           studio: Studio
           supermarket: Supermercato
           swimming_pool: Piscina
@@ -615,45 +542,50 @@ it:
           "yes": Ponte
         building: 
           "yes": Edificio
+        emergency: 
+          fire_hydrant: Idrante
+          phone: Telefono di emergenza
         highway: 
           bridleway: Percorso per equitazione
-          bus_guideway: Autobus guidato
-          bus_stop: Fermata autobus
+          bus_guideway: Corsia autobus a guida vincolata
+          bus_stop: Fermata dell'autobus
           byway: Byway (UK)
           construction: Strada in costruzione
           cycleway: Percorso ciclabile
           emergency_access_point: Colonnina SOS
           footway: Percorso pedonale
           ford: Guado
-          living_street: Strada pedonale
+          living_street: Living Street
           milestone: Pietra miliare
-          minor: Strada secondaria
-          motorway: Autostrada/tangenziale
-          motorway_junction: Svincolo
+          minor: Strada minore
+          motorway: Autostrada
+          motorway_junction: Uscita autostradale
           motorway_link: Autostrada
           path: Sentiero
           pedestrian: Percorso pedonale
           platform: Piattaforma
-          primary: Strada di importanza nazionale
-          primary_link: Strada principale
+          primary: Strada primaria
+          primary_link: Strada primaria
+          proposed: Strada proposta
           raceway: Pista
-          residential: Strada residenziale
+          residential: Residenziale
           rest_area: Area di Sosta
           road: Strada generica
-          secondary: Strada di importanza regionale
+          secondary: Strada secondaria
           secondary_link: Strada secondaria
           service: Strada di servizio
           services: Stazione di servizio
           speed_camera: Autovelox fissi
           steps: Scala
           stile: Scaletta
-          tertiary: Strada di importanza locale
-          tertiary_link: Strada di importanza locale
+          street_lamp: Lampione
+          tertiary: Strada terziaria
+          tertiary_link: Strada terziaria
           track: Strada forestale o agricola
           trail: Percorso escursionistico
           trunk: Superstrada
           trunk_link: Superstrada
-          unclassified: Strada minore
+          unclassified: Strada non classificata
           unsurfaced: Strada non pavimentata
         historic: 
           archaeological_site: Sito archeologico
@@ -662,6 +594,7 @@ it:
           building: Edificio
           castle: Castello
           church: Chiesa
+          citywalls: Mura della città
           fort: Forte
           house: Casa storica
           icon: Icona
@@ -671,6 +604,7 @@ it:
           monument: Monumento
           museum: Museo
           ruins: Rovine
+          tomb: Tomba
           tower: Torre
           wayside_cross: Croce
           wayside_shrine: Edicola votiva
@@ -809,6 +743,7 @@ it:
           locality: Località (luogo con nome, non popolato)
           moor: Molo
           municipality: Comune
+          neighbourhood: Quartiere
           postcode: CAP
           region: Provincia
           sea: Mare
@@ -826,7 +761,7 @@ it:
           funicular: Funicolare
           halt: Fermata del treno
           historic_station: Stazione ferroviaria storica
-          junction: Collegamento ferroviario
+          junction: Nodo ferroviario
           level_crossing: Passaggio a livello
           light_rail: Metropolitana leggera
           miniature: Ferrovia in miniatura
@@ -834,8 +769,10 @@ it:
           narrow_gauge: Ferrovia a scartamento ridotto
           platform: Banchina ferroviaria
           preserved: Ferrovia storica
-          spur: Ferrovia per società o ente
+          proposed: Ferrovia proposta
+          spur: Diramazione ferroviaria breve
           station: Stazione ferroviaria
+          stop: Fermata ferroviaria
           subway: Stazione della metropolitana
           subway_entrance: Ingresso metropolitana
           switch: Punti ferroviari
@@ -851,6 +788,7 @@ it:
           beverages: Negozio bevande
           bicycle: Negozio biciclette
           books: Libreria
+          boutique: Boutique
           butcher: Macellaio
           car: Concessionaria
           car_parts: Autoricambi
@@ -864,6 +802,7 @@ it:
           convenience: Minimarket
           copyshop: Copisteria
           cosmetics: Negozio cosmetici
+          deli: Specialità gastronomiche
           department_store: Grande magazzino
           discount: Discount
           doityourself: Fai da-te
@@ -900,17 +839,21 @@ it:
           organic: Negozio di prodotti naturali ed ecologici
           outdoor: Negozio di articoli per sport all'aperto
           pet: Negozio animali
+          pharmacy: Farmacia
           photo: Articoli fotografici
           salon: Salone
+          second_hand: Negozio oggetti usati
           shoes: Negozio di calzature
           shopping_centre: Centro commerciale
           sports: Articoli sportivi
           stationery: Cartoleria
           supermarket: Supermercato
+          tailor: Sarto
           toys: Negozio di giocattoli
           travel_agency: Agenzia di viaggi
           video: Videoteca
           wine: Alcolici
+          "yes": Negozio
         tourism: 
           alpine_hut: Rifugio alpino
           artwork: Opera d'arte
@@ -933,6 +876,7 @@ it:
           viewpoint: Punto panoramico
           zoo: Zoo
         tunnel: 
+          culvert: Canale sotterraneo
           "yes": Galleria
         waterway: 
           artificial: Corso d'acqua artificiale
@@ -956,83 +900,113 @@ it:
           water_point: Punto di ristoro
           waterfall: Cascata
           weir: Sbarramento idrico
+  help_page: 
+    help: 
+      description: Fai una domanda o cerca risposte sul sito di domande e risposte di OSM.
+      title: help.openstreetmap.org
+      url: https://help.openstreetmap.org/
+    introduction: OpenStreetMap ha diverse risorse per imparare a conoscere il progetto, chiedendo e rispondendo alle domande, discutendo collaborativamente e documentando gli argomenti di mappatura.
+    title: Come ottenere aiuto
+    welcome: 
+      description: Inizia con questa guida rapida che copre le basi di OpenStreetMap.
+      title: Benvenuti a OSM
+      url: /welcome
+    wiki: 
+      description: Sfoglia il wiki per la documentazione approfondita di OSM.
+      title: wiki.openstreetmap.org
+      url: http://wiki.openstreetmap.org/
   javascripts: 
+    close: Chiudi
+    edit_help: Sposta la mappa e usa lo zoom sulla posizione che vuoi modificare, quindi clicca qui.
+    key: 
+      title: Legenda
+      tooltip: Legenda
+      tooltip_disabled: La legenda è disponibile solo per il livello Standard
     map: 
       base: 
-        cycle_map: Open Cycle Map
+        cycle_map: Mappa ciclabile
+        hot: Umanitario
         mapquest: MapQuest Open
-        standard: Predefinito
+        standard: Standard
         transport_map: Mappa dei trasporti
+      copyright: © <a href='%{copyright_url}'>OpenStreetMap contributors</a>
+      donate_link_text: <a class='donate-attr' href='%{donate_url}'>Fai una donazione</a>
+      layers: 
+        data: Dati della mappa
+        header: Livelli mappa
+        notes: Note sulla mappa
+        overlays: Abilita sovrapposizioni per la risoluzione dei problemi della mappa
+        title: Livelli
+      locate: 
+        popup: Ti trovi a {distanza} {unità} da questo punto
+        title: Mostra la mia posizione
+      zoom: 
+        in: Zoom avanti
+        out: Zoom indietro
     notes: 
       new: 
         add: Aggiungi la nota
         intro: Per migliorare la mappa, le informazioni che inserisci vengono mostrate agli altri mappatori. Sei pregato di essere il più possibile preciso e descrittivo nello spostare il puntatore sulla posizione corretta e nell'inserire la nota qui sotto.
       show: 
         anonymous_warning: Questa nota include commenti da parte di utenti anonimi che devono essere verificati in modo indipendente.
-        closed_by: chiusa da <a href='%{user_url}'>%{user}</a> il %{time}
-        closed_by_anonymous: chiusa da un utente anonimo il %{time}
         comment: Commenta
         comment_and_resolve: Commenta e chiudi
-        commented_by: commento da <a href='%{user_url}'>%{user}</a> il %{time}
-        commented_by_anonymous: commento da un utente anonimo il %{time}
         hide: Nascondi
-        opened_by: creata da <a href='%{user_url}'>%{user}</a> il %{time}
-        opened_by_anonymous: creata da un utente anonimo il %{time}
-        permalink: Link permanente
         reactivate: Riattiva
-        reopened_by: riaperta da <a href='%{user_url}'>%{user}</a> il %{time}
-        reopened_by_anonymous: riaperta da un utente anonimo il %{time}
         resolve: Risolta
+    share: 
+      cancel: Annulla
+      center_marker: Centra la mappa sul marcatore
+      custom_dimensions: Imposta dimensioni personalizzate
+      download: Scarica
+      embed: HTML
+      format: "Formato:"
+      image: Immagine
+      image_size: L'immagine mostrerà il livello standard a
+      include_marker: Includi il marcatore
+      link: Link o HTML
+      long_link: Link
+      paste_html: Incolla l'HTML per incorporarlo nel sito web
+      scale: "Scala:"
+      short_link: Link breve
+      short_url: URL breve
+      title: Condividi
+      view_larger_map: Visualizza mappa ingrandita
     site: 
       createnote_disabled_tooltip: Ingrandisci la mappa per aggiungere una nota
       createnote_tooltip: Aggiungi una nota sulla mappa
-      createnote_zoom_alert: Per inserire una nota devi ingrandire la mappa
       edit_disabled_tooltip: Zooma per modificare la mappa
       edit_tooltip: Modifica la mappa
-      edit_zoom_alert: Devi ingrandire per modificare la mappa
-      history_disabled_tooltip: Devi ingrandire per vedere le modifiche per quest'area
-      history_tooltip: Visualizza le modifiche per quest'area
-      history_zoom_alert: Devi ingrandire per vedere la cronologia delle modifiche
+      map_data_zoom_in_tooltip: Zooma per vedere i dati della mappa
+      map_notes_zoom_in_tooltip: Zooma per vedere le note della mappa
   layouts: 
+    about: Informazioni
     community: Comunità
     community_blogs: Blog della comunità
     community_blogs_title: Blog dei membri della comunità OpenStreetMap
-    copyright: Copyright e licenza
-    documentation: Documentazione
-    documentation_title: Documentazione sul progetto
+    copyright: Copyright
+    data: Dati
     donate: Supporta OpenStreetMap %{link} al fondo destinato all'aggiornamento dell'hardware.
-    donate_link_text: donando
     edit: Modifica
     edit_with: Modifica con %{editor}
     export: Esporta
-    export_tooltip: Esporta i dati della mappa
+    export_data: Esporta Dati
     foundation: Fondazione
     foundation_title: La Fondazione OpenStreetMap
     gps_traces: Tracciati GPS
     gps_traces_tooltip: Gestisci i tracciati GPS
     help: Aiuto
-    help_centre: Aiuto
-    help_title: Sito di aiuto per il progetto
-    history: Storico
-    home: posizione iniziale
-    home_tooltip: Vai alla posizione iniziale
-    inbox_html: in arrivo %{count}
-    inbox_tooltip: 
-      one: La tua posta in arrivo contiene 1 messaggio non letto
-      other: La tua posta in arrivo contiene %{count} messaggi non letti
-      zero: La tua posta in arrivo contiene solo messaggi già letti
-    intro_1: OpenStreetMap è una mappa liberamente modificabile dell'intero pianeta. È realizzata da persone come te.
+    history: Cronologia
+    home: Vai alla posizione di casa
     intro_2_create_account: Crea un account utente
-    intro_2_download: scaricati
-    intro_2_html: I dati possono essere %{download} liberamente e %{use} in accordo alla %{license}. %{create_account} per aiutare a migliorare la mappa.
-    intro_2_license: licenza libera
-    intro_2_use: utilizzati
-    log_in: entra
+    intro_header: Benvenuti in OpenStreetMap!
+    intro_text: OpenStreetMap è una mappa del mondo, creata da persone come te e libera di utilizzare sotto licenza aperta.
+    learn_more: Ulteriori informazioni
+    log_in: Accedi
     log_in_tooltip: Accedi con un profilo utente esistente
     logo: 
       alt_text: Logo OpenStreetMap
-    logout: esci
-    logout_tooltip: Esci
+    logout: Esci
     make_a_donation: 
       text: Fai una donazione
       title: Aiuta OpenStreetMap con una donazione in denaro
@@ -1043,16 +1017,12 @@ it:
     partners_ic: Imperial College (Londra)
     partners_partners: partner
     partners_ucl: UCL VR Centre
-    sign_up: iscriviti
+    sign_up: Registrati
     sign_up_tooltip: Crea un profilo utente per apportare modifiche
-    tag_line: La wiki-mappa Libera del Mondo
+    start_mapping: Inizia a mappare
+    tag_line: La wiki-mappa libera del mondo
     user_diaries: Diari degli utenti
     user_diaries_tooltip: Visualizza diari utente
-    view: Visualizza
-    view_tooltip: Visualizza la mappa
-    welcome_user_link_tooltip: Pagina utente personale
-    wiki: Wiki
-    wiki_title: Wiki del progetto
   license_page: 
     foreign: 
       english_link: l'originale in inglese
@@ -1099,7 +1069,7 @@ it:
       date: Data
       from: Da
       messages: Hai %{new_messages} e %{old_messages}
-      my_inbox: I miei messaggi in arrivo
+      my_inbox: Posta in arrivo
       new_messages: 
         one: "%{count} nuovo messaggio"
         other: "%{count} nuovi messaggi"
@@ -1107,20 +1077,20 @@ it:
       old_messages: 
         one: "%{count} vecchio messaggio"
         other: "%{count} messaggi vecchi"
-      outbox: in uscita
+      outbox: posta in uscita
       people_mapping_nearby: persone che mappano nelle vicinanze
       subject: Oggetto
-      title: In arrivo
+      title: Posta in arrivo
     mark: 
       as_read: Messaggio marcato come già letto
       as_unread: Messaggio marcato come non letto
     message_summary: 
       delete_button: Elimina
-      read_button: Marca come già letto
+      read_button: Segna come già letto
       reply_button: Rispondi
-      unread_button: Marca come non letto
+      unread_button: Segna come non letto
     new: 
-      back_to_inbox: Ritorna ai messaggi in arrivo
+      back_to_inbox: Ritorna alla posta in arrivo
       body: Corpo
       limit_exceeded: Recentemente hai inviato molti messaggi. Si prega di attendere un momento prima di inviarne altri.
       message_sent: Messaggio inviato
@@ -1134,27 +1104,26 @@ it:
       title: Nessun messaggio del genere
     outbox: 
       date: Data
-      inbox: in arrivo
+      inbox: posta in arrivo
       messages: 
         one: Hai %{count} messaggio inviato
         other: Hai %{count} messaggi inviati
-      my_inbox: Messaggi %{inbox_link}
+      my_inbox: Mia %{inbox_link}
       no_sent_messages: Non ci sono ancora messaggi inviati. Perché non contatti qualcuno di questi %{people_mapping_nearby_link}?
-      outbox: in uscita
+      outbox: posta in uscita
       people_mapping_nearby: persone che mappano nelle vicinanze
       subject: Oggetto
-      title: In uscita
+      title: Posta in uscita
       to: A
     read: 
-      back_to_inbox: Ritorna ai messaggi in arrivo
-      back_to_outbox: Ritorna ai messaggi in uscita
+      back: Indietro
       date: Data
       from: Da
       reply_button: Rispondi
       subject: Oggetto
       title: Leggi messaggio
       to: A
-      unread_button: Marca come non letto
+      unread_button: Segna come non letto
       wrong_user: Sei loggato come `%{user}', ma il messaggio che hai chiesto di leggere non era diretto a quell'utente. Se vuoi leggerlo, per favore loggati con l'utenza interessata.
     reply: 
       wrong_user: Sei loggato come `%{user}', ma il messaggio al quale hai chiesto di rispondere non era diretto a quell'utente. Se vuoi rispondere, per favore loggati con l'utenza interessata.
@@ -1237,8 +1206,7 @@ it:
       greeting: Ciao,
       hopefully_you: Qualcuno (probabilmente tu stesso) ha chiesto di resettare la password del profilo utente di openstreetmap.org associato a questo indirizzo di posta elettronica.
     message_notification: 
-      footer1: Puoi leggere il messaggio anche su %{readurl}
-      footer2: e puoi rispondere a  %{replyurl}
+      footer_html: Puoi anche leggere il messaggio al %{readurl} e puoi rispondere al %{replyurl}
       header: "%{from_user} ti ha inviato un messaggio tramite OpenStreetMap con l'oggetto %{subject}:"
       hi: Ciao %{to_user},
     note_comment_notification: 
@@ -1265,26 +1233,7 @@ it:
       created: Qualcuno (si spera che sia tu) ha appena creato un account in %{site_url}.
       greeting: Ehilà!
       subject: "[OpenStreetMap] Benvenuti su OpenStreetMap"
-      welcome: Siamo lieti di accoglierti e fornirti alcune informazioni aggiuntive per iniziare.
-    signup_confirm_html: 
-      ask_questions: È possibile fare qualsiasi domanda relativa ad OpenStreetMap sul nostro <a href="http://help.openstreetmap.org/">sito di domande e risposte</a>.
-      current_user: Una lista degli utenti attuali nelle categorie, basate sul luogo in cui essi operano, è disponibile su <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
-      get_reading: Leggi di OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">sul wiki</a>, non perdere le ultime notizie sul <a href="http://blog.openstreetmap.org/">blog di OpenStreetMap</a> o su <a href="http://twitter.com/openstreetmap">Twitter</a>, oppure sfoglia il blog <a href="http://www.opengeodata.org/">OpenGeoData</a> di Steve Coast, fondatore di OpenStreetMap, per una storia completa del progetto; ci sono anche dei <a href="http://www.opengeodata.org/?cat=13">podcast da ascoltare</a>!
-      introductory_video: Puoi guardare un %{introductory_video_link}.
-      more_videos: Ci sono %{more_videos_link}.
-      more_videos_here: ulteriori video qui
-      user_wiki_page: È consigliato creare una pagina utente sul wiki includendo delle categorie per il proprio luogo di residenza, come ad esempio <a href="http://wiki.openstreetmap.org/wiki/Category:Users_in_London">[[Category:Users_in_London]]</a>.
-      video_to_openstreetmap: video introduttivo su OpenStreetMap
-      wiki_signup: Ci si può anche <a href="http://wiki.openstreetmap.org/index.php?title=Special:Userlogin&type=signup&returnto=Main_Page">iscrivere al wiki di OpenStreetMap</a>.
-    signup_confirm_plain: 
-      ask_questions: "È possibile fare qualsiasi domanda relativa ad OpenStreetMap sul nostro sito di domande e risposte:"
-      blog_and_twitter: "Ottieni le ultime notizie tramite il blog di OpenStreetMap oppure Twitter:"
-      current_user: "Un elenco degli utenti attualmente categorizzati in base al luogo in cui si trovano, è disponibile da:"
-      introductory_video: "Puoi guardare un video introduttivo su OpenStreetMap qui:"
-      more_videos: "Ci sono ulteriori video qui:"
-      the_wiki: "Puoi avere altre informazioni su OpenStreetMap sul wiki:"
-      user_wiki_page: Si suggerisce di creare una pagina utente wiki, che includa i tag delle categorie che indicano dove ti trovi, ad esempio [[Categoria:Users_in_London]].
-      wiki_signup: "Ci si può anche iscrivere al wiki di OpenStreetMap a:"
+      welcome: Dopo che avrai confermato il tuo account, ti forniremo alcune informazioni aggiuntive per consentirti di iniziare.
   oauth: 
     oauthorize: 
       allow_read_gpx: Visualizza i tuoi tracciati GPS
@@ -1296,6 +1245,15 @@ it:
       allow_write_notes: modificare le note.
       allow_write_prefs: modificare le tue preferenze utente.
       request_access: L'applicazione %{app_name} sta richiedendo l'accesso al tuo profilo, %{user}. Si prega di verificare se si desidera che l'applicazione abbia le seguenti capacità. È possibile scegliere a piacere.
+      title: Autorizzare l'accesso al tuo account
+    oauthorize_failure: 
+      denied: Hai negato l'accesso all'applicazione %{app_name} al tuo account.
+      invalid: Il token di autorizzazione non è valido.
+      title: Richiesta di autorizzazione non riuscita
+    oauthorize_success: 
+      allowed: Hai consentito l'accesso all'applicazione %{app_name} al tuo account.
+      title: Richiesta di autorizzazione consentita
+      verification: Il codice di verifica è %{code}.
     revoke: 
       flash: Hai revocato il token per %{application}
   oauth_clients: 
@@ -1408,7 +1366,7 @@ it:
         copyright: Copyright OpenStreetMap e collaboratori, sotto una licenza aperta
       permalink: Link permanente
       remote_failed: Modifica non riuscita - assicurarsi che JOSM o Merkaartor sia avviato e che l'opzione di controllo remoto sia abilitata
-      shortlink: Collegamento breve
+      shortlink: Link breve
     key: 
       table: 
         entry: 
@@ -1448,7 +1406,7 @@ it:
           park: Parco
           permissive: Accesso permissivo
           pitch: Campo sportivo
-          primary: Strada di importanza nazionale
+          primary: Strada primaria
           private: Accesso privato
           rail: Ferrovia
           reserve: Riserva naturale
@@ -1460,7 +1418,7 @@ it:
           school: 
             - Scuola
             - Università
-          secondary: Strada di importanza regionale
+          secondary: Strada secondaria
           station: Stazione ferroviaria
           subway: Metropolitana
           summit: 
@@ -1470,10 +1428,10 @@ it:
           track: Strada forestale o agricola
           tram: 
             - Metropolitana leggera
-            - Tram
+            - tram
           trunk: Superstrada
           tunnel: Linea tratteggiata = tunnel
-          unclassified: Strada minore
+          unclassified: Strada non classificata
           unsurfaced: Strada non pavimentata
           wood: Bosco
     markdown_help: 
@@ -1495,7 +1453,6 @@ it:
       preview: Anteprima
     search: 
       search: Cerca
-      search_help: "esempi: 'Trieste', 'Via Dante Alighieri, Trieste', 'CB2 5AQ', oppure 'post offices near Trieste' <a href='http://wiki.openstreetmap.org/wiki/Search'>altri esempi...</a>"
       submit_text: Vai
       where_am_i: Dove sono?
       where_am_i_title: Descrivi la posizione attuale usando il motore di ricerca
@@ -1511,6 +1468,11 @@ it:
       upload_trace: Carica tracciato GPS
     delete: 
       scheduled_for_deletion: Tracciato in attesa di essere eliminato
+    description: 
+      description_with_count: 
+        one: File GPX con %{count} punto da %{user}
+        other: File GPX con %{count} punti da %{user}
+      description_without_count: File GPX da %{user}
     edit: 
       description: "Descrizione:"
       download: scaricati
@@ -1528,6 +1490,8 @@ it:
       uploaded_at: "Caricato il:"
       visibility: "Visibilità:"
       visibility_help: che cosa significa questo?
+    georss: 
+      title: Tracce GPS di OpenStreetMap
     list: 
       description: Naviga fra i tracciati GPS caricati recentemente
       empty_html: Ancora niente qui. <a href='%{upload_link}'>Carica una nuova traccia</a> o leggi ulteriori informazioni sul tracciamento GPS nella <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>pagina wiki</a>.
@@ -1600,17 +1564,17 @@ it:
       uploaded: "Caricato il:"
       visibility: "Visibilità:"
     visibility: 
-      identifiable: Identificabile (visualizzato nella lista dei tracciati come identificabile, punti ordinati con marcature temporali)
+      identifiable: Identificabile (visualizzato nella lista dei tracciati come identificabile, punti ordinati con marche temporali)
       private: Privato (condiviso solamente come anonimo, punti non ordinati)
       public: Pubblico (visualizzato nella lista dei tracciati come anonimo, punti non ordinati)
-      trackable: Tracciabile (soltanto condiviso come anonimo, punti ordinati con marcature temporali)
+      trackable: Tracciabile (soltanto condiviso come anonimo, punti ordinati con marche temporali)
   user: 
     account: 
       contributor terms: 
         agreed: Hai accettato le nuove regole per contribuire.
         agreed_with_pd: Hai anche dichiarato di considerare le tue modifiche di Pubblico Dominio.
         heading: "Regole per contribuire:"
-        link text: cos'è questo?
+        link text: che cos'è questo?
         not yet agreed: Non hai ancora accettato le nuove regole per contribuire.
         review link text: Quando puoi segui per favore questo link per leggere ed accettare le nuove regole per contribuire.
       current email address: "Indirizzo e-mail attuale:"
@@ -1620,7 +1584,7 @@ it:
       flash update success confirm needed: Informazioni sull'utente aggiornate con successo. Controllare la propria email per la conferma del nuovo indirizzo di posta elettronica.
       gravatar: 
         gravatar: Usa Gravatar
-        link text: cos'è questo?
+        link text: che cos'è questo?
       home location: "Posizione:"
       image: "Immagine:"
       image size hint: (immagini quadrate di almeno 100x100 funzionano meglio)
@@ -1628,13 +1592,13 @@ it:
       latitude: "Latitudine:"
       longitude: "Longitudine:"
       make edits public button: Rendi pubbliche tutte le mie modifiche
-      my settings: Impostazioni personali
+      my settings: Impostazioni
       new email address: "Nuovo indirizzo e-mail:"
       new image: Aggiungi un'immagine
       no home location: Non si è inserita la propria posizione.
       openid: 
         link: http://wiki.openstreetmap.org/wiki/IT:OpenID
-        link text: Che cos'è questo?
+        link text: che cos'è questo?
         openid: "OpenID:"
       preferred editor: "Editor preferito:"
       preferred languages: "Lingua preferita:"
@@ -1644,7 +1608,7 @@ it:
         disabled link text: perché non posso modificare?
         enabled: Abilitate. Non anonimo con il permesso di modificare i dati.
         enabled link: http://wiki.openstreetmap.org/wiki/Disabling_anonymous_edits
-        enabled link text: cos'è questo?
+        enabled link text: che cos'è questo?
         heading: "Modifiche pubbliche:"
       public editing note: 
         heading: Modifica pubblica
@@ -1656,13 +1620,13 @@ it:
       update home location on click: Aggiorna la posizione quando clicco sulla mappa?
     confirm: 
       already active: Questo profilo è stato già confermato.
-      before you start: Sappiamo che probabilmente hai fretta di iniziare a mappare, ma prima dovresti inserire alcune informazioni su di te nel modulo sottostante.
       button: Conferma
-      heading: Conferma un profilo utente
+      heading: Controlla la tua e-mail!
+      introduction_1: Ti abbiamo inviato una email di conferma.
+      introduction_2: Conferma il tuo account cliccando sul link presente nella mail e sarai in grado di avviare la mappatura.
       press confirm button: Premere sul pulsante di conferma sottostante per attivare il proprio profilo utente.
-      reconfirm: Se è passato un po' di tempo dall'ultimo accesso potrebbe essere necessario <a href="%{reconfirm}">inviare una nuova email di conferma</a>.
-      success: Il profilo utente è stato confermato, grazie per l'iscrizione!
-      unknown token: Questo token non sembra esistere.
+      reconfirm_html: Per richiedere nuovamente una email di conferma, <a href="%{reconfirm}">Clicca qui</a>.
+      unknown token: Questo codice di conferma è scaduto oppure non esiste.
     confirm_email: 
       button: Conferma
       failure: Un indirizzo email con questo codice è già stato confermato.
@@ -1747,17 +1711,16 @@ it:
       heading: Aggiungere %{user} agli amici?
       success: "%{name} è ora tuo amico!"
     new: 
+      about: 
+        header: Libero ed editabile
+        html: "<p>A differenza di altre mappe, OpenStreetMap è completamente creato da persone come te\n ed è libero per chiunque per correggerlo, aggiornarlo, scaricarlo ed usarlo.</p>\n<p>Registrati per iniziare a contribuire. Ti invieremo un'email per confermare il tuo account.</p>"
       confirm email address: "Conferma indirizzo email:"
       confirm password: "Conferma password:"
       contact_webmaster: Si prega di contattare il <a href="mailto:webmaster@openstreetmap.org">webmaster</a> affinchè faccia in modo di creare un profilo. Tenteremo di soddisfare la richiesta il più rapidamente possibile.
-      continue: Continua
+      continue: Registrati
       display name: "Nome visualizzato:"
       display name description: Il proprio nome utente visualizzato pubblicamente. Può essere modificato più tardi nelle preferenze.
       email address: "Indirizzo email:"
-      fill_form: Riempi il modulo e noi ti invieremo velocemente una email per attivare il tuo profilo.
-      flash create success message: Grazie per l'iscrizione. Abbiamo spedito un messaggio di conferma all'indirizzo %{email} e non appena sarà confermato il proprio profilo sarà possibile mappare.<br /><br />Se si utilizzano dei filtri antispam che inviano delle richieste di conferma assicurarsi che l'indirizzo webmaster@openstreetmap.org sia nella whitelist, altrimenti non saremo in grado di rispondere ad alcuna richiesta di conferma.
-      flash welcome: Grazie per esserti registrato. Ti abbiamo inviato un messaggio a %{email} con alcuni suggerimenti per come iniziare.
-      heading: Crea un profilo utente
       license_agreement: Quando confermi il tuo profilo devi accettare le <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">regole per contribuire</a>.
       no_auto_account_create: Sfortunatamente in questo momento non è possibile creare automaticamente per te un profilo.
       not displayed publicly: Non visualizzato pubblicamente (vedi le <a href="http://wiki.openstreetmap.org/wiki/Privacy_Policy" title="wiki privacy policy including section on email addresses">norme sulla privacy</a>)
@@ -1767,7 +1730,7 @@ it:
       password: "Password:"
       terms accepted: Grazie di aver accettato le nuove regole per contribuire!
       terms declined: Siamo spiacenti che tu abbia deciso di non accettare i nuovi termini di contribuzione. Per ulteriori informazioni consultare <a href="%{url}">questa pagina del wiki</a>.
-      title: Crea profilo
+      title: Registrati
       use openid: In alternativa utilizza %{logo} OpenID per accedere
     no_such_user: 
       body: Spiacenti, non c'è alcun utente con il nome %{user}. Controllare la digitazione, o che il collegamento sul quale hai cliccato non sia errato.
@@ -1789,7 +1752,7 @@ it:
       heading: Reimposta password per %{user}
       password: "Password:"
       reset: Reimposta password
-      title: reimposta la password
+      title: Reimposta password
     set_home: 
       flash success: Posizione personale salvata con successo
     suspended: 
@@ -1800,7 +1763,7 @@ it:
     terms: 
       agree: Accetto
       consider_pd: In aggiunta al contratto di cui sopra, considero che i miei contributi sono in Pubblico Dominio
-      consider_pd_why: cos'è questo?
+      consider_pd_why: che cos'è questo?
       decline: Non accetto
       guidance: "Informazioni utili a capire questi termini: un <a href=\"%{summary}\">riassunto leggibile</a> ed alcune <a href=\"%{translations}\">traduzioni informali</a>"
       heading: Regole per contribuire
@@ -1814,12 +1777,12 @@ it:
       you need to accept or decline: Si prega di leggere e poi accettare o rifiutare i nuovi termini di contribuzione per continuare.
     view: 
       activate_user: attiva questo utente
-      add as friend: aggiungi amico
+      add as friend: Aggiungi amico
       ago: (%{time_in_words_ago} fa)
       block_history: blocchi ricevuti
-      blocks by me: blocchi applicati da me
-      blocks on me: blocchi su di me
-      comments: commenti
+      blocks by me: Blocchi applicati da me
+      blocks on me: Blocchi su di me
+      comments: Commenti
       confirm: Conferma
       confirm_user: conferma questo utente
       create_block: blocca questo utente
@@ -1831,10 +1794,10 @@ it:
       deactivate_user: disattiva questo utente
       delete_user: elimina questo utente
       description: Descrizione
-      diary: diario
-      edits: modifiche
+      diary: Diario
+      edits: Modifiche
       email address: "Indirizzo email:"
-      friends_changesets: gruppi di modifica degli amici
+      friends_changesets: gruppi di modifiche degli amici
       friends_diaries: note dei diari degli amici
       hide_user: nascondi questo utente
       if set location: Puoi impostare la tua posizione sulla pagina delle %{settings_link} per vedere gli utenti nelle vicinanze.
@@ -1843,21 +1806,22 @@ it:
       m away: "%{count}m di distanza"
       mapper since: "Mappatore dal:"
       moderator_history: blocchi applicati
-      my comments: miei commenti
-      my diary: diario personale
-      my edits: modifiche personali
-      my notes: mie note sulla mappa
-      my settings: impostazioni personali
-      my traces: tracciati personali
+      my comments: Miei commenti
+      my diary: Il mio diario
+      my edits: Mie modifiche
+      my notes: Mie note
+      my profile: Il mio profilo
+      my settings: Impostazioni
+      my traces: Miei tracciati
       nearby users: Altri utenti nelle vicinanze
       nearby_changesets: gruppi di modifiche da parte degli utenti nelle vicinanze
       nearby_diaries: note dei diari degli utenti nelle vicinanze
       new diary entry: nuova voce del diario
       no friends: Non ci sono ancora amici.
       no nearby users: Non ci sono ancora altri utenti che ammettono di mappare nelle vicinanze.
-      notes: note sulla mappa
+      notes: Note sulla mappa
       oauth settings: impostazioni oauth
-      remove as friend: rimuovi amico
+      remove as friend: Rimuovi amico
       role: 
         administrator: Questo utente è un amministratore
         grant: 
@@ -1867,11 +1831,11 @@ it:
         revoke: 
           administrator: Revoca l'accesso come amministratore
           moderator: Revoca l'accesso come moderatore
-      send message: spedisci messaggio
+      send message: Spedisci messaggio
       settings_link_text: impostazioni
       spam score: "Punteggio Spam:"
       status: "Stato:"
-      traces: tracciati
+      traces: Tracciati
       unhide_user: mostra questo utente
       user location: Luogo dell'utente
       your friends: Amici personali
@@ -1984,3 +1948,25 @@ it:
       fail: Impossibile revocare il ruolo `%{role}' dall'utente `%{name}'. Si prega di controllare che utente e ruolo siano entrambi validi.
       heading: Conferma la revoca del ruolo
       title: Conferma la revoca del ruolo
+  welcome_page: 
+    add_a_note: 
+      paragraph_1_html: Se pensi che ci debba essere una piccola correzione, ma non hai abbastanza tempo da registrarti e imparare a modificare, puoi aggiungere semplicemente una nota.
+      paragraph_2_html: "Vai alla <a href='%{map_url}'>mappa</a> e clicca sull'icona della nota:\n<span class='icon note'></span>. Questo aggiungerà un marker alla mappa, che potrai muovere trascinandolo. Aggiungi il tuo messaggio, quindi fare clic su Salva e altri Mappers daranno un'occhiata."
+      title: Non hai tempo per editare? Aggiungi una nota!
+    basic_terms: 
+      editor_html: Un <strong>editor</strong> è un programma o un sito internet che puoi utilizzare per modificare la mappa.
+      node_html: Un <strong>nodo</strong> è un punto sulla mappa, come un singolo ristorante o un albero.
+      paragraph_1_html: OpenStreetMap ha un proprio "gergo". Eccoti qualche parola che potrebbe tornarti utile.
+      tag_html: Un <strong>tag</strong> include alcuni dati su un punto o una strada, come il nome di un ristorante o i limiti di velocità di una strada.
+      title: Condizioni basilari per il Mapping
+      way_html: Una <strong>via</strong> è una linea o una zona, come una strada, un fiume, lago o edificio.
+    introduction_html: Benvenuti in OpenStreetMap, la mappa del mondo libera e modificabile. Ora che ti sei registrato, sei pronto a iniziare ad editare la mappa. Ecco una guida rapida con le cose più importanti che dovresti sapere.
+    questions: 
+      paragraph_1_html: "OpenStreetMap ha diverse risorse per imparare a conoscere il progetto, chiedendo e rispondendo alle domande, discutendo collaborativamente e documentando gli argomenti di mappatura.\n<a href='%{help_url}'>Ottieni aiuto</a>."
+      title: Domande?
+    start_mapping: Inizia a mappare
+    title: Benvenuto!
+    whats_on_the_map: 
+      off_html: Ciò che <em>non</em> comprende dati opinabili come valutazioni, caratteristiche storiche o ipotetiche e dati da fonti coperte da copyright. A meno che non si abbiano particolari permessi, non bisogna copiare dalle mappe online o da quelle cartacee.
+      on_html: "OpenStreetMap è un luogo per la mappatura delle cose che sono sia <em>vere che attuali</em> - comprende milioni di edifici, strade e altri dettagli sui luoghi. Puoi mappare\nqualsiasi cosa che nel mondo reale ti interessa."
+      title: Cosa c'è sulla mappa
